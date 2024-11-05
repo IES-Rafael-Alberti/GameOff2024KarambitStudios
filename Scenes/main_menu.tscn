@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://t5arfevgsv5o"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_o4771"]
+[ext_resource type="Texture2D" uid="uid://d3ebmvs74ddue" path="res://Assets/Sprites/OIG1.GiYph8JR.jpg" id="1_xtq10"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qprv"]
+bg_color = Color(0, 0, 0, 0)
+border_width_right = 800
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o4771")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Oig1_giYph8jr" type="Sprite2D" parent="Panel"]
+position = Vector2(966, 525)
+scale = Vector2(1.9, 1.2)
+texture = ExtResource("1_xtq10")
+
+[node name="ButtonBackground" type="Panel" parent="Panel"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 1080.0
+offset_top = -1.0
+offset_right = 1920.0
+offset_bottom = 1079.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1qprv")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 138.0
+offset_top = 107.0
+offset_right = 905.0
+offset_bottom = 239.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "Midnight Gallery
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 401.0
+offset_top = -653.0
+offset_right = 670.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Play" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.252028, 0.252028, 0.252028, 1)
+theme_override_font_sizes/font_size = 42
+text = "Play"
+
+[node name="Options" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.252028, 0.252028, 0.252028, 1)
+theme_override_font_sizes/font_size = 42
+text = "Options"
+
+[node name="Quit" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.252028, 0.252028, 0.252028, 1)
+theme_override_font_sizes/font_size = 42
+text = "Quit"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

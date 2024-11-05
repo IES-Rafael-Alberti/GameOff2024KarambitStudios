@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://7hrsvi4tc71y"]
+
+[ext_resource type="PackedScene" uid="uid://btq53x2vyried" path="res://Scenes/player.tscn" id="1_1w8jx"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s27vp"]
+distance = -4.0
+
+[node name="Scene1" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(57, 20)
+collision_mask = 2
+
+[node name="FloorCollision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_s27vp")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -25)
+
+[node name="Player" parent="." instance=ExtResource("1_1w8jx")]
+position = Vector2(61, -51)
+collision_layer = 3
