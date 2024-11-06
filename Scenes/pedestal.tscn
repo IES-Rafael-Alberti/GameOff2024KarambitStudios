@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://8yt2lybiulu3"]
+
+[ext_resource type="Texture2D" uid="uid://drficibauqcer" path="res://Assets/Sprites/Pedestal.png" id="1_w75yd"]
+[ext_resource type="Script" path="res://Scripts/pedestal.gd" id="2_285jl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5bof"]
+size = Vector2(10.9268, 15.6098)
+
+[node name="Pedestal" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(170, -43)
+scale = Vector2(3.84375, 3.84375)
+texture = ExtResource("1_w75yd")
+script = ExtResource("2_285jl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.520336, 8.06504)
+shape = SubResource("RectangleShape2D_m5bof")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=6 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0fb6m"]
 [ext_resource type="Texture2D" uid="uid://djj06k658oy6g" path="res://Assets/Sprites/Character-base-front.png" id="2_p0p3h"]
 [ext_resource type="Script" path="res://Scripts/canvas_layer.gd" id="3_mi5vh"]
+[ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/pause_menu.tscn" id="4_umq10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxk7"]
 size = Vector2(30, 48)
@@ -22,5 +23,8 @@ shape = SubResource("RectangleShape2D_8oxk7")
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("3_mi5vh")
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("4_umq10")]
+visible = false
