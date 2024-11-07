@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://7hrsvi4tc71y"]
+[gd_scene load_steps=8 format=3 uid="uid://7hrsvi4tc71y"]
 
+[ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_tks1q"]
 [ext_resource type="Script" path="res://Scripts/floor.gd" id="1_yfy1r"]
-[ext_resource type="PackedScene" uid="uid://btq53x2vyried" path="res://Scenes/player.tscn" id="2_aykql"]
-[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_gtpmm"]
+[ext_resource type="Texture2D" uid="uid://dxgvtejld4wcj" path="res://Assets/Sprites/arrow_v1.png" id="4_jfl0l"]
 [ext_resource type="PackedScene" uid="uid://8yt2lybiulu3" path="res://Scenes/pedestal.tscn" id="4_tfgfc"]
+[ext_resource type="Texture2D" uid="uid://bqlsma5ykovyw" path="res://Assets/Sprites/arrow_v2.png" id="5_fdnot"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s27vp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_cmug7"]
 
 [node name="MuseumScene" type="Node2D"]
+script = ExtResource("1_tks1q")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -25)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(57, 20)
@@ -19,17 +24,32 @@ script = ExtResource("1_yfy1r")
 shape = SubResource("WorldBoundaryShape2D_s27vp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
-position = Vector2(-122, 0)
 scale = Vector2(1e+06, 1)
 texture = SubResource("CanvasTexture_cmug7")
 
-[node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(0, -25)
+[node name="Pedestals" type="Node" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("2_aykql")]
-position = Vector2(61, -51)
+[node name="PedestalElDorado" parent="Pedestals" groups=["Portal1"] instance=ExtResource("4_tfgfc")]
+position = Vector2(170, -41)
+region_rect = Rect2(0, 0, 32, 32)
+scene_name = "dorado_scene"
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("3_gtpmm")
+[node name="PedestalAtlantis" parent="Pedestals" instance=ExtResource("4_tfgfc")]
+position = Vector2(287, -41)
+scene_name = "atlantis_scene"
 
-[node name="Pedestal" parent="." instance=ExtResource("4_tfgfc")]
+[node name="PedestalDuat" parent="Pedestals" instance=ExtResource("4_tfgfc")]
+position = Vector2(409, -41)
+scene_name = "duat_scene"
+
+[node name="ArrowV1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(36, -27)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_jfl0l")
+
+[node name="ArrowV2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(34, -40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_fdnot")
