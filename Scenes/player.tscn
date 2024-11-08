@@ -160,6 +160,21 @@ animations = [{
 "name": &"new_animation",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_3",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nquvo")
@@ -206,7 +221,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxk7"]
-size = Vector2(27, 34)
+size = Vector2(20.5, 32.5)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_06sfh"]
 animation = &"idle"
@@ -223,13 +238,14 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1mjks"]
+states/End/position = Vector2(902, 100)
 states/Start/position = Vector2(596, 199)
 states/idle/node = SubResource("AnimationNodeAnimation_06sfh")
 states/idle/position = Vector2(596, 113)
 states/walk/node = SubResource("AnimationNodeAnimation_hei0b")
 states/walk/position = Vector2(596, -17)
 transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_34rkk"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ytbi3"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_utfji")]
-graph_offset = Vector2(0, -15.0328)
+graph_offset = Vector2(73, -20.0328)
 
 [sub_resource type="Animation" id="Animation_suxom"]
 length = 0.001
@@ -325,26 +341,27 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_0fb6m")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.33333, -2)
 sprite_frames = SubResource("SpriteFrames_ek8rt")
 animation = &"idle"
 autoplay = "idle"
 frame = 1
 
 [node name="ColisionPlayer" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_8oxk7")
 
 [node name="CamaraPlayer" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="Tecla" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -45)
+position = Vector2(0, -25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_xfjvf")
 region_enabled = true
 region_rect = Rect2(112.648, 35.8103, 24.3235, 28.6477)
