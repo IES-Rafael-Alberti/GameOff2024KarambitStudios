@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxgvtejld4wcj"
-path="res://.godot/imported/arrow_v1.png-71b0d69cbccb60d89a88f60bdd34540c.ctex"
+uid="uid://c0j2m6i44c16y"
+path="res://.godot/imported/sprite_corriendo_SIN_BORDES_v2.png-cb95f0fb692d9d8830e669ebcac8dcbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/arrow_v1.png"
-dest_files=["res://.godot/imported/arrow_v1.png-71b0d69cbccb60d89a88f60bdd34540c.ctex"]
+source_file="res://Assets/Sprites/sprite_corriendo_SIN_BORDES_v2.png"
+dest_files=["res://.godot/imported/sprite_corriendo_SIN_BORDES_v2.png-cb95f0fb692d9d8830e669ebcac8dcbf.ctex"]
 
 [params]
 

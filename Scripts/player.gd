@@ -24,7 +24,6 @@ var can_attack = true
 #------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
 @onready var state_machine = $State_Machine["parameters/playback"]
-
 @onready var cooldown_attack = $CooldownAttack
 @onready var timer = $AttackTime
 
@@ -72,7 +71,7 @@ func _physics_process(delta: float) -> void:
 			jumps_left -= 1
 
 	# Dash
-	if Input.is_action_just_pressed("Dash") and can_dash and direction != 0:
+	if Input.is_action_just_pressed('Dash') and can_dash and direction != 0:
 		is_dashing = true
 		dash_timer = DASH_DURATION
 		dash_direction = direction
@@ -85,7 +84,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 
 	# Reiniciar saltos y dash si está en el suelo
-	if is_on_floor() and velocity.y == 0:  # Solo reinicia si realmente está en el suelo y no se está moviendo verticalmente
+	if is_on_floor() and velocity.y == 0:
 		jumps_left = MAX_JUMPS
 		can_dash = true
 
@@ -95,21 +94,30 @@ func _physics_process(delta: float) -> void:
 	# Actualizar animaciones
 	if is_on_floor():
 		if direction == 0:
+			velocity.x = 0 
 			#animated_sprite.play("idle")
 			state_machine.travel("idle")
 		else:
 			#animated_sprite.play("walk")
 			state_machine.travel("walk")
 	else:
-		#animated_sprite.play("jump")
-		print("salto")
+		if velocity.y < 0:
+			print('Aumentando velocidad')
+			print(velocity.y)
+			state_machine.travel("jump_up") #TODO: Hacer una animacion que se llame jump_down con el frame subiendo
+			#animated_sprite.play("jump_down")
+		if velocity.y > 0:
+			print('Bajando velocidad')
+			#print(velocity.y)
+			state_machine.travel("jump_down") #TODO: Hacer una animacion que se llame jump_up con el frame bajando
+			#animated_sprite.play("jump_up")
 
 	# Si está realizando un dash, temporizador
 	if is_dashing:
 		dash_timer -= delta
 		if dash_timer <= 0:
 			is_dashing = false
-
+# ----------------- Funciones de ataque -------------------
 	# Manejo de ataque
 	if Input.is_action_just_pressed("flashAttack") and can_attack:
 		timer.start()
@@ -117,7 +125,11 @@ func _physics_process(delta: float) -> void:
 		cooldown_attack.start()
 		print(timer.time_left)
 		print(cooldown_attack.time_left)
-
+		
+# Funciones de tiempo de ataque
+func _on_cooldown_attack_timeout():
+	can_attack = true
+# --------------------- Funciones menu ---------------------
 # Función para pausar/reanudar el juego
 func toggle_pause():
 	if pause_menu.visible:
@@ -126,13 +138,9 @@ func toggle_pause():
 	else:
 		pause_menu.visible = true
 		Engine.time_scale = 0.0
-
+#------------------------- Funcion teletransprotarse ----------------------
 # Función para teletransportar al jugador
 func teleport_to_scene(scene: String):
 	if GameManager.teleport_activate:
 		get_node("/root/Player").queue_free()
 		get_tree().change_scene_to_file("res://Scenes/" + scene + ".tscn")
-
-# Funciones de tiempo de ataque
-func _on_cooldown_attack_timeout():
-	can_attack = true

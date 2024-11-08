@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doenwclihvhw4"
-path="res://.godot/imported/sprite_corriendo_SIN_BORDES.png-715925048dbee9a08ab88a04df8e40cd.ctex"
+uid="uid://cobkbmude40nc"
+path="res://.godot/imported/sprite_salto.png-44d30feda3b0c2a0555f2cd64a75beea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/sprite_corriendo_SIN_BORDES.png"
-dest_files=["res://.godot/imported/sprite_corriendo_SIN_BORDES.png-715925048dbee9a08ab88a04df8e40cd.ctex"]
+source_file="res://Assets/Sprites/sprite_salto.png"
+dest_files=["res://.godot/imported/sprite_salto.png-44d30feda3b0c2a0555f2cd64a75beea.ctex"]
 
 [params]
 
