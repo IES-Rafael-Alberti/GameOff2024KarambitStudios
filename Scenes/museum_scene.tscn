@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://7hrsvi4tc71y"]
+
+[ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_tks1q"]
+[ext_resource type="Script" path="res://Scripts/floor.gd" id="1_yfy1r"]
+[ext_resource type="Texture2D" uid="uid://4in3tlifis6x" path="res://Assets/Sprites/Concept_art_museum.png" id="2_sw2j1"]
+[ext_resource type="PackedScene" uid="uid://8yt2lybiulu3" path="res://Scenes/pedestal.tscn" id="4_tfgfc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s27vp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cmug7"]
+
+[node name="MuseumScene" type="Node2D"]
+script = ExtResource("1_tks1q")
+
+[node name="ConceptArtMuseum" type="Sprite2D" parent="."]
+position = Vector2(190, -58)
+scale = Vector2(0.269377, 0.244444)
+texture = ExtResource("2_sw2j1")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -25)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(57, 20)
+script = ExtResource("1_yfy1r")
+
+[node name="FloorCollision" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_s27vp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+scale = Vector2(1e+06, 1)
+texture = SubResource("CanvasTexture_cmug7")
+
+[node name="Pedestals" type="Node" parent="."]
+
+[node name="PedestalElDorado" parent="Pedestals" groups=["Portal1"] instance=ExtResource("4_tfgfc")]
+position = Vector2(170, -41)
+region_rect = Rect2(0, 0, 32, 32)
+scene_name = "dorado_scene"
+
+[node name="PedestalAtlantis" parent="Pedestals" instance=ExtResource("4_tfgfc")]
+position = Vector2(287, -41)
+scene_name = "atlantis_scene"
+
+[node name="PedestalDuat" parent="Pedestals" instance=ExtResource("4_tfgfc")]
+position = Vector2(409, -41)
+scene_name = "duat_scene"

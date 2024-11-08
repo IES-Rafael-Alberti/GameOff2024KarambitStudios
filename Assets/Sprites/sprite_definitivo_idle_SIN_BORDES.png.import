@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4in3tlifis6x"
-path="res://.godot/imported/Concept_art_museum.png-b9f3f084d09fdb31fec9407d91a3dc50.ctex"
+uid="uid://hhmsviha7ssk"
+path="res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-c3e28da9f124823b9c0d22925ec85d54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Concept_art_museum.png"
-dest_files=["res://.godot/imported/Concept_art_museum.png-b9f3f084d09fdb31fec9407d91a3dc50.ctex"]
+source_file="res://Assets/Sprites/sprite_definitivo_idle_SIN_BORDES.png"
+dest_files=["res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-c3e28da9f124823b9c0d22925ec85d54.ctex"]
 
 [params]
 

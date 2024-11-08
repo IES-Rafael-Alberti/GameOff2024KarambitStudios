@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4in3tlifis6x"
-path="res://.godot/imported/Concept_art_museum.png-b9f3f084d09fdb31fec9407d91a3dc50.ctex"
+uid="uid://bnmbjys2gw2eg"
+path="res://.godot/imported/TeclasPixel.png-599b123394b856bd676a4057bc419187.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Concept_art_museum.png"
-dest_files=["res://.godot/imported/Concept_art_museum.png-b9f3f084d09fdb31fec9407d91a3dc50.ctex"]
+source_file="res://Assets/Sprites/TeclasPixel.png"
+dest_files=["res://.godot/imported/TeclasPixel.png-599b123394b856bd676a4057bc419187.ctex"]
 
 [params]
 

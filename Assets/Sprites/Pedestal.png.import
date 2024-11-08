@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4in3tlifis6x"
-path="res://.godot/imported/Concept_art_museum.png-b9f3f084d09fdb31fec9407d91a3dc50.ctex"
+uid="uid://drficibauqcer"
+path="res://.godot/imported/Pedestal.png-6d9433af1ba54d5c3bf32ef62e591037.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Concept_art_museum.png"
-dest_files=["res://.godot/imported/Concept_art_museum.png-b9f3f084d09fdb31fec9407d91a3dc50.ctex"]
+source_file="res://Assets/Sprites/Pedestal.png"
+dest_files=["res://.godot/imported/Pedestal.png-6d9433af1ba54d5c3bf32ef62e591037.ctex"]
 
 [params]
 
