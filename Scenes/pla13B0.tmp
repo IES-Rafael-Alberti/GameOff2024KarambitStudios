@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://btq53x2vyried"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_0fb6m"]
+[ext_resource type="Texture2D" uid="uid://okmq84ruu07" path="res://Assets/Sprites/sprite definitivo idle CON BORDES.png" id="2_dciep"]
+[ext_resource type="Script" path="res://Scripts/canvas_layer.gd" id="3_mi5vh"]
+[ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/pause_menu.tscn" id="4_umq10"]
+[ext_resource type="Texture2D" uid="uid://bnmbjys2gw2eg" path="res://Assets/Sprites/TeclasPixel.png" id="5_xfjvf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxk7"]
+size = Vector2(30, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxvrp"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_0fb6m")
+
+[node name="Skin" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_dciep")
+
+[node name="ColisionPlayer" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_8oxk7")
+
+[node name="CamaraPlayer" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Tecla" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -45)
+texture = ExtResource("5_xfjvf")
+region_enabled = true
+region_rect = Rect2(112.648, 35.8103, 24.3235, 28.6477)
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_mi5vh")
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("4_umq10")]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mxvrp")
+
+[node name="CooldownAttack" type="Timer" parent="."]
+
+[node name="AttackTime" type="Timer" parent="."]
