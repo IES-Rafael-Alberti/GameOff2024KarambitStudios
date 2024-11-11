@@ -1,11 +1,17 @@
-[gd_scene load_steps=44 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=47 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0fb6m"]
+[ext_resource type="Shader" path="res://Shaders/DashEffectShader.gdshader" id="2_i6paw"]
 [ext_resource type="Texture2D" uid="uid://doenwclihvhw4" path="res://Assets/Sprites/sprite_corriendo_SIN_BORDES.png" id="3_7llre"]
 [ext_resource type="Script" path="res://Scripts/canvas_layer.gd" id="3_mi5vh"]
 [ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/pause_menu.tscn" id="4_umq10"]
 [ext_resource type="Texture2D" uid="uid://hhmsviha7ssk" path="res://Assets/Sprites/sprite_definitivo_idle_SIN_BORDES.png" id="5_ma1dh"]
 [ext_resource type="Texture2D" uid="uid://bnmbjys2gw2eg" path="res://Assets/Sprites/TeclasPixel.png" id="5_xfjvf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngyc2"]
+shader = ExtResource("2_i6paw")
+shader_parameter/Colors = Color(0.801876, 5.64092e-05, 0.621386, 1)
+shader_parameter/mix_color = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuk43"]
 atlas = ExtResource("5_ma1dh")
@@ -146,9 +152,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v504h")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [],
 "loop": true,
@@ -173,6 +179,16 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"new_animation_3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_4",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_5",
 "speed": 5.0
 }, {
 "frames": [{
@@ -223,6 +239,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxk7"]
 size = Vector2(20.5, 32.5)
 
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7kxfi"]
+graph_offset = Vector2(-181, 36)
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_06sfh"]
 animation = &"idle"
 
@@ -238,14 +257,16 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1mjks"]
-states/End/position = Vector2(902, 100)
-states/Start/position = Vector2(596, 199)
+states/End/position = Vector2(902, 99)
+states/JumpState/node = SubResource("AnimationNodeStateMachine_7kxfi")
+states/JumpState/position = Vector2(233, 67.9672)
+states/Start/position = Vector2(596, 200)
 states/idle/node = SubResource("AnimationNodeAnimation_06sfh")
 states/idle/position = Vector2(596, 113)
 states/walk/node = SubResource("AnimationNodeAnimation_hei0b")
 states/walk/position = Vector2(596, -17)
 transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_34rkk"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ytbi3"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_utfji")]
-graph_offset = Vector2(73, -20.0328)
+graph_offset = Vector2(-221, -51.0328)
 
 [sub_resource type="Animation" id="Animation_suxom"]
 length = 0.001
@@ -340,11 +361,13 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 2
 texture_filter = 1
-scale = Vector2(1.5, 1.5)
 script = ExtResource("1_0fb6m")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_ngyc2")
 position = Vector2(-1.33333, -2)
 sprite_frames = SubResource("SpriteFrames_ek8rt")
 animation = &"idle"
@@ -376,6 +399,11 @@ visible = false
 
 [node name="AttackTime" type="Timer" parent="."]
 
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="DashCooldown" type="Timer" parent="."]
+
 [node name="State_Machine" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_1mjks")
 anim_player = NodePath("../AnimationPlayer")
@@ -384,3 +412,6 @@ anim_player = NodePath("../AnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_rf32s")
 }
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

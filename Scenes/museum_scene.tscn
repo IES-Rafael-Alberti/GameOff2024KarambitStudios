@@ -70,14 +70,16 @@ texture = SubResource("CanvasTexture_cmug7")
 [node name="Pedestals" type="Node" parent="."]
 
 [node name="PedestalElDorado" parent="Pedestals" instance=ExtResource("4_tfgfc")]
-position = Vector2(97, -39)
-scale = Vector2(2.5, 2.5)
+z_index = -1
+position = Vector2(97, -31)
+scale = Vector2(2, 2)
 region_rect = Rect2(0, 0, 32, 32)
 scene_name = "dorado_scene"
 
 [node name="PedestalAtlantis" parent="Pedestals" instance=ExtResource("4_tfgfc")]
-position = Vector2(205, -40)
-scale = Vector2(2.5, 2.5)
+z_index = -1
+position = Vector2(205, -32)
+scale = Vector2(2, 2)
 scene_name = "atlantis_scene"
 
 [node name="TridentV1" type="Sprite2D" parent="Pedestals/PedestalAtlantis"]
@@ -86,8 +88,9 @@ position = Vector2(2.8, -18)
 texture = ExtResource("4_pqufj")
 
 [node name="PedestalDuat" parent="Pedestals" instance=ExtResource("4_tfgfc")]
-position = Vector2(334, -39)
-scale = Vector2(2.5, 2.5)
+z_index = -1
+position = Vector2(334, -31)
+scale = Vector2(2, 2)
 scene_name = "duat_scene"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
