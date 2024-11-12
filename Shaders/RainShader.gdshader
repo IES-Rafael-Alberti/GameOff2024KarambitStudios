@@ -1,11 +1,7 @@
-// simple rain/snow shader
-// useful learning resources:
-// https://www.ronja-tutorials.com/post/034-2d-sdf-basics/#circle
-// https://iquilezles.org/articles/distfunctions2d/
 
 shader_type canvas_item;
 
-// can make snow by adjusting values
+
 uniform int count: hint_range(0, 2000) = 150;
 uniform float slant: hint_range(-0.1, 0.1) = -0.01;
 uniform float speed: hint_range(25.0, 100.0) = 50.0;

@@ -3,7 +3,7 @@ extends CharacterBody2D
 # --------------- Constantes ------------------
 const SPEED = 130.0 # Velocidad del personaje
 const JUMP_VELOCITY = -300.0 # Velocidad del salto
-const DASH_SPEED = 300.0 # Velocidad del dash
+const DASH_SPEED = 400.0 # Velocidad del dash
 const DASH_DURATION = 1.5 # Duración del dash (segundos)
 const MAX_JUMPS = 2 # Máximo de saltos
 
@@ -26,10 +26,10 @@ var life_duplicate_time: float = 0.05
 @onready var animated_sprite = $PlayerSprite
 @onready var state_machine = $State_Machine["parameters/playback"]
 
-@onready var cooldown_attack = $CooldownAttack
-@onready var timer = $AttackTime
-@onready var dash_timer: Timer = $DashTimer
-@onready var dash_cooldown: Timer = $DashCooldown
+@onready var cooldown_attack = $Timers/CooldownAttack
+@onready var timer = $Timers/AttackTime
+@onready var dash_timer: Timer = $Timers/DashTimer
+@onready var dash_cooldown: Timer = $Timers/DashCooldown
 
 #------------------ Funciones -----------------
 func _ready() -> void:
