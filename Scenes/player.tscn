@@ -1,12 +1,46 @@
-[gd_scene load_steps=58 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=69 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0fb6m"]
+[ext_resource type="Texture2D" uid="uid://hvi44r63n72o" path="res://Assets/Sprites/sprite_ataque_linterna.png" id="2_ygha8"]
 [ext_resource type="Script" path="res://Scripts/canvas_layer.gd" id="3_mi5vh"]
 [ext_resource type="Texture2D" uid="uid://c0j2m6i44c16y" path="res://Assets/Sprites/sprite_corriendo_SIN_BORDES_v2.png" id="3_mkdfw"]
 [ext_resource type="Texture2D" uid="uid://cobkbmude40nc" path="res://Assets/Sprites/sprite_salto.png" id="3_y6kcu"]
 [ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/pause_menu.tscn" id="4_umq10"]
 [ext_resource type="Texture2D" uid="uid://hhmsviha7ssk" path="res://Assets/Sprites/sprite_definitivo_idle_SIN_BORDES.png" id="5_ma1dh"]
 [ext_resource type="Texture2D" uid="uid://bnmbjys2gw2eg" path="res://Assets/Sprites/TeclasPixel.png" id="5_xfjvf"]
+[ext_resource type="Texture2D" uid="uid://0ushthgwo73n" path="res://Assets/Sprites/haz_de_luz.png" id="8_nsv0k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c78lf"]
+atlas = ExtResource("2_ygha8")
+region = Rect2(0, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lghcb"]
+atlas = ExtResource("2_ygha8")
+region = Rect2(45, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo7ta"]
+atlas = ExtResource("2_ygha8")
+region = Rect2(90, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2hsa"]
+atlas = ExtResource("2_ygha8")
+region = Rect2(135, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqgmw"]
+atlas = ExtResource("2_ygha8")
+region = Rect2(180, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6f22"]
+atlas = ExtResource("2_ygha8")
+region = Rect2(225, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppe6a"]
+atlas = ExtResource("2_ygha8")
+region = Rect2(270, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e13s"]
+atlas = ExtResource("2_ygha8")
+region = Rect2(315, 0, 45, 45)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuk43"]
 atlas = ExtResource("5_ma1dh")
@@ -134,6 +168,35 @@ region = Rect2(385, 0, 35, 35)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ek8rt"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c78lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lghcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo7ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2hsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqgmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6f22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppe6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e13s")
+}],
+"loop": true,
+"name": &"attack_flashlight",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tuk43")
@@ -321,10 +384,9 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
 }
 
-[sub_resource type="Animation" id="Animation_tbllu"]
-resource_name = "walk"
-length = 1.2
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_njnsu"]
+resource_name = "jump_down"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -335,7 +397,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"walk"]
+"values": [&"jump_down"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -344,10 +406,10 @@ tracks/1/path = NodePath("PlayerSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+"values": [0, 1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_m4n51"]
@@ -378,9 +440,10 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_njnsu"]
-resource_name = "jump_down"
-length = 0.5
+[sub_resource type="Animation" id="Animation_tbllu"]
+resource_name = "walk"
+length = 1.2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -391,7 +454,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"jump_down"]
+"values": [&"walk"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -400,10 +463,10 @@ tracks/1/path = NodePath("PlayerSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.366667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rf32s"]
@@ -415,7 +478,9 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f35rx"]
-size = Vector2(65, 20)
+size = Vector2(31.5, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8xa3"]
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
@@ -423,8 +488,8 @@ script = ExtResource("1_0fb6m")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ek8rt")
-animation = &"jump_down"
-frame = 2
+animation = &"attack_flashlight"
+frame_progress = 0.723689
 
 [node name="ColisionPlayer" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8oxk7")
@@ -459,8 +524,20 @@ libraries = {
 "": SubResource("AnimationLibrary_rf32s")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="flashAttack" type="Area2D" parent="."]
+position = Vector2(57, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(58.5, 6)
+[node name="AttackHitbox" type="CollisionShape2D" parent="flashAttack"]
+position = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_f35rx")
+
+[node name="AttackSprite" type="Sprite2D" parent="flashAttack"]
+position = Vector2(20, 0)
+scale = Vector2(0.418952, 0.29272)
+texture = ExtResource("8_nsv0k")
+
+[node name="meleeAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meleeAttack"]
+position = Vector2(21, 12)
+shape = SubResource("RectangleShape2D_a8xa3")

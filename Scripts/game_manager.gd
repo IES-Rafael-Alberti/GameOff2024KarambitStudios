@@ -1,11 +1,24 @@
+# GameManager.gd
 extends Node
 
-const PLAYER = preload("res://Scenes/player.tscn")
-var teleport_activate = false
-var teleport_destination = ""
+# Vida máxima del jugador
+const MAX_HEALTH = 3
+var current_health = MAX_HEALTH
 
+# Estado de teletransportación
+var teleport_activate : bool = false  # Variable para controlar si el teletransporte está activado
+var teleport_destination : String = ""  # Esta es la propiedad que necesitas para almacenar el destino del teletransporte
 
+# Función para reducir vida
+func take_damage(amount: int = 1):
+	current_health = max(current_health - amount, 0)
+	print("Player took damage! Current health: ", current_health)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	# Verificar si la vida llega a 0
+	if current_health <= 0:
+		player_died()
+
+# Función para gestionar la muerte del jugador
+func player_died():
+	print("Player has died!")
+	# Lógica adicional como reiniciar el nivel o manejar el respawn puede añadirse aquí
