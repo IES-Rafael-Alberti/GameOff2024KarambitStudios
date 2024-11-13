@@ -54,7 +54,7 @@ shader_parameter/alphaColor = 1.0
 script = ExtResource("1_tks1q")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(0, -25)
+position = Vector2(0, -175)
 
 [node name="Pedestals" type="Node" parent="."]
 

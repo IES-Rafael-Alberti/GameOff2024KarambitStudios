@@ -86,6 +86,7 @@ func _physics_process(delta: float) -> void:
 		
 	#Dash mejorado
 	if Input.is_action_just_pressed("Dash") and can_dash:
+		state_machine.travel("dash")
 		is_dashing = true
 		can_dash = false
 		dash_timer.start()
@@ -115,6 +116,7 @@ func _physics_process(delta: float) -> void:
 
 	# Realizar el ataque si se presiona el botón derecho del ratón
 	if Input.is_action_just_pressed("flashAttack"):
+		state_machine.travel("attack_flashlight")
 		perform_attack()
 
 	# Actualizar animaciones
@@ -152,9 +154,6 @@ func perform_attack():
 		# Desactiva el ataque después de un breve periodo
 		attack_timer.start()
 		attack_cool_down.start()
-
-
-
 
 # --------------------- Funciones menú ---------------------
 # Función para pausar/reanudar el juego
