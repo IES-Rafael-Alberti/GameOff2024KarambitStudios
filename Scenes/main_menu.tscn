@@ -8,12 +8,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjok8"]
 shader = ExtResource("1_7vnet")
-shader_parameter/count = 100
+shader_parameter/count = 75
 shader_parameter/slant = -0.01
 shader_parameter/speed = 25.0
 shader_parameter/blur = 0.002
 shader_parameter/colour = Color(1, 1, 1, 1)
-shader_parameter/size = Vector2(0.01, 0.2)
+shader_parameter/size = Vector2(0.02, 0.2)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_foquh"]
 texture = ExtResource("1_xtq10")
@@ -93,7 +93,6 @@ text = "Midnight Gallery
 horizontal_alignment = 1
 
 [node name="FirstMenu" type="VBoxContainer" parent="Panel/BackGroundButton"]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 13
@@ -121,6 +120,7 @@ theme_override_font_sizes/font_size = 42
 text = "Options"
 
 [node name="OptionsMenu" type="VBoxContainer" parent="Panel/BackGroundButton"]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 13
