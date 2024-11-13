@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhmsviha7ssk"
-path="res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-c3e28da9f124823b9c0d22925ec85d54.ctex"
+uid="uid://b7u4jcxw063fk"
+path="res://.godot/imported/sprite_dash.png-1ea9ca14aa388f8c79fe0781caad3a4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/sprite_definitivo_idle_SIN_BORDES.png"
-dest_files=["res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-c3e28da9f124823b9c0d22925ec85d54.ctex"]
+source_file="res://Assets/Sprites/sprite_player/sprite_dash.png"
+dest_files=["res://.godot/imported/sprite_dash.png-1ea9ca14aa388f8c79fe0781caad3a4a.ctex"]
 
 [params]
 

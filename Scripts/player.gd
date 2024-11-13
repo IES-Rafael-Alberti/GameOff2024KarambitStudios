@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -300.0 # Velocidad del salto
 const DASH_SPEED = 400.0 # Velocidad del dash
 const DASH_DURATION = 1.5 # Duración del dash (segundos)
 const MAX_JUMPS = 2 # Máximo de saltos
-const ATTACK_DISTANCE = 30.0 # Distancia del área de ataque desde el personaje
+const ATTACK_DISTANCE = 100.0 # Distancia del área de ataque desde el personaje
 const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
 
 #------------------- Variables ----------------
@@ -53,9 +53,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento
 	var direction = Input.get_axis("Move_left", "Move_right")
-
 	actual_duplicate_time += delta
-
 	# Actualizamos el flip del sprite según la dirección
 	
 	if direction > 0:

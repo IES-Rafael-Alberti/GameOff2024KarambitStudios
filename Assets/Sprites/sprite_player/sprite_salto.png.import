@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7u4jcxw063fk"
-path="res://.godot/imported/sprite_dash.png-d0e22eee86a3031dc07db4142fd238ca.ctex"
+uid="uid://cobkbmude40nc"
+path="res://.godot/imported/sprite_salto.png-35cbdc316850cf608e46fe3fed248558.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/sprite_dash.png"
-dest_files=["res://.godot/imported/sprite_dash.png-d0e22eee86a3031dc07db4142fd238ca.ctex"]
+source_file="res://Assets/Sprites/sprite_player/sprite_salto.png"
+dest_files=["res://.godot/imported/sprite_salto.png-35cbdc316850cf608e46fe3fed248558.ctex"]
 
 [params]
 

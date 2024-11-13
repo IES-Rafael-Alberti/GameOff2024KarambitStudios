@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b07nwgayixvcw"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_10oc2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q33h5"]
+
+[node name="Inca" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("ViewportTexture_10oc2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q33h5")

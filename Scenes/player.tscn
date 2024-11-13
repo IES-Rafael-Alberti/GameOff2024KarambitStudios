@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0fb6m"]
 [ext_resource type="Shader" path="res://Shaders/DashEffectShader.gdshader" id="2_i6paw"]
 [ext_resource type="Script" path="res://Scripts/canvas_layer.gd" id="3_mi5vh"]
-[ext_resource type="Texture2D" uid="uid://hvi44r63n72o" path="res://Assets/Sprites/sprite_ataque_linterna.png" id="3_q066o"]
-[ext_resource type="Texture2D" uid="uid://b7u4jcxw063fk" path="res://Assets/Sprites/sprite_dash.png" id="3_t3qr0"]
-[ext_resource type="Texture2D" uid="uid://c0j2m6i44c16y" path="res://Assets/Sprites/sprite_corriendo_SIN_BORDES_v2.png" id="4_0mpvn"]
+[ext_resource type="Texture2D" uid="uid://hvi44r63n72o" path="res://Assets/Sprites/sprite_player/sprite_ataque_linterna.png" id="3_q066o"]
+[ext_resource type="Texture2D" uid="uid://b7u4jcxw063fk" path="res://Assets/Sprites/sprite_player/sprite_dash.png" id="3_t3qr0"]
+[ext_resource type="Texture2D" uid="uid://c0j2m6i44c16y" path="res://Assets/Sprites/sprite_player/sprite_corriendo_SIN_BORDES_v2.png" id="4_0mpvn"]
 [ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/pause_menu.tscn" id="4_umq10"]
-[ext_resource type="Texture2D" uid="uid://hhmsviha7ssk" path="res://Assets/Sprites/sprite_definitivo_idle_SIN_BORDES.png" id="5_ma1dh"]
-[ext_resource type="Texture2D" uid="uid://cobkbmude40nc" path="res://Assets/Sprites/sprite_salto.png" id="5_oos70"]
+[ext_resource type="Texture2D" uid="uid://hhmsviha7ssk" path="res://Assets/Sprites/sprite_player/sprite_definitivo_idle_SIN_BORDES.png" id="5_ma1dh"]
+[ext_resource type="Texture2D" uid="uid://cobkbmude40nc" path="res://Assets/Sprites/sprite_player/sprite_salto.png" id="5_oos70"]
 [ext_resource type="Texture2D" uid="uid://c060xj3h42a75" path="res://Assets/Sprites/Cone.png" id="5_x3p5d"]
 [ext_resource type="Texture2D" uid="uid://bnmbjys2gw2eg" path="res://Assets/Sprites/TeclasPixel.png" id="5_xfjvf"]
 
@@ -644,7 +644,7 @@ z_index = 1
 material = SubResource("ShaderMaterial_ngyc2")
 position = Vector2(0, -2.25)
 sprite_frames = SubResource("SpriteFrames_ek8rt")
-animation = &""
+animation = &"idle"
 autoplay = "idle"
 frame = 1
 

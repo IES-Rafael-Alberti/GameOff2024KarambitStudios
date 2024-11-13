@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cobkbmude40nc"
-path="res://.godot/imported/sprite_salto.png-44d30feda3b0c2a0555f2cd64a75beea.ctex"
+uid="uid://hvi44r63n72o"
+path="res://.godot/imported/sprite_ataque_linterna.png-fbd233dcd9ddcde2632f47602144b3f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/sprite_salto.png"
-dest_files=["res://.godot/imported/sprite_salto.png-44d30feda3b0c2a0555f2cd64a75beea.ctex"]
+source_file="res://Assets/Sprites/sprite_player/sprite_ataque_linterna.png"
+dest_files=["res://.godot/imported/sprite_ataque_linterna.png-fbd233dcd9ddcde2632f47602144b3f4.ctex"]
 
 [params]
 

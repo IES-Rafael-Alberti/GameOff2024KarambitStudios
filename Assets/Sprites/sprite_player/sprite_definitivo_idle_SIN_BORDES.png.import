@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hvi44r63n72o"
-path="res://.godot/imported/sprite_ataque_linterna.png-bae24776128d2e6caad26ea71b9b2c0f.ctex"
+uid="uid://hhmsviha7ssk"
+path="res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-26d14f0a30bd6c33e873768a9d60ec00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/sprite_ataque_linterna.png"
-dest_files=["res://.godot/imported/sprite_ataque_linterna.png-bae24776128d2e6caad26ea71b9b2c0f.ctex"]
+source_file="res://Assets/Sprites/sprite_player/sprite_definitivo_idle_SIN_BORDES.png"
+dest_files=["res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-26d14f0a30bd6c33e873768a9d60ec00.ctex"]
 
 [params]
 
