@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=49 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0fb6m"]
 [ext_resource type="Shader" path="res://Shaders/DashEffectShader.gdshader" id="2_i6paw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://hhmsviha7ssk" path="res://Assets/Sprites/sprite_definitivo_idle_SIN_BORDES.png" id="5_ma1dh"]
 [ext_resource type="Texture2D" uid="uid://c060xj3h42a75" path="res://Assets/Sprites/Cone.png" id="5_x3p5d"]
 [ext_resource type="Texture2D" uid="uid://bnmbjys2gw2eg" path="res://Assets/Sprites/TeclasPixel.png" id="5_xfjvf"]
+[ext_resource type="Texture2D" uid="uid://d3ebmvs74ddue" path="res://Assets/Sprites/Background.jpg" id="9_eqx1b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ngyc2"]
 shader = ExtResource("2_i6paw")
@@ -375,8 +376,8 @@ animation = &"idle"
 autoplay = "idle"
 frame = 1
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(7, 0)
+[node name="PointLight2D" type="PointLight2D" parent="PlayerSprite"]
+position = Vector2(7, 2.25)
 rotation = -1.5708
 scale = Vector2(2, 2)
 shadow_enabled = true
@@ -398,6 +399,7 @@ position = Vector2(-1.115, -1)
 shape = SubResource("RectangleShape2D_8oxk7")
 
 [node name="CamaraPlayer" type="Camera2D" parent="."]
+visible = false
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
@@ -426,6 +428,11 @@ libraries = {
 wait_time = 0.2
 
 [node name="DashCooldown" type="Timer" parent="Timers"]
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(26, 3)
+texture = ExtResource("9_eqx1b")
 
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/DashCooldown" to="." method="_on_dash_cooldown_timeout"]

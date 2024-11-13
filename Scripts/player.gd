@@ -18,6 +18,10 @@ var actual_duplicate_time: float = 0
 var duplicate_time: float = 0.05
 var life_duplicate_time: float = 0.05
 
+#---------------- Ajuste zoom camara ------------------
+@export var camera_zoom = 2.5
+@export var sprite_offset = Vector2(16,16)
+
 # --------------- Nodo UI y Teleport ------------------
 @onready var pause_menu: Control = $UI/PauseMenu
 @onready var e_key: Sprite2D = $Tecla
@@ -101,6 +105,9 @@ func _physics_process(delta: float) -> void:
 
 	# Aplicar el movimiento
 	move_and_slide()
+	#var limits = get_viewport_rect().size * 0.5 / camera_zoom - sprite_offset
+	#position.x = clamp(position.x, -limits.x, limits.x)
+	#position.y = clamp(position.y, -limits.y, limits.y)
 
 	# Actualizar animaciones
 	if is_on_floor():
