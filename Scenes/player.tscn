@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/pause_menu.tscn" id="4_umq10"]
 [ext_resource type="Texture2D" uid="uid://hhmsviha7ssk" path="res://Assets/Sprites/sprite_definitivo_idle_SIN_BORDES.png" id="5_ma1dh"]
 [ext_resource type="Texture2D" uid="uid://bnmbjys2gw2eg" path="res://Assets/Sprites/TeclasPixel.png" id="5_xfjvf"]
-[ext_resource type="Texture2D" uid="uid://0ushthgwo73n" path="res://Assets/Sprites/haz_de_luz.png" id="8_nsv0k"]
+[ext_resource type="Texture2D" uid="uid://b06rl63u1pwmi" path="res://Assets/Sprites/Cone.png" id="9_ronx7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c78lf"]
 atlas = ExtResource("2_ygha8")
@@ -269,6 +269,11 @@ animations = [{
 "name": &"jump_up",
 "speed": 10.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uppb5")
@@ -478,7 +483,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f35rx"]
-size = Vector2(31.5, 26)
+size = Vector2(67, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8xa3"]
 
@@ -488,8 +493,8 @@ script = ExtResource("1_0fb6m")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ek8rt")
-animation = &"attack_flashlight"
-frame_progress = 0.723689
+animation = &"idle"
+frame = 6
 
 [node name="ColisionPlayer" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8oxk7")
@@ -528,13 +533,15 @@ libraries = {
 position = Vector2(57, 2)
 
 [node name="AttackHitbox" type="CollisionShape2D" parent="flashAttack"]
-position = Vector2(10, 1)
+position = Vector2(-2.5, 0)
 shape = SubResource("RectangleShape2D_f35rx")
 
-[node name="AttackSprite" type="Sprite2D" parent="flashAttack"]
-position = Vector2(20, 0)
-scale = Vector2(0.418952, 0.29272)
-texture = ExtResource("8_nsv0k")
+[node name="AttackSprite" type="PointLight2D" parent="flashAttack"]
+position = Vector2(-37, 2)
+rotation = -1.5708
+scale = Vector2(0.284911, 0.18428)
+texture = ExtResource("9_ronx7")
+offset = Vector2(0, 256)
 
 [node name="meleeAttack" type="Area2D" parent="."]
 

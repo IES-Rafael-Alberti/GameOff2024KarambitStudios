@@ -35,7 +35,8 @@ var is_dash_cooldown_active = false # Sirve para controlar el dash
 @onready var timer = $AttackTime
 @onready var flash_attack: Area2D = $flashAttack
 @onready var attack_hitbox: CollisionShape2D = $flashAttack/AttackHitbox
-@onready var attack_sprite: Sprite2D = $flashAttack/AttackSprite
+@onready var attack_sprite = $flashAttack/AttackSprite
+
 
 #------------------ Funciones -----------------
 func _ready() -> void:
@@ -93,6 +94,10 @@ func _physics_process(delta: float) -> void:
 
 		# Iniciar la duración del dash
 		_start_dash_duration()
+		
+		var limits = get_viewport_rect().size * 0.5 - Vector2(128, 128) * 0.5 
+		position.x = clamp(position.x, -limits.x, limits.x)
+		position.y = clamp(position.y, -limits.y, limits.y)
 
 	# Aplicar gravedad si no está en el suelo y no está en dash
 	if not is_on_floor() and not is_dashing:
@@ -109,7 +114,7 @@ func _physics_process(delta: float) -> void:
 	# Actualizar animaciones
 	if is_on_floor():
 		if direction == 0:
-			velocity.x = 0 
+			velocity.x = 0
 			state_machine.travel("idle")
 		else:
 			state_machine.travel("walk")
@@ -138,7 +143,7 @@ func perform_attack():
 		attack_sprite.visible = true
 
 		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
-		var direction_multiplier = 1 if facing_right else -1
+		var direction_multiplier = 0.2 if facing_right else -0.2
 
 		# Posicionamos el ataque en relación con la posición actual del personaje
 		var attack_position = position + Vector2(ATTACK_DISTANCE * direction_multiplier, 0)
