@@ -15,7 +15,7 @@ var jumps_left = MAX_JUMPS
 var can_dash = true
 var is_dashing = false
 var can_attack = true
-
+var direction
 var actual_duplicate_time: float = 0
 var duplicate_time: float = 0.05
 var life_duplicate_time: float = 0.05
@@ -35,10 +35,10 @@ var life_duplicate_time: float = 0.05
 @onready var timer = $AttackTime
 @onready var flash_attack: Area2D = $flashAttack
 @onready var attack_hitbox: CollisionShape2D = $flashAttack/AttackHitbox
-@onready var attack_sprite: Sprite2D = $flashAttack/AttackSprite
+@onready var attack_sprite: PointLight2D = $flashAttack/AttackSprite
 
-@onready var cooldown_attack = $Timers/CooldownAttack
-@onready var timer = $Timers/AttackTime
+
+
 @onready var dash_timer: Timer = $Timers/DashTimer
 @onready var dash_cooldown: Timer = $Timers/DashCooldown
 
@@ -51,7 +51,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento
-	var direction = Input.get_axis("Move_left", "Move_right")
+	direction = Input.get_axis("Move_left", "Move_right")
 
 	actual_duplicate_time += delta
 
@@ -127,13 +127,6 @@ func _physics_process(delta: float) -> void:
 		if velocity.y > 0:
 			state_machine.travel("jump_down")
 
-	# Si está realizando un dash, temporizador
-	if is_dashing:
-		dash_timer -= delta
-		if dash_timer <= 0:
-			is_dashing = false
-			# Iniciar cooldown del dash
-			_start_dash_cooldown()
 
 	# Aplicar el movimiento al final
 	move_and_slide()
@@ -146,7 +139,7 @@ func perform_attack():
 		attack_sprite.visible = true
 
 		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
-		var direction_multiplier = 1 if facing_right else -1
+		var direction_multiplier = 1 if direction else -1
 
 		# Posicionamos el ataque en relación con la posición actual del personaje
 		var attack_position = position + Vector2(ATTACK_DISTANCE * direction_multiplier, 0)
@@ -170,19 +163,7 @@ func _start_attack_cooldown():
 	await get_tree().create_timer(ATTACK_COOLDOWN).timeout
 	can_attack = true
 
-# Función para iniciar la duración del dash
-func _start_dash_duration():
-	# El dash tiene una duración de tiempo antes de iniciar el cooldown
-	await get_tree().create_timer(DASH_DURATION).timeout
-	# Cuando el dash termine, se puede iniciar el cooldown
-	_start_dash_cooldown()
 
-# Función para iniciar el cooldown del dash
-func _start_dash_cooldown():
-	# Espera el tiempo de cooldown antes de permitir otro dash
-	await get_tree().create_timer(DASH_COOLDOWN).timeout
-	can_dash = true
-	is_dash_cooldown_active = false  # Resetea el cooldown del dash, permitiendo el siguiente dash
 
 # --------------------- Funciones menú ---------------------
 # Función para pausar/reanudar el juego
