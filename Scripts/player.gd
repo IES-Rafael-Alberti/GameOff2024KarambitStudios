@@ -3,9 +3,8 @@ extends CharacterBody2D
 # --------------- Constantes ------------------
 const SPEED = 130.0 # Velocidad del personaje
 const JUMP_VELOCITY = -300.0 # Velocidad del salto
-const DASH_SPEED = 300.0 # Velocidad del dash
-const DASH_DURATION = 0.2 # Duración del dash (segundos)
-const DASH_COOLDOWN = 1.0 # Cooldown del dash (segundos)
+const DASH_SPEED = 400.0 # Velocidad del dash
+const DASH_DURATION = 1.5 # Duración del dash (segundos)
 const MAX_JUMPS = 2 # Máximo de saltos
 const ATTACK_DISTANCE = 30.0 # Distancia del área de ataque desde el personaje
 const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
@@ -13,16 +12,17 @@ const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
 #------------------- Variables ----------------
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumps_left = MAX_JUMPS
-var can_dash = true  # Indica si el jugador puede hacer un dash
-var is_dashing = false  # Indica si el jugador está en el dash
-var dash_timer = 0.0  # Temporizador para la duración del dash
-var dash_direction = 0.0  # Dirección del dash (izquierda/derecha)
-var facing_right = true  # Dirección en la que está mirando el personaje
-var can_attack = true  # Indica si el jugador puede atacar
-var is_dash_cooldown_active = false # Sirve para controlar el dash
+var can_dash = true
+var is_dashing = false
+var can_attack = true
 
-# Referencia al GameManager
-@onready var game_manager = GameManager
+var actual_duplicate_time: float = 0
+var duplicate_time: float = 0.05
+var life_duplicate_time: float = 0.05
+
+#---------------- Ajuste zoom camara ------------------
+@export var camera_zoom = 2.5
+@export var sprite_offset = Vector2(16,16)
 
 # --------------- Nodo UI y Teleport ------------------
 @onready var pause_menu: Control = $UI/PauseMenu
@@ -37,6 +37,11 @@ var is_dash_cooldown_active = false # Sirve para controlar el dash
 @onready var attack_hitbox: CollisionShape2D = $flashAttack/AttackHitbox
 @onready var attack_sprite: Sprite2D = $flashAttack/AttackSprite
 
+@onready var cooldown_attack = $Timers/CooldownAttack
+@onready var timer = $Timers/AttackTime
+@onready var dash_timer: Timer = $Timers/DashTimer
+@onready var dash_cooldown: Timer = $Timers/DashCooldown
+
 #------------------ Funciones -----------------
 func _ready() -> void:
 	# Inicializa el ataque en invisible
@@ -48,20 +53,15 @@ func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento
 	var direction = Input.get_axis("Move_left", "Move_right")
 
-	# Verificamos el movimiento a la derecha e izquierda
-	if direction > 0:
-		facing_right = true
-	elif direction < 0:
-		facing_right = false
+	actual_duplicate_time += delta
 
 	# Actualizamos el flip del sprite según la dirección
-	animated_sprite.flip_h = not facing_right
+	
+	if direction > 0:
+		animated_sprite.flip_h = false
+	if direction < 0:
+		animated_sprite.flip_h = true
 
-	# Movimiento del personaje
-	if direction != 0 and not is_dashing:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
 
 	# Manejo de teletransportación
 	e_key.visible = GameManager.teleport_activate
@@ -80,20 +80,28 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			jumps_left -= 1
 
-	# Dash con cooldown
-	if Input.is_action_just_pressed('Dash') and can_dash and direction != 0 and not is_dash_cooldown_active:
-		# Iniciar el dash
+		
+	#Dash mejorado
+	if Input.is_action_just_pressed("Dash") and can_dash:
 		is_dashing = true
-		dash_timer = DASH_DURATION
-		dash_direction = direction
-		can_dash = false  # No puede hacer otro dash hasta que esta variable no se cambie
-		is_dash_cooldown_active = true # Activa el cooldown del dash
-		velocity.y = 0
-		velocity.x = dash_direction * DASH_SPEED
+		can_dash = false
+		dash_timer.start()
+		dash_cooldown.start()
 
-		# Iniciar la duración del dash
-		_start_dash_duration()
+	#Establece el estado de dash
+	if direction:
+		if is_dashing:
+			velocity.y = 0		
+			velocity.x = direction * DASH_SPEED
+			if actual_duplicate_time >= duplicate_time:
+				actual_duplicate_time = 0
+				create_duplicate()
+		else:
+			velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	
 	# Aplicar gravedad si no está en el suelo y no está en dash
 	if not is_on_floor() and not is_dashing:
 		velocity.y += gravity * delta
@@ -192,9 +200,31 @@ func teleport_to_scene(scene: String):
 	if GameManager.teleport_activate:
 		get_node("/root/Player").queue_free()
 		get_tree().change_scene_to_file("res://Scenes/" + scene + ".tscn")
+#Funcion para crear los duplicados en el dash
+func create_duplicate():
+	var duplicated = animated_sprite.duplicate(true)
+	duplicated.material = animated_sprite.material.duplicate(true)
+	duplicated.material.set_shader_parameter("Colors", Vector4(0.0,0.0,0.8,0.3))
+	duplicated.material.set_shader_parameter("mix_color", 0.7)
+	duplicated.position.y += position.y
+	
+	if animated_sprite.scale.x == -1:
+		duplicated.position.x = position.x - duplicated.position.x
+	else:
+		duplicated.position.x += position.x
+	
+	duplicated.z_index -= 1
+	get_parent().add_child(duplicated)
+	await get_tree().create_timer(life_duplicate_time).timeout
+	duplicated.queue_free()
+	
+# Funciones de tiempo de ataque
+func _on_cooldown_attack_timeout():
+	can_attack = true
 
-# ------------------ Función de daño ---------------------
-# Llamamos al método de GameManager para reducir vida
-func take_damage(amount: int = 1):
-	if game_manager:
-		game_manager.take_damage(amount)
+#Timer para declarar cuando esta haciendo un dash
+func _on_dash_timer_timeout() -> void:
+	is_dashing = false
+#Timer para declarar cuando puede volver a hacer un dash
+func _on_dash_cooldown_timeout() -> void:
+	can_dash = true
