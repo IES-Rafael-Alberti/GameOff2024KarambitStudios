@@ -1,13 +1,13 @@
-[gd_scene load_steps=49 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=47 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0fb6m"]
 [ext_resource type="Shader" path="res://Shaders/DashEffectShader.gdshader" id="2_i6paw"]
 [ext_resource type="Script" path="res://Scripts/canvas_layer.gd" id="3_mi5vh"]
+[ext_resource type="Texture2D" uid="uid://c0j2m6i44c16y" path="res://Assets/Sprites/sprite_corriendo_SIN_BORDES_v2.png" id="4_0mpvn"]
 [ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/pause_menu.tscn" id="4_umq10"]
 [ext_resource type="Texture2D" uid="uid://hhmsviha7ssk" path="res://Assets/Sprites/sprite_definitivo_idle_SIN_BORDES.png" id="5_ma1dh"]
 [ext_resource type="Texture2D" uid="uid://c060xj3h42a75" path="res://Assets/Sprites/Cone.png" id="5_x3p5d"]
 [ext_resource type="Texture2D" uid="uid://bnmbjys2gw2eg" path="res://Assets/Sprites/TeclasPixel.png" id="5_xfjvf"]
-[ext_resource type="Texture2D" uid="uid://d3ebmvs74ddue" path="res://Assets/Sprites/Background.jpg" id="9_eqx1b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ngyc2"]
 shader = ExtResource("2_i6paw")
@@ -62,44 +62,53 @@ region = Rect2(350, 0, 35, 35)
 atlas = ExtResource("5_ma1dh")
 region = Rect2(385, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nquvo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewmge"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(0, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_celkn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_peskb"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(35, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_di0by"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ecd2"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(70, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oumm1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kth1o"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(105, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6idul"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f8ss"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(140, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8lo4f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dwvu"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(175, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ydqjx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8ymb"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(210, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jxbk6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0a1o"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(245, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gtn1v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l7c1"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(280, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t4sf8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_grlwd"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(315, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iqddl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk2nd"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(350, 0, 35, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_djqcs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wst2b"]
+atlas = ExtResource("4_0mpvn")
 region = Rect2(385, 0, 35, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bmrmw"]
-region = Rect2(420, 0, 35, 35)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ek8rt"]
 animations = [{
@@ -142,7 +151,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [],
 "loop": true,
@@ -154,70 +163,42 @@ animations = [{
 "name": &"new_animation",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"new_animation_1",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation_2",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation_3",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation_4",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation_5",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nquvo")
+"texture": SubResource("AtlasTexture_ewmge")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_celkn")
+"texture": SubResource("AtlasTexture_peskb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_di0by")
+"texture": SubResource("AtlasTexture_0ecd2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oumm1")
+"texture": SubResource("AtlasTexture_kth1o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6idul")
+"texture": SubResource("AtlasTexture_4f8ss")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8lo4f")
+"texture": SubResource("AtlasTexture_0dwvu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ydqjx")
+"texture": SubResource("AtlasTexture_w8ymb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jxbk6")
+"texture": SubResource("AtlasTexture_r0a1o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gtn1v")
+"texture": SubResource("AtlasTexture_4l7c1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t4sf8")
+"texture": SubResource("AtlasTexture_grlwd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iqddl")
+"texture": SubResource("AtlasTexture_wk2nd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_djqcs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bmrmw")
+"texture": SubResource("AtlasTexture_wst2b")
 }],
 "loop": true,
 "name": &"walk",
@@ -227,34 +208,29 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxk7"]
 size = Vector2(19.25, 32.125)
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7kxfi"]
-graph_offset = Vector2(-181, 36)
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_06sfh"]
 animation = &"idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hei0b"]
 animation = &"walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_34rkk"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ytbi3"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_utfji"]
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ikdna"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2lh1t"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1mjks"]
 states/End/position = Vector2(902, 99)
-states/JumpState/node = SubResource("AnimationNodeStateMachine_7kxfi")
-states/JumpState/position = Vector2(233, 67.9672)
 states/Start/position = Vector2(596, 200)
 states/idle/node = SubResource("AnimationNodeAnimation_06sfh")
 states/idle/position = Vector2(596, 113)
 states/walk/node = SubResource("AnimationNodeAnimation_hei0b")
 states/walk/position = Vector2(596, -17)
-transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_34rkk"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ytbi3"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_utfji")]
-graph_offset = Vector2(-221, -51.0328)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_utfji"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ikdna"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2lh1t")]
+graph_offset = Vector2(36, -30.0328)
 
 [sub_resource type="Animation" id="Animation_suxom"]
 length = 0.001
@@ -314,8 +290,9 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_tbllu"]
 resource_name = "walk"
-length = 1.2
+length = 0.3667
 loop_mode = 1
+step = 1.0003
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -335,10 +312,10 @@ tracks/1/path = NodePath("PlayerSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rf32s"]
@@ -399,23 +376,21 @@ libraries = {
 
 [node name="Timers" type="Node" parent="."]
 
-[node name="CooldownAttack" type="Timer" parent="Timers"]
+[node name="AttackCoolDown" type="Timer" parent="Timers"]
+one_shot = true
 
-[node name="AttackTime" type="Timer" parent="Timers"]
+[node name="AttackTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
 
 [node name="DashTimer" type="Timer" parent="Timers"]
 wait_time = 0.2
 
 [node name="DashCooldown" type="Timer" parent="Timers"]
 
-[node name="Background" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(26, 3)
-texture = ExtResource("9_eqx1b")
-
 [node name="flashAttack" type="Area2D" parent="."]
-position = Vector2(7, 0)
-rotation = -1.5708
+position = Vector2(37, 0)
+rotation = 4.71239
 scale = Vector2(2, 2)
 
 [node name="AttackHitbox" type="CollisionShape2D" parent="flashAttack"]
@@ -429,5 +404,7 @@ texture = ExtResource("5_x3p5d")
 offset = Vector2(0, 25)
 texture_scale = 0.1
 
+[connection signal="timeout" from="Timers/AttackCoolDown" to="." method="_on_attack_cool_down_timeout"]
+[connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/DashCooldown" to="." method="_on_dash_cooldown_timeout"]

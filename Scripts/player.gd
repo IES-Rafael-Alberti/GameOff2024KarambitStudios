@@ -15,7 +15,7 @@ var jumps_left = MAX_JUMPS
 var can_dash = true
 var is_dashing = false
 var can_attack = true
-var direction
+var facing_right = true
 var actual_duplicate_time: float = 0
 var duplicate_time: float = 0.05
 var life_duplicate_time: float = 0.05
@@ -31,11 +31,13 @@ var life_duplicate_time: float = 0.05
 #------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
 @onready var state_machine = $State_Machine["parameters/playback"]
-@onready var cooldown_attack = $CooldownAttack
-@onready var timer = $AttackTime
+
+@onready var attack_timer = $Timers/AttackTimer
+@onready var attack_cool_down = $Timers/AttackCoolDown
+
 @onready var flash_attack: Area2D = $flashAttack
 @onready var attack_hitbox: CollisionShape2D = $flashAttack/AttackHitbox
-@onready var attack_sprite: PointLight2D = $flashAttack/AttackSprite
+@onready var attack_sprite = $flashAttack/AttackSprite
 
 
 
@@ -46,12 +48,11 @@ var life_duplicate_time: float = 0.05
 func _ready() -> void:
 	# Inicializa el ataque en invisible
 	pause_menu.visible = false
-	attack_hitbox.visible = false
-	attack_sprite.visible = false
+	flash_attack.visible = false
 
 func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento
-	direction = Input.get_axis("Move_left", "Move_right")
+	var direction = Input.get_axis("Move_left", "Move_right")
 
 	actual_duplicate_time += delta
 
@@ -59,8 +60,10 @@ func _physics_process(delta: float) -> void:
 	
 	if direction > 0:
 		animated_sprite.flip_h = false
+		facing_right = true
 	if direction < 0:
 		animated_sprite.flip_h = true
+		facing_right = false
 
 
 	# Manejo de teletransportación
@@ -111,7 +114,7 @@ func _physics_process(delta: float) -> void:
 		jumps_left = MAX_JUMPS
 
 	# Realizar el ataque si se presiona el botón derecho del ratón
-	if Input.is_action_just_pressed("flashAttack") and can_attack:
+	if Input.is_action_just_pressed("flashAttack"):
 		perform_attack()
 
 	# Actualizar animaciones
@@ -135,33 +138,21 @@ func _physics_process(delta: float) -> void:
 func perform_attack():
 	if can_attack:
 		can_attack = false
-		attack_hitbox.visible = true
-		attack_sprite.visible = true
+		flash_attack.visible = true
 
 		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
-		var direction_multiplier = 1 if direction else -1
-
+		var direction_multiplier = 1 if facing_right else -1
+		#
 		# Posicionamos el ataque en relación con la posición actual del personaje
 		var attack_position = position + Vector2(ATTACK_DISTANCE * direction_multiplier, 0)
 
-		# Alineamos la posición del ataque respecto al personaje
-		attack_hitbox.global_position = attack_position
-		attack_sprite.global_position = attack_position
-
-		# Ajustamos la escala del sprite para orientar el ataque
-		attack_sprite.scale.x = direction_multiplier
-
+		flash_attack.global_position = attack_position
+		flash_attack.rotation_degrees = 270.0 * direction_multiplier
+	
 		# Desactiva el ataque después de un breve periodo
-		await get_tree().create_timer(0.5).timeout
-		attack_hitbox.visible = false
-		attack_sprite.visible = false
-		_start_attack_cooldown()
+		attack_timer.start()
+		attack_cool_down.start()
 
-
-# Función para iniciar el cooldown del ataque
-func _start_attack_cooldown():
-	await get_tree().create_timer(ATTACK_COOLDOWN).timeout
-	can_attack = true
 
 
 
@@ -199,13 +190,18 @@ func create_duplicate():
 	await get_tree().create_timer(life_duplicate_time).timeout
 	duplicated.queue_free()
 	
-# Funciones de tiempo de ataque
-func _on_cooldown_attack_timeout():
-	can_attack = true
-
 #Timer para declarar cuando esta haciendo un dash
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
-#Timer para declarar cuando puede volver a hacer un dash
-func _on_dash_cooldown_timeout() -> void:
+
+#Tiempo en atacar de nuevo
+func _on_attack_cool_down_timeout():
+	can_attack = true
+
+# Tiempo de ataque
+func _on_attack_timer_timeout():
+	flash_attack.visible = false
+
+#Tiempo para volver a hacer un dash
+func _on_dash_cooldown_timeout():
 	can_dash = true
