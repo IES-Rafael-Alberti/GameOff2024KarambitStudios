@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwu424uv8pn8q"]
+
+[ext_resource type="Script" path="res://Scripts/floor.gd" id="1_droyb"]
+[ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jn1hj"]
+[ext_resource type="Texture2D" uid="uid://k56fxeu6muyw" path="res://Assets/Sprites/Spikes.png" id="3_bw0bx"]
+[ext_resource type="Texture2D" uid="uid://ckmj5dn1nxlu4" path="res://Assets/Sprites/doble_jump.png" id="4_8d8lr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nadjc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wiphk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsgwr"]
+size = Vector2(28, 15)
+
+[sub_resource type="Animation" id="Animation_am5dh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_kg8b8"]
+resource_name = "SpikeAnimation"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1.23333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 18.5), Vector2(0, 6), Vector2(0, 6), Vector2(0, 18.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sly8a"]
+_data = {
+"RESET": SubResource("Animation_am5dh"),
+"SpikeAnimation": SubResource("Animation_kg8b8")
+}
+
+[node name="DoradoScene" type="Node2D"]
+script = ExtResource("1_jn1hj")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(93, -1)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(57, 20)
+script = ExtResource("1_droyb")
+
+[node name="FloorCollision" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_nadjc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+scale = Vector2(1e+06, 1)
+texture = SubResource("CanvasTexture_wiphk")
+
+[node name="LevelName" type="Label" parent="."]
+offset_left = 3.0
+offset_top = -221.0
+offset_right = 243.0
+offset_bottom = -163.0
+theme_override_font_sizes/font_size = 42
+text = "EL DORADO"
+
+[node name="SpikeTrap" type="Area2D" parent="."]
+position = Vector2(0, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpikeTrap"]
+texture_filter = 1
+texture = ExtResource("3_bw0bx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeTrap"]
+position = Vector2(2, 5)
+shape = SubResource("RectangleShape2D_bsgwr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpikeTrap"]
+libraries = {
+"": SubResource("AnimationLibrary_sly8a")
+}
+
+[node name="DobleJump" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-132, -25)
+texture = ExtResource("4_8d8lr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.025, 1.025)
