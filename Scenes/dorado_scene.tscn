@@ -1,7 +1,6 @@
-[gd_scene load_steps=132 format=3 uid="uid://dwu424uv8pn8q"]
+[gd_scene load_steps=127 format=3 uid="uid://dwu424uv8pn8q"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jn1hj"]
-[ext_resource type="Texture2D" uid="uid://k56fxeu6muyw" path="res://Assets/Sprites/Traps/Spikes.png" id="3_bw0bx"]
 [ext_resource type="Texture2D" uid="uid://ds2g00ol2aoyi" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="4_pa6m4"]
 [ext_resource type="Texture2D" uid="uid://rk0dyssih8qp" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_09.png" id="5_oetoe"]
 [ext_resource type="Texture2D" uid="uid://coispjjtriofp" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_10.png" id="6_crdce"]
@@ -64,46 +63,6 @@
 [ext_resource type="Texture2D" uid="uid://bmdrvymkdt7uw" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_06.png" id="62_g5rhb"]
 [ext_resource type="Texture2D" uid="uid://b78mbcqjcaypu" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_07.png" id="63_r2wuk"]
 [ext_resource type="Texture2D" uid="uid://boxhrpky0cu05" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_08.png" id="64_0nafc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsgwr"]
-size = Vector2(28, 15)
-
-[sub_resource type="Animation" id="Animation_am5dh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 6)]
-}
-
-[sub_resource type="Animation" id="Animation_kg8b8"]
-resource_name = "SpikeAnimation"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 1.23333, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 18.5), Vector2(0, 6), Vector2(0, 6), Vector2(0, 18.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sly8a"]
-_data = {
-"RESET": SubResource("Animation_am5dh"),
-"SpikeAnimation": SubResource("Animation_kg8b8")
-}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrf5k"]
 texture = ExtResource("4_pa6m4")
@@ -1025,25 +984,6 @@ offset_right = -268.0
 offset_bottom = -235.0
 theme_override_font_sizes/font_size = 42
 text = "EL DORADO"
-
-[node name="SpikeTrap" type="Area2D" parent="."]
-position = Vector2(0, 6)
-
-[node name="Sprite2D" type="Sprite2D" parent="SpikeTrap"]
-texture_filter = 1
-position = Vector2(-630, -96)
-texture = ExtResource("3_bw0bx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeTrap"]
-position = Vector2(-628, -91)
-shape = SubResource("RectangleShape2D_bsgwr")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SpikeTrap"]
-libraries = {
-"": SubResource("AnimationLibrary_sly8a")
-}
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jip7r")
