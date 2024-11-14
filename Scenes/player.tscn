@@ -637,6 +637,7 @@ size = Vector2(29, 49.5)
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
 texture_filter = 1
+collision_mask = 3
 script = ExtResource("1_0fb6m")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
@@ -714,3 +715,4 @@ texture_scale = 0.1
 [connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/DashCooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="body_entered" from="flashAttack" to="." method="_on_flash_attack_body_entered"]

@@ -26,6 +26,10 @@ window/size/viewport_height=1080
 window/size/initial_position_type=2
 window/stretch/mode="viewport"
 
+[global_group]
+
+enemigos="Este grupo es para añadir todos los enemigos del juego"
+
 [input]
 
 Jump={

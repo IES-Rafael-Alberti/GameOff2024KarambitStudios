@@ -49,6 +49,7 @@ func _ready() -> void:
 	# Inicializa el ataque en invisible
 	pause_menu.visible = false
 	flash_attack.visible = false
+	attack_hitbox.disabled = true
 
 func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento
@@ -139,6 +140,7 @@ func perform_attack():
 	if can_attack:
 		can_attack = false
 		flash_attack.visible = true
+		attack_hitbox.disabled = false
 
 		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
 		var direction_multiplier = 1 if facing_right else -1
@@ -152,6 +154,13 @@ func perform_attack():
 		# Desactiva el ataque después de un breve periodo
 		attack_timer.start()
 		attack_cool_down.start()
+
+func _on_flash_attack_body_entered(body: Node) -> void:
+	print("Colisión detectada con:", body)
+	# Verifica si el objeto que entró en el área es un enemigo
+	if body.is_in_group("enemigos"):
+		print("Enemigo detectado en el área de ataque")
+		body.recibir_dano(1)
 
 # --------------------- Funciones menú ---------------------
 # Función para pausar/reanudar el juego
@@ -198,6 +207,7 @@ func _on_attack_cool_down_timeout():
 # Tiempo de ataque
 func _on_attack_timer_timeout():
 	flash_attack.visible = false
+	attack_hitbox.disabled = true
 
 #Tiempo para volver a hacer un dash
 func _on_dash_cooldown_timeout():
