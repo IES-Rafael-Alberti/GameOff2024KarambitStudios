@@ -13,6 +13,9 @@ var vida: int
 func _ready() -> void:
 	# Inicializamos la vida del enemigo
 	vida = max_vida
+	
+	# Añadimos al enemigo al grupo "enemigos"
+	add_to_group("enemigos")
 
 func _physics_process(delta: float) -> void:
 	# Mover al enemigo

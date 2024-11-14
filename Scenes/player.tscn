@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=90 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0fb6m"]
 [ext_resource type="Shader" path="res://Shaders/DashEffectShader.gdshader" id="2_i6paw"]
@@ -634,6 +634,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_li1j2"]
 size = Vector2(29, 49.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7bck"]
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
 texture_filter = 1
@@ -711,8 +713,14 @@ texture = ExtResource("5_x3p5d")
 offset = Vector2(0, 25)
 texture_scale = 0.1
 
+[node name="PlayerSensor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSensor"]
+shape = SubResource("RectangleShape2D_i7bck")
+
 [connection signal="timeout" from="Timers/AttackCoolDown" to="." method="_on_attack_cool_down_timeout"]
 [connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="body_entered" from="flashAttack" to="." method="_on_flash_attack_body_entered"]
+[connection signal="body_entered" from="PlayerSensor" to="." method="_on_player_sensor_body_entered"]

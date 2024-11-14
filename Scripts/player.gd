@@ -39,10 +39,11 @@ var life_duplicate_time: float = 0.05
 @onready var attack_hitbox: CollisionShape2D = $flashAttack/AttackHitbox
 @onready var attack_sprite = $flashAttack/AttackSprite
 
-
-
 @onready var dash_timer: Timer = $Timers/DashTimer
 @onready var dash_cooldown: Timer = $Timers/DashCooldown
+
+@onready var player_sensor: Area2D = $PlayerSensor
+
 
 #------------------ Funciones -----------------
 func _ready() -> void:
@@ -172,6 +173,16 @@ func toggle_pause():
 		pause_menu.visible = true
 		Engine.time_scale = 0.0
 
+#------------------ Funcion morir personaje -------------------
+func muerte():
+	# Eliminar al jugador de la escena actual antes de recargarla
+	get_node("/root/Player").queue_free()
+	# Opcional: Si necesitas reiniciar alguna otra variable o estado del jugador, lo haces aquí.
+	# Aquí restablecemos la vida del jugador a MAX_HEALTH.
+	GameManager.player_health = GameManager.MAX_HEALTH  # O también puedes hacerlo directamente en el jugador
+	# Recargar la escena
+	get_tree().reload_current_scene()
+	
 # ----------------- Función de teletransporte -------------------
 # Función para teletransportar al jugador
 func teleport_to_scene(scene: String):
@@ -195,7 +206,7 @@ func create_duplicate():
 	get_parent().add_child(duplicated)
 	await get_tree().create_timer(life_duplicate_time).timeout
 	duplicated.queue_free()
-	
+#------------------ Nodos ---------------------------
 #Timer para declarar cuando esta haciendo un dash
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
@@ -212,3 +223,16 @@ func _on_attack_timer_timeout():
 #Tiempo para volver a hacer un dash
 func _on_dash_cooldown_timeout():
 	can_dash = true
+
+
+func _on_player_sensor_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemigos"):
+		print("El jugador toco a un enemigo")
+		print(GameManager.player_health)
+		GameManager.player_health -= 1
+		print(GameManager.player_health)
+		if GameManager.player_health <= 0:
+			print("¡El jugador ha muerto!")
+			muerte()
+	else:
+		print("Vida restante: ", GameManager.player_health)
