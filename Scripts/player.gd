@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 # --------------- Constantes ------------------
-const SPEED = 130.0 # Velocidad del personaje
-const JUMP_VELOCITY = -300.0 # Velocidad del salto
-const DASH_SPEED = 400.0 # Velocidad del dash
-const DASH_DURATION = 1.5 # Duración del dash (segundos)
-const MAX_JUMPS = 2 # Máximo de saltos
-const ATTACK_DISTANCE = 30.0 # Distancia del área de ataque desde el personaje
-const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
+@export var SPEED = 130.0 # Velocidad del personaje
+@export var JUMP_VELOCITY = -300.0 # Velocidad del salto
+@export var DASH_SPEED = 400.0 # Velocidad del dash
+@export var DASH_DURATION = 1.5 # Duración del dash (segundos)
+@export var MAX_JUMPS = 2 # Máximo de saltos
+@export var ATTACK_DISTANCE = 100.0 # Distancia del área de ataque desde el personaje
+@export var ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
 
 #------------------- Variables ----------------
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -86,6 +86,7 @@ func _physics_process(delta: float) -> void:
 		
 	#Dash mejorado
 	if Input.is_action_just_pressed("Dash") and can_dash:
+		state_machine.travel("dash")
 		is_dashing = true
 		can_dash = false
 		dash_timer.start()
@@ -115,6 +116,7 @@ func _physics_process(delta: float) -> void:
 
 	# Realizar el ataque si se presiona el botón derecho del ratón
 	if Input.is_action_just_pressed("flashAttack"):
+		state_machine.travel("attack_flashlight")
 		perform_attack()
 
 	# Actualizar animaciones
@@ -152,9 +154,6 @@ func perform_attack():
 		# Desactiva el ataque después de un breve periodo
 		attack_timer.start()
 		attack_cool_down.start()
-
-
-
 
 # --------------------- Funciones menú ---------------------
 # Función para pausar/reanudar el juego

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://7hrsvi4tc71y"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_tks1q"]
-[ext_resource type="Texture2D" uid="uid://cq7s2g08js6k6" path="res://Assets/Sprites/Trident_v2.png" id="4_pqufj"]
+[ext_resource type="Texture2D" uid="uid://cq7s2g08js6k6" path="res://Assets/Sprites/Artifacts/Trident_v2.png" id="4_pqufj"]
 [ext_resource type="Texture2D" uid="uid://ba67dhf401til" path="res://Assets/TileSets/tileset_museum_correcto.png" id="4_sslpi"]
 [ext_resource type="PackedScene" uid="uid://8yt2lybiulu3" path="res://Scenes/pedestal.tscn" id="4_tfgfc"]
 [ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="5_wtlt6"]
@@ -54,7 +54,7 @@ shader_parameter/alphaColor = 1.0
 script = ExtResource("1_tks1q")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(0, -25)
+position = Vector2(0, -175)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(203, -10)
@@ -65,7 +65,7 @@ editor_draw_limits = true
 
 [node name="PedestalElDorado" parent="Pedestals" instance=ExtResource("4_tfgfc")]
 z_index = -1
-position = Vector2(97, -32)
+position = Vector2(171, -32)
 scale = Vector2(2, 2)
 region_rect = Rect2(0, 0, 32, 32)
 scene_name = "dorado_scene"
@@ -77,19 +77,20 @@ occluder = SubResource("OccluderPolygon2D_1rosb")
 
 [node name="PedestalAtlantis" parent="Pedestals" instance=ExtResource("4_tfgfc")]
 z_index = -1
-position = Vector2(205, -32)
+position = Vector2(306, -32)
 scale = Vector2(2, 2)
 scene_name = "atlantis_scene"
 
 [node name="TridentV1" type="Sprite2D" parent="Pedestals/PedestalAtlantis"]
 texture_filter = 1
 position = Vector2(0, -15)
+rotation = -0.71733
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_pqufj")
 
 [node name="PedestalDuat" parent="Pedestals" instance=ExtResource("4_tfgfc")]
 z_index = -1
-position = Vector2(334, -32)
+position = Vector2(448, -32)
 scale = Vector2(2, 2)
 scene_name = "duat_scene"
 
