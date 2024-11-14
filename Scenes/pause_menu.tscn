@@ -52,12 +52,4 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
 text = "Return to menu"
 
-[node name="QuitGame" type="Button" parent="Panel/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 36
-text = "Quit Game
-"
-
 [connection signal="pressed" from="Panel/HBoxContainer/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dexdfrjye1ocu"]
+
+[ext_resource type="Script" path="res://Scripts/monkey_stone.gd" id="1_vvy4f"]
+[ext_resource type="Texture2D" uid="uid://126x1nohvvqk" path="res://Assets/Sprites/Stone.png" id="2_6wu5o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_be3y3"]
+radius = 6.0
+
+[node name="MonkeyStone" type="RigidBody2D"]
+script = ExtResource("1_vvy4f")
+
+[node name="SpriteStone" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_6wu5o")
+region_rect = Rect2(0, -0.951334, 1.9342, 1.95133)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_be3y3")
