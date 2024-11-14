@@ -8,12 +8,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjok8"]
 shader = ExtResource("1_7vnet")
-shader_parameter/count = 100
+shader_parameter/count = 75
 shader_parameter/slant = -0.01
 shader_parameter/speed = 25.0
 shader_parameter/blur = 0.002
 shader_parameter/colour = Color(1, 1, 1, 1)
-shader_parameter/size = Vector2(0.01, 0.2)
+shader_parameter/size = Vector2(0.02, 0.2)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_foquh"]
 texture = ExtResource("1_xtq10")
@@ -154,43 +154,18 @@ popup/item_0/text = "Windowed"
 popup/item_1/text = "FullScreen"
 popup/item_1/id = 1
 
-[node name="Resolution" type="HBoxContainer" parent="Panel/BackGroundButton/OptionsMenu"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Panel/BackGroundButton/OptionsMenu/Resolution"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_smusv")
-text = "Resolution"
-
-[node name="ResolutionOptions" type="OptionButton" parent="Panel/BackGroundButton/OptionsMenu/Resolution"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
-selected = 0
-item_count = 4
-popup/item_0/text = "1440p"
-popup/item_0/id = 3
-popup/item_1/text = "1080p"
-popup/item_1/id = 1
-popup/item_2/text = "720p"
-popup/item_2/id = 1
-popup/item_3/text = "600p"
-popup/item_3/id = 2
-
 [node name="Volume" type="HBoxContainer" parent="Panel/BackGroundButton/OptionsMenu"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/BackGroundButton/OptionsMenu/Volume"]
+[node name="Label" type="TabBar" parent="Panel/BackGroundButton/OptionsMenu/Volume"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_smusv")
-text = "Volume
-"
+current_tab = 0
+tab_alignment = 1
+tab_count = 1
+tab_0/title = "Volume"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/BackGroundButton/OptionsMenu/Volume"]
 layout_mode = 2
@@ -245,7 +220,6 @@ text = "Back"
 [connection signal="pressed" from="Panel/BackGroundButton/FirstMenu/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Panel/BackGroundButton/FirstMenu/Options" to="." method="_on_options_pressed"]
 [connection signal="item_selected" from="Panel/BackGroundButton/OptionsMenu/SreenMode/ScreenOptions" to="." method="_on_screen_options_item_selected"]
-[connection signal="item_selected" from="Panel/BackGroundButton/OptionsMenu/Resolution/ResolutionOptions" to="." method="_on_resolution_options_item_selected"]
 [connection signal="value_changed" from="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum/MasterVolumeBar" to="." method="_on_master_volume_bar_value_changed"]
 [connection signal="value_changed" from="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum2/EffectsVolumeBar" to="." method="_on_effects_volume_bar_value_changed"]
 [connection signal="pressed" from="Panel/BackGroundButton/OptionsMenu/Back" to="." method="_on_back_pressed"]
