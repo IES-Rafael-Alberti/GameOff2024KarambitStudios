@@ -8,7 +8,6 @@ extends Control
 
 # OPCIONES DE VENTANA
 @onready var screen_options: OptionButton = $Panel/BackGroundButton/OptionsMenu/SreenMode/ScreenOptions
-@onready var resolution_options: OptionButton = $Panel/BackGroundButton/OptionsMenu/Resolution/ResolutionOptions
 
 # BARRAS DE VOLUMEN
 @onready var master_volume_bar: HScrollBar = $Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum/MasterVolumeBar
