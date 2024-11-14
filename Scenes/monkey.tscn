@@ -1,19 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://daq4hixxbx71i"]
+[gd_scene load_steps=8 format=3 uid="uid://daq4hixxbx71i"]
 
 [ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_qaunr"]
+[ext_resource type="Texture2D" uid="uid://bqy2m8rx7tssa" path="res://Assets/Sprites/Enemies/sprite_enemigo_mono_idle.png" id="2_uqg1j"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_01ecm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_byl4x"]
+atlas = ExtResource("2_uqg1j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flool"]
+atlas = ExtResource("2_uqg1j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj8xg"]
+atlas = ExtResource("2_uqg1j")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6l43g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byl4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flool")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj8xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flool")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3j8t"]
+size = Vector2(457, 740)
 
 [node name="Monkey" type="CharacterBody2D"]
+texture_filter = 1
 script = ExtResource("1_qaunr")
 
-[node name="SpriteMonkey" type="Sprite2D" parent="."]
+[node name="SpriteMonkey" type="AnimatedSprite2D" parent="."]
 scale = Vector2(32, 32)
-texture = SubResource("CanvasTexture_01ecm")
+sprite_frames = SubResource("SpriteFrames_6l43g")
+frame_progress = 0.97457
 
 [node name="ColliderMonkey" type="CollisionShape2D" parent="."]
+position = Vector2(-9.5, 82)
 shape = SubResource("RectangleShape2D_d3j8t")
 
 [node name="ShootingPoint" type="Node2D" parent="."]

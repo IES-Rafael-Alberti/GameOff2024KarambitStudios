@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://7hrsvi4tc71y"]
+[gd_scene load_steps=11 format=4 uid="uid://7hrsvi4tc71y"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_tks1q"]
 [ext_resource type="Texture2D" uid="uid://cq7s2g08js6k6" path="res://Assets/Sprites/Artifacts/Trident_v2.png" id="4_pqufj"]
@@ -49,6 +49,8 @@ shader = ExtResource("5_wtlt6")
 shader_parameter/Colors = Color(0.125911, 0.125911, 0.125911, 1)
 shader_parameter/mix_color = 0.5
 shader_parameter/alphaColor = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hlojj"]
 
 [node name="MuseumScene" type="Node2D"]
 script = ExtResource("1_tks1q")
@@ -112,3 +114,8 @@ tile_set = SubResource("TileSet_pvd2t")
 [node name="Walls" type="Node" parent="."]
 
 [node name="Area2D" type="Area2D" parent="Walls"]
+position = Vector2(-180, 0)
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls/Area2D"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_hlojj")
