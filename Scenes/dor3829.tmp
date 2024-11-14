@@ -908,8 +908,7 @@ texture = ExtResource("64_0nafc")
 1:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_jip7r"]
-physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 9
+physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_wrf5k")
 sources/2 = SubResource("TileSetAtlasSource_jmanw")
 sources/3 = SubResource("TileSetAtlasSource_jv36m")
@@ -995,5 +994,3 @@ layer_0/tile_data = PackedInt32Array(65524, 327742, 2, 65520, 65598, 2, 65521, 1
 
 [node name="Monkey" parent="." instance=ExtResource("64_ms436")]
 position = Vector2(192, 96)
-collision_mask = 4
-throw_power = 450.0

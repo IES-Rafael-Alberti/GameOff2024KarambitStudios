@@ -10,3 +10,6 @@ func _ready() -> void:
 	var player_node = PLAYER.instantiate()
 	player_node.set_global_position(spawn_point.get_global_position())
 	get_tree().root.add_child(player_node)
+	GameManager.player_node = player_node
+
+	player_node.get_node("CamaraPlayer").visible = true

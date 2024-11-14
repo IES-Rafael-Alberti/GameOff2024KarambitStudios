@@ -68,6 +68,15 @@ Dash={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Tilemap"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Proyectiles"
+2d_physics/layer_5="Pickables"
+2d_physics/layer_6="Killzone"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
