@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://daq4hixxbx71i"]
+
+[ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_qaunr"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_01ecm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3j8t"]
+
+[node name="Monkey" type="CharacterBody2D"]
+script = ExtResource("1_qaunr")
+
+[node name="SpriteMonkey" type="Sprite2D" parent="."]
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_01ecm")
+
+[node name="ColliderMonkey" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_d3j8t")
+
+[node name="ShootingPoint" type="Node2D" parent="."]
