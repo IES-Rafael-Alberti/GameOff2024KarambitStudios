@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7u4jcxw063fk"
-path="res://.godot/imported/sprite_dash.png-1ea9ca14aa388f8c79fe0781caad3a4a.ctex"
+uid="uid://cq7s2g08js6k6"
+path="res://.godot/imported/Trident_v2.png-bfc24505a7efa259714279a88d616405.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/sprite_player/sprite_dash.png"
-dest_files=["res://.godot/imported/sprite_dash.png-1ea9ca14aa388f8c79fe0781caad3a4a.ctex"]
+source_file="res://Assets/Sprites/Trident_v2.png"
+dest_files=["res://.godot/imported/Trident_v2.png-bfc24505a7efa259714279a88d616405.ctex"]
 
 [params]
 
