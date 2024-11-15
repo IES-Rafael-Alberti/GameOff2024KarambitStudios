@@ -1,11 +1,12 @@
 extends Node
 
-const PLAYER = preload("res://Scenes/player.tscn")
-var teleport_activate = false
-var teleport_destination = ""
+# Vida máxima del jugador
+const MAX_HEALTH = 3
 
+# Vida actual del jugador
+var player_health : int = MAX_HEALTH
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+# Estado de teletransportación
+var teleport_activate : bool = false  # Variable para controlar si el teletransporte está activado
+var teleport_destination : String = ""  # Esta es la propiedad que necesitas para almacenar el destino del teletransporte
+var player_node: CharacterBody2D
