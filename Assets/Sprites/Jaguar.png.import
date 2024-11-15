@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crkouo5vdcux2"
-path="res://.godot/imported/Jaguar.png-16941f08cf89a8615f1045707692359c.ctex"
+path="res://.godot/imported/Jaguar.png-c9200147d061f4c6caa63f3a7cc25416.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Jaguar.png"
-dest_files=["res://.godot/imported/Jaguar.png-16941f08cf89a8615f1045707692359c.ctex"]
+source_file="res://Assets/Sprites/Enemies/Jaguar.png"
+dest_files=["res://.godot/imported/Jaguar.png-c9200147d061f4c6caa63f3a7cc25416.ctex"]
 
 [params]
 

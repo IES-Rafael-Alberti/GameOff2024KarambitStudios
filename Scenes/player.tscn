@@ -638,12 +638,11 @@ size = Vector2(29, 49.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7bck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_godh2"]
-size = Vector2(29, 26)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
 texture_filter = 1
-collision_mask = 15
+collision_mask = 11
 script = ExtResource("1_0fb6m")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
@@ -653,7 +652,6 @@ position = Vector2(0, -2.25)
 sprite_frames = SubResource("SpriteFrames_ek8rt")
 animation = &"idle"
 autoplay = "idle"
-frame = 1
 
 [node name="Tecla" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -728,7 +726,6 @@ shape = SubResource("RectangleShape2D_i7bck")
 [node name="meleeAttack" type="Area2D" parent="."]
 
 [node name="AttackHitbox" type="CollisionShape2D" parent="meleeAttack"]
-position = Vector2(24.5, 5)
 shape = SubResource("RectangleShape2D_godh2")
 
 [connection signal="timeout" from="Timers/AttackCoolDown" to="." method="_on_attack_cool_down_timeout"]

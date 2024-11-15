@@ -29,7 +29,6 @@ window/stretch/mode="viewport"
 [global_group]
 
 enemigos="Este grupo es para añadir todos los enemigos del juego"
-proyectile=""
 
 [input]
 
