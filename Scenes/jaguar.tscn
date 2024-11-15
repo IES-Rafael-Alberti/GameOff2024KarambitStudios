@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq1r444gvvl0o"]
+
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Enemies/Jaguar.png" id="1_crxq0"]
+
+[node name="Jaguar" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_crxq0")
+flip_h = true

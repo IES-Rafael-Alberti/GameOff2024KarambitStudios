@@ -10,6 +10,12 @@ var teleport_activate : bool = false  # Variable para controlar si el teletransp
 var teleport_destination : String = ""  # Esta es la propiedad que necesitas para almacenar el destino del teletransporte
 var player_node: CharacterBody2D
 
+
+#---------Variables escena 1---------
+var player_position_puzzle
+var puzzle_1_complete = false
+
+
 # Función para reducir vida
 func take_damage(amount: int = 1):
 	current_health = max(current_health - amount, 0)

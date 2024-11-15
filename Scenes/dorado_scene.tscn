@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://dwu424uv8pn8q"]
+[gd_scene load_steps=129 format=3 uid="uid://dwu424uv8pn8q"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jn1hj"]
 [ext_resource type="Texture2D" uid="uid://ds2g00ol2aoyi" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="4_pa6m4"]
@@ -64,6 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://b78mbcqjcaypu" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_07.png" id="63_r2wuk"]
 [ext_resource type="Texture2D" uid="uid://boxhrpky0cu05" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_08.png" id="64_0nafc"]
 [ext_resource type="PackedScene" uid="uid://daq4hixxbx71i" path="res://Scenes/monkey.tscn" id="64_ms436"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Enemies/Jaguar.png" id="65_0eimo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrf5k"]
 texture = ExtResource("4_pa6m4")
@@ -978,7 +979,7 @@ texture_filter = 1
 script = ExtResource("1_jn1hj")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(260, 152)
+position = Vector2(1511, 982)
 
 [node name="LevelName" type="Label" parent="."]
 offset_left = -508.0
@@ -997,3 +998,8 @@ layer_0/tile_data = PackedInt32Array(65524, 327742, 2, 65520, 65598, 2, 65521, 1
 position = Vector2(192, 96)
 collision_mask = 4
 throw_power = 450.0
+
+[node name="Jaguar" type="Sprite2D" parent="."]
+position = Vector2(1748, 1005)
+texture = ExtResource("65_0eimo")
+flip_h = true
