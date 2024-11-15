@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bnmbjys2gw2eg" path="res://Assets/Sprites/TeclasPixel.png" id="5_xfjvf"]
 [ext_resource type="Texture2D" uid="uid://b3q7s8feeje0e" path="res://Assets/Sprites/Player/sprite_muerte_personaje_principal.png" id="6_6h78r"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m14rt"]
+radius = 7.0
+height = 28.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ngyc2"]
 shader = ExtResource("2_i6paw")
 shader_parameter/Colors = Color(0.801876, 5.64092e-05, 0.621386, 1)
@@ -559,9 +563,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxk7"]
-size = Vector2(19.25, 32.125)
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o3uqj"]
 animation = &"attack_flashlight"
 
@@ -919,6 +920,11 @@ z_index = 2
 texture_filter = 1
 script = ExtResource("1_0fb6m")
 
+[node name="ColisionPlayer" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_m14rt")
+
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 z_index = 1
 material = SubResource("ShaderMaterial_ngyc2")
@@ -934,11 +940,6 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_xfjvf")
 region_enabled = true
 region_rect = Rect2(112.648, 35.8103, 24.3235, 28.6477)
-
-[node name="ColisionPlayer" type="CollisionShape2D" parent="."]
-texture_filter = 1
-position = Vector2(-1.115, -1)
-shape = SubResource("RectangleShape2D_8oxk7")
 
 [node name="CamaraPlayer" type="Camera2D" parent="."]
 visible = false
