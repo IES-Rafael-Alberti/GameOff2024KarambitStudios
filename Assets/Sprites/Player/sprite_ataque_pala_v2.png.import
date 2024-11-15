@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhmsviha7ssk"
-path="res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-26d14f0a30bd6c33e873768a9d60ec00.ctex"
+uid="uid://df6pm2noha123"
+path="res://.godot/imported/sprite_ataque_pala_v2.png-1ef34148300f6425c797839e88412648.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/sprite_player/sprite_definitivo_idle_SIN_BORDES.png"
-dest_files=["res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-26d14f0a30bd6c33e873768a9d60ec00.ctex"]
+source_file="res://Assets/Sprites/Player/sprite_ataque_pala_v2.png"
+dest_files=["res://.godot/imported/sprite_ataque_pala_v2.png-1ef34148300f6425c797839e88412648.ctex"]
 
 [params]
 

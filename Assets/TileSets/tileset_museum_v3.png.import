@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Assets/Sprites/Jaguar.png.import
-uid="uid://crkouo5vdcux2"
-path="res://.godot/imported/Jaguar.png-c9200147d061f4c6caa63f3a7cc25416.ctex"
-========
-uid="uid://dlb7ivv8onq10"
+uid="uid://dasi2iysoyhy"
 path="res://.godot/imported/tileset_museum_v3.png-e5697559786abf5c5767fc15e3009b44.ctex"
->>>>>>>> Diego_1:Assets/TileSets/tileset_museum_v3.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/Sprites/Jaguar.png.import
-source_file="res://Assets/Sprites/Enemies/Jaguar.png"
-dest_files=["res://.godot/imported/Jaguar.png-c9200147d061f4c6caa63f3a7cc25416.ctex"]
-========
 source_file="res://Assets/TileSets/tileset_museum_v3.png"
 dest_files=["res://.godot/imported/tileset_museum_v3.png-e5697559786abf5c5767fc15e3009b44.ctex"]
->>>>>>>> Diego_1:Assets/TileSets/tileset_museum_v3.png.import
 
 [params]
 
