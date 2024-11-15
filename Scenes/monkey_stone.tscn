@@ -7,8 +7,8 @@
 radius = 5.09902
 
 [node name="MonkeyStone" type="RigidBody2D"]
-collision_layer = 8
-collision_mask = 3
+collision_layer = 9
+collision_mask = 11
 gravity_scale = 0.5
 script = ExtResource("1_vvy4f")
 
@@ -23,9 +23,9 @@ one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 3
+collision_mask = 11
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["proyectile"]]
 shape = SubResource("CircleShape2D_be3y3")
 
 [connection signal="timeout" from="StoneLife" to="." method="_on_stone_cooldown_timeout"]

@@ -6,6 +6,9 @@ extends CharacterBody2D
 @export var right_limit: float = 200.0
 @export var max_vida: int = 1  # Vida máxima del enemigo
 
+
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 # Dirección inicial del enemigo (1 para derecha, -1 para izquierda)
 var direction: int = 1
 var vida: int
