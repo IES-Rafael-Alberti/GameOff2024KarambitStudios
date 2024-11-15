@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvmoodwi1hlgy"
-path="res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"
+uid="uid://hhmsviha7ssk"
+path="res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-4fef2b35c52ab12aded85673a505068e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Puzzle/pieza_6_v1.png"
-dest_files=["res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"]
+source_file="res://Assets/Sprites/Player/sprite_definitivo_idle_SIN_BORDES.png"
+dest_files=["res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-4fef2b35c52ab12aded85673a505068e.ctex"]
 
 [params]
 

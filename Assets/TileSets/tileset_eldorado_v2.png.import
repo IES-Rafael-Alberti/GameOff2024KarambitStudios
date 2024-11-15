@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0j2m6i44c16y"
-path="res://.godot/imported/sprite_corriendo_SIN_BORDES_v2.png-a0ce949857b3057a87665d22d31e61e1.ctex"
+uid="uid://bgcnlvpldoj7o"
+path="res://.godot/imported/tileset_eldorado_v2.png-7c5cf9cc2991813662bdad7ddbb4af58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/sprite_player/sprite_corriendo_SIN_BORDES_v2.png"
-dest_files=["res://.godot/imported/sprite_corriendo_SIN_BORDES_v2.png-a0ce949857b3057a87665d22d31e61e1.ctex"]
+source_file="res://Assets/TileSets/tileset_eldorado_v2.png"
+dest_files=["res://.godot/imported/tileset_eldorado_v2.png-7c5cf9cc2991813662bdad7ddbb4af58.ctex"]
 
 [params]
 

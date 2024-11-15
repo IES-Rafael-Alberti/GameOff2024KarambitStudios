@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvmoodwi1hlgy"
-path="res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"
+uid="uid://cxy8aa0cwh57i"
+path="res://.godot/imported/sprite definitivo idle CON BORDES.png-4654173b757f7f7084be9254e6312bb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Puzzle/pieza_6_v1.png"
-dest_files=["res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"]
+source_file="res://Assets/Sprites/Player/sprite definitivo idle CON BORDES.png"
+dest_files=["res://.godot/imported/sprite definitivo idle CON BORDES.png-4654173b757f7f7084be9254e6312bb9.ctex"]
 
 [params]
 
