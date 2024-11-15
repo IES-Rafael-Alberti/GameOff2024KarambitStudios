@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=125 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0fb6m"]
 [ext_resource type="Shader" path="res://Shaders/DashEffectShader.gdshader" id="2_i6paw"]
@@ -83,10 +83,6 @@ region = Rect2(270, 0, 45, 45)
 atlas = ExtResource("4_wnnhp")
 region = Rect2(315, 0, 45, 45)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2t173"]
-atlas = ExtResource("4_wnnhp")
-region = Rect2(360, 0, 45, 45)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghc1e"]
 atlas = ExtResource("4_wnnhp")
 region = Rect2(405, 0, 45, 45)
@@ -98,6 +94,10 @@ region = Rect2(450, 0, 45, 45)
 [sub_resource type="AtlasTexture" id="AtlasTexture_115tu"]
 atlas = ExtResource("4_wnnhp")
 region = Rect2(495, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t173"]
+atlas = ExtResource("4_wnnhp")
+region = Rect2(360, 0, 45, 45)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u283o"]
 atlas = ExtResource("4_wnnhp")
@@ -360,9 +360,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_gq4l6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2t173")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ghc1e")
 }, {
 "duration": 1.0,
@@ -370,6 +367,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_115tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t173")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u283o")
@@ -565,8 +565,14 @@ size = Vector2(19.25, 32.125)
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o3uqj"]
 animation = &"attack_flashlight"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gucfs"]
+animation = &"attack_melee"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fwt4c"]
 animation = &"dash"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tjj28"]
+animation = &"death"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_06sfh"]
 animation = &"idle"
@@ -611,23 +617,35 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k0h4h"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4n6fk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kxqfo"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hjnc2"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1mjks"]
-states/End/position = Vector2(1153, 64)
+states/End/position = Vector2(1267, 31)
 states/Start/position = Vector2(602, 199)
 states/attack_flashlight/node = SubResource("AnimationNodeAnimation_o3uqj")
-states/attack_flashlight/position = Vector2(894, 113)
+states/attack_flashlight/position = Vector2(928, 232.967)
+states/attack_melee/node = SubResource("AnimationNodeAnimation_gucfs")
+states/attack_melee/position = Vector2(928, 31)
 states/dash/node = SubResource("AnimationNodeAnimation_fwt4c")
 states/dash/position = Vector2(314, -92.0328)
+states/death/node = SubResource("AnimationNodeAnimation_tjj28")
+states/death/position = Vector2(350, 232.967)
 states/idle/node = SubResource("AnimationNodeAnimation_06sfh")
 states/idle/position = Vector2(600, 113)
 states/jump_down/node = SubResource("AnimationNodeAnimation_4qk8f")
 states/jump_down/position = Vector2(184, 111.967)
 states/jump_up/node = SubResource("AnimationNodeAnimation_1rgp8")
-states/jump_up/position = Vector2(406, 31)
+states/jump_up/position = Vector2(448, 31)
 states/walk/node = SubResource("AnimationNodeAnimation_hei0b")
-states/walk/position = Vector2(596, -17)
-transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_ikdna"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2lh1t"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_2n8si"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_477qk"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_66d5b"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_wthr2"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_uvtgx"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_4b1yd"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_c7a5s"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_esss5"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_5ur05"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_ttw63"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_8b8um"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_k0h4h")]
-graph_offset = Vector2(99, -10.033)
+states/walk/position = Vector2(600, -92.0328)
+transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_ikdna"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2lh1t"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_2n8si"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_477qk"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_66d5b"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_wthr2"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_uvtgx"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_4b1yd"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_c7a5s"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_esss5"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_5ur05"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_ttw63"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_8b8um"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_k0h4h"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_4n6fk"), "attack_melee", "idle", SubResource("AnimationNodeStateMachineTransition_kxqfo"), "idle", "attack_melee", SubResource("AnimationNodeStateMachineTransition_hjnc2")]
+graph_offset = Vector2(-5, -75.033)
 
 [sub_resource type="Animation" id="Animation_suxom"]
 length = 0.3667
@@ -910,6 +928,7 @@ position = Vector2(0, -2.25)
 sprite_frames = SubResource("SpriteFrames_ek8rt")
 animation = &"walk"
 autoplay = "idle"
+frame = 1
 
 [node name="Tecla" type="Sprite2D" parent="."]
 texture_filter = 1
