@@ -49,6 +49,7 @@ throw_power = 300000.0
 sprite_frames = SubResource("SpriteFrames_6l43g")
 animation = &"Idle"
 autoplay = "Idle"
+flip_h = true
 
 [node name="ColliderMonkey" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)

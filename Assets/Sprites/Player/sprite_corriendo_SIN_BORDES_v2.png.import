@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvmoodwi1hlgy"
-path="res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"
+uid="uid://c0j2m6i44c16y"
+path="res://.godot/imported/sprite_corriendo_SIN_BORDES_v2.png-cca3e361831764b7731f40109f414625.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Puzzle/pieza_6_v1.png"
-dest_files=["res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"]
+source_file="res://Assets/Sprites/Player/sprite_corriendo_SIN_BORDES_v2.png"
+dest_files=["res://.godot/imported/sprite_corriendo_SIN_BORDES_v2.png-cca3e361831764b7731f40109f414625.ctex"]
 
 [params]
 
