@@ -646,7 +646,7 @@ states/jump_up/position = Vector2(448, 31)
 states/walk/node = SubResource("AnimationNodeAnimation_hei0b")
 states/walk/position = Vector2(600, -92.0328)
 transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_ikdna"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2lh1t"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_2n8si"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_477qk"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_66d5b"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_wthr2"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_uvtgx"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_4b1yd"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_c7a5s"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_esss5"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_5ur05"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_ttw63"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_8b8um"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_k0h4h"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_4n6fk"), "attack_melee", "idle", SubResource("AnimationNodeStateMachineTransition_kxqfo"), "idle", "attack_melee", SubResource("AnimationNodeStateMachineTransition_hjnc2")]
-graph_offset = Vector2(-5, -75.033)
+graph_offset = Vector2(-15, -221.033)
 
 [sub_resource type="Animation" id="Animation_suxom"]
 length = 0.3667
