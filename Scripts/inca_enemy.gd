@@ -13,7 +13,6 @@ var vida: int
 func _ready() -> void:
 	# Inicializamos la vida del enemigo
 	vida = max_vida
-	
 	# Añadimos al enemigo al grupo "enemigos"
 	add_to_group("enemigos")
 
@@ -32,7 +31,6 @@ func recibir_dano(dano: int) -> void:
 	# Reducir la vida del enemigo
 	vida -= dano
 	print("Enemigo recibió daño, vida restante:", vida)
-
 	# Eliminar al enemigo si la vida llega a cero o menos
 	if vida <= 0:
 		eliminar()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://dwu424uv8pn8q"]
+[gd_scene load_steps=129 format=3 uid="uid://dwu424uv8pn8q"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jn1hj"]
 [ext_resource type="Texture2D" uid="uid://e4kimp6r52ay" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="4_pa6m4"]
@@ -64,6 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://bukvj3vkbqwqq" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_07.png" id="63_r2wuk"]
 [ext_resource type="Texture2D" uid="uid://o45cacus8xs8" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_08.png" id="64_0nafc"]
 [ext_resource type="PackedScene" uid="uid://daq4hixxbx71i" path="res://Scenes/monkey.tscn" id="64_ms436"]
+[ext_resource type="PackedScene" uid="uid://b07nwgayixvcw" path="res://Scenes/inca_enemy.tscn" id="65_lll4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrf5k"]
 texture = ExtResource("4_pa6m4")
@@ -997,3 +998,6 @@ layer_0/tile_data = PackedInt32Array(65524, 327742, 2, 65520, 65598, 2, 65521, 1
 position = Vector2(192, 96)
 collision_mask = 4
 throw_power = 450.0
+
+[node name="Inca" parent="." instance=ExtResource("65_lll4f")]
+position = Vector2(166, 170)

@@ -6,7 +6,8 @@ const JUMP_VELOCITY = -300.0 # Velocidad del salto
 const DASH_SPEED = 400.0 # Velocidad del dash
 const DASH_DURATION = 1.5 # Duración del dash (segundos)
 const MAX_JUMPS = 2 # Máximo de saltos
-const ATTACK_DISTANCE = 100.0 # Distancia del área de ataque desde el personaje
+const ATTACK_DISTANCE = 30.0 # Distancia del área de ataque desde el personaje con la linterna
+const ATTACK_DISTANCE_MELEE = 10.0 # Distancia del área de ataque desde el personaje a melee
 const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
 
 #------------------- Variables ----------------
@@ -34,17 +35,18 @@ var life_duplicate_time: float = 0.05
 
 @onready var attack_timer = $Timers/AttackTimer
 @onready var attack_cool_down = $Timers/AttackCoolDown
-
+#--------------- Variables Ataque linterna ----------------------
 @onready var flash_attack: Area2D = $flashAttack
 @onready var attack_hitbox: CollisionShape2D = $flashAttack/AttackHitbox
 @onready var attack_sprite = $flashAttack/AttackSprite
+#-------------- Variables Ataque melee -------------
+@onready var melee_attack = $meleeAttack
 
+#------------- Variables Timers ---------------
 @onready var dash_timer: Timer = $Timers/DashTimer
 @onready var dash_cooldown: Timer = $Timers/DashCooldown
 
 @onready var player_sensor: Area2D = $PlayerSensor
-
-
 #------------------ Funciones -----------------
 func _ready() -> void:
 	# Inicializa el ataque en invisible
@@ -107,7 +109,7 @@ func _physics_process(delta: float) -> void:
 
 	
 	# Aplicar gravedad si no está en el suelo y no está en dash
-	if not is_on_floor() and not is_dashing:
+	if not is_on_floor() and not is_dashing:	
 		velocity.y += gravity * delta
 
 	# Reiniciar saltos si está en el suelo
@@ -116,8 +118,13 @@ func _physics_process(delta: float) -> void:
 
 	# Realizar el ataque si se presiona el botón derecho del ratón
 	if Input.is_action_just_pressed("flashAttack"):
+		print("Ataque linterna")
 		state_machine.travel("attack_flashlight")
 		perform_attack()
+		
+	elif Input.is_action_just_pressed("meleeAttack"):
+		print("Prueba ataque")
+		state_machine.travel("")
 
 	# Actualizar animaciones
 	if is_on_floor():
@@ -136,7 +143,7 @@ func _physics_process(delta: float) -> void:
 	# Aplicar el movimiento al final
 	move_and_slide()
 
-# ----------------- Función para realizar el ataque -------------------
+# ----------------- Función para realizar el ataque de la literna -------------------
 func perform_attack():
 	if can_attack:
 		can_attack = false

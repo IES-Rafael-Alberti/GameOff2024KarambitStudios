@@ -13,6 +13,15 @@ var can_attack = true
 
 const MONKEY_STONE = preload("res://Scenes/monkey_stone.tscn")
 
+@export var max_vida: int = 1  # Vida máxima del enemigo
+var vida: int
+
+func _ready() -> void:
+	# Inicializamos la vida del enemigo
+	vida = max_vida
+	
+	# Añadimos al enemigo al grupo "enemigos"
+	add_to_group("enemigos")
 
 
 func _process(delta: float) -> void:
@@ -47,11 +56,20 @@ func throw_stone():
 	stone.freeze = false
 	stone.apply_impulse(direction * throw_power, shooting_point.global_position)
 
+func recibir_dano(dano: int) -> void:
+	print("Prueba")
+	# Reducir la vida del enemigo
+	vida -= dano
+	print("Enemigo recibió daño, vida restante:", vida)
+	# Eliminar al enemigo si la vida llega a cero o menos
+	if vida <= 0:
+		eliminar()
+
+func eliminar() -> void:
+	# Función para eliminar el enemigo
+	queue_free()
+	print("Enemigo eliminado")
 
 func _on_attack_cooldown_timeout() -> void:
 	can_attack = true
-
-
-#func _on_stone_spawn_time_timeout() -> void:
-	#stone.freeze = false
 	

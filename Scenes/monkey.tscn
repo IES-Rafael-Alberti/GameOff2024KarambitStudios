@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://daq4hixxbx71i"]
 
 [ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_qaunr"]
-[ext_resource type="Texture2D" uid="uid://bqy2m8rx7tssa" path="res://Assets/Sprites/Enemies/sprite_enemigo_mono_idle.png" id="2_uqg1j"]
+[ext_resource type="Texture2D" uid="uid://dwbbwo5wpkvp2" path="res://Assets/Sprites/Enemies/sprite_enemigo_mono_idle.png" id="2_uqg1j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_byl4x"]
 atlas = ExtResource("2_uqg1j")
@@ -38,10 +38,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3j8t"]
 size = Vector2(8, 15)
 
-[node name="Monkey" type="CharacterBody2D"]
+[node name="Monkey" type="CharacterBody2D" groups=["enemigos"]]
 texture_filter = 1
 collision_layer = 4
-collision_mask = 8
+collision_mask = 5
 script = ExtResource("1_qaunr")
 throw_power = 300000.0
 
