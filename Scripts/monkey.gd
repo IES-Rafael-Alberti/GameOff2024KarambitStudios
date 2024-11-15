@@ -44,6 +44,7 @@ func throw_stone():
 
 	# Aplica una fuerza en la dirección del jugador
 	await  stone_spawn_time.timeout
+	
 	stone.freeze = false
 	stone.apply_impulse(direction * throw_power, shooting_point.global_position)
 
@@ -51,7 +52,4 @@ func throw_stone():
 func _on_attack_cooldown_timeout() -> void:
 	can_attack = true
 
-
-#func _on_stone_spawn_time_timeout() -> void:
-	#stone.freeze = false
 	

@@ -930,6 +930,7 @@ shape = SubResource("CapsuleShape2D_0u7xg")
 visible = false
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("3_mi5vh")

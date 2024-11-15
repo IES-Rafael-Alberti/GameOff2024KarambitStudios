@@ -64,7 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://b78mbcqjcaypu" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_07.png" id="63_r2wuk"]
 [ext_resource type="Texture2D" uid="uid://boxhrpky0cu05" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tile_08.png" id="64_0nafc"]
 [ext_resource type="PackedScene" uid="uid://daq4hixxbx71i" path="res://Scenes/monkey.tscn" id="64_ms436"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Enemies/Jaguar.png" id="65_0eimo"]
+[ext_resource type="Texture2D" uid="uid://ctcb64m10ut6m" path="res://Assets/Sprites/Enemies/Jaguar.png" id="65_0eimo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrf5k"]
 texture = ExtResource("4_pa6m4")
@@ -1003,3 +1003,6 @@ throw_power = 450.0
 position = Vector2(1748, 1005)
 texture = ExtResource("65_0eimo")
 flip_h = true
+
+[node name="Monkey2" parent="." instance=ExtResource("64_ms436")]
+position = Vector2(1471, 919)
