@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df6pm2noha123"
-path="res://.godot/imported/sprite_ataque_pala_v2.png-1ef34148300f6425c797839e88412648.ctex"
+uid="uid://cobkbmude40nc"
+path="res://.godot/imported/sprite_salto.png-35cbdc316850cf608e46fe3fed248558.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/sprite_ataque_pala_v2.png"
-dest_files=["res://.godot/imported/sprite_ataque_pala_v2.png-1ef34148300f6425c797839e88412648.ctex"]
+source_file="res://Assets/Sprites/sprite_player/sprite_salto.png"
+dest_files=["res://.godot/imported/sprite_salto.png-35cbdc316850cf608e46fe3fed248558.ctex"]
 
 [params]
 
