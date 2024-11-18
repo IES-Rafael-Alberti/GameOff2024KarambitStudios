@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwk3o8olaci07"
-path="res://.godot/imported/sprite_enemigo_mono_idle.png-932dacee210c8518957d3b53dd7d2521.ctex"
+uid="uid://d3f58jeb5fvoi"
+path="res://.godot/imported/lightBulb_v2.png-22c1330eb1b4584593725fad352bd99a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Enemies/sprite_enemigo_mono_idle.png"
-dest_files=["res://.godot/imported/sprite_enemigo_mono_idle.png-932dacee210c8518957d3b53dd7d2521.ctex"]
+source_file="res://Assets/Sprites/Power_up/lightBulb_v2.png"
+dest_files=["res://.godot/imported/lightBulb_v2.png-22c1330eb1b4584593725fad352bd99a.ctex"]
 
 [params]
 

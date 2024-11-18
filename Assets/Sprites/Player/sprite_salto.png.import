@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwk3o8olaci07"
-path="res://.godot/imported/sprite_enemigo_mono_idle.png-932dacee210c8518957d3b53dd7d2521.ctex"
+uid="uid://cobkbmude40nc"
+path="res://.godot/imported/sprite_salto.png-64a66252c0a3009a36c1182d2b58676d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Enemies/sprite_enemigo_mono_idle.png"
-dest_files=["res://.godot/imported/sprite_enemigo_mono_idle.png-932dacee210c8518957d3b53dd7d2521.ctex"]
+source_file="res://Assets/Sprites/Player/sprite_salto.png"
+dest_files=["res://.godot/imported/sprite_salto.png-64a66252c0a3009a36c1182d2b58676d.ctex"]
 
 [params]
 

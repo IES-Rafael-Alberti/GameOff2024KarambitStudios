@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwk3o8olaci07"
-path="res://.godot/imported/sprite_enemigo_mono_idle.png-932dacee210c8518957d3b53dd7d2521.ctex"
+uid="uid://cwvxp1ign8jf7"
+path="res://.godot/imported/Dash_icon_v1.png-9110cb044e91c2b746a70a1182fb80a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Enemies/sprite_enemigo_mono_idle.png"
-dest_files=["res://.godot/imported/sprite_enemigo_mono_idle.png-932dacee210c8518957d3b53dd7d2521.ctex"]
+source_file="res://Assets/Sprites/Power_up/Dash_icon_v1.png"
+dest_files=["res://.godot/imported/Dash_icon_v1.png-9110cb044e91c2b746a70a1182fb80a3.ctex"]
 
 [params]
 

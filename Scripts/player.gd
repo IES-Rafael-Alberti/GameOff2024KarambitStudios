@@ -233,7 +233,7 @@ func _on_dash_cooldown_timeout():
 
 
 func _on_player_sensor_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemigos"):
+	if body.is_in_group("enemigos") or body.is_in_group("proyectile"):
 		print("El jugador toco a un enemigo")
 		print(GameManager.player_health)
 		GameManager.player_health -= 1
