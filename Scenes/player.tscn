@@ -638,6 +638,7 @@ size = Vector2(29, 49.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7bck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_godh2"]
+size = Vector2(27, 27)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
@@ -726,6 +727,7 @@ texture_scale = 0.1
 shape = SubResource("RectangleShape2D_i7bck")
 
 [node name="meleeAttack" type="Area2D" parent="."]
+position = Vector2(24, 0)
 
 [node name="AttackHitbox" type="CollisionShape2D" parent="meleeAttack"]
 shape = SubResource("RectangleShape2D_godh2")
@@ -736,3 +738,4 @@ shape = SubResource("RectangleShape2D_godh2")
 [connection signal="timeout" from="Timers/DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="body_entered" from="flashAttack" to="." method="_on_flash_attack_body_entered"]
 [connection signal="body_entered" from="PlayerSensor" to="." method="_on_player_sensor_body_entered"]
+[connection signal="body_entered" from="meleeAttack" to="." method="_on_melee_attack_body_entered"]
