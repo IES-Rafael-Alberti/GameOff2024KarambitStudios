@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm1y5xhyfyhr2"
-valid=false
+uid="uid://bnor6xi5ukr1m"
+path="res://.godot/imported/tileset_eldorado_golden.png-b3aa2d9794ee7abf8eb8a3db16fb827d.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/TileSets/tileset_museum.jpg"
+source_file="res://Assets/TileSets/tileset_eldorado_golden.png"
+dest_files=["res://.godot/imported/tileset_eldorado_golden.png-b3aa2d9794ee7abf8eb8a3db16fb827d.ctex"]
 
 [params]
 
