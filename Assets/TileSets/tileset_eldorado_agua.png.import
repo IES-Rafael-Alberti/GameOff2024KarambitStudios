@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byh0rje8q6bdh"
-path="res://.godot/imported/tileset_museum (1).png-ce2f360ca3e6e56815e69a8281183a81.ctex"
+uid="uid://da3n0d3m4vnep"
+path="res://.godot/imported/tileset_eldorado_agua.png-fca9b02036f6baccf45a7f79e069108d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/tileset_museum (1).png"
-dest_files=["res://.godot/imported/tileset_museum (1).png-ce2f360ca3e6e56815e69a8281183a81.ctex"]
+source_file="res://Assets/TileSets/tileset_eldorado_agua.png"
+dest_files=["res://.godot/imported/tileset_eldorado_agua.png-fca9b02036f6baccf45a7f79e069108d.ctex"]
 
 [params]
 

@@ -2,15 +2,18 @@
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_tks1q"]
 [ext_resource type="Texture2D" uid="uid://cq7s2g08js6k6" path="res://Assets/Sprites/Trident_v2.png" id="4_pqufj"]
-[ext_resource type="Texture2D" uid="uid://ba67dhf401til" path="res://Assets/TileSets/tileset_museum_correcto.png" id="4_sslpi"]
 [ext_resource type="PackedScene" uid="uid://8yt2lybiulu3" path="res://Scenes/pedestal.tscn" id="4_tfgfc"]
+[ext_resource type="Texture2D" uid="uid://dasi2iysoyhy" path="res://Assets/TileSets/tileset_museum_v3.png" id="5_4de8x"]
 [ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="5_wtlt6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1rosb"]
 polygon = PackedVector2Array(107, -30, 107, -26, 105, -26, 105, -8, 107, -8, 107, -4, 109, -4, 109, -2, 111, -2, 111, 0, 81, 0, 81, -2, 83, -2, 83, -4, 85, -4, 85, -8, 87, -8, 87, -26, 85, -26, 85, -30)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6r8u2"]
+load_path = "res://.godot/imported/tileset_museum_correcto.png-dfbe84ba03dfbd7f91e79a241a3a2e10.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qvvfj"]
-texture = ExtResource("4_sslpi")
+texture = SubResource("CompressedTexture2D_6r8u2")
 texture_region_size = Vector2i(32, 32)
 use_texture_padding = false
 0:0/0 = 0
@@ -91,7 +94,7 @@ scene_name = "duat_scene"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(203, -10)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(4, 5)
 editor_draw_limits = true
 
 [node name="Node" type="Node" parent="."]
