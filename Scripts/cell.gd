@@ -1,7 +1,8 @@
 extends Area2D
 
+# Indica si esta celda está ocupada
+var is_occupied: bool = false
 
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Cell":
-		body.global_position = global_position
+# Marca la celda como ocupada o libre
+func set_occupied(state: bool) -> void:
+	is_occupied = state

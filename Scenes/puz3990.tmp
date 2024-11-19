@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4evg073v65bm"]
+[gd_scene load_steps=8 format=3 uid="uid://d4evg073v65bm"]
 
 [ext_resource type="Texture2D" uid="uid://b0wjpq6ks36fw" path="res://Assets/Sprites/Puzzle/tablero_Dorado_v1.png" id="1_5tvrn"]
 [ext_resource type="Script" path="res://Scripts/puzzle_el_dorado.gd" id="1_yricd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/tablero_dorado.gd" id="3_60eyv"]
 [ext_resource type="PackedScene" uid="uid://bsm4j8raa4231" path="res://Scenes/cell.tscn" id="3_v3paw"]
 [ext_resource type="Script" path="res://Scripts/pieza.gd" id="5_8s2r0"]
+[ext_resource type="Texture2D" uid="uid://lonne1ns0kl" path="res://Assets/Sprites/Puzzle/pieza_2_v1.png" id="5_fqx4u"]
 
 [node name="PuzzleElDorado" type="Node2D"]
 script = ExtResource("1_yricd")
@@ -94,10 +95,10 @@ position = Vector2(54, 54)
 
 [node name="Pieza1V1" type="TextureButton" parent="."]
 texture_filter = 1
-offset_left = -45.0
-offset_top = 4.0
-offset_right = -13.0
-offset_bottom = 36.0
+offset_left = 72.0
+offset_top = 13.0
+offset_right = 104.0
+offset_bottom = 45.0
 texture_normal = ExtResource("2_lnkfv")
 script = ExtResource("5_8s2r0")
 
@@ -113,6 +114,10 @@ position = Vector2(-5, 4)
 [node name="Cell3" parent="Pieza1V1/Cells" instance=ExtResource("3_v3paw")]
 position = Vector2(6, 4)
 
+[node name="Pieza2V1" type="Sprite2D" parent="."]
+position = Vector2(-36, 58)
+texture = ExtResource("5_fqx4u")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(32, 32)
-zoom = Vector2(8, 8)
+zoom = Vector2(5, 5)
