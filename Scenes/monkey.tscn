@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://daq4hixxbx71i"]
 
 [ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_qaunr"]
-[ext_resource type="Texture2D" uid="uid://dwbbwo5wpkvp2" path="res://Assets/Sprites/Enemies/sprite_enemigo_mono_idle.png" id="2_uqg1j"]
+[ext_resource type="Texture2D" uid="uid://dwk3o8olaci07" path="res://Assets/Sprites/Enemies/sprite_enemigo_mono_idle.png" id="2_uqg1j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_byl4x"]
 atlas = ExtResource("2_uqg1j")
@@ -48,7 +48,6 @@ script = ExtResource("1_qaunr")
 sprite_frames = SubResource("SpriteFrames_6l43g")
 animation = &"Idle"
 autoplay = "Idle"
-flip_h = true
 
 [node name="ColliderMonkey" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)

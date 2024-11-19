@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxdldl4x0mj6s"
-path="res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"
+uid="uid://cq7s2g08js6k6"
+path="res://.godot/imported/Trident_v2.png-2c7e86dfd665d4af78cb51f679a3d763.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Puzzle/pieza_6_v1.png"
-dest_files=["res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"]
+source_file="res://Assets/Sprites/Artifacts/Trident_v2.png"
+dest_files=["res://.godot/imported/Trident_v2.png-2c7e86dfd665d4af78cb51f679a3d763.ctex"]
 
 [params]
 

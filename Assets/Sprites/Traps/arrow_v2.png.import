@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwto3uboltqkt"
-path="res://.godot/imported/sprite_ataque_pala_v3.png-e0d7a828e4c9bf34cbca015a0c6d1f32.ctex"
+uid="uid://bqlsma5ykovyw"
+path="res://.godot/imported/arrow_v2.png-9705111817a6f9295ff813def2c776ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/sprite_ataque_pala_v3.png"
-dest_files=["res://.godot/imported/sprite_ataque_pala_v3.png-e0d7a828e4c9bf34cbca015a0c6d1f32.ctex"]
+source_file="res://Assets/Sprites/Traps/arrow_v2.png"
+dest_files=["res://.godot/imported/arrow_v2.png-9705111817a6f9295ff813def2c776ed.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxdldl4x0mj6s"
-path="res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"
+uid="uid://d3f58jeb5fvoi"
+path="res://.godot/imported/lightBulb_v2.png-22c1330eb1b4584593725fad352bd99a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Puzzle/pieza_6_v1.png"
-dest_files=["res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"]
+source_file="res://Assets/Sprites/Power_up/lightBulb_v2.png"
+dest_files=["res://.godot/imported/lightBulb_v2.png-22c1330eb1b4584593725fad352bd99a.ctex"]
 
 [params]
 

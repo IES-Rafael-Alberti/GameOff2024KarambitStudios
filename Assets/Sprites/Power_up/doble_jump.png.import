@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxdldl4x0mj6s"
-path="res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"
+uid="uid://ckmj5dn1nxlu4"
+path="res://.godot/imported/doble_jump.png-bedf38b26337d836b62cf8a2fdc2c6d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Puzzle/pieza_6_v1.png"
-dest_files=["res://.godot/imported/pieza_6_v1.png-785379861a04ab710df3c88612254a39.ctex"]
+source_file="res://Assets/Sprites/Power_up/doble_jump.png"
+dest_files=["res://.godot/imported/doble_jump.png-bedf38b26337d836b62cf8a2fdc2c6d2.ctex"]
 
 [params]
 

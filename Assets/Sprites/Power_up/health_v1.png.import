@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dasi2iysoyhy"
-path="res://.godot/imported/tileset_museum_v3.png-e5697559786abf5c5767fc15e3009b44.ctex"
+uid="uid://bdd3biine10ai"
+path="res://.godot/imported/health_v1.png-fa14f50a1029d3d8cb2deabea6c56fe7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/tileset_museum_v3.png"
-dest_files=["res://.godot/imported/tileset_museum_v3.png-e5697559786abf5c5767fc15e3009b44.ctex"]
+source_file="res://Assets/Sprites/Power_up/health_v1.png"
+dest_files=["res://.godot/imported/health_v1.png-fa14f50a1029d3d8cb2deabea6c56fe7.ctex"]
 
 [params]
 

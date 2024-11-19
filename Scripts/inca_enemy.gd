@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var left_limit: float = -200.0
 @export var right_limit: float = 200.0
 @export var max_vida: int = 1  # Vida máxima del enemigo
+@export var gravity: float = 400.0  # Gravedad aplicada al enemigo
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
+
 
 # Dirección inicial del enemigo (1 para derecha, -1 para izquierda)
 var direction: int = 1
@@ -17,8 +20,13 @@ func _ready() -> void:
 	add_to_group("enemigos")
 
 func _physics_process(delta: float) -> void:
-	# Mover al enemigo
+	# Aplicar gravedad al movimiento vertical
+	velocity.y += gravity * delta
+
+	# Mover horizontalmente según la dirección
 	velocity.x = direction * speed
+
+	# Aplicar movimiento y detectar colisiones
 	move_and_slide()
 
 	# Cambiar de dirección si el enemigo llega a los límites
