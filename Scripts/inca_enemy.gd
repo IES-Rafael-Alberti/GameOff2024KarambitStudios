@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var right_limit: float = 200.0
 @export var max_vida: int = 1  # Vida máxima del enemigo
 @export var gravity: float = 400.0  # Gravedad aplicada al enemigo
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
+
 
 # Dirección inicial del enemigo (1 para derecha, -1 para izquierda)
 var direction: int = 1
