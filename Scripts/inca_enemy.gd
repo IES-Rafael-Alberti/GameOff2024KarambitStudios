@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 # Variables de velocidad, vida y límites de movimiento
-@export var speed: float = 100.0
-@export var left_limit: float = -200.0
-@export var right_limit: float = 200.0
+@export var speed: float = 40.0
 @export var max_vida: int = 1  # Vida máxima del enemigo
-@export var gravity: float = 400.0  # Gravedad aplicada al enemigo
+@export var gravity: float = 200.0  # Gravedad aplicada al enemigo
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
-
+@onready var sprite_inca = $AnimatedSprite2D
+@onready var ray_cast_right = $RayCast/RayCastRight
+@onready var ray_cast_left = $RayCast/RayCastLeft
 
 # Dirección inicial del enemigo (1 para derecha, -1 para izquierda)
 var direction: int = 1
@@ -23,17 +23,27 @@ func _physics_process(delta: float) -> void:
 	# Aplicar gravedad al movimiento vertical
 	velocity.y += gravity * delta
 
-	# Mover horizontalmente según la dirección
+	# Detectar colisiones con el TileMap usando los RayCast2D
+	if ray_cast_right.is_colliding() and direction == 1:
+		# Cambia de dirección si el rayo derecho detecta una colisión
+		cambiar_direccion()
+	elif ray_cast_left.is_colliding() and direction == -1:
+		# Cambia de dirección si el rayo izquierdo detecta una colisión
+		cambiar_direccion()
+
+	# Actualizar movimiento horizontal
 	velocity.x = direction * speed
 
-	# Aplicar movimiento y detectar colisiones
+	# Actualizar animación
+	sprite_inca.flip_h = direction == -1
+
+	# Aplicar movimiento
 	move_and_slide()
 
-	# Cambiar de dirección si el enemigo llega a los límites
-	if position.x <= left_limit:
-		direction = 1  # Cambia la dirección hacia la derecha
-	elif position.x >= right_limit:
-		direction = -1  # Cambia la dirección hacia la izquierda
+func cambiar_direccion() -> void:
+	# Cambiar la dirección y mostrar un mensaje
+	direction *= -1
+	print("Cambio de dirección. Nueva dirección:", direction)
 
 func recibir_dano(dano: int) -> void:
 	# Reducir la vida del enemigo

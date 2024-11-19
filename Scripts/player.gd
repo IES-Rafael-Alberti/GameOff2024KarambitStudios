@@ -202,7 +202,7 @@ func _on_melee_attack_body_entered(body: Node2D) -> void:
 		print("Enemigo detectado en el área de ataque")
 		body.recibir_dano(1)
 # --------------------- Funciones menú ---------------------
-# Función para pausar/reanudar el juego
+# Función para pausar/reanudar el juego 
 func toggle_pause():
 	if pause_menu.visible:
 		pause_menu.visible = false

@@ -787,7 +787,7 @@ position = Vector2(2552, 689)
 throw_power = 500.0
 
 [node name="Monkey3" parent="." instance=ExtResource("5_vr3n7")]
-position = Vector2(2153, 797)
+position = Vector2(2158, 755)
 
 [node name="Monkey4" parent="." instance=ExtResource("5_vr3n7")]
 position = Vector2(1986, 754)
@@ -827,5 +827,5 @@ position = Vector2(-736, 63)
 shape = SubResource("WorldBoundaryShape2D_a0rmf")
 
 [node name="Inca" parent="." instance=ExtResource("7_10ucp")]
-position = Vector2(2293, 821)
+position = Vector2(2245, 821)
 scale = Vector2(4, 4)
