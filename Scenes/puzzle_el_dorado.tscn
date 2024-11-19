@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://Scripts/pieza_1v_1.gd" id="5_8s2r0"]
 [ext_resource type="Texture2D" uid="uid://lonne1ns0kl" path="res://Assets/Sprites/Puzzle/pieza_2_v1.png" id="5_fqx4u"]
 
-[node name="PuzzleElDorado" type="Node2D"]
+[node name="PuzzleElDorado" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_yricd")
 
 [node name="TableroDoradoV1" type="Sprite2D" parent="."]
@@ -100,24 +102,16 @@ offset_bottom = 62.0
 texture = ExtResource("2_lnkfv")
 script = ExtResource("5_8s2r0")
 
-[node name="Panel" type="Panel" parent="Pieza1V1"]
-visible = false
-show_behind_parent = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-
-[node name="Cells" type="Node2D" parent="Pieza1V1/Panel"]
+[node name="Cells" type="Node2D" parent="Pieza1V1"]
 position = Vector2(16, 16)
 
-[node name="Cell" parent="Pieza1V1/Panel/Cells" instance=ExtResource("3_v3paw")]
+[node name="Cell" parent="Pieza1V1/Cells" instance=ExtResource("3_v3paw")]
 position = Vector2(-5, -7)
 
-[node name="Cell2" parent="Pieza1V1/Panel/Cells" instance=ExtResource("3_v3paw")]
+[node name="Cell2" parent="Pieza1V1/Cells" instance=ExtResource("3_v3paw")]
 position = Vector2(-5, 4)
 
-[node name="Cell3" parent="Pieza1V1/Panel/Cells" instance=ExtResource("3_v3paw")]
+[node name="Cell3" parent="Pieza1V1/Cells" instance=ExtResource("3_v3paw")]
 position = Vector2(6, 4)
 
 [node name="Pieza2V1" type="Sprite2D" parent="."]
