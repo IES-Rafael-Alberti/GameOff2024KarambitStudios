@@ -47,8 +47,8 @@ script = ExtResource("1_o4771")
 [node name="BackGroundRain" type="Sprite2D" parent="Rain"]
 z_index = -1
 material = SubResource("ShaderMaterial_yjok8")
-position = Vector2(960, 539.597)
-scale = Vector2(15, 8.445)
+position = Vector2(641, 360)
+scale = Vector2(10.0156, 5.6388)
 texture = ExtResource("4_7476a")
 
 [node name="RainSound" type="AudioStreamPlayer2D" parent="Rain"]
