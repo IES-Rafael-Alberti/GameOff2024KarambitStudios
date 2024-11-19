@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://cy7i8nnag70ie"]
+[gd_scene load_steps=3 format=3 uid="uid://cy7i8nnag70ie"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_1rgl7"]
+[ext_resource type="Texture2D" uid="uid://dfmi6krk27gw3" path="res://Assets/Sprites/Heart.png" id="2_yyap7"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -7,8 +10,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_1rgl7")
 
-[node name="ItemList" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 262.0
-offset_bottom = 40.0
+[node name="HeartsContainer" type="GridContainer" parent="."]
+layout_mode = 1
+offset_right = 16.0
+offset_bottom = 56.0
+
+[node name="Heart1" type="TextureRect" parent="HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_yyap7")
+
+[node name="Heart2" type="TextureRect" parent="HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_yyap7")
+
+[node name="Heart3" type="TextureRect" parent="HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_yyap7")

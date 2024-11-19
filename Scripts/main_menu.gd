@@ -45,3 +45,18 @@ func _on_screen_options_item_selected(index: int) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	elif index == 1:  # Pantalla Completa
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+
+func _on_resolution_options_item_selected(index: int) -> void:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		match index:
+			0: get_viewport().size = Vector2(2560, 1440)
+			1: get_viewport().size = Vector2(1920, 1080)
+			2: get_viewport().size = Vector2(1280, 720)
+			3: get_viewport().size = Vector2(800, 600)
+	elif DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		match index:
+			0: DisplayServer.window_set_size(Vector2(2560, 1440))
+			1: DisplayServer.window_set_size(Vector2(1920, 1080)) 
+			2: DisplayServer.window_set_size(Vector2(1280, 720))
+			3: DisplayServer.window_set_size(Vector2(800, 600))

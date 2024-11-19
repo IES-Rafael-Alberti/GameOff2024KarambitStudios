@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
 # --------------- Constantes ------------------
-@export var SPEED = 130.0 # Velocidad del personaje
-@export var JUMP_VELOCITY = -300.0 # Velocidad del salto
-@export var DASH_SPEED = 400.0 # Velocidad del dash
-@export var DASH_DURATION = 1.5 # Duración del dash (segundos)
-@export var MAX_JUMPS = 2 # Máximo de saltos
-@export var ATTACK_DISTANCE = 100.0 # Distancia del área de ataque desde el personaje
-@export var ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
+const SPEED = 130.0 # Velocidad del personaje
+const JUMP_VELOCITY = -300.0 # Velocidad del salto
+const DASH_SPEED = 400.0 # Velocidad del dash
+const DASH_DURATION = 1.5 # Duración del dash (segundos)
+const MAX_JUMPS = 2 # Máximo de saltos
+const ATTACK_DISTANCE = 30.0 # Distancia del área de ataque desde el personaje con la linterna
+const ATTACK_DISTANCE_MELEE = 10.0 # Distancia del área de ataque desde el personaje a melee
+const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
 
 #------------------- Variables ----------------
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -34,28 +35,33 @@ var life_duplicate_time: float = 0.05
 
 @onready var attack_timer = $Timers/AttackTimer
 @onready var attack_cool_down = $Timers/AttackCoolDown
-
+#--------------- Variables Ataque linterna ----------------------
 @onready var flash_attack: Area2D = $flashAttack
-@onready var attack_hitbox: CollisionShape2D = $flashAttack/AttackHitbox
+@onready var attack_hitbox_flashlight: CollisionShape2D = $flashAttack/AttackHitbox
 @onready var attack_sprite = $flashAttack/AttackSprite
+#-------------- Variables Ataque melee -------------
+@onready var melee_attack = $meleeAttack
+@onready var attack_hitbox_melee: CollisionShape2D = $meleeAttack/AttackHitbox
 
-
-
+#------------- Variables Timers ---------------
 @onready var dash_timer: Timer = $Timers/DashTimer
 @onready var dash_cooldown: Timer = $Timers/DashCooldown
 
+@onready var player_sensor: Area2D = $PlayerSensor
 #------------------ Funciones -----------------
 func _ready() -> void:
 	# Inicializa el ataque en invisible
 	pause_menu.visible = false
 	flash_attack.visible = false
+	attack_hitbox_flashlight.disabled = true
+	
+	melee_attack.visible = false
+	attack_hitbox_melee.disabled = true
 
 func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento
 	var direction = Input.get_axis("Move_left", "Move_right")
-
 	actual_duplicate_time += delta
-
 	# Actualizamos el flip del sprite según la dirección
 	
 	if direction > 0:
@@ -107,7 +113,7 @@ func _physics_process(delta: float) -> void:
 
 	
 	# Aplicar gravedad si no está en el suelo y no está en dash
-	if not is_on_floor() and not is_dashing:
+	if not is_on_floor() and not is_dashing:	
 		velocity.y += gravity * delta
 
 	# Reiniciar saltos si está en el suelo
@@ -116,8 +122,14 @@ func _physics_process(delta: float) -> void:
 
 	# Realizar el ataque si se presiona el botón derecho del ratón
 	if Input.is_action_just_pressed("flashAttack"):
+		print("Ataque linterna")
 		state_machine.travel("attack_flashlight")
-		perform_attack()
+		perform_attack_flashlight()
+		
+	elif Input.is_action_just_pressed("meleeAttack"):
+		print("Ataque melee")
+		state_machine.travel("")
+		perform_attack_melee()
 
 	# Actualizar animaciones
 	if is_on_floor():
@@ -135,12 +147,32 @@ func _physics_process(delta: float) -> void:
 
 	# Aplicar el movimiento al final
 	move_and_slide()
+	
+	# ----------------- Función para realizar el ataque a melee -------------------
+func perform_attack_melee():
+	if can_attack:
+		can_attack = false
+		melee_attack.visible = true
+		attack_hitbox_melee.disabled = false
 
-# ----------------- Función para realizar el ataque -------------------
-func perform_attack():
+		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
+		var direction_multiplier = 1 if facing_right else -1
+		# Posicionamos el ataque en relación con la posición actual del personaje
+		var attack_position = position + Vector2(ATTACK_DISTANCE * direction_multiplier, 0)
+
+		melee_attack.global_position = attack_position
+		melee_attack.rotation_degrees = 270.0 * direction_multiplier
+	
+		# Desactiva el ataque después de un breve periodo
+		attack_timer.start()
+		attack_cool_down.start()
+
+# ----------------- Función para realizar el ataque de la literna -------------------
+func perform_attack_flashlight():
 	if can_attack:
 		can_attack = false
 		flash_attack.visible = true
+		attack_hitbox_flashlight.disabled = false
 
 		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
 		var direction_multiplier = 1 if facing_right else -1
@@ -154,7 +186,21 @@ func perform_attack():
 		# Desactiva el ataque después de un breve periodo
 		attack_timer.start()
 		attack_cool_down.start()
-
+# --------------- Colision del flashAttack --------------------
+func _on_flash_attack_body_entered(body: Node) -> void:
+	print("Colisión detectada con:", body)
+	# Verifica si el objeto que entró en el área es un enemigo
+	if body.is_in_group("enemigos"):
+		print("Enemigo detectado en el área de ataque")
+		body.recibir_dano(1)
+		
+# -------------- Colision del meleeAttack
+func _on_melee_attack_body_entered(body: Node2D) -> void:
+	print("Colisión detectada con:", body)
+	# Verifica si el objeto que entró en el área es un enemigo
+	if body.is_in_group("enemigos"):
+		print("Enemigo detectado en el área de ataque")
+		body.recibir_dano(1)
 # --------------------- Funciones menú ---------------------
 # Función para pausar/reanudar el juego
 func toggle_pause():
@@ -165,6 +211,16 @@ func toggle_pause():
 		pause_menu.visible = true
 		Engine.time_scale = 0.0
 
+#------------------ Funcion morir personaje -------------------
+func muerte():
+	# Eliminar al jugador de la escena actual antes de recargarla
+	get_node("/root/Player").queue_free()
+	# Opcional: Si necesitas reiniciar alguna otra variable o estado del jugador, lo haces aquí.
+	# Aquí restablecemos la vida del jugador a MAX_HEALTH.
+	GameManager.player_health = GameManager.MAX_HEALTH  # O también puedes hacerlo directamente en el jugador
+	# Recargar la escena
+	get_tree().reload_current_scene()
+	
 # ----------------- Función de teletransporte -------------------
 # Función para teletransportar al jugador
 func teleport_to_scene(scene: String):
@@ -188,7 +244,7 @@ func create_duplicate():
 	get_parent().add_child(duplicated)
 	await get_tree().create_timer(life_duplicate_time).timeout
 	duplicated.queue_free()
-	
+#------------------ Nodos ---------------------------
 #Timer para declarar cuando esta haciendo un dash
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
@@ -200,7 +256,23 @@ func _on_attack_cool_down_timeout():
 # Tiempo de ataque
 func _on_attack_timer_timeout():
 	flash_attack.visible = false
+	attack_hitbox_flashlight.disabled = true
+	melee_attack.visible = false
+	attack_hitbox_melee.disabled = true
 
 #Tiempo para volver a hacer un dash
 func _on_dash_cooldown_timeout():
 	can_dash = true
+
+
+func _on_player_sensor_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemigos") or body.is_in_group("proyectile"):
+		print("El jugador toco a un enemigo")
+		print(GameManager.player_health)
+		GameManager.player_health -= 1
+		print(GameManager.player_health)
+		if GameManager.player_health <= 0:
+			print("¡El jugador ha muerto!")
+			muerte()
+	else:
+		print("Vida restante: ", GameManager.player_health)

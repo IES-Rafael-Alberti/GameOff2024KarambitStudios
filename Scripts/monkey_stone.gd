@@ -5,18 +5,7 @@ extends RigidBody2D
 
 func _ready() -> void:
 	stone_life.start()
-
-
-
-
-
+	add_to_group("proyectile")
 
 func _on_stone_cooldown_timeout() -> void:
 	queue_free()
-
-
-
-
-
-#func _on_area_2d_body_entered(body: Node2D) -> void:
-	#queue_free()
