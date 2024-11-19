@@ -93,10 +93,10 @@ position = Vector2(54, 54)
 
 [node name="Pieza1V1" type="TextureRect" parent="."]
 texture_filter = 1
-offset_left = 94.0
-offset_top = 30.0
-offset_right = 126.0
-offset_bottom = 62.0
+offset_left = 72.0
+offset_top = 13.0
+offset_right = 104.0
+offset_bottom = 45.0
 texture = ExtResource("2_lnkfv")
 script = ExtResource("5_8s2r0")
 

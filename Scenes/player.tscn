@@ -226,59 +226,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mt418")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aesfy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x1so4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1pfy6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dct45")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ij7g6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7us8s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gq4l6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2t173")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ghc1e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jmh5i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_115tu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u283o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ynhfy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ht0vy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m753p")
-}],
-"loop": false,
-"name": &"attack_melee",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_4mbkc")
 }, {
 "duration": 1.0,
@@ -726,7 +673,6 @@ shape = SubResource("CapsuleShape2D_0u7xg")
 visible = false
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
-position_smoothing_speed = 8.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("3_mi5vh")

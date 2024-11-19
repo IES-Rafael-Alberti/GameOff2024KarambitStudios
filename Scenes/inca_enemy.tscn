@@ -12,7 +12,8 @@ size = Vector2(14, 7.5)
 [node name="Inca" type="CharacterBody2D" groups=["enemigos"]]
 texture_filter = 1
 scale = Vector2(2, 2)
-collision_mask = 3
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_at6ic")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

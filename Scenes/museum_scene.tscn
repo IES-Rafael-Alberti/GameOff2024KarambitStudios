@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_tks1q"]
 [ext_resource type="Texture2D" uid="uid://cq7s2g08js6k6" path="res://Assets/Sprites/Trident_v2.png" id="4_pqufj"]
 [ext_resource type="PackedScene" uid="uid://8yt2lybiulu3" path="res://Scenes/pedestal.tscn" id="4_tfgfc"]
-[ext_resource type="Texture2D" uid="uid://dasi2iysoyhy" path="res://Assets/TileSets/tileset_museum_v3.png" id="5_4de8x"]
 [ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="5_wtlt6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1rosb"]
@@ -94,7 +93,7 @@ scene_name = "duat_scene"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(203, -10)
-zoom = Vector2(4, 5)
+zoom = Vector2(3, 3)
 editor_draw_limits = true
 
 [node name="Node" type="Node" parent="."]

@@ -93,7 +93,6 @@ text = "Midnight Gallery
 horizontal_alignment = 1
 
 [node name="FirstMenu" type="VBoxContainer" parent="Panel/BackGroundButton"]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 13
@@ -121,6 +120,7 @@ theme_override_font_sizes/font_size = 42
 text = "Options"
 
 [node name="OptionsMenu" type="VBoxContainer" parent="Panel/BackGroundButton"]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 13
@@ -132,53 +132,6 @@ offset_right = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-
-[node name="SreenMode" type="HBoxContainer" parent="Panel/BackGroundButton/OptionsMenu"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Panel/BackGroundButton/OptionsMenu/SreenMode"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_smusv")
-text = "Screen mode"
-
-[node name="ScreenOptions" type="OptionButton" parent="Panel/BackGroundButton/OptionsMenu/SreenMode"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
-selected = 0
-item_count = 2
-popup/item_0/text = "Windowed"
-popup/item_1/text = "FullScreen"
-popup/item_1/id = 1
-
-[node name="Resolution" type="HBoxContainer" parent="Panel/BackGroundButton/OptionsMenu"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Panel/BackGroundButton/OptionsMenu/Resolution"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_smusv")
-text = "Resolution"
-
-[node name="ResolutionOptions" type="OptionButton" parent="Panel/BackGroundButton/OptionsMenu/Resolution"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
-selected = 0
-item_count = 4
-popup/item_0/text = "1440p"
-popup/item_0/id = 3
-popup/item_1/text = "1080p"
-popup/item_1/id = 1
-popup/item_2/text = "720p"
-popup/item_2/id = 1
-popup/item_3/text = "600p"
-popup/item_3/id = 2
 
 [node name="Volume" type="HBoxContainer" parent="Panel/BackGroundButton/OptionsMenu"]
 layout_mode = 2
@@ -244,8 +197,6 @@ text = "Back"
 
 [connection signal="pressed" from="Panel/BackGroundButton/FirstMenu/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Panel/BackGroundButton/FirstMenu/Options" to="." method="_on_options_pressed"]
-[connection signal="item_selected" from="Panel/BackGroundButton/OptionsMenu/SreenMode/ScreenOptions" to="." method="_on_screen_options_item_selected"]
-[connection signal="item_selected" from="Panel/BackGroundButton/OptionsMenu/Resolution/ResolutionOptions" to="." method="_on_resolution_options_item_selected"]
 [connection signal="value_changed" from="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum/MasterVolumeBar" to="." method="_on_master_volume_bar_value_changed"]
 [connection signal="value_changed" from="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum2/EffectsVolumeBar" to="." method="_on_effects_volume_bar_value_changed"]
 [connection signal="pressed" from="Panel/BackGroundButton/OptionsMenu/Back" to="." method="_on_back_pressed"]
