@@ -92,7 +92,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="Animation" id="Animation_j2eui"]
@@ -128,17 +128,15 @@ libraries = {
 
 [node name="RayCast" type="Node" parent="."]
 
-[node name="RayCastRight" type="RayCast2D" parent="RayCast"]
+[node name="RayCastPlayer" type="RayCast2D" parent="RayCast"]
 position = Vector2(13, 0)
-target_position = Vector2(27, 0)
-collision_mask = 15
-collide_with_areas = true
+target_position = Vector2(41, 0)
+collision_mask = 2
 
-[node name="RayCast2Left" type="RayCast2D" parent="RayCast"]
-position = Vector2(-20, 0)
-target_position = Vector2(-28, 0)
-collision_mask = 15
-collide_with_areas = true
+[node name="RayCastTerrain" type="RayCast2D" parent="RayCast"]
+position = Vector2(4, 9)
+target_position = Vector2(15, 0)
+hit_from_inside = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.25, -1.5)

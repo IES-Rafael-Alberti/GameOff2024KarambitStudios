@@ -829,3 +829,11 @@ shape = SubResource("WorldBoundaryShape2D_a0rmf")
 [node name="Inca" parent="." instance=ExtResource("7_10ucp")]
 position = Vector2(2245, 821)
 scale = Vector2(4, 4)
+
+[node name="path" type="Node2D" parent="Inca"]
+
+[node name="Marker2D" type="Marker2D" parent="Inca/path"]
+position = Vector2(-24, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Inca/path"]
+position = Vector2(28, 0)
