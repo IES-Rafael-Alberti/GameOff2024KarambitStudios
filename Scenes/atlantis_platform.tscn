@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://33orawa54art"]
+
+[ext_resource type="Texture2D" uid="uid://c42p43ahdggrh" path="res://Assets/Atlantis-tileset.png" id="1_02vy1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcyjv"]
+size = Vector2(98, 8)
+
+[node name="Plataforma_Atlantida" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_02vy1")
+region_enabled = true
+region_rect = Rect2(384, 400, 96, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lcyjv")
+one_way_collision = true
