@@ -52,6 +52,7 @@ var life_duplicate_time: float = 0.05
 func _ready() -> void:
 	#Metemos al player en el grupo Player
 	add_to_group("Player")
+
 	# Inicializa el ataque en invisible
 	pause_menu.visible = false
 	flash_attack.visible = false
