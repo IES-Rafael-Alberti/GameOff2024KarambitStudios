@@ -73,12 +73,12 @@ func _physics_process(delta: float) -> void:
 
 
 	# Manejo de teletransportación
-	e_key.visible = GameManager.teleport_activate
+	e_key.visible = GameManager.visible_e_key
 
 	# Verifica la acción de pausa
 	if Input.is_action_just_pressed("Pause"):
 		toggle_pause()
-
+		
 	# Teletransportación
 	if GameManager.teleport_activate == true and Input.is_action_just_pressed("Action"):
 		teleport_to_scene(GameManager.teleport_destination)

@@ -1,8 +1,6 @@
 extends TextureButton
 
-@onready var tablero_dorado: Node2D = $"../TableroDorado"  # Contenedor del tablero con los marcadores
-@onready var rock_pop_sound: AudioStreamPlayer2D = $"../RockPopSound"  # Sonido al arrastrar
-@onready var reverse_rock_pop_sound: AudioStreamPlayer2D = $"../ReverseRockPopSound"  # Sonido al soltar (simulado en reversa)
+@onready var pieces: Node2D = $".."
 
 var initial_position: Vector2
 var is_dragging: bool = false
@@ -20,7 +18,7 @@ var correct_positions = [
 	Vector2(27, 39)   # Posición correcta para la pieza 8
 ]
 
-var threshold: float = 2.0  # Umbral de distancia para considerarlo "cerca"
+var threshold: float = 3.0  # Umbral de distancia para considerarlo "cerca"
 @export var piece_index: int  # Índice de la pieza actual (puede configurarse en el editor o calcularse)
 
 # Lista para comprobar si las piezas están colocadas correctamente
@@ -53,8 +51,10 @@ func _gui_input(event: InputEvent) -> void:
 		# Mueve la pieza mientras arrastras
 		global_position = get_global_mouse_position() - offset
 func check_victory():
-	for correct_piece in correct_pieces:
-		print(correct_piece)
+	for piece in pieces.get_children():
+		if piece.colocada == false:
+			return
+	print("Victoria")
+	GameManager.puzzle_1_complete = true
+	get_tree().change_scene_to_file("res://Scenes/museum_scene.tscn")
 	
-	if correct_pieces.size() == 8:
-		print("Victoria")

@@ -773,7 +773,6 @@ theme_override_font_sizes/font_size = 42
 text = "EL DORADO"
 
 [node name="TileMap" type="TileMap" parent="."]
-z_index = -5
 tile_set = SubResource("TileSet_jip7r")
 format = 2
 layer_0/name = "Layer2"
@@ -790,7 +789,7 @@ position = Vector2(2552, 689)
 throw_power = 500.0
 
 [node name="Monkey3" parent="." instance=ExtResource("5_vr3n7")]
-position = Vector2(2102, 751)
+position = Vector2(2153, 797)
 
 [node name="Monkey4" parent="." instance=ExtResource("5_vr3n7")]
 position = Vector2(1986, 754)
@@ -838,3 +837,4 @@ position = Vector2(4480, 1006)
 
 [node name="ArrowThrower" parent="." instance=ExtResource("9_ov3ds")]
 position = Vector2(2680, 731)
+flip_h = true
