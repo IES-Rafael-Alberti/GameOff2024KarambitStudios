@@ -50,6 +50,9 @@ var life_duplicate_time: float = 0.05
 @onready var player_sensor: Area2D = $PlayerSensor
 #------------------ Funciones -----------------
 func _ready() -> void:
+	#Metemos al player en el grupo Player
+	add_to_group("Player")
+
 	# Inicializa el ataque en invisible
 	pause_menu.visible = false
 	flash_attack.visible = false
@@ -202,7 +205,7 @@ func _on_melee_attack_body_entered(body: Node2D) -> void:
 		print("Enemigo detectado en el área de ataque")
 		body.recibir_dano(1)
 # --------------------- Funciones menú ---------------------
-# Función para pausar/reanudar el juego
+# Función para pausar/reanudar el juego 
 func toggle_pause():
 	if pause_menu.visible:
 		pause_menu.visible = false
