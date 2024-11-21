@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dlbaav1e05bcn"]
+[gd_scene load_steps=21 format=3 uid="uid://dlbaav1e05bcn"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jn1hj"]
 [ext_resource type="Texture2D" uid="uid://dtvty56qvqbf7" path="res://Assets/TileSets/tileset_eldorado_v2.png" id="2_fp3cr"]
@@ -9,11 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bnor6xi5ukr1m" path="res://Assets/TileSets/tileset_eldorado_golden.png" id="6_yl3av"]
 [ext_resource type="Texture2D" uid="uid://dcmd2bcfu8os7" path="res://Assets/TileSets/tileset_eldorado_arbol.png" id="7_0jt3m"]
 [ext_resource type="PackedScene" uid="uid://b07nwgayixvcw" path="res://Scenes/inca_enemy.tscn" id="7_10ucp"]
+[ext_resource type="Texture2D" uid="uid://dhfwoyeqgk4jn" path="res://Assets/TileSets/tileset_eldorado_arbol_interior.png" id="8_1u2wk"]
 [ext_resource type="PackedScene" uid="uid://cq1r444gvvl0o" path="res://Scenes/jaguar.tscn" id="8_88r8v"]
 [ext_resource type="PackedScene" uid="uid://wivet2lx3hko" path="res://Scenes/arrow_thrower.tscn" id="9_ov3ds"]
-[ext_resource type="Texture2D" uid="uid://dhfwoyeqgk4jn" path="res://Assets/TileSets/tileset_eldorado_arbol_interior.png" id="8_1u2wk"]
-[ext_resource type="Texture2D" uid="uid://bw1wavbctkia" path="res://Assets/TileSets/dorado_jaguar.png" id="10_wyia1"]
-[ext_resource type="PackedScene" uid="uid://bmea5rouemy1m" path="res://Scenes/kill_zone.tscn" id="11_yb11j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8hv2"]
 texture = ExtResource("2_fp3cr")
@@ -976,19 +974,13 @@ sources/4 = SubResource("TileSetAtlasSource_lskiy")
 sources/8 = SubResource("TileSetAtlasSource_li0ln")
 sources/9 = SubResource("TileSetAtlasSource_1jpy2")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hkdd"]
-size = Vector2(654, 136)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt41x"]
-size = Vector2(3953, 32)
-
 [node name="DoradoScene" type="Node2D"]
 texture_filter = 1
 position = Vector2(173, -5)
 script = ExtResource("1_jn1hj")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(1918, 359)
+position = Vector2(1094, 789)
 
 [node name="LevelName" type="Label" parent="."]
 offset_left = -508.0
@@ -1026,7 +1018,7 @@ position = Vector2(2158, 688)
 position = Vector2(2224, 613)
 
 [node name="Inca" parent="." instance=ExtResource("7_10ucp")]
-position = Vector2(1725, 384)
+position = Vector2(1430, 923)
 scale = Vector2(4, 4)
 
 [node name="path" type="Node2D" parent="Inca"]
@@ -1040,5 +1032,5 @@ position = Vector2(40, 0)
 [node name="Jaguar" parent="." instance=ExtResource("8_88r8v")]
 position = Vector2(4480, 1006)
 
-[node name="ArrowThrower" parent="." instance=ExtResource("9_ov3ds")]
-position = Vector2(2680, 731)
+[node name="ArrowThrower2" parent="." instance=ExtResource("9_ov3ds")]
+position = Vector2(2855, 815)

@@ -3,7 +3,6 @@ extends Node2D
 @onready var pedestal_el_dorado: Sprite2D = $Pedestals/PedestalElDorado
 @onready var pedestal_atlantis: Sprite2D = $Pedestals/PedestalAtlantis
 @onready var pedestal_duat: Sprite2D = $Pedestals/PedestalDuat
-@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
 const PLAYER = preload("res://Scenes/player.tscn")
 # Called when the node enters the scene tree for the first time.
