@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=4 uid="uid://7hrsvi4tc71y"]
 
-[ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_tks1q"]
-[ext_resource type="Texture2D" uid="uid://cq7s2g08js6k6" path="res://Assets/Sprites/Trident_v2.png" id="4_pqufj"]
-[ext_resource type="PackedScene" uid="uid://8yt2lybiulu3" path="res://Scenes/pedestal.tscn" id="4_tfgfc"]
-[ext_resource type="Texture2D" uid="uid://d1c7dkuw3jsqa" path="res://Assets/TileSets/tileset_museum_v3.png" id="4_tgf4m"]
-[ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="5_wtlt6"]
+[ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jodg4"]
+[ext_resource type="PackedScene" uid="uid://8yt2lybiulu3" path="res://Scenes/Levels/pedestal.tscn" id="2_fojlv"]
+[ext_resource type="Texture2D" uid="uid://cq7s2g08js6k6" path="res://Assets/Sprites/Trident_v2.png" id="3_tkod6"]
+[ext_resource type="Texture2D" uid="uid://d1c7dkuw3jsqa" path="res://Assets/TileSets/tileset_museum_v3.png" id="4_hx1h1"]
+[ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="5_a8gxj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxkqu"]
-texture = ExtResource("4_tgf4m")
+texture = ExtResource("4_hx1h1")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 2:0/0 = 0
@@ -38,27 +38,27 @@ physics_layer_0/collision_layer = 2
 sources/1 = SubResource("TileSetAtlasSource_cxkqu")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ddc4"]
-shader = ExtResource("5_wtlt6")
+shader = ExtResource("5_a8gxj")
 shader_parameter/Colors = Color(0.125911, 0.125911, 0.125911, 1)
 shader_parameter/mix_color = 0.5
 shader_parameter/alphaColor = 1.0
 
 [node name="MuseumScene" type="Node2D"]
-script = ExtResource("1_tks1q")
+script = ExtResource("1_jodg4")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(0, -15)
 
 [node name="Pedestals" type="Node" parent="."]
 
-[node name="PedestalElDorado" parent="Pedestals" instance=ExtResource("4_tfgfc")]
+[node name="PedestalElDorado" parent="Pedestals" instance=ExtResource("2_fojlv")]
 z_index = -1
 position = Vector2(97, -32)
 scale = Vector2(2, 2)
 region_rect = Rect2(0, 0, 32, 32)
 scene_name = "dorado_scene"
 
-[node name="PedestalAtlantis" parent="Pedestals" instance=ExtResource("4_tfgfc")]
+[node name="PedestalAtlantis" parent="Pedestals" instance=ExtResource("2_fojlv")]
 z_index = -1
 position = Vector2(205, -32)
 scale = Vector2(2, 2)
@@ -68,9 +68,9 @@ scene_name = "atlantis_scene"
 texture_filter = 1
 position = Vector2(0, -15)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("4_pqufj")
+texture = ExtResource("3_tkod6")
 
-[node name="PedestalDuat" parent="Pedestals" instance=ExtResource("4_tfgfc")]
+[node name="PedestalDuat" parent="Pedestals" instance=ExtResource("2_fojlv")]
 z_index = -1
 position = Vector2(334, -32)
 scale = Vector2(2, 2)

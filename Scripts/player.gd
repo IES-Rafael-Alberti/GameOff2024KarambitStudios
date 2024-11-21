@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-# --------------- Constantes ------------------
+## --------------- Constantes ------------------
 const SPEED = 130.0 # Velocidad del personaje
 const JUMP_VELOCITY = -300.0 # Velocidad del salto
 const DASH_SPEED = 400.0 # Velocidad del dash
@@ -11,53 +11,58 @@ const ATTACK_DISTANCE_MELEE = 10.0 # Distancia del área de ataque desde el pers
 const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
 const DASH_EFFECT_SHADER = preload("res://Shaders/DashEffectShader.gdshader")
 const DAMAGE_SHADER = preload("res://Shaders/DamageShader.gdshader")
-#------------------- Variables ----------------
+## ------------------- Variables ----------------
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumps_left = MAX_JUMPS
-var can_dash = true
-var is_dashing = false
-var can_attack = true
-var facing_right = true
 var actual_duplicate_time: float = 0
 var duplicate_time: float = 0.05
 var life_duplicate_time: float = 0.05
 
-#---------------- Ajuste zoom camara ------------------
+## -------------- Variables de permiso
+var can_attack = true
+var can_dash = true
+var can_flash = GameManager.flash_count > 0
+var can_take_damage = true
+## --------------- Variables de estado -----------------
+var facing_right = true
+var is_dashing = false
+
+## ---------------- Ajuste zoom camara ------------------
 @export var camera_zoom = 2.5
 @export var sprite_offset = Vector2(16,16)
 
-# --------------- Nodo UI y Teleport ------------------
+## --------------- Nodo UI y Teleport ------------------
 @onready var pause_menu: Control = $UI/PauseMenu
 @onready var e_key: Sprite2D = $Tecla
 
-#------------------ Cargar escenas -----------------
+## ------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
 @onready var state_machine = $State_Machine["parameters/playback"]
 
 
-#------------------ Timers -----------------
-@onready var damage_timer: Timer = $Timers/DamageTimer
+## ------------------ Timers -----------------
 @onready var attack_timer = $Timers/AttackTimer
 @onready var attack_cool_down = $Timers/AttackCoolDown
+@onready var i_frames: Timer = $Timers/iFrames
 
 
-#--------------- Variables Ataque linterna ----------------------
+## --------------- Variables Ataque linterna ----------------------
 @onready var flash_attack: Area2D = $flashAttack
 @onready var attack_hitbox_flashlight: CollisionShape2D = $flashAttack/AttackHitbox
 @onready var attack_sprite = $flashAttack/AttackSprite
 
 
-#-------------- Variables Ataque melee -------------
+## -------------- Variables Ataque melee -------------
 @onready var melee_attack = $meleeAttack
 @onready var attack_hitbox_melee: CollisionShape2D = $meleeAttack/AttackHitbox
 
-#------------- Variables Timers ---------------
+## ------------- Variables Timers ---------------
 @onready var dash_timer: Timer = $Timers/DashTimer
 @onready var dash_cooldown: Timer = $Timers/DashCooldown
 @onready var player_sensor: Area2D = $PlayerSensor
 
 
-#------------------ Funciones -----------------
+## ------------------ Funciones -----------------
 func _ready() -> void:
 	#Metemos al player en el grupo Player
 	add_to_group("Player")
@@ -138,6 +143,9 @@ func _physics_process(delta: float) -> void:
 		state_machine.travel("attack_flashlight")
 		perform_attack_flashlight()
 		
+		
+		
+		
 	elif Input.is_action_just_pressed("meleeAttack"):
 		print("Ataque melee")
 		state_machine.travel("")
@@ -160,7 +168,7 @@ func _physics_process(delta: float) -> void:
 	# Aplicar el movimiento al final
 	move_and_slide()
 	
-	# ----------------- Función para realizar el ataque a melee -------------------
+	## ----------------- Función para realizar el ataque a melee -------------------
 func perform_attack_melee():
 	if can_attack:
 		can_attack = false
@@ -179,7 +187,7 @@ func perform_attack_melee():
 		attack_timer.start()
 		attack_cool_down.start()
 
-# ----------------- Función para realizar el ataque de la literna -------------------
+## ----------------- Función para realizar el ataque de la literna -------------------
 func perform_attack_flashlight():
 	if can_attack:
 		can_attack = false
@@ -194,11 +202,11 @@ func perform_attack_flashlight():
 
 		flash_attack.global_position = attack_position
 		flash_attack.rotation_degrees = 270.0 * direction_multiplier
-	
+		GameManager.rest_flash()
 		# Desactiva el ataque después de un breve periodo
 		attack_timer.start()
 		attack_cool_down.start()
-# --------------- Colision del flashAttack --------------------
+## --------------- Colision del flashAttack --------------------
 func _on_flash_attack_body_entered(body: Node) -> void:
 	print("Colisión detectada con:", body)
 	# Verifica si el objeto que entró en el área es un enemigo
@@ -206,14 +214,14 @@ func _on_flash_attack_body_entered(body: Node) -> void:
 		print("Enemigo detectado en el área de ataque")
 		body.recibir_dano(1)
 		
-# -------------- Colision del meleeAttack
+## -------------- Colision del meleeAttack
 func _on_melee_attack_body_entered(body: Node2D) -> void:
 	print("Colisión detectada con:", body)
 	# Verifica si el objeto que entró en el área es un enemigo
 	if body.is_in_group("enemigos"):
 		print("Enemigo detectado en el área de ataque")
 		body.recibir_dano(1)
-# --------------------- Funciones menú ---------------------
+## --------------------- Funciones menú ---------------------
 # Función para pausar/reanudar el juego 
 func toggle_pause():
 	if pause_menu.visible:
@@ -223,7 +231,7 @@ func toggle_pause():
 		pause_menu.visible = true
 		Engine.time_scale = 0.0
 
-#------------------ Funcion morir personaje -------------------
+## ------------------ Funcion morir personaje -------------------
 func muerte():
 	# Eliminar al jugador de la escena actual antes de recargarla
 	get_node("/root/Player").queue_free()
@@ -233,12 +241,12 @@ func muerte():
 	# Recargar la escena
 	get_tree().reload_current_scene()
 	
-# ----------------- Función de teletransporte -------------------
+## ----------------- Función de teletransporte -------------------
 # Función para teletransportar al jugador
 func teleport_to_scene(scene: String):
 	if GameManager.teleport_activate:
 		get_node("/root/Player").queue_free()
-		get_tree().change_scene_to_file("res://Scenes/" + scene + ".tscn")
+		get_tree().change_scene_to_file("res://Scenes/Levels/" + scene + ".tscn")
 #Funcion para crear los duplicados en el dash
 func create_duplicate():
 	animated_sprite.material.shader = DASH_EFFECT_SHADER
@@ -257,7 +265,7 @@ func create_duplicate():
 	get_parent().add_child(duplicated)
 	await get_tree().create_timer(life_duplicate_time).timeout
 	duplicated.queue_free()
-#------------------ Nodos ---------------------------
+## ------------------ Nodos ---------------------------
 #Timer para declarar cuando esta haciendo un dash
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
@@ -279,14 +287,17 @@ func _on_dash_cooldown_timeout():
 
 
 func _on_player_sensor_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemigos") or body.is_in_group("proyectile"):
-		print("El jugador toco a un enemigo")
-		print(GameManager.player_health)
-		GameManager.player_health -= 1
-		
-		print(GameManager.player_health)
-		if GameManager.player_health <= 0:
-			print("¡El jugador ha muerto!")
-			muerte()
-	else:
-		print("Vida restante: ", GameManager.player_health)
+	if can_take_damage:
+		if body.is_in_group("enemigos") or body.is_in_group("proyectile"):
+			
+			GameManager.take_damage(1)
+			can_take_damage = false
+			i_frames.start()
+			if GameManager.player_health <= 0:
+				muerte()
+		else:
+			print("Vida restante: ", GameManager.player_health)
+
+
+func _on_i_frames_timeout() -> void:
+	can_take_damage = true

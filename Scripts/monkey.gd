@@ -14,7 +14,7 @@ var can_attack = true
 @onready var stone_spawn_time: Timer = $StoneSpawnTime
 
 
-const MONKEY_STONE = preload("res://Scenes/monkey_stone.tscn")
+const MONKEY_STONE = preload("res://Scenes/Proyectiles/monkey_stone.tscn")
 
 var vida: int
 
@@ -33,8 +33,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if GameManager.player_node:
 
-		if (GameManager.player_node.global_position - sprite_monkey.global_position).length() < 200:  # Ajusta el rango
-			if can_attack:
+		if can_attack:
+			if (GameManager.player_node.global_position - sprite_monkey.global_position).length() < 200:  # Ajusta el rango
+			
 				throw_stone()
 	else:
 		print("NO hay jugador: " + str(GameManager.player_node))

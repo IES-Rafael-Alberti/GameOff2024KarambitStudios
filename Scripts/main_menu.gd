@@ -18,7 +18,7 @@ func _ready() -> void:
 	print("Holaaaa")
 	
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/museum_scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/museum_scene.tscn")
 
 func _on_options_pressed() -> void:
 	first_menu.visible = false

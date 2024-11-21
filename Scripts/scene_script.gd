@@ -4,7 +4,7 @@ extends Node2D
 @onready var pedestal_atlantis: Sprite2D = $Pedestals/PedestalAtlantis
 @onready var pedestal_duat: Sprite2D = $Pedestals/PedestalDuat
 
-const PLAYER = preload("res://Scenes/player.tscn")
+const PLAYER = preload("res://Scenes/Characters/player.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Engine.time_scale = 1.0

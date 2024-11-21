@@ -3,11 +3,8 @@ extends Sprite2D
 @onready var cooldown: Timer = $Cooldown
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export var damage: float = 1.0
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	GameManager.take_damage(damage)

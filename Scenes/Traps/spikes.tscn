@@ -10,10 +10,12 @@ size = Vector2(28, 6)
 texture = ExtResource("1_wofs1")
 script = ExtResource("2_15tom")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DamageArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_t1i5l")
 
 [node name="Cooldown" type="Timer" parent="."]
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cph6dwmrfptoy"
-path="res://.godot/imported/Dispensador.png-0cf9fa171e6b40759d0ea087453e5f01.ctex"
+uid="uid://cnt15vvebok1a"
+path="res://.godot/imported/CargasBateria.png-4ef47ce07d5fef9b978232884baa2e5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Shaders/Dispensador.png"
-dest_files=["res://.godot/imported/Dispensador.png-0cf9fa171e6b40759d0ea087453e5f01.ctex"]
+source_file="res://Assets/Sprites/HUD/CargasBateria.png"
+dest_files=["res://.godot/imported/CargasBateria.png-4ef47ce07d5fef9b978232884baa2e5d.ctex"]
 
 [params]
 
