@@ -14,3 +14,23 @@ var player_node: CharacterBody2D
 #---------Variables escena 1---------
 var player_position_puzzle
 var puzzle_1_complete = false
+
+
+
+func take_player_damage():
+	print("Prueba")
+	if player_health > 1:
+		player_health -= 1
+		print(player_health)
+		if player_health <= 0:
+			print("¡El jugador ha muerto!")
+	elif player_health >= 0:
+		print("Jugador eliminado")
+		muerte()
+	
+
+func muerte():
+	get_node("/root/Player").queue_free()
+	# Recargar la escena
+	get_tree().reload_current_scene()
+	GameManager.player_health = GameManager.MAX_HEALTH

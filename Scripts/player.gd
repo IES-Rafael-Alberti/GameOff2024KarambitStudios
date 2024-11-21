@@ -9,7 +9,9 @@ const MAX_JUMPS = 2 # Máximo de saltos
 const ATTACK_DISTANCE = 30.0 # Distancia del área de ataque desde el personaje con la linterna
 const ATTACK_DISTANCE_MELEE = 10.0 # Distancia del área de ataque desde el personaje a melee
 const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
-
+# ---------------- Cargar los shaders del jugador -----------------
+const DASH_EFFECT_SHADER = preload("res://Shaders/DashEffectShader.gdshader")
+const PLAYER_DAMAGE = preload("res://Shaders/Player_damage.gdshader")
 #------------------- Variables ----------------
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumps_left = MAX_JUMPS
@@ -116,7 +118,7 @@ func _physics_process(delta: float) -> void:
 
 	
 	# Aplicar gravedad si no está en el suelo y no está en dash
-	if not is_on_floor() and not is_dashing:	
+	if not is_on_floor() and not is_dashing:
 		velocity.y += gravity * delta
 
 	# Reiniciar saltos si está en el suelo
@@ -146,8 +148,6 @@ func _physics_process(delta: float) -> void:
 			state_machine.travel("jump_up")
 		if velocity.y > 0:
 			state_machine.travel("jump_down")
-
-
 	# Aplicar el movimiento al final
 	move_and_slide()
 	
@@ -179,7 +179,6 @@ func perform_attack_flashlight():
 
 		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
 		var direction_multiplier = 1 if facing_right else -1
-		#
 		# Posicionamos el ataque en relación con la posición actual del personaje
 		var attack_position = position + Vector2(ATTACK_DISTANCE * direction_multiplier, 0)
 
@@ -189,13 +188,14 @@ func perform_attack_flashlight():
 		# Desactiva el ataque después de un breve periodo
 		attack_timer.start()
 		attack_cool_down.start()
+
 # --------------- Colision del flashAttack --------------------
 func _on_flash_attack_body_entered(body: Node) -> void:
 	print("Colisión detectada con:", body)
 	# Verifica si el objeto que entró en el área es un enemigo
 	if body.is_in_group("enemigos"):
 		print("Enemigo detectado en el área de ataque")
-		body.recibir_dano(1)
+		body.take_damage(1)
 		
 # -------------- Colision del meleeAttack
 func _on_melee_attack_body_entered(body: Node2D) -> void:
@@ -204,6 +204,7 @@ func _on_melee_attack_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigos"):
 		print("Enemigo detectado en el área de ataque")
 		body.recibir_dano(1)
+
 # --------------------- Funciones menú ---------------------
 # Función para pausar/reanudar el juego 
 func toggle_pause():
@@ -213,16 +214,6 @@ func toggle_pause():
 	else:
 		pause_menu.visible = true
 		Engine.time_scale = 0.0
-
-#------------------ Funcion morir personaje -------------------
-func muerte():
-	# Eliminar al jugador de la escena actual antes de recargarla
-	get_node("/root/Player").queue_free()
-	# Opcional: Si necesitas reiniciar alguna otra variable o estado del jugador, lo haces aquí.
-	# Aquí restablecemos la vida del jugador a MAX_HEALTH.
-	GameManager.player_health = GameManager.MAX_HEALTH  # O también puedes hacerlo directamente en el jugador
-	# Recargar la escena
-	get_tree().reload_current_scene()
 	
 # ----------------- Función de teletransporte -------------------
 # Función para teletransportar al jugador
@@ -232,6 +223,7 @@ func teleport_to_scene(scene: String):
 		get_tree().change_scene_to_file("res://Scenes/" + scene + ".tscn")
 #Funcion para crear los duplicados en el dash
 func create_duplicate():
+	animated_sprite.material.shader = DASH_EFFECT_SHADER
 	var duplicated = animated_sprite.duplicate(true)
 	duplicated.material = animated_sprite.material.duplicate(true)
 	duplicated.material.set_shader_parameter("Colors", Vector4(0.0,0.0,0.8,0.3))
@@ -271,11 +263,8 @@ func _on_dash_cooldown_timeout():
 func _on_player_sensor_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigos") or body.is_in_group("proyectile"):
 		print("El jugador toco a un enemigo")
-		print(GameManager.player_health)
-		GameManager.player_health -= 1
-		print(GameManager.player_health)
-		if GameManager.player_health <= 0:
-			print("¡El jugador ha muerto!")
-			muerte()
+		animated_sprite.material.shader = PLAYER_DAMAGE
+		animated_sprite.material.shader = null
+		GameManager.take_player_damage()
 	else:
 		print("Vida restante: ", GameManager.player_health)
