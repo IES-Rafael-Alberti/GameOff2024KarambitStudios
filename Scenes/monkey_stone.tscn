@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d0wymhsvvvy2c" path="res://Assets/Sprites/piedra.png" id="2_o4cbw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_be3y3"]
-radius = 5.09902
+radius = 4.0
 
 [node name="MonkeyStone" type="RigidBody2D" groups=["enemigos"]]
 collision_mask = 11
@@ -14,10 +14,12 @@ script = ExtResource("1_vvy4f")
 [node name="SpriteStone" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-0.67, -0.54)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_o4cbw")
 region_rect = Rect2(0, -0.951334, 1.9342, 1.95133)
 
 [node name="StoneLife" type="Timer" parent="."]
+wait_time = 0.8
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["proyectile"]]

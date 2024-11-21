@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://edv16fxwoq7q"]
+
+[ext_resource type="Texture2D" uid="uid://dtvty56qvqbf7" path="res://Assets/TileSets/tileset_eldorado_v2.png" id="1_rwn6u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j5y6"]
+size = Vector2(94, 16)
+
+[node name="dorado_platform_1" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rwn6u")
+region_enabled = true
+region_rect = Rect2(0, 160, 94.9672, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1j5y6")
+one_way_collision = true
