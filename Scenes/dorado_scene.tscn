@@ -833,13 +833,6 @@ shape = SubResource("WorldBoundaryShape2D_a0rmf")
 position = Vector2(1725, 384)
 scale = Vector2(4, 4)
 
-[node name="Jaguar" parent="." instance=ExtResource("8_88r8v")]
-position = Vector2(4480, 1006)
-
-[node name="ArrowThrower" parent="." instance=ExtResource("9_ov3ds")]
-position = Vector2(2680, 731)
-slide_on_ceiling = false
-
 [node name="path" type="Node2D" parent="Inca"]
 
 [node name="Marker2D" type="Marker2D" parent="Inca/path"]
@@ -847,3 +840,9 @@ position = Vector2(-38.75, 0)
 
 [node name="Marker2D2" type="Marker2D" parent="Inca/path"]
 position = Vector2(40, 0)
+
+[node name="Jaguar" parent="." instance=ExtResource("8_88r8v")]
+position = Vector2(4480, 1006)
+
+[node name="ArrowThrower" parent="." instance=ExtResource("9_ov3ds")]
+position = Vector2(2680, 731)
