@@ -11,6 +11,7 @@ func _physics_process(delta: float) -> void:
 
 func shooting():
 	if can_shoot:
+		print("Dispara")
 		var arrow_temp = ARROW.instantiate()
 
 		arrow_temp.position = shooting_point_pos
