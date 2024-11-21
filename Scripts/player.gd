@@ -9,7 +9,8 @@ const MAX_JUMPS = 2 # Máximo de saltos
 const ATTACK_DISTANCE = 30.0 # Distancia del área de ataque desde el personaje con la linterna
 const ATTACK_DISTANCE_MELEE = 10.0 # Distancia del área de ataque desde el personaje a melee
 const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
-
+const DASH_EFFECT_SHADER = preload("res://Shaders/DashEffectShader.gdshader")
+const DAMAGE_SHADER = preload("res://Shaders/DamageShader.gdshader")
 #------------------- Variables ----------------
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumps_left = MAX_JUMPS
@@ -33,12 +34,19 @@ var life_duplicate_time: float = 0.05
 @onready var animated_sprite = $PlayerSprite
 @onready var state_machine = $State_Machine["parameters/playback"]
 
+
+#------------------ Timers -----------------
+@onready var damage_timer: Timer = $Timers/DamageTimer
 @onready var attack_timer = $Timers/AttackTimer
 @onready var attack_cool_down = $Timers/AttackCoolDown
+
+
 #--------------- Variables Ataque linterna ----------------------
 @onready var flash_attack: Area2D = $flashAttack
 @onready var attack_hitbox_flashlight: CollisionShape2D = $flashAttack/AttackHitbox
 @onready var attack_sprite = $flashAttack/AttackSprite
+
+
 #-------------- Variables Ataque melee -------------
 @onready var melee_attack = $meleeAttack
 @onready var attack_hitbox_melee: CollisionShape2D = $meleeAttack/AttackHitbox
@@ -46,8 +54,9 @@ var life_duplicate_time: float = 0.05
 #------------- Variables Timers ---------------
 @onready var dash_timer: Timer = $Timers/DashTimer
 @onready var dash_cooldown: Timer = $Timers/DashCooldown
-
 @onready var player_sensor: Area2D = $PlayerSensor
+
+
 #------------------ Funciones -----------------
 func _ready() -> void:
 	#Metemos al player en el grupo Player
@@ -232,6 +241,7 @@ func teleport_to_scene(scene: String):
 		get_tree().change_scene_to_file("res://Scenes/" + scene + ".tscn")
 #Funcion para crear los duplicados en el dash
 func create_duplicate():
+	animated_sprite.material.shader = DASH_EFFECT_SHADER
 	var duplicated = animated_sprite.duplicate(true)
 	duplicated.material = animated_sprite.material.duplicate(true)
 	duplicated.material.set_shader_parameter("Colors", Vector4(0.0,0.0,0.8,0.3))
@@ -273,6 +283,7 @@ func _on_player_sensor_body_entered(body: Node2D) -> void:
 		print("El jugador toco a un enemigo")
 		print(GameManager.player_health)
 		GameManager.player_health -= 1
+		
 		print(GameManager.player_health)
 		if GameManager.player_health <= 0:
 			print("¡El jugador ha muerto!")

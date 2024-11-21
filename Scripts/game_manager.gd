@@ -3,7 +3,7 @@ extends Node
 
 # Vida máxima del jugador
 const MAX_HEALTH = 3
-var player_health = MAX_HEALTH
+var player_health = MAX_HEALTH 
 
 # Estado de teletransportación
 var visible_e_key = false

@@ -1,7 +1,6 @@
-[gd_scene load_steps=91 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=93 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0fb6m"]
-[ext_resource type="Shader" path="res://Shaders/DashEffectShader.gdshader" id="2_i6paw"]
 [ext_resource type="Script" path="res://Scripts/canvas_layer.gd" id="3_mi5vh"]
 [ext_resource type="Texture2D" uid="uid://hvi44r63n72o" path="res://Assets/Sprites/sprite_player/sprite_ataque_linterna.png" id="3_q066o"]
 [ext_resource type="Texture2D" uid="uid://b7u4jcxw063fk" path="res://Assets/Sprites/sprite_player/sprite_dash.png" id="3_t3qr0"]
@@ -11,11 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://cobkbmude40nc" path="res://Assets/Sprites/sprite_player/sprite_salto.png" id="5_oos70"]
 [ext_resource type="Texture2D" uid="uid://c060xj3h42a75" path="res://Assets/Sprites/Cone.png" id="5_x3p5d"]
 [ext_resource type="Texture2D" uid="uid://bnmbjys2gw2eg" path="res://Assets/Sprites/TeclasPixel.png" id="5_xfjvf"]
+[ext_resource type="PackedScene" uid="uid://cy7i8nnag70ie" path="res://Scenes/hud.tscn" id="11_7vhvh"]
+[ext_resource type="Texture2D" uid="uid://dfmi6krk27gw3" path="res://Assets/Sprites/Heart.png" id="12_gvof0"]
+[ext_resource type="Texture2D" uid="uid://dbrtotelo3h0a" path="res://Assets/Sprites/Empty heart.png" id="13_s5uw7"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngyc2"]
-shader = ExtResource("2_i6paw")
-shader_parameter/Colors = Color(0.801876, 5.64092e-05, 0.621386, 1)
-shader_parameter/mix_color = 0.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_67cec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vl53l"]
 atlas = ExtResource("3_q066o")
@@ -649,7 +648,7 @@ script = ExtResource("1_0fb6m")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 z_index = 1
-material = SubResource("ShaderMaterial_ngyc2")
+material = SubResource("ShaderMaterial_67cec")
 position = Vector2(0, -2.25)
 sprite_frames = SubResource("SpriteFrames_ek8rt")
 animation = &"idle"
@@ -679,6 +678,10 @@ script = ExtResource("3_mi5vh")
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("4_umq10")]
 visible = false
+
+[node name="HUD" parent="UI" instance=ExtResource("11_7vhvh")]
+full_heart_texture = ExtResource("12_gvof0")
+empty_heart_texture = ExtResource("13_s5uw7")
 
 [node name="State_Machine" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_1mjks")

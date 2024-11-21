@@ -6,10 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f2o4"]
 size = Vector2(21.5, 5)
 
-[node name="Area2D" type="Area2D"]
+[node name="Arrow" type="Area2D"]
 script = ExtResource("1_6n8in")
 
-[node name="Arrow" type="Sprite2D" parent="."]
+[node name="ArrowSprite" type="Sprite2D" parent="."]
 z_index = 1
 texture_filter = 1
 texture = ExtResource("1_rimtg")
@@ -18,7 +18,3 @@ texture = ExtResource("1_rimtg")
 z_index = 1
 position = Vector2(3, 0.5)
 shape = SubResource("RectangleShape2D_5f2o4")
-
-[node name="LifeTimer" type="Timer" parent="."]
-
-[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
