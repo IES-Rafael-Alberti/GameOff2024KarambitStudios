@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://33orawa54art"]
 
-[ext_resource type="Texture2D" uid="uid://c42p43ahdggrh" path="res://Assets/Atlantis-tileset.png" id="1_02vy1"]
+[ext_resource type="Texture2D" uid="uid://dp5p48iq2iqia" path="res://Assets/TileSets/tileset_atlantis_structure.png" id="1_48rpo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcyjv"]
 size = Vector2(98, 8)
@@ -9,9 +9,11 @@ size = Vector2(98, 8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_02vy1")
+position = Vector2(1.3113e-06, 0)
+scale = Vector2(1.04255, 1)
+texture = ExtResource("1_48rpo")
 region_enabled = true
-region_rect = Rect2(384, 400, 96, 8)
+region_rect = Rect2(0, 16, 94, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lcyjv")

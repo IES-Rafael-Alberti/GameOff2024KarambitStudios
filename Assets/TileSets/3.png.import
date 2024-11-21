@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c42p43ahdggrh"
-path="res://.godot/imported/Atlantis-tileset.png-dd7b080b5369c16a41316169c17bfcb4.ctex"
+uid="uid://bhbwiypd5k2i4"
+path="res://.godot/imported/3.png-6743a1c72e3ec194cc6cbab77912ac6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Atlantis-tileset.png"
-dest_files=["res://.godot/imported/Atlantis-tileset.png-dd7b080b5369c16a41316169c17bfcb4.ctex"]
+source_file="res://Assets/TileSets/3.png"
+dest_files=["res://.godot/imported/3.png-6743a1c72e3ec194cc6cbab77912ac6a.ctex"]
 
 [params]
 
