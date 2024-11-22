@@ -188,22 +188,19 @@ func perform_attack_flashlight():
 		# Desactiva el ataque después de un breve periodo
 		attack_timer.start()
 		attack_cool_down.start()
-
-# --------------- Colision del flashAttack --------------------
-func _on_flash_attack_body_entered(body: Node) -> void:
+func damage_zone(body: Node):
 	print("Colisión detectada con:", body)
 	# Verifica si el objeto que entró en el área es un enemigo
 	if body.is_in_group("enemigos"):
 		print("Enemigo detectado en el área de ataque")
 		body.take_damage(1)
+# --------------- Colision del flashAttack --------------------
+func _on_flash_attack_body_entered(body: Node) -> void:
+	damage_zone(body)
 		
 # -------------- Colision del meleeAttack
 func _on_melee_attack_body_entered(body: Node2D) -> void:
-	print("Colisión detectada con:", body)
-	# Verifica si el objeto que entró en el área es un enemigo
-	if body.is_in_group("enemigos"):
-		print("Enemigo detectado en el área de ataque")
-		body.recibir_dano(1)
+	damage_zone(body)
 
 # --------------------- Funciones menú ---------------------
 # Función para pausar/reanudar el juego 
