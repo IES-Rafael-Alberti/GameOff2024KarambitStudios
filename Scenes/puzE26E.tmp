@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4evg073v65bm"]
+
+[ext_resource type="Texture2D" uid="uid://b0wjpq6ks36fw" path="res://Assets/Sprites/Puzzle/tablero_Dorado_v1.png" id="1_5tvrn"]
+[ext_resource type="Script" path="res://Scripts/puzzle_el_dorado.gd" id="1_yricd"]
+[ext_resource type="Texture2D" uid="uid://bysl1xaw6ra0a" path="res://Assets/Sprites/Puzzle/pieza_1_v1.png" id="2_lnkfv"]
+[ext_resource type="Script" path="res://Scripts/tablero_dorado.gd" id="3_60eyv"]
+[ext_resource type="PackedScene" uid="uid://bsm4j8raa4231" path="res://Scenes/cell.tscn" id="3_v3paw"]
+[ext_resource type="Script" path="res://Scripts/pieza.gd" id="5_8s2r0"]
+
+[node name="PuzzleElDorado" type="Node2D"]
+script = ExtResource("1_yricd")
+
+[node name="TableroDorado" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_5tvrn")
+offset = Vector2(32, 32)
+script = ExtResource("3_60eyv")
+
+[node name="Cells" type="Node2D" parent="TableroDorado"]
+
+[node name="Cell" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+
+[node name="Cell2" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(21, 10)
+
+[node name="Cell3" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(32, 10)
+
+[node name="Cell4" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(43, 10)
+
+[node name="Cell5" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(54, 10)
+
+[node name="Cell6" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(10, 21)
+
+[node name="Cell7" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(21, 21)
+
+[node name="Cell8" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(54, 21)
+
+[node name="Cell9" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(43, 21)
+
+[node name="Cell10" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(32, 21)
+
+[node name="Cell11" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(10, 32)
+
+[node name="Cell12" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(21, 32)
+
+[node name="Cell13" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(32, 32)
+
+[node name="Cell14" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(43, 32)
+
+[node name="Cell15" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(54, 32)
+
+[node name="Cell16" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(10, 43)
+
+[node name="Cell17" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(21, 43)
+
+[node name="Cell18" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(32, 43)
+
+[node name="Cell19" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(43, 43)
+
+[node name="Cell20" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(54, 43)
+
+[node name="Cell21" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(10, 54)
+
+[node name="Cell22" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(21, 54)
+
+[node name="Cell23" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(32, 54)
+
+[node name="Cell24" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(43, 54)
+
+[node name="Cell25" parent="TableroDorado/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(54, 54)
+
+[node name="Pieza1V1" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = -45.0
+offset_top = 4.0
+offset_right = -13.0
+offset_bottom = 36.0
+texture_normal = ExtResource("2_lnkfv")
+script = ExtResource("5_8s2r0")
+
+[node name="Cells" type="Node2D" parent="Pieza1V1"]
+position = Vector2(16, 16)
+
+[node name="Cell" parent="Pieza1V1/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(-5, -7)
+
+[node name="Cell2" parent="Pieza1V1/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(-5, 4)
+
+[node name="Cell3" parent="Pieza1V1/Cells" instance=ExtResource("3_v3paw")]
+position = Vector2(6, 4)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(32, 32)
+zoom = Vector2(8, 8)

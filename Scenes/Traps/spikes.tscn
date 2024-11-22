@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://w86dxymlrbo6"]
+
+[ext_resource type="Texture2D" uid="uid://k56fxeu6muyw" path="res://Assets/Sprites/Spikes.png" id="1_wofs1"]
+[ext_resource type="Script" path="res://Scripts/spikes.gd" id="2_15tom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1i5l"]
+size = Vector2(28, 6)
+
+[sub_resource type="Animation" id="Animation_yjcur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x8mqb"]
+resource_name = "new_animation"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.13333, 1.26667, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_77ntw"]
+resource_name = "UpSpikes_2"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.633333, 0.766667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3stu"]
+_data = {
+"RESET": SubResource("Animation_yjcur"),
+"UpSpikes": SubResource("Animation_x8mqb"),
+"UpSpikes_2": SubResource("Animation_77ntw")
+}
+
+[node name="Spikes" type="Sprite2D"]
+texture = ExtResource("1_wofs1")
+script = ExtResource("2_15tom")
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_t1i5l")
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[node name="SpikeAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f3stu")
+}
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

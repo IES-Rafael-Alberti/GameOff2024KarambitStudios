@@ -4,6 +4,8 @@ var can_attack = true
 
 # Exporta para ajustar la fuerza del lanzamiento
 @export var throw_power: float = 300.0
+@export var max_vida: int = 1 
+@export var fliped: bool = false
 
 @onready var sprite_monkey: AnimatedSprite2D = $SpriteMonkey
 @onready var shooting_point: Node2D = $ShootingPoint
@@ -11,9 +13,8 @@ var can_attack = true
 @onready var attack_cooldown: Timer = $AttackCooldown
 @onready var stone_spawn_time: Timer = $StoneSpawnTime
 
-const MONKEY_STONE = preload("res://Scenes/monkey_stone.tscn")
+const MONKEY_STONE = preload("res://Scenes/Proyectiles/monkey_stone.tscn")
 
-@export var max_vida: int = 1  # Vida máxima del enemigo
 var vida: int
 
 func _ready() -> void:
@@ -22,13 +23,18 @@ func _ready() -> void:
 	
 	# Añadimos al enemigo al grupo "enemigos"
 	add_to_group("enemigos")
-
+	# Añadimos al enemigo al grupo "enemigos"
+	add_to_group("enemigos")
+	
+	
+	sprite_monkey.flip_h = fliped
 
 func _process(delta: float) -> void:
 	if GameManager.player_node:
 
-		if (GameManager.player_node.global_position - sprite_monkey.global_position).length() < 200:  # Ajusta el rango
-			if can_attack:
+		if can_attack:
+			if (GameManager.player_node.global_position - sprite_monkey.global_position).length() < 200:  # Ajusta el rango
+			
 				throw_stone()
 	else:
 		print("NO hay jugador: " + str(GameManager.player_node))
@@ -53,6 +59,7 @@ func throw_stone():
 
 	# Aplica una fuerza en la dirección del jugador
 	await  stone_spawn_time.timeout
+	
 	stone.freeze = false
 	stone.apply_impulse(direction * throw_power, shooting_point.global_position)
 
@@ -61,6 +68,11 @@ func recibir_dano(dano: int) -> void:
 	# Reducir la vida del enemigo
 	vida -= dano
 	print("Enemigo recibió daño, vida restante:", vida)
+
+	# Reducir la vida del enemigo
+	vida -= dano
+	print("Enemigo recibió daño, vida restante:", vida)
+
 	# Eliminar al enemigo si la vida llega a cero o menos
 	if vida <= 0:
 		eliminar()
@@ -72,4 +84,5 @@ func eliminar() -> void:
 
 func _on_attack_cooldown_timeout() -> void:
 	can_attack = true
+
 	

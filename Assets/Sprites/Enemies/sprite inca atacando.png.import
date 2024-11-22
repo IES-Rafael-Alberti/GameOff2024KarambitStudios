@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+<<<<<<<< HEAD:Assets/Sprites/Enemies/sprite inca atacando.png.import
+uid="uid://mbfa0ijux3o5"
+path="res://.godot/imported/sprite inca atacando.png-f3e08d02b46a7f258630f86f6e648b50.ctex"
+========
+uid="uid://bam64ff23q3t3"
+path="res://.godot/imported/tileset_atlantis_pilars_and_sand.png-ac9d2588437f4704289ab544e41c689b.ctex"
+>>>>>>>> Juanma:Assets/TileSets/tileset_atlantis_pilars_and_sand.png.import
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+<<<<<<<< HEAD:Assets/Sprites/Enemies/sprite inca atacando.png.import
+source_file="res://Assets/Sprites/Enemies/sprite inca atacando.png"
+dest_files=["res://.godot/imported/sprite inca atacando.png-f3e08d02b46a7f258630f86f6e648b50.ctex"]
+========
+source_file="res://Assets/TileSets/tileset_atlantis_pilars_and_sand.png"
+dest_files=["res://.godot/imported/tileset_atlantis_pilars_and_sand.png-ac9d2588437f4704289ab544e41c689b.ctex"]
+>>>>>>>> Juanma:Assets/TileSets/tileset_atlantis_pilars_and_sand.png.import
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
