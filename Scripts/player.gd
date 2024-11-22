@@ -132,7 +132,7 @@ func _physics_process(delta: float) -> void:
 
 	
 	# Aplicar gravedad si no está en el suelo y no está en dash
-	if not is_on_floor() and not is_dashing:	
+	if not is_on_floor() and not is_dashing:
 		velocity.y += gravity * delta
 
 	# Reiniciar saltos si está en el suelo
@@ -165,8 +165,6 @@ func _physics_process(delta: float) -> void:
 			state_machine.travel("jump_up")
 		if velocity.y > 0:
 			state_machine.travel("jump_down")
-
-
 	# Aplicar el movimiento al final
 	move_and_slide()
 	
@@ -198,7 +196,6 @@ func perform_attack_flashlight():
 
 		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
 		var direction_multiplier = 1 if facing_right else -1
-		#
 		# Posicionamos el ataque en relación con la posición actual del personaje
 		var attack_position = position + Vector2(ATTACK_DISTANCE * direction_multiplier, 0)
 
@@ -208,22 +205,21 @@ func perform_attack_flashlight():
 		# Desactiva el ataque después de un breve periodo
 		attack_timer.start()
 		attack_cool_down.start()
-## --------------- Colision del flashAttack --------------------
-func _on_flash_attack_body_entered(body: Node) -> void:
+func damage_zone(body: Node):
 	print("Colisión detectada con:", body)
 	# Verifica si el objeto que entró en el área es un enemigo
 	if body.is_in_group("enemigos"):
 		print("Enemigo detectado en el área de ataque")
-		body.recibir_dano(1)
+		body.take_damage(1)
+# --------------- Colision del flashAttack --------------------
+func _on_flash_attack_body_entered(body: Node) -> void:
+	damage_zone(body)
 		
 ## -------------- Colision del meleeAttack
 func _on_melee_attack_body_entered(body: Node2D) -> void:
-	print("Colisión detectada con:", body)
-	# Verifica si el objeto que entró en el área es un enemigo
-	if body.is_in_group("enemigos"):
-		print("Enemigo detectado en el área de ataque")
-		body.recibir_dano(1)
-## --------------------- Funciones menú ---------------------
+	damage_zone(body)
+
+# --------------------- Funciones menú ---------------------
 # Función para pausar/reanudar el juego 
 func toggle_pause():
 	if pause_menu.visible:
@@ -232,16 +228,6 @@ func toggle_pause():
 	else:
 		pause_menu.visible = true
 		Engine.time_scale = 0.0
-
-## ------------------ Funcion morir personaje -------------------
-func muerte():
-	# Eliminar al jugador de la escena actual antes de recargarla
-	get_node("/root/Player").queue_free()
-	# Opcional: Si necesitas reiniciar alguna otra variable o estado del jugador, lo haces aquí.
-	# Aquí restablecemos la vida del jugador a MAX_HEALTH.
-	GameManager.player_health = GameManager.MAX_HEALTH  # O también puedes hacerlo directamente en el jugador
-	# Recargar la escena
-	get_tree().reload_current_scene()
 	
 ## ----------------- Función de teletransporte -------------------
 # Función para teletransportar al jugador

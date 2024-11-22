@@ -1,10 +1,10 @@
 [gd_scene load_steps=46 format=3 uid="uid://b07nwgayixvcw"]
 
 [ext_resource type="Script" path="res://Scripts/inca_enemy.gd" id="1_at6ic"]
-[ext_resource type="Texture2D" uid="uid://d0mymiuk21a27" path="res://Assets/Sprites/Enemies/Inca/sprite inca idle.png" id="2_bukym"]
-[ext_resource type="Texture2D" uid="uid://mbfa0ijux3o5" path="res://Assets/Sprites/Enemies/Inca/sprite inca atacando.png" id="2_c4djr"]
-[ext_resource type="Texture2D" uid="uid://daipu7skn8tm7" path="res://Assets/Sprites/Enemies/Inca/sprite inca corriendo.png" id="2_uclle"]
-[ext_resource type="Texture2D" uid="uid://cak0iheqwrfpn" path="res://Assets/Sprites/Enemies/Inca/sprite inca muriendo.png" id="3_5icgq"]
+[ext_resource type="Texture2D" uid="uid://d0mymiuk21a27" path="res://Assets/Sprites/Enemies/sprite inca idle.png" id="2_bukym"]
+[ext_resource type="Texture2D" uid="uid://mbfa0ijux3o5" path="res://Assets/Sprites/Enemies/sprite inca atacando.png" id="2_c4djr"]
+[ext_resource type="Texture2D" uid="uid://daipu7skn8tm7" path="res://Assets/Sprites/Enemies/sprite inca corriendo.png" id="2_uclle"]
+[ext_resource type="Texture2D" uid="uid://cak0iheqwrfpn" path="res://Assets/Sprites/Enemies/sprite inca muriendo.png" id="3_5icgq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xq4m"]
 atlas = ExtResource("2_c4djr")
@@ -145,16 +145,16 @@ region = Rect2(605, 0, 55, 55)
 [sub_resource type="SpriteFrames" id="SpriteFrames_vg5vl"]
 animations = [{
 "frames": [{
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2xq4m")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ofkhu")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pthj7")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sdbk1")
 }, {
 "duration": 0.7,
@@ -169,9 +169,9 @@ animations = [{
 "duration": 0.7,
 "texture": SubResource("AtlasTexture_ady7q")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -285,9 +285,8 @@ size = Vector2(5, 9.375)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4jual"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1x3q4"]
-radius = 3.0
-height = 7.25
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr8qg"]
+size = Vector2(7.5, 6.5)
 
 [node name="Inca" type="CharacterBody2D" groups=["enemigos"]]
 texture_filter = 1
@@ -322,9 +321,7 @@ shape = SubResource("CircleShape2D_4jual")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="AttackCollision" type="CollisionShape2D" parent="AttackArea" groups=["proyectile"]]
-position = Vector2(6.375, 0.5)
-rotation = -1.57079
-shape = SubResource("CapsuleShape2D_1x3q4")
+position = Vector2(6.5, 0.5)
+shape = SubResource("RectangleShape2D_qr8qg")
 
 [connection signal="body_entered" from="Detection_player" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

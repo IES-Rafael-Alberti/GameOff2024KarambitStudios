@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://nkwfgfld2vl7"]
+[gd_scene load_steps=6 format=3 uid="uid://nkwfgfld2vl7"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_cctwx"]
 
@@ -34,3 +34,14 @@ offset_right = 243.0
 offset_bottom = -163.0
 theme_override_font_sizes/font_size = 42
 text = "DUAT"
+
+[node name="Anubis" parent="." instance=ExtResource("3_oa1vh")]
+position = Vector2(128, 8)
+
+[node name="path" type="Node" parent="Anubis"]
+
+[node name="Marker2D" type="Marker2D" parent="Anubis/path"]
+position = Vector2(81, 7)
+
+[node name="Marker2D2" type="Marker2D" parent="Anubis/path"]
+position = Vector2(196, 7)
