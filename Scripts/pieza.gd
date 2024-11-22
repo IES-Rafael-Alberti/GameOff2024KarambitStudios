@@ -44,6 +44,7 @@ func _gui_input(event: InputEvent) -> void:
 				print(global_position)
 				correct_pieces.append(true)  # Marca esta pieza como colocada correctamente
 				colocada = true
+				z_index -= 1
 				check_victory()
 			else:
 				colocada = false
@@ -56,5 +57,5 @@ func check_victory():
 			return
 	print("Victoria")
 	GameManager.puzzle_1_complete = true
-	get_tree().change_scene_to_file("res://Scenes/museum_scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/museum_scene.tscn")
 	

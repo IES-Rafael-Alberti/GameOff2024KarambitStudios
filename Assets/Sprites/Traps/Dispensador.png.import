@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqlsma5ykovyw"
-path="res://.godot/imported/arrow_v2.png-9705111817a6f9295ff813def2c776ed.ctex"
+uid="uid://dxiylxndb54oh"
+path="res://.godot/imported/Dispensador.png-67269cba1184f1fd24c050cbc0ac160d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Traps/arrow_v2.png"
-dest_files=["res://.godot/imported/arrow_v2.png-9705111817a6f9295ff813def2c776ed.ctex"]
+source_file="res://Assets/Sprites/Traps/Dispensador.png"
+dest_files=["res://.godot/imported/Dispensador.png-67269cba1184f1fd24c050cbc0ac160d.ctex"]
 
 [params]
 
