@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Assets/Sprites/Enemies/sprite inca atacando.png.import
-uid="uid://mbfa0ijux3o5"
-path="res://.godot/imported/sprite inca atacando.png-f3e08d02b46a7f258630f86f6e648b50.ctex"
-========
-uid="uid://bam64ff23q3t3"
+uid="uid://cjy6qikxgup5d"
 path="res://.godot/imported/tileset_atlantis_pilars_and_sand.png-ac9d2588437f4704289ab544e41c689b.ctex"
->>>>>>>> Juanma:Assets/TileSets/tileset_atlantis_pilars_and_sand.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/Sprites/Enemies/sprite inca atacando.png.import
-source_file="res://Assets/Sprites/Enemies/sprite inca atacando.png"
-dest_files=["res://.godot/imported/sprite inca atacando.png-f3e08d02b46a7f258630f86f6e648b50.ctex"]
-========
 source_file="res://Assets/TileSets/tileset_atlantis_pilars_and_sand.png"
 dest_files=["res://.godot/imported/tileset_atlantis_pilars_and_sand.png-ac9d2588437f4704289ab544e41c689b.ctex"]
->>>>>>>> Juanma:Assets/TileSets/tileset_atlantis_pilars_and_sand.png.import
 
 [params]
 

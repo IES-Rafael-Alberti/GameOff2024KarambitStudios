@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Assets/TileSets/tileset_eldorado_arbol.png.import
-uid="uid://dcmd2bcfu8os7"
+uid="uid://yuat774wca2d"
 path="res://.godot/imported/tileset_eldorado_arbol.png-339120e523bc78b1afab256932ebd012.ctex"
-========
-uid="uid://dp5p48iq2iqia"
-path="res://.godot/imported/tileset_atlantis_structure.png-fd5e607fa21320a2d7794f3968cf63cf.ctex"
->>>>>>>> Juanma:Assets/TileSets/tileset_atlantis_structure.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/TileSets/tileset_eldorado_arbol.png.import
 source_file="res://Assets/TileSets/tileset_eldorado_arbol.png"
 dest_files=["res://.godot/imported/tileset_eldorado_arbol.png-339120e523bc78b1afab256932ebd012.ctex"]
-========
-source_file="res://Assets/TileSets/tileset_atlantis_structure.png"
-dest_files=["res://.godot/imported/tileset_atlantis_structure.png-fd5e607fa21320a2d7794f3968cf63cf.ctex"]
->>>>>>>> Juanma:Assets/TileSets/tileset_atlantis_structure.png.import
 
 [params]
 

@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Assets/Sprites/Enemies/Inca/inca_enemy.png.import
-uid="uid://ckklksyk3wllk"
+uid="uid://bkqojriaar6fy"
 path="res://.godot/imported/inca_enemy.png-144740e3386b2e17f780f13f2ec408be.ctex"
-========
-uid="uid://ca3qab6eloxqe"
-path="res://.godot/imported/4.png-165f06ff397aa37a80b638a20ea4218f.ctex"
->>>>>>>> Juanma:Assets/TileSets/4.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/Sprites/Enemies/Inca/inca_enemy.png.import
 source_file="res://Assets/Sprites/Enemies/Inca/inca_enemy.png"
 dest_files=["res://.godot/imported/inca_enemy.png-144740e3386b2e17f780f13f2ec408be.ctex"]
-========
-source_file="res://Assets/TileSets/4.png"
-dest_files=["res://.godot/imported/4.png-165f06ff397aa37a80b638a20ea4218f.ctex"]
->>>>>>>> Juanma:Assets/TileSets/4.png.import
 
 [params]
 

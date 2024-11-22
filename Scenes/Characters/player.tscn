@@ -672,7 +672,7 @@ shape = SubResource("CapsuleShape2D_0u7xg")
 
 [node name="CamaraPlayer" type="Camera2D" parent="."]
 visible = false
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="."]

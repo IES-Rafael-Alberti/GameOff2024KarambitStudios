@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Assets/Sprites/Enemies/Boss/Jaguar.png.import
-uid="uid://c3kh80j5ug27"
+uid="uid://dyv54bnaoaovx"
 path="res://.godot/imported/Jaguar.png-cd767916779ef1bf8dc3d6775ecbdf9b.ctex"
-========
-uid="uid://cegvq8u1tjuap"
-path="res://.godot/imported/1.png-f45d15535c8be6b2fba7172d2edb6e17.ctex"
->>>>>>>> Juanma:Assets/TileSets/1.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/Sprites/Enemies/Boss/Jaguar.png.import
 source_file="res://Assets/Sprites/Enemies/Boss/Jaguar.png"
 dest_files=["res://.godot/imported/Jaguar.png-cd767916779ef1bf8dc3d6775ecbdf9b.ctex"]
-========
-source_file="res://Assets/TileSets/1.png"
-dest_files=["res://.godot/imported/1.png-f45d15535c8be6b2fba7172d2edb6e17.ctex"]
->>>>>>>> Juanma:Assets/TileSets/1.png.import
 
 [params]
 

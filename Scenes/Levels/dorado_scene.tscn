@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://da3n0d3m4vnep" path="res://Assets/TileSets/tileset_eldorado_agua.png" id="5_q0pfq"]
 [ext_resource type="PackedScene" uid="uid://daq4hixxbx71i" path="res://Scenes/Enemies/monkey.tscn" id="5_vr3n7"]
 [ext_resource type="Texture2D" uid="uid://bnor6xi5ukr1m" path="res://Assets/TileSets/tileset_eldorado_golden.png" id="6_yl3av"]
-[ext_resource type="Texture2D" uid="uid://dcmd2bcfu8os7" path="res://Assets/TileSets/tileset_eldorado_arbol.png" id="7_0jt3m"]
+[ext_resource type="Texture2D" uid="uid://yuat774wca2d" path="res://Assets/TileSets/tileset_eldorado_arbol.png" id="7_0jt3m"]
 [ext_resource type="PackedScene" uid="uid://b07nwgayixvcw" path="res://Scenes/Enemies/inca_enemy.tscn" id="7_10ucp"]
 [ext_resource type="Texture2D" uid="uid://dhfwoyeqgk4jn" path="res://Assets/TileSets/tileset_eldorado_arbol_interior.png" id="8_1u2wk"]
 [ext_resource type="PackedScene" uid="uid://cq1r444gvvl0o" path="res://Scenes/Enemies/jaguar.tscn" id="8_88r8v"]
