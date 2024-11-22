@@ -9,7 +9,8 @@ const PLAYER = preload("res://Scenes/Characters/player.tscn")
 func _ready() -> void:
 	Engine.time_scale = 1.0
 	if GameManager.puzzle_1_complete:
-		pedestal_el_dorado.get_child(0).get_child(0).disabled = true
+		if pedestal_el_dorado:
+			pedestal_el_dorado.get_child(0).get_child(0).disabled = true
 
 	var player_node = PLAYER.instantiate()
 	player_node.set_global_position(spawn_point.get_global_position())
