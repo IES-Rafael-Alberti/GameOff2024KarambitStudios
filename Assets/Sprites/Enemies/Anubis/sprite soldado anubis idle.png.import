@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mbfa0ijux3o5"
-path="res://.godot/imported/sprite inca atacando.png-f3e08d02b46a7f258630f86f6e648b50.ctex"
+uid="uid://bisgm83g8okfo"
+path="res://.godot/imported/sprite soldado anubis idle.png-2bc528b59dcde2b99fceb73441c5b3c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Enemies/sprite inca atacando.png"
-dest_files=["res://.godot/imported/sprite inca atacando.png-f3e08d02b46a7f258630f86f6e648b50.ctex"]
+source_file="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis idle.png"
+dest_files=["res://.godot/imported/sprite soldado anubis idle.png-2bc528b59dcde2b99fceb73441c5b3c7.ctex"]
 
 [params]
 

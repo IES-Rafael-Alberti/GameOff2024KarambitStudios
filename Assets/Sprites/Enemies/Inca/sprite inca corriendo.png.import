@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctcb64m10ut6m"
-path="res://.godot/imported/Jaguar.png-c9200147d061f4c6caa63f3a7cc25416.ctex"
+uid="uid://daipu7skn8tm7"
+path="res://.godot/imported/sprite inca corriendo.png-d18676e5fb89c2dc5ddc1b11a535b037.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Enemies/Jaguar.png"
-dest_files=["res://.godot/imported/Jaguar.png-c9200147d061f4c6caa63f3a7cc25416.ctex"]
+source_file="res://Assets/Sprites/Enemies/Inca/sprite inca corriendo.png"
+dest_files=["res://.godot/imported/sprite inca corriendo.png-d18676e5fb89c2dc5ddc1b11a535b037.ctex"]
 
 [params]
 

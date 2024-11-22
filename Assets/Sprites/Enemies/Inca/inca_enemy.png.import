@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0mymiuk21a27"
-path="res://.godot/imported/sprite inca idle.png-0e75476ee8379c63f82159e56cbf325f.ctex"
+uid="uid://d3lm8q3q1epq6"
+path="res://.godot/imported/inca_enemy.png-144740e3386b2e17f780f13f2ec408be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Enemies/sprite inca idle.png"
-dest_files=["res://.godot/imported/sprite inca idle.png-0e75476ee8379c63f82159e56cbf325f.ctex"]
+source_file="res://Assets/Sprites/Enemies/Inca/inca_enemy.png"
+dest_files=["res://.godot/imported/inca_enemy.png-144740e3386b2e17f780f13f2ec408be.ctex"]
 
 [params]
 

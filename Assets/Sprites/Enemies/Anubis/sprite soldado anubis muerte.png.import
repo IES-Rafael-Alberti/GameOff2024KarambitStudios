@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3lm8q3q1epq6"
-path="res://.godot/imported/inca_enemy.png-cc75e207418cb7718cbcca8c80bff26f.ctex"
+uid="uid://cn5crhxd87axw"
+path="res://.godot/imported/sprite soldado anubis muerte.png-e8dbbdc574f0c6af55d948abcce798ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Enemies/inca_enemy.png"
-dest_files=["res://.godot/imported/inca_enemy.png-cc75e207418cb7718cbcca8c80bff26f.ctex"]
+source_file="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis muerte.png"
+dest_files=["res://.godot/imported/sprite soldado anubis muerte.png-e8dbbdc574f0c6af55d948abcce798ef.ctex"]
 
 [params]
 

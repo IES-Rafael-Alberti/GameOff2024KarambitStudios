@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daipu7skn8tm7"
-path="res://.godot/imported/sprite inca corriendo.png-efea0b18ee167b289b7e3908a4236f67.ctex"
+uid="uid://dgsqeb3i55ae8"
+path="res://.godot/imported/sprite soldado anubis corriendo.png-043840bb2af9d8226c313f492a95974c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Enemies/sprite inca corriendo.png"
-dest_files=["res://.godot/imported/sprite inca corriendo.png-efea0b18ee167b289b7e3908a4236f67.ctex"]
+source_file="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis corriendo.png"
+dest_files=["res://.godot/imported/sprite soldado anubis corriendo.png-043840bb2af9d8226c313f492a95974c.ctex"]
 
 [params]
 
