@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlbaav1e05bcn"]
+[gd_scene load_steps=24 format=3 uid="uid://dlbaav1e05bcn"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jn1hj"]
 [ext_resource type="Texture2D" uid="uid://dtvty56qvqbf7" path="res://Assets/TileSets/tileset_eldorado_v2.png" id="2_fp3cr"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cq1r444gvvl0o" path="res://Scenes/Enemies/jaguar.tscn" id="8_88r8v"]
 [ext_resource type="PackedScene" uid="uid://bmea5rouemy1m" path="res://Scenes/Traps/kill_zone.tscn" id="12_40yjf"]
 [ext_resource type="PackedScene" uid="uid://edv16fxwoq7q" path="res://Scenes/dorado_platform_1.tscn" id="13_gcneq"]
+[ext_resource type="PackedScene" uid="uid://wivet2lx3hko" path="res://Scenes/Traps/thrower.tscn" id="14_ncv8b"]
 [ext_resource type="PackedScene" uid="uid://d0l1pipavt234" path="res://Scenes/dorado_platform_2.tscn" id="14_smykk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8hv2"]
@@ -912,18 +913,29 @@ position = Vector2(724, -221)
 [node name="dorado_platform_61" parent="platforms" instance=ExtResource("13_gcneq")]
 position = Vector2(726, -379)
 
-[node name="Thrower" parent="." instance=ExtResource("9_ov3ds")]
-z_index = -6
-position = Vector2(-596, -150)
-type = 0
-bullet_speed = 200.0
-life_time = 1.5
-cooldown_time = 3.0
-
-[node name="Thrower2" parent="." instance=ExtResource("9_ov3ds")]
-z_index = -6
-position = Vector2(-692, 327)
+[node name="Thrower" parent="." instance=ExtResource("14_ncv8b")]
+position = Vector2(1405, 792)
 type = 0
 bullet_speed = 200.0
 life_time = 2.0
-cooldown_time = 4.0
+cooldown_time = 3.0
+
+[node name="Thrower2" parent="." instance=ExtResource("14_ncv8b")]
+position = Vector2(970, 267)
+flip_h = true
+type = 0
+bullet_speed = 300.0
+life_time = 3.0
+cooldown_time = 2.0
+
+[node name="Inca2" parent="." instance=ExtResource("7_10ucp")]
+position = Vector2(-98, 412)
+scale = Vector2(4, 4)
+
+[node name="path" type="Node2D" parent="Inca2"]
+
+[node name="Marker2D" type="Marker2D" parent="Inca2/path"]
+position = Vector2(34.5, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Inca2/path"]
+position = Vector2(-32.5, 0)

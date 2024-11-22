@@ -25,4 +25,5 @@ func set_direction(new_direction: Vector2) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	GameManager.take_damage(damage)
+	if body.name == "Player":
+		GameManager.take_player_damage()
