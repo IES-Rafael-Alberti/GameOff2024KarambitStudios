@@ -10,11 +10,12 @@ radius = 4.0
 collision_mask = 11
 gravity_scale = 0.5
 script = ExtResource("1_vvy4f")
+scaleX = 1.5
+scaleY = 1.5
 
 [node name="SpriteStone" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-0.67, -0.54)
-scale = Vector2(1.4, 1.4)
 texture = ExtResource("2_o4cbw")
 region_rect = Rect2(0, -0.951334, 1.9342, 1.95133)
 

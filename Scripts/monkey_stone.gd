@@ -7,6 +7,8 @@ extends RigidBody2D
 	preload("res://Assets/Sprites/monkey_stone.png")
 ]
 @onready var sprite_stone = $SpriteStone
+@export var scaleX: float = 1.0
+@export var scaleY: float = 1.0
 
 func _ready() -> void:
 	asign_sprite()
@@ -20,3 +22,4 @@ func asign_sprite() -> void:
 	if sprite_list.size() > 0:  # Asegúrate de que el array no esté vacío
 		var random_index = randi() % sprite_list.size()
 		sprite_stone.texture = sprite_list[random_index]  # Asigna la textura
+		sprite_stone.scale = Vector2(scaleX, scaleY)
