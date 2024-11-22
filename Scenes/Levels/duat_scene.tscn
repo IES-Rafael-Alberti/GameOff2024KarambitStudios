@@ -1,24 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://nkwfgfld2vl7"]
+[gd_scene load_steps=5 format=3 uid="uid://nkwfgfld2vl7"]
 
-[ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_cctwx"]
-
-[sub_resource type="GDScript" id="GDScript_7a6pn"]
-script/source = "extends  StaticBody2D
-"
+[ext_resource type="Script" path="res://Scripts/scene_script.gd" id="2_ipaum"]
+[ext_resource type="PackedScene" uid="uid://6s21wq7ig4ta" path="res://Scenes/Enemies/anubis_enemy.tscn" id="3_oa1vh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sy2kt"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_p6dni"]
 
 [node name="DuatScene" type="Node2D"]
-script = ExtResource("1_cctwx")
+script = ExtResource("2_ipaum")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(20, -4)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(57, 20)
-script = SubResource("GDScript_7a6pn")
 
 [node name="FloorCollision" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_sy2kt")
@@ -42,6 +38,3 @@ position = Vector2(128, 11)
 
 [node name="Marker2D" type="Marker2D" parent="Anubis/path"]
 position = Vector2(81, 8)
-
-[node name="Marker2D2" type="Marker2D" parent="Anubis/path"]
-position = Vector2(196, 8)

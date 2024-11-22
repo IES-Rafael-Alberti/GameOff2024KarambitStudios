@@ -24,8 +24,6 @@ var flashlight: bool = false
 var player_position_puzzle: Vector2
 var puzzle_1_complete = false
 
-
-
 func take_damage(amount: int) -> bool:
 	player_health -= amount
 	print("El jugador recibio " + str(amount) + " de daño")

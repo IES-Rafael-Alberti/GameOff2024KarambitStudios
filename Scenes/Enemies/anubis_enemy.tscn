@@ -1,10 +1,10 @@
 [gd_scene load_steps=29 format=3 uid="uid://6s21wq7ig4ta"]
 
 [ext_resource type="Script" path="res://Scripts/inca_enemy.gd" id="1_88ep6"]
-[ext_resource type="Texture2D" uid="uid://cu5mfcv6frjgw" path="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis ataque.png" id="2_n1na1"]
-[ext_resource type="Texture2D" uid="uid://bisgm83g8okfo" path="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis idle.png" id="2_u7g1i"]
-[ext_resource type="Texture2D" uid="uid://dgsqeb3i55ae8" path="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis corriendo.png" id="3_1o0bv"]
-[ext_resource type="Texture2D" uid="uid://cn5crhxd87axw" path="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis muerte.png" id="4_fcorh"]
+[ext_resource type="Texture2D" uid="uid://ccuw1l1ipbwnb" path="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis ataque.png" id="2_n1na1"]
+[ext_resource type="Texture2D" uid="uid://v5o1b7lsepmk" path="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis idle.png" id="2_u7g1i"]
+[ext_resource type="Texture2D" uid="uid://cqdyo15ewhw51" path="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis corriendo.png" id="3_1o0bv"]
+[ext_resource type="Texture2D" uid="uid://ckptlgfnm5c6m" path="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis muerte.png" id="4_fcorh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_asruc"]
 atlas = ExtResource("2_n1na1")

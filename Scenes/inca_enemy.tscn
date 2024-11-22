@@ -237,7 +237,7 @@ scale = Vector2(0.315909, 0.315909)
 sprite_frames = SubResource("SpriteFrames_vg5vl")
 animation = &"muerto_siempre"
 autoplay = "muerto_siempre"
-frame = 7
+frame = 2
 frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
