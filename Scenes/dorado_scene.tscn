@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jn1hj"]
 [ext_resource type="Texture2D" uid="uid://dtvty56qvqbf7" path="res://Assets/TileSets/tileset_eldorado_v2.png" id="2_fp3cr"]
 [ext_resource type="Texture2D" uid="uid://d1c7dkuw3jsqa" path="res://Assets/TileSets/tileset_museum_v3.png" id="4_ibmdm"]
-[ext_resource type="Texture2D" uid="uid://e4kimp6r52ay" path="res://Assets/TileSets/free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="4_pa6m4"]
 [ext_resource type="Texture2D" uid="uid://da3n0d3m4vnep" path="res://Assets/TileSets/tileset_eldorado_agua.png" id="5_q0pfq"]
 [ext_resource type="PackedScene" uid="uid://daq4hixxbx71i" path="res://Scenes/monkey.tscn" id="5_vr3n7"]
 [ext_resource type="PackedScene" uid="uid://b07nwgayixvcw" path="res://Scenes/inca_enemy.tscn" id="7_10ucp"]
@@ -247,8 +246,11 @@ texture = ExtResource("2_fp3cr")
 10:15/0 = 0
 11:15/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xgx0c"]
+load_path = "res://.godot/imported/Tileset.png-6d8bddb2939b7b48e7a84243bbf36826.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrf5k"]
-texture = ExtResource("4_pa6m4")
+texture = SubResource("CompressedTexture2D_xgx0c")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
