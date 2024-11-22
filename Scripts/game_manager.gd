@@ -16,7 +16,7 @@ var player_node: CharacterBody2D
 
 ##--------- PowerUps activables ---------
 
-var double_jump: bool = false
+var double_jump: bool = true
 var dash: bool = false
 var flashlight: bool = false
 

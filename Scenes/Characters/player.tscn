@@ -15,7 +15,6 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67cec"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vl53l"]
 atlas = ExtResource("2_p3i1b")
 region = Rect2(0, 0, 45, 45)
@@ -654,7 +653,7 @@ z_index = 1
 material = SubResource("ShaderMaterial_67cec")
 position = Vector2(0, -2.25)
 sprite_frames = SubResource("SpriteFrames_ek8rt")
-animation = &""
+animation = &"idle"
 autoplay = "idle"
 frame = 1
 
@@ -710,6 +709,7 @@ wait_time = 0.2
 [node name="DashCooldown" type="Timer" parent="Timers"]
 
 [node name="iFrames" type="Timer" parent="Timers"]
+wait_time = 4.0
 one_shot = true
 
 [node name="flashAttack" type="Area2D" parent="."]

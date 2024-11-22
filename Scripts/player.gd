@@ -83,6 +83,8 @@ func _physics_process(delta: float) -> void:
 	actual_duplicate_time += delta
 	# Actualizamos el flip del sprite según la dirección
 	
+	
+	
 	if direction > 0:
 		animated_sprite.flip_h = false
 		facing_right = true
@@ -278,11 +280,9 @@ func _on_player_sensor_body_entered(body: Node2D) -> void:
 	if can_take_damage:
 		if body.is_in_group("enemigos") or body.is_in_group("proyectile"):
 			
-			GameManager.take_damage(1)
+			GameManager.take_player_damage()
 			can_take_damage = false
 			i_frames.start()
-			if GameManager.player_health <= 0:
-				muerte()
 		else:
 			print("Vida restante: ", GameManager.player_health)
 
