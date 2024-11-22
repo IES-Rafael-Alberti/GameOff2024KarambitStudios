@@ -4,10 +4,10 @@ var can_shoot = true
 enum BulletType {ARROW, BALL, NONE}
 
 
-@onready var thrower: Node2D = $"."
 @onready var cooldown: Timer = $Cooldown
 @onready var life_timer: Timer = $LifeTimer
 @onready var shooting_point: Node2D = $ShootingPoint
+@onready var thrower: Sprite2D = $"."
 
 
 
@@ -29,7 +29,7 @@ func shooting():
 		print("Dispara")
 		var bullet_temp = BULLET.instantiate()
 		
-		bullet_temp.position = shooting_point.position 
+		
 
 		
 		
@@ -47,9 +47,10 @@ func shooting():
 		else:
 			bullet_direction = Vector2(1, 0)
 		bullet_temp.set_direction(bullet_direction)
+		bullet_temp.position = thrower.position + shooting_point.position 
 		bullet_temp.speed = bullet_speed
 		life_timer.wait_time = life_time
-		cooldown.wait_time = life_time
+		cooldown.wait_time = cooldown_time
 		get_parent().add_child(bullet_temp)
 		
 		life_timer.start()

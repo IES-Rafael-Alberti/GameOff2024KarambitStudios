@@ -7,7 +7,6 @@ var direction = Vector2(1, 0)
 # Velocidad del proyectil
 var speed
 @export var damage: float = 1.0
-@export var image: Texture2D
 
 
 
