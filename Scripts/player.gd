@@ -5,7 +5,6 @@ const SPEED = 130.0 # Velocidad del personaje
 const JUMP_VELOCITY = -300.0 # Velocidad del salto
 const DASH_SPEED = 400.0 # Velocidad del dash
 const DASH_DURATION = 1.5 # Duración del dash (segundos)
-const MAX_JUMPS = 2 # Máximo de saltos
 const ATTACK_DISTANCE = 30.0 # Distancia del área de ataque desde el personaje con la linterna
 const ATTACK_DISTANCE_MELEE = 10.0 # Distancia del área de ataque desde el personaje a melee
 const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
@@ -13,6 +12,7 @@ const DASH_EFFECT_SHADER = preload("res://Shaders/DashEffectShader.gdshader")
 const DAMAGE_SHADER = preload("res://Shaders/DamageShader.gdshader")
 ## ------------------- Variables ----------------
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var MAX_JUMPS = 1
 var jumps_left = MAX_JUMPS
 var actual_duplicate_time: float = 0
 var duplicate_time: float = 0.05
@@ -74,6 +74,8 @@ func _ready() -> void:
 	
 	melee_attack.visible = false
 	attack_hitbox_melee.disabled = true
+	if GameManager.double_jump:
+		MAX_JUMPS = 2
 
 func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento
@@ -189,7 +191,7 @@ func perform_attack_melee():
 
 ## ----------------- Función para realizar el ataque de la literna -------------------
 func perform_attack_flashlight():
-	if can_attack:
+	if can_attack and GameManager.flash_count > 0 and GameManager.flashlight:
 		can_attack = false
 		flash_attack.visible = true
 		attack_hitbox_flashlight.disabled = false
