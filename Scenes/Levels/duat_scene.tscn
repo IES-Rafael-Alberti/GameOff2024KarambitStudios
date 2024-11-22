@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://nkwfgfld2vl7"]
+
+[ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_cctwx"]
+
+[sub_resource type="GDScript" id="GDScript_7a6pn"]
+script/source = "extends  StaticBody2D
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sy2kt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p6dni"]
+
+[node name="DuatScene" type="Node2D"]
+script = ExtResource("1_cctwx")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(20, -4)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(57, 20)
+script = SubResource("GDScript_7a6pn")
+
+[node name="FloorCollision" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_sy2kt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+scale = Vector2(1e+06, 1)
+texture = SubResource("CanvasTexture_p6dni")
+
+[node name="LevelName" type="Label" parent="."]
+offset_left = 3.0
+offset_top = -221.0
+offset_right = 243.0
+offset_bottom = -163.0
+theme_override_font_sizes/font_size = 42
+text = "DUAT"
+
+[node name="Anubis" parent="." instance=ExtResource("3_oa1vh")]
+position = Vector2(128, 11)
+
+[node name="path" type="Node" parent="Anubis"]
+
+[node name="Marker2D" type="Marker2D" parent="Anubis/path"]
+position = Vector2(81, 8)
+
+[node name="Marker2D2" type="Marker2D" parent="Anubis/path"]
+position = Vector2(196, 8)

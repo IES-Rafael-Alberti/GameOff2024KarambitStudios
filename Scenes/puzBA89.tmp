@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4evg073v65bm"]
+
+[ext_resource type="Texture2D" uid="uid://b0wjpq6ks36fw" path="res://Assets/Sprites/Puzzle/tablero_Dorado_v1.png" id="1_5tvrn"]
+[ext_resource type="Script" path="res://Scripts/puzzle_el_dorado.gd" id="1_yricd"]
+[ext_resource type="Texture2D" uid="uid://bysl1xaw6ra0a" path="res://Assets/Sprites/Puzzle/pieza_1_v1.png" id="2_lnkfv"]
+[ext_resource type="Script" path="res://Scripts/tablero_dorado.gd" id="3_60eyv"]
+[ext_resource type="Script" path="res://Scripts/pieza.gd" id="5_8s2r0"]
+
+[node name="PuzzleElDorado" type="Node2D"]
+script = ExtResource("1_yricd")
+
+[node name="TableroDorado" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_5tvrn")
+offset = Vector2(32, 32)
+script = ExtResource("3_60eyv")
+
+[node name="Pieza1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-22, 29)
+texture = ExtResource("2_lnkfv")
+script = ExtResource("5_8s2r0")
+piece_offset = Vector2(16, 16)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(32, 32)
+zoom = Vector2(8, 8)

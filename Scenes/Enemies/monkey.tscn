@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://daq4hixxbx71i"]
+
+[ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_qaunr"]
+[ext_resource type="Texture2D" uid="uid://bmwrmuqya7riv" path="res://Assets/Sprites/Enemies/Mono/sprite_enemigo_mono_idle.png" id="2_uqg1j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byl4x"]
+atlas = ExtResource("2_uqg1j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flool"]
+atlas = ExtResource("2_uqg1j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj8xg"]
+atlas = ExtResource("2_uqg1j")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6l43g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byl4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flool")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj8xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flool")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3j8t"]
+size = Vector2(8, 15)
+
+[node name="Monkey" type="CharacterBody2D" groups=["enemigos"]]
+texture_filter = 1
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_qaunr")
+
+[node name="SpriteMonkey" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6l43g")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="ColliderMonkey" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_d3j8t")
+
+[node name="ShootingPoint" type="Node2D" parent="."]
+position = Vector2(0, 16)
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="StoneSpawnTime" type="Timer" parent="."]
+wait_time = 0.001
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

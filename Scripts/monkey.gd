@@ -4,15 +4,16 @@ var can_attack = true
 
 # Exporta para ajustar la fuerza del lanzamiento
 @export var throw_power: float = 300.0
+@export var max_vida: int = 1 
+@export var fliped: bool = false
 
 @onready var sprite_monkey: AnimatedSprite2D = $SpriteMonkey
 @onready var shooting_point: Node2D = $ShootingPoint
 
 @onready var attack_cooldown: Timer = $AttackCooldown
 @onready var stone_spawn_time: Timer = $StoneSpawnTime
-@export var max_vida: int = 1 
 
-const MONKEY_STONE = preload("res://Scenes/monkey_stone.tscn")
+const MONKEY_STONE = preload("res://Scenes/Proyectiles/monkey_stone.tscn")
 
 var vida: int
 
@@ -24,12 +25,16 @@ func _ready() -> void:
 	add_to_group("enemigos")
 	# Añadimos al enemigo al grupo "enemigos"
 	add_to_group("enemigos")
+	
+	
+	sprite_monkey.flip_h = fliped
 
 func _process(delta: float) -> void:
 	if GameManager.player_node:
 
-		if (GameManager.player_node.global_position - sprite_monkey.global_position).length() < 200:  # Ajusta el rango
-			if can_attack:
+		if can_attack:
+			if (GameManager.player_node.global_position - sprite_monkey.global_position).length() < 200:  # Ajusta el rango
+			
 				throw_stone()
 	else:
 		print("NO hay jugador: " + str(GameManager.player_node))

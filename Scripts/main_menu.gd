@@ -6,8 +6,6 @@ extends Control
 @onready var first_menu: VBoxContainer = $Panel/BackGroundButton/FirstMenu
 @onready var options_menu: VBoxContainer = $Panel/BackGroundButton/OptionsMenu
 
-# OPCIONES DE VENTANA
-@onready var screen_options: OptionButton = $Panel/BackGroundButton/OptionsMenu/SreenMode/ScreenOptions
 
 # BARRAS DE VOLUMEN
 @onready var master_volume_bar: HScrollBar = $Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum/MasterVolumeBar
@@ -17,10 +15,10 @@ func _ready() -> void:
 	Engine.time_scale = 1.0
 
 	rain_sound.play()
-	
+	print("Holaaaa")
 	
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/museum_scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/museum_scene.tscn")
 
 func _on_options_pressed() -> void:
 	first_menu.visible = false

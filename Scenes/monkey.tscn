@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://daq4hixxbx71i"]
+[gd_scene load_steps=8 format=3 uid="uid://d0qxuv71okein"]
 
 [ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_qaunr"]
 [ext_resource type="Texture2D" uid="uid://dwk3o8olaci07" path="res://Assets/Sprites/Enemies/sprite_enemigo_mono_idle.png" id="2_uqg1j"]
@@ -60,6 +60,6 @@ position = Vector2(0, 16)
 wait_time = 2.0
 
 [node name="StoneSpawnTime" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.001
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
