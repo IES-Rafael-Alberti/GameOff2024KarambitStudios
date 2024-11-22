@@ -12,8 +12,9 @@ enum BulletType {ARROW, BALL, NONE}
 
 
 @export var type: BulletType = BulletType.NONE
-@export var bullet_texture: Texture2D
-
+@export var bullet_speed: float
+@export var life_time: float
+@export var cooldown_time: float
 
 const BULLET = preload("res://Scenes/Proyectiles/bullet.tscn")
 const ARROW_V_2 = preload("res://Assets/Sprites/Proyectiles/arrow_v2.png")
@@ -46,7 +47,9 @@ func shooting():
 		else:
 			bullet_direction = Vector2(1, 0)
 		bullet_temp.set_direction(bullet_direction)
-		
+		bullet_temp.speed = bullet_speed
+		life_timer.wait_time = life_time
+		cooldown.wait_time = life_time
 		get_parent().add_child(bullet_temp)
 		
 		life_timer.start()

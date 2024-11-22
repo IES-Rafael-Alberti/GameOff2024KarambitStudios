@@ -5,7 +5,7 @@ extends Area2D
 var direction = Vector2(1, 0)
 
 # Velocidad del proyectil
-@export var speed = 300
+var speed
 @export var damage: float = 1.0
 @export var image: Texture2D
 

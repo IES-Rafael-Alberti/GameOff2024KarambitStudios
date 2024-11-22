@@ -13,7 +13,6 @@ var can_attack = true
 @onready var attack_cooldown: Timer = $AttackCooldown
 @onready var stone_spawn_time: Timer = $StoneSpawnTime
 
-
 const MONKEY_STONE = preload("res://Scenes/Proyectiles/monkey_stone.tscn")
 
 var vida: int
