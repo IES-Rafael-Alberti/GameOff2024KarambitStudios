@@ -60,6 +60,6 @@ position = Vector2(0, 16)
 wait_time = 2.0
 
 [node name="StoneSpawnTime" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.001
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
