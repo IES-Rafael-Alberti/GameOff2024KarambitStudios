@@ -631,7 +631,7 @@ position = Vector2(173, -5)
 script = ExtResource("1_jn1hj")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(-66, 72)
+position = Vector2(-612, -80)
 
 [node name="LevelName" type="Label" parent="."]
 offset_left = -508.0
@@ -912,14 +912,18 @@ position = Vector2(724, -221)
 [node name="dorado_platform_61" parent="platforms" instance=ExtResource("13_gcneq")]
 position = Vector2(726, -379)
 
-[node name="Inca2" parent="." instance=ExtResource("7_10ucp")]
-position = Vector2(41, 73)
-scale = Vector2(4, 4)
+[node name="Thrower" parent="." instance=ExtResource("9_ov3ds")]
+z_index = -6
+position = Vector2(-596, -150)
+type = 0
+bullet_speed = 200.0
+life_time = 1.5
+cooldown_time = 3.0
 
-[node name="path" type="Node2D" parent="Inca2"]
-
-[node name="Marker2D" type="Marker2D" parent="Inca2/path"]
-position = Vector2(21.75, 0)
-
-[node name="Marker2D2" type="Marker2D" parent="Inca2/path"]
-position = Vector2(-16, 0)
+[node name="Thrower2" parent="." instance=ExtResource("9_ov3ds")]
+z_index = -6
+position = Vector2(-692, 327)
+type = 0
+bullet_speed = 200.0
+life_time = 2.0
+cooldown_time = 4.0
