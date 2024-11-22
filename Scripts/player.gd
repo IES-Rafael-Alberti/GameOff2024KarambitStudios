@@ -34,6 +34,7 @@ var is_dashing = false
 ## --------------- Nodo UI y Teleport ------------------
 @onready var pause_menu: Control = $UI/PauseMenu
 @onready var e_key: Sprite2D = $Tecla
+@onready var hud: Control = $UI/HUD
 
 ## ------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
@@ -212,7 +213,7 @@ func damage_zone(body: Node):
 	# Verifica si el objeto que entró en el área es un enemigo
 	if body.is_in_group("enemigos"):
 		print("Enemigo detectado en el área de ataque")
-		body.take_damage(1)
+		body.recibir_dano(1)
 # --------------- Colision del flashAttack --------------------
 func _on_flash_attack_body_entered(body: Node) -> void:
 	damage_zone(body)
@@ -225,9 +226,11 @@ func _on_melee_attack_body_entered(body: Node2D) -> void:
 # Función para pausar/reanudar el juego 
 func toggle_pause():
 	if pause_menu.visible:
+		hud.visible = true
 		pause_menu.visible = false
 		Engine.time_scale = 1.0
 	else:
+		hud.visible = false
 		pause_menu.visible = true
 		Engine.time_scale = 0.0
 	

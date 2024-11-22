@@ -709,7 +709,6 @@ wait_time = 0.2
 [node name="DashCooldown" type="Timer" parent="Timers"]
 
 [node name="iFrames" type="Timer" parent="Timers"]
-wait_time = 4.0
 one_shot = true
 
 [node name="flashAttack" type="Area2D" parent="."]
