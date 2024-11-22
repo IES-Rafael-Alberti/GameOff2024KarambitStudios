@@ -12,7 +12,7 @@
 script = ExtResource("2_ipaum")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(82, -56)
+position = Vector2(20, -4)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(57, 20)
@@ -34,12 +34,12 @@ theme_override_font_sizes/font_size = 42
 text = "DUAT"
 
 [node name="Anubis" parent="." instance=ExtResource("3_oa1vh")]
-position = Vector2(128, 8)
+position = Vector2(128, 11)
 
 [node name="path" type="Node" parent="Anubis"]
 
 [node name="Marker2D" type="Marker2D" parent="Anubis/path"]
-position = Vector2(81, 7)
+position = Vector2(81, 8)
 
 [node name="Marker2D2" type="Marker2D" parent="Anubis/path"]
-position = Vector2(196, 7)
+position = Vector2(196, 8)
