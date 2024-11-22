@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://t5arfevgsv5o"]
 
-[ext_resource type="Shader" path="res://Shaders/RainShader.gdshader" id="1_7vnet"]
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_o4771"]
-[ext_resource type="Texture2D" uid="uid://d3ebmvs74ddue" path="res://Assets/Sprites/Background.jpg" id="1_xtq10"]
-[ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="4_7476a"]
-[ext_resource type="AudioStream" uid="uid://bemdwu1m5fofe" path="res://Sounds/Ambient/RainSound.mp3" id="4_b3ngh"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_knuci"]
+[ext_resource type="Shader" path="res://Shaders/RainShader.gdshader" id="2_1a587"]
+[ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="3_512h5"]
+[ext_resource type="AudioStream" uid="uid://bemdwu1m5fofe" path="res://Sounds/Ambient/RainSound.mp3" id="4_ttcr8"]
+[ext_resource type="Texture2D" uid="uid://d3ebmvs74ddue" path="res://Assets/Sprites/Background.jpg" id="5_8g3sw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjok8"]
-shader = ExtResource("1_7vnet")
+shader = ExtResource("2_1a587")
 shader_parameter/count = 100
 shader_parameter/slant = -0.01
 shader_parameter/speed = 50.0
@@ -16,7 +16,7 @@ shader_parameter/colour = Color(1, 1, 1, 1)
 shader_parameter/size = Vector2(0.015, 0.2)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_foquh"]
-texture = ExtResource("1_xtq10")
+texture = ExtResource("5_8g3sw")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf0s4"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -40,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_o4771")
+script = ExtResource("1_knuci")
 
 [node name="Rain" type="Node" parent="."]
 
@@ -49,10 +49,10 @@ z_index = -1
 material = SubResource("ShaderMaterial_yjok8")
 position = Vector2(641, 360)
 scale = Vector2(10.0156, 5.6388)
-texture = ExtResource("4_7476a")
+texture = ExtResource("3_512h5")
 
 [node name="RainSound" type="AudioStreamPlayer2D" parent="Rain"]
-stream = ExtResource("4_b3ngh")
+stream = ExtResource("4_ttcr8")
 bus = &"Effects"
 
 [node name="Panel" type="Panel" parent="."]
