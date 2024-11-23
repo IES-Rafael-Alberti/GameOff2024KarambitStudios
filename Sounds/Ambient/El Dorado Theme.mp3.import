@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c76fx1wj6s01n"
+path="res://.godot/imported/El Dorado Theme.mp3-d958b1dc6a1e22d3db79b63107c93e31.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Ambient/El Dorado Theme.mp3"
+dest_files=["res://.godot/imported/El Dorado Theme.mp3-d958b1dc6a1e22d3db79b63107c93e31.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

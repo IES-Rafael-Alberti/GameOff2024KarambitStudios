@@ -280,14 +280,17 @@ _data = {
 "idle_inca": SubResource("Animation_j2eui")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv06q"]
-size = Vector2(5, 9.375)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ahi52"]
+radius = 3.0
+height = 10.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4jual"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_llefh"]
+radius = 4.0
+height = 19.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1x3q4"]
-radius = 3.0
-height = 7.25
+radius = 1.5
+height = 7.0
 
 [node name="Inca" type="CharacterBody2D" groups=["enemigos"]]
 texture_filter = 1
@@ -309,20 +312,23 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.3125)
-shape = SubResource("RectangleShape2D_hv06q")
+position = Vector2(-0.5, -0.5)
+shape = SubResource("CapsuleShape2D_ahi52")
 
 [node name="Detection_player" type="Area2D" parent="."]
+position = Vector2(1, 0)
 collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_player"]
-shape = SubResource("CircleShape2D_4jual")
+position = Vector2(-1, -0.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_llefh")
 
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="AttackCollision" type="CollisionShape2D" parent="AttackArea" groups=["proyectile"]]
-position = Vector2(6.375, 0.5)
+position = Vector2(6, 0.5)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_1x3q4")
 
