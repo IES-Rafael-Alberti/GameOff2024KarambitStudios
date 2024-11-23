@@ -5,16 +5,15 @@ enum BulletType {ARROW, BALL, NONE}
 
 
 @onready var cooldown: Timer = $Cooldown
-@onready var life_timer: Timer = $LifeTimer
 @onready var shooting_point: Node2D = $ShootingPoint
 @onready var thrower: Sprite2D = $"."
-
 
 
 @export var type: BulletType = BulletType.NONE
 @export var bullet_speed: float
 @export var life_time: float
 @export var cooldown_time: float
+
 
 const BULLET = preload("res://Scenes/Proyectiles/bullet.tscn")
 const ARROW_V_2 = preload("res://Assets/Sprites/Proyectiles/arrow_v2.png")
@@ -42,13 +41,13 @@ func shooting():
 		else:
 			bullet_direction = Vector2(1, 0)
 		bullet_temp.set_direction(bullet_direction)
-		bullet_temp.position = thrower.position + shooting_point.position 
+		bullet_temp.position = shooting_point.position 
 		bullet_temp.speed = bullet_speed
-		life_timer.wait_time = life_time
+		
 		cooldown.wait_time = cooldown_time
-		get_parent().add_child(bullet_temp)
-		bullet_temp.name = "Bullet"
-		life_timer.start()
+		thrower.add_child(bullet_temp)
+		bullet_temp.life_timer.wait_time = life_time
+		bullet_temp.life_timer.start()
 		can_shoot = false
 		cooldown.start()
 	
@@ -61,9 +60,8 @@ func _on_cooldown_timeout() -> void:
 func _on_life_timer_timeout() -> void:
 	
 # Busca la flecha (esto depende de cómo esté instanciada, aquí asumo que es un hijo directo)
-	var bullet = get_parent().get_child(get_parent().get_child_count() - 1)  # Esto busca la última flecha añadida
+	var bullet = get_node("Bullet")
 	print(bullet.name)
-	if bullet.name.contains("Bullet"):
+	if bullet:
+		bullet.queue_free()
 		print("Borrar bala")
-		bullet.queue_free()  # Elimina la flecha de la escena
-	

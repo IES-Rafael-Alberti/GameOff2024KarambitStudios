@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_c4c61"]
 [ext_resource type="Texture2D" uid="uid://cjy6qikxgup5d" path="res://Assets/TileSets/tileset_atlantis_pilars_and_sand.png" id="2_utakt"]
 [ext_resource type="Texture2D" uid="uid://bslc4vcq2i2dj" path="res://Assets/TileSets/tileset_atlantis_structure.png" id="3_5hrt3"]
-[ext_resource type="PackedScene" uid="uid://33orawa54art" path="res://Scenes/atlantis_platform.tscn" id="3_5r3ky"]
+[ext_resource type="PackedScene" uid="uid://33orawa54art" path="res://Scenes/Levels/atlantis_platform.tscn" id="3_5r3ky"]
 [ext_resource type="Texture2D" uid="uid://dv5jb53cr476w" path="res://Assets/TileSets/1.png" id="4_j3f41"]
 [ext_resource type="Texture2D" uid="uid://br62dqdsklfcs" path="res://Assets/TileSets/2.png" id="5_mu46h"]
 [ext_resource type="Texture2D" uid="uid://bhbwiypd5k2i4" path="res://Assets/TileSets/3.png" id="6_myf0d"]
 [ext_resource type="Texture2D" uid="uid://b4crt84dgem50" path="res://Assets/TileSets/4.png" id="7_kctpy"]
-[ext_resource type="PackedScene" uid="uid://81criysxmeed" path="res://Scenes/atlantis_structure_platform.tscn" id="9_fxuno"]
+[ext_resource type="PackedScene" uid="uid://81criysxmeed" path="res://Scenes/Levels/atlantis_structure_platform.tscn" id="9_fxuno"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_da6q2"]
 texture = ExtResource("2_utakt")

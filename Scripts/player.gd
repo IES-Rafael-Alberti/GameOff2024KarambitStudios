@@ -34,6 +34,7 @@ var is_dashing = false
 @onready var pause_menu: Control = $UI/PauseMenu
 @onready var e_key: Sprite2D = $Tecla
 @onready var hud: Control = $UI/HUD
+@onready var camara_player: Camera2D = $CamaraPlayer
 
 ## ------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
@@ -74,8 +75,12 @@ func _ready() -> void:
 	
 	melee_attack.visible = false
 	attack_hitbox_melee.disabled = true
+	
 	if GameManager.double_jump:
 		MAX_JUMPS = 2
+	
+	if not scene_file_path.contains("museum_scene"):
+		camara_player.visible = true
 
 func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento

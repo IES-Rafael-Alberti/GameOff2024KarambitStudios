@@ -9,6 +9,7 @@ var speed
 @onready var bullet_sprite: Sprite2D = $BulletSprite
 @onready var arrow_collider: CollisionShape2D = $ArrowCollider
 @onready var ball_collider: CollisionShape2D = $BallCollider
+@onready var life_timer: Timer = $LifeTimer
 
 
 
@@ -22,3 +23,7 @@ func set_direction(new_direction: Vector2) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		GameManager.take_player_damage()
+
+
+func _on_life_timer_timeout() -> void:
+	queue_free()

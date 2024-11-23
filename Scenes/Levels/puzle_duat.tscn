@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://dbxdmr6dpygtk"]
 
-[ext_resource type="Texture2D" uid="uid://c6n8kaxjedmvm" path="res://Assets/Sprites/Puzzle2/duat_puzzle.png" id="1_orope"]
-[ext_resource type="Script" path="res://Scripts/duat_puzzle.gd" id="2_ot5j5"]
-[ext_resource type="Texture2D" uid="uid://qmfgfcpr6558" path="res://Assets/Sprites/Puzzle2/Puzzle_button.png" id="2_xa2ea"]
-[ext_resource type="Texture2D" uid="uid://bp4onhcce2cli" path="res://Assets/Sprites/Puzzle2/Puzzle_button_pressed.png" id="3_h1hjw"]
-[ext_resource type="Texture2D" uid="uid://ds52vndcbff3x" path="res://Assets/Sprites/Puzzle2/duat_pieza_top_1.png" id="5_tb77h"]
-[ext_resource type="Texture2D" uid="uid://b685g6p8ssqpo" path="res://Assets/Sprites/Puzzle2/duat_pieza_mid_1.png" id="6_p4avp"]
-[ext_resource type="Texture2D" uid="uid://b55sojrc1ve2h" path="res://Assets/Sprites/Puzzle2/duat_pieza_bottom_1.png" id="7_d2k2f"]
+[ext_resource type="Texture2D" uid="uid://c6n8kaxjedmvm" path="res://Assets/Sprites/Puzzle2/duat_puzzle.png" id="1_rsgb7"]
+[ext_resource type="Script" path="res://Scripts/duat_puzzle.gd" id="2_mdtad"]
+[ext_resource type="Texture2D" uid="uid://qmfgfcpr6558" path="res://Assets/Sprites/Puzzle2/Puzzle_button.png" id="3_74yn7"]
+[ext_resource type="Texture2D" uid="uid://bp4onhcce2cli" path="res://Assets/Sprites/Puzzle2/Puzzle_button_pressed.png" id="4_duqn2"]
+[ext_resource type="Texture2D" uid="uid://ds52vndcbff3x" path="res://Assets/Sprites/Puzzle2/duat_pieza_top_1.png" id="5_8tsni"]
+[ext_resource type="Texture2D" uid="uid://b685g6p8ssqpo" path="res://Assets/Sprites/Puzzle2/duat_pieza_mid_1.png" id="6_as1qf"]
+[ext_resource type="Texture2D" uid="uid://b55sojrc1ve2h" path="res://Assets/Sprites/Puzzle2/duat_pieza_bottom_1.png" id="7_svg00"]
 
 [node name="Puzle_Duat" type="Node2D"]
 
@@ -14,16 +14,16 @@
 z_index = -2
 position = Vector2(650, 350)
 scale = Vector2(6, 6)
-texture = ExtResource("1_orope")
-script = ExtResource("2_ot5j5")
+texture = ExtResource("1_rsgb7")
+script = ExtResource("2_mdtad")
 
 [node name="ButtonLeftTop" type="TextureButton" parent="DuatPuzzle"]
 offset_left = -33.75
 offset_top = -39.0
 offset_right = -17.75
 offset_bottom = -23.0
-texture_normal = ExtResource("2_xa2ea")
-texture_pressed = ExtResource("3_h1hjw")
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
 stretch_mode = 0
 flip_h = true
 
@@ -32,8 +32,8 @@ offset_left = 13.0
 offset_top = -39.25
 offset_right = 29.0
 offset_bottom = -23.25
-texture_normal = ExtResource("2_xa2ea")
-texture_pressed = ExtResource("3_h1hjw")
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
 stretch_mode = 0
 
 [node name="ButtonLeftMid" type="TextureButton" parent="DuatPuzzle"]
@@ -41,8 +41,8 @@ offset_left = -34.0
 offset_top = -7.25
 offset_right = -18.0
 offset_bottom = 8.75
-texture_normal = ExtResource("2_xa2ea")
-texture_pressed = ExtResource("3_h1hjw")
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
 stretch_mode = 0
 flip_h = true
 
@@ -51,8 +51,8 @@ offset_left = 12.75
 offset_top = -7.5
 offset_right = 28.75
 offset_bottom = 8.5
-texture_normal = ExtResource("2_xa2ea")
-texture_pressed = ExtResource("3_h1hjw")
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
 stretch_mode = 0
 
 [node name="ButtonLeftBottom" type="TextureButton" parent="DuatPuzzle"]
@@ -60,8 +60,8 @@ offset_left = -34.0
 offset_top = 25.0
 offset_right = -18.0
 offset_bottom = 41.0
-texture_normal = ExtResource("2_xa2ea")
-texture_pressed = ExtResource("3_h1hjw")
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
 stretch_mode = 0
 flip_h = true
 
@@ -70,24 +70,24 @@ offset_left = 12.75
 offset_top = 24.75
 offset_right = 28.75
 offset_bottom = 40.75
-texture_normal = ExtResource("2_xa2ea")
-texture_pressed = ExtResource("3_h1hjw")
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
 stretch_mode = 0
 
 [node name="TopPiece" type="Sprite2D" parent="."]
 position = Vector2(638, 158)
 scale = Vector2(6, 6)
-texture = ExtResource("5_tb77h")
+texture = ExtResource("5_8tsni")
 
 [node name="MidPiece" type="Sprite2D" parent="."]
 position = Vector2(638, 356)
 scale = Vector2(6, 6)
-texture = ExtResource("6_p4avp")
+texture = ExtResource("6_as1qf")
 
 [node name="BottomPiece" type="Sprite2D" parent="."]
 position = Vector2(638, 554)
 scale = Vector2(6, 6)
-texture = ExtResource("7_d2k2f")
+texture = ExtResource("7_svg00")
 
 [connection signal="pressed" from="DuatPuzzle/ButtonLeftTop" to="DuatPuzzle" method="_on_button_left_top_pressed"]
 [connection signal="pressed" from="DuatPuzzle/ButtonRightTop" to="DuatPuzzle" method="_on_button_right_top_pressed"]

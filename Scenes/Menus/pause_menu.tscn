@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://lrayftsh56ub"]
+[gd_scene load_steps=4 format=3 uid="uid://lrayftsh56ub"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_alub3"]
+[ext_resource type="PackedScene" uid="uid://bxxwuipqewjrb" path="res://Scenes/Menus/volumes.tscn" id="2_sax3i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6shs"]
 bg_color = Color(0.0923971, 0.0923971, 0.0923971, 0.121569)
@@ -14,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_alub3")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_y6shs")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="PauseMenuButtons" type="HBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -35,23 +36,35 @@ offset_bottom = 214.0
 grow_horizontal = 2
 theme_override_constants/separation = 20
 
-[node name="Resume" type="Button" parent="Panel/HBoxContainer"]
+[node name="Resume" type="Button" parent="Background/PauseMenuButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
 text = "Resume"
 
-[node name="Options" type="Button" parent="Panel/HBoxContainer"]
+[node name="Options" type="Button" parent="Background/PauseMenuButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
 text = "Options"
 
-[node name="ReturnToMenu" type="Button" parent="Panel/HBoxContainer"]
+[node name="ReturnToMenu" type="Button" parent="Background/PauseMenuButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
 text = "Return to menu"
 
-[connection signal="pressed" from="Panel/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
+[node name="OptionsMenu" type="VBoxContainer" parent="Background"]
+visible = false
+layout_mode = 0
+offset_left = 464.0
+offset_top = 269.0
+offset_right = 793.0
+offset_bottom = 599.0
+
+[node name="Volumes" parent="Background/OptionsMenu" instance=ExtResource("2_sax3i")]
+layout_mode = 2
+size_flags_vertical = 2
+
+[connection signal="pressed" from="Background/PauseMenuButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Background/PauseMenuButtons/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
