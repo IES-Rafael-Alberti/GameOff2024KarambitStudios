@@ -26,13 +26,8 @@ func _physics_process(delta: float) -> void:
 
 func shooting():
 	if can_shoot and type != BulletType.NONE:
-		print("Dispara")
+		#print("Dispara")
 		var bullet_temp = BULLET.instantiate()
-		
-		
-
-		
-		
 		var bullet_sprite = bullet_temp.get_node_or_null("BulletSprite")
 		if bullet_sprite:
 			if type == BulletType.ARROW:

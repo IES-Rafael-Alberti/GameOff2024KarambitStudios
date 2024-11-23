@@ -17,8 +17,7 @@ var jumps_left = MAX_JUMPS
 var actual_duplicate_time: float = 0
 var duplicate_time: float = 0.05
 var life_duplicate_time: float = 0.05
-
-## -------------- Variables de permiso
+## -------------- Variables de permiso ---------------------
 var can_attack = true
 var can_dash = true
 var can_flash = GameManager.flash_count > 0
@@ -34,6 +33,7 @@ var is_dashing = false
 ## --------------- Nodo UI y Teleport ------------------
 @onready var pause_menu: Control = $UI/PauseMenu
 @onready var e_key: Sprite2D = $Tecla
+@onready var hud: Control = $UI/HUD
 
 ## ------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
@@ -146,10 +146,6 @@ func _physics_process(delta: float) -> void:
 		print("Ataque linterna")
 		state_machine.travel("attack_flashlight")
 		perform_attack_flashlight()
-		
-		
-		
-		
 	elif Input.is_action_just_pressed("meleeAttack"):
 		print("Ataque melee")
 		state_machine.travel("")
@@ -225,9 +221,11 @@ func _on_melee_attack_body_entered(body: Node2D) -> void:
 # Función para pausar/reanudar el juego 
 func toggle_pause():
 	if pause_menu.visible:
+		hud.visible = true
 		pause_menu.visible = false
 		Engine.time_scale = 1.0
 	else:
+		hud.visible = false
 		pause_menu.visible = true
 		Engine.time_scale = 0.0
 	
@@ -279,12 +277,15 @@ func _on_dash_cooldown_timeout():
 func _on_player_sensor_body_entered(body: Node2D) -> void:
 	if can_take_damage:
 		if body.is_in_group("enemigos") or body.is_in_group("proyectile"):
+			# Llamamos al GameManager para aplicar el empuje
+			GameManager.apply_push_to_player(body.position, self)
 			
+			# Luego aplicamos el daño
 			GameManager.take_player_damage()
+
+			# Iniciamos el temporizador de i-frames
 			can_take_damage = false
 			i_frames.start()
-		else:
-			print("Vida restante: ", GameManager.player_health)
 
 
 func _on_i_frames_timeout() -> void:

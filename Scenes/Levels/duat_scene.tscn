@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://nkwfgfld2vl7"]
+[gd_scene load_steps=6 format=3 uid="uid://nkwfgfld2vl7"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="2_ipaum"]
 [ext_resource type="PackedScene" uid="uid://6s21wq7ig4ta" path="res://Scenes/Enemies/anubis_enemy.tscn" id="3_oa1vh"]
+[ext_resource type="AudioStream" uid="uid://byls58y74p40n" path="res://Sounds/Ambient/Duat Theme.mp3" id="3_onnpv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sy2kt"]
 
@@ -32,9 +33,18 @@ theme_override_font_sizes/font_size = 42
 text = "DUAT"
 
 [node name="Anubis" parent="." instance=ExtResource("3_oa1vh")]
-position = Vector2(128, 11)
+position = Vector2(142, -15)
+scale = Vector2(1.5, 1.5)
 
-[node name="path" type="Node" parent="Anubis"]
+[node name="path" type="Node2D" parent="Anubis"]
 
 [node name="Marker2D" type="Marker2D" parent="Anubis/path"]
-position = Vector2(81, 8)
+position = Vector2(-20, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Anubis/path"]
+position = Vector2(44, 0)
+
+[node name="Musica Ambiente" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_onnpv")
+autoplay = true
+bus = &"Music"

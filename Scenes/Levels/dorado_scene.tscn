@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlbaav1e05bcn"]
+[gd_scene load_steps=25 format=3 uid="uid://dlbaav1e05bcn"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jn1hj"]
 [ext_resource type="Texture2D" uid="uid://dtvty56qvqbf7" path="res://Assets/TileSets/tileset_eldorado_v2.png" id="2_fp3cr"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://edv16fxwoq7q" path="res://Scenes/dorado_platform_1.tscn" id="13_gcneq"]
 [ext_resource type="PackedScene" uid="uid://wivet2lx3hko" path="res://Scenes/Traps/thrower.tscn" id="14_ncv8b"]
 [ext_resource type="PackedScene" uid="uid://d0l1pipavt234" path="res://Scenes/dorado_platform_2.tscn" id="14_smykk"]
+[ext_resource type="AudioStream" uid="uid://c76fx1wj6s01n" path="res://Sounds/Ambient/El Dorado Theme.mp3" id="15_i71cn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8hv2"]
 texture = ExtResource("2_fp3cr")
@@ -917,7 +918,7 @@ position = Vector2(726, -379)
 position = Vector2(1405, 792)
 type = 0
 bullet_speed = 200.0
-life_time = 2.0
+life_time = 1.0
 cooldown_time = 3.0
 
 [node name="Thrower2" parent="." instance=ExtResource("14_ncv8b")]
@@ -925,7 +926,7 @@ position = Vector2(970, 267)
 flip_h = true
 type = 0
 bullet_speed = 300.0
-life_time = 3.0
+life_time = 1.0
 cooldown_time = 2.0
 
 [node name="Inca2" parent="." instance=ExtResource("7_10ucp")]
@@ -939,3 +940,8 @@ position = Vector2(34.5, 0)
 
 [node name="Marker2D2" type="Marker2D" parent="Inca2/path"]
 position = Vector2(-32.5, 0)
+
+[node name="Musica Ambiente" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_i71cn")
+autoplay = true
+bus = &"Music"
