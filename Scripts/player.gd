@@ -20,7 +20,7 @@ var life_duplicate_time: float = 0.05
 
 ## -------------- Variables de permiso
 var can_attack = true
-var can_dash = true
+var can_dash = GameManager.dash
 var can_flash = GameManager.flash_count > 0
 var can_take_damage = true
 ## --------------- Variables de estado -----------------

@@ -11,6 +11,10 @@ func _ready() -> void:
 	if GameManager.puzzle_1_complete:
 		if pedestal_el_dorado:
 			pedestal_el_dorado.get_child(0).get_child(0).disabled = true
+	
+	if GameManager.puzzle_2_complete:
+		if pedestal_duat:
+			pedestal_duat.get_child(0).get_child(0).disabled = true
 
 	var player_node = PLAYER.instantiate()
 	player_node.set_global_position(spawn_point.get_global_position())

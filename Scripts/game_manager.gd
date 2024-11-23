@@ -16,14 +16,15 @@ var player_node: CharacterBody2D
 
 ##--------- PowerUps activables ---------
 
-var double_jump: bool = true
+var double_jump: bool = false
 var dash: bool = false
 var flashlight: bool = false
 
 ##--------- Variables escena 1 ---------
 var player_position_puzzle: Vector2
 var puzzle_1_complete = false
-
+var puzzle_2_complete = false
+var puzzle_3_complet = false
 
 
 func take_damage(amount: int) -> bool:
@@ -47,7 +48,7 @@ func take_player_damage():
 	elif player_health >= 0:
 		print("Jugador eliminado")
 		muerte()
-	
+		
 
 func muerte():
 	get_node("/root/Player").queue_free()

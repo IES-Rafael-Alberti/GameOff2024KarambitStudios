@@ -52,7 +52,7 @@ func shooting():
 		life_timer.wait_time = life_time
 		cooldown.wait_time = cooldown_time
 		get_parent().add_child(bullet_temp)
-		
+		bullet_temp.name = "Bullet"
 		life_timer.start()
 		can_shoot = false
 		cooldown.start()
@@ -63,9 +63,12 @@ func _on_cooldown_timeout() -> void:
 	can_shoot = true
 
 
-func _on_life_arrow_timer_timeout() -> void:
+func _on_life_timer_timeout() -> void:
+	
 # Busca la flecha (esto depende de cómo esté instanciada, aquí asumo que es un hijo directo)
 	var bullet = get_parent().get_child(get_parent().get_child_count() - 1)  # Esto busca la última flecha añadida
-	if bullet.name == "Bullet":
+	print(bullet.name)
+	if bullet.name.contains("Bullet"):
+		print("Borrar bala")
 		bullet.queue_free()  # Elimina la flecha de la escena
 	

@@ -53,4 +53,5 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
 text = "Return to menu"
 
+[connection signal="pressed" from="Panel/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
