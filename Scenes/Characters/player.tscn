@@ -682,6 +682,7 @@ script = SubResource("GDScript_l86qj")
 visible = false
 
 [node name="HUD" parent="UI" instance=ExtResource("10_h28rl")]
+visible = false
 full_heart_texture = ExtResource("11_te8ke")
 empty_heart_texture = ExtResource("12_vwxei")
 

@@ -25,7 +25,7 @@ var flashlight: bool = false
 var player_position_puzzle: Vector2
 var puzzle_1_complete = false
 var puzzle_2_complete = false
-var puzzle_3_complet = false
+var puzzle_3_complete = false
 
 func apply_push_to_player(enemy_position: Vector2, player: CharacterBody2D) -> void:
 	push_direction = player.position - enemy_position  # Dirección del empuje

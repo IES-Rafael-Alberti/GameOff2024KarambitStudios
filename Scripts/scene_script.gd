@@ -10,14 +10,20 @@ const PLAYER = preload("res://Scenes/Characters/player.tscn")
 func _ready() -> void:
 	
 	Engine.time_scale = 1.0
-	if GameManager.puzzle_1_complete:
-		if pedestal_el_dorado:
-			pedestal_el_dorado.get_child(0).get_child(0).disabled = true
-	
-	if GameManager.puzzle_2_complete:
-		if pedestal_duat:
-			pedestal_duat.get_child(0).get_child(0).disabled = true
-	if scene_file_path.contains("dorado_scene") :
+	if scene_file_path.contains("museum_scene"):
+		pedestal_atlantis.visible = false
+		pedestal_atlantis.get_child(0).get_child(0).disabled = true
+		if GameManager.puzzle_1_complete:
+			if pedestal_el_dorado:
+				pedestal_el_dorado.get_child(0).get_child(0).disabled = true
+		
+		if GameManager.puzzle_2_complete:
+			if pedestal_duat:
+				pedestal_duat.get_child(0).get_child(0).disabled = true
+		if GameManager.puzzle_1_complete and GameManager.puzzle_2_complete:
+			pedestal_atlantis.visible = true
+			pedestal_atlantis.get_child(0).get_child(0).disabled = false
+	elif scene_file_path.contains("dorado_scene") :
 		dorado_music_player.play()
 		
 	var player_node = PLAYER.instantiate()
