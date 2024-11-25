@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b685g6p8ssqpo" path="res://Assets/Sprites/Puzzle2/duat_pieza_mid_1.png" id="6_as1qf"]
 [ext_resource type="Texture2D" uid="uid://b55sojrc1ve2h" path="res://Assets/Sprites/Puzzle2/duat_pieza_bottom_1.png" id="7_svg00"]
 
-[node name="Puzle_Duat" type="Node2D"]
+[node name="PuzleDuat" type="Node2D"]
 
 [node name="DuatPuzzle" type="Sprite2D" parent="."]
 z_index = -2

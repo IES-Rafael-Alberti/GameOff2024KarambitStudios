@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/pipe_board.gd" id="2_j5heo"]
 [ext_resource type="PackedScene" uid="uid://8gxd0d505djl" path="res://Scenes/Levels/pipe.tscn" id="2_rtyx0"]
 
-[node name="Puzzle_Atlantis" type="Node2D"]
+[node name="PuzzleAtlantis" type="Node2D"]
 
 [node name="AtlantisPuzzleBoard" type="Sprite2D" parent="."]
 texture_filter = 1

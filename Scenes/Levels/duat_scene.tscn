@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://nkwfgfld2vl7"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="2_ipaum"]
-[ext_resource type="PackedScene" path="res://Scenes/Enemies/anubis_enemy.tscn" id="3_oa1vh"]
+[ext_resource type="PackedScene" uid="uid://6s21wq7ig4ta" path="res://Scenes/Enemies/anubis_enemy.tscn" id="3_oa1vh"]
 [ext_resource type="AudioStream" uid="uid://byls58y74p40n" path="res://Sounds/Ambient/Duat Theme.mp3" id="3_onnpv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sy2kt"]

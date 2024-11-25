@@ -8,7 +8,6 @@ size = Vector2(10.9268, 15.6098)
 
 [node name="Pedestal" type="Sprite2D"]
 texture_filter = 1
-position = Vector2(170, -43)
 texture = ExtResource("1_w75yd")
 script = ExtResource("2_285jl")
 
