@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://nkwfgfld2vl7"]
+[gd_scene load_steps=7 format=3 uid="uid://nkwfgfld2vl7"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="2_ipaum"]
 [ext_resource type="PackedScene" uid="uid://6s21wq7ig4ta" path="res://Scenes/Enemies/anubis_enemy.tscn" id="3_oa1vh"]
 [ext_resource type="AudioStream" uid="uid://byls58y74p40n" path="res://Sounds/Ambient/Duat Theme.mp3" id="3_onnpv"]
+[ext_resource type="PackedScene" uid="uid://drfheq68xinwq" path="res://Scenes/Enemies/fantasma_enemy.tscn" id="4_f323c"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sy2kt"]
 
@@ -48,3 +49,6 @@ position = Vector2(44, 0)
 stream = ExtResource("3_onnpv")
 autoplay = true
 bus = &"Music"
+
+[node name="Fantasma" parent="." instance=ExtResource("4_f323c")]
+position = Vector2(-112, -3)
