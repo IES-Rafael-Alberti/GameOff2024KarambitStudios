@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dendjn28vhbb2"]
+
+[ext_resource type="Texture2D" uid="uid://ch16s3ci7v0mv" path="res://Assets/TileSets/tileset duat v1.png" id="1_clmhi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17ei3"]
+size = Vector2(32, 16)
+
+[node name="duat_small_platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_clmhi")
+region_enabled = true
+region_rect = Rect2(192, 168, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_17ei3")
+one_way_collision = true
