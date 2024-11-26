@@ -81,6 +81,7 @@ func _ready() -> void:
 	
 	if not scene_file_path.contains("museum_scene"):
 		camara_player.visible = true
+		hud.visible = true
 
 func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento

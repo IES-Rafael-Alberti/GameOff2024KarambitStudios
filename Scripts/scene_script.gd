@@ -20,10 +20,14 @@ func _ready() -> void:
 		if GameManager.puzzle_2_complete:
 			if pedestal_duat:
 				pedestal_duat.get_child(0).get_child(0).disabled = true
+		
 		if GameManager.puzzle_1_complete and GameManager.puzzle_2_complete:
 			pedestal_atlantis.visible = true
 			pedestal_atlantis.get_child(0).get_child(0).disabled = false
-	elif scene_file_path.contains("dorado_scene") :
+
+		if GameManager.puzzle_3_complete:
+			pedestal_atlantis.get_child(0).get_child(0).disabled = true
+	elif scene_file_path.contains("dorado_scene"):
 		dorado_music_player.play()
 		
 	var player_node = PLAYER.instantiate()

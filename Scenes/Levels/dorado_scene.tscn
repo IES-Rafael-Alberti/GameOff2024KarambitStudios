@@ -635,7 +635,7 @@ position = Vector2(173, -5)
 script = ExtResource("1_jn1hj")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(-623, -98)
+position = Vector2(-630, -102)
 
 [node name="LevelName" type="Label" parent="."]
 offset_left = -508.0

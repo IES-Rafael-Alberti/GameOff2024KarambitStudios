@@ -23,8 +23,8 @@ var flashlight: bool = false
 
 ##--------- Variables escena 1 ---------
 var player_position_puzzle: Vector2
-var puzzle_1_complete = false
-var puzzle_2_complete = false
+var puzzle_1_complete = true
+var puzzle_2_complete = true
 var puzzle_3_complete = false
 
 func apply_push_to_player(enemy_position: Vector2, player: CharacterBody2D) -> void:
