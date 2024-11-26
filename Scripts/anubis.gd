@@ -2,6 +2,7 @@ extends Sprite2D
 
 var ready_to_puzle: bool = false
 
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Action") and ready_to_puzle:
 		get_node("/root/Player").queue_free()
@@ -10,6 +11,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		GameManager.spawn_point = body.global_position
 		GameManager.visible_e_key = true
 		ready_to_puzle = true
 

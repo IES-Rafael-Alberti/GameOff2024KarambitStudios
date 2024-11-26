@@ -326,7 +326,7 @@ sources/0 = SubResource("TileSetAtlasSource_oap81")
 script = ExtResource("1_cctwx")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(3851, 871)
+position = Vector2(3443.02, 895.998)
 
 [node name="LevelName" type="Label" parent="."]
 offset_left = 3.0
@@ -513,5 +513,5 @@ scale = Vector2(4.28125, 1.51563)
 
 [node name="Quicksand4" parent="." instance=ExtResource("6_dbnm7")]
 z_index = 1
-position = Vector2(3630, 992.5)
-scale = Vector2(3.84375, 2.04688)
+position = Vector2(3630, 1006.5)
+scale = Vector2(3.84375, 1.60938)

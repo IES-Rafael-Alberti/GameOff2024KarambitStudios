@@ -10,7 +10,7 @@ extends Sprite2D
 @onready var top_piece: Sprite2D = $"../TopPiece"
 @onready var mid_piece: Sprite2D = $"../MidPiece"
 @onready var bottom_piece: Sprite2D = $"../BottomPiece"
-
+const PLAYER = preload("res://Scenes/Characters/player.tscn")
 # Texturas de las piezas
 var top_textures = [
 	preload("res://Assets/Sprites/Puzzle2/duat_pieza_top_1.png"),
@@ -87,3 +87,9 @@ func _on_button_right_bottom_pressed() -> void:
 	index_bottom = (index_bottom + 1) % bottom_textures.size()
 	print(index_bottom)
 	update_pieces()
+
+
+func _on_return_button_duat_pressed() -> void:
+	var player = PLAYER.instantiate()
+	get_tree().change_scene_to_file("res://Scenes/Levels/duat_scene.tscn")
+	

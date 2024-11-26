@@ -20,3 +20,4 @@ position = Vector2(-51, 10)
 shape = SubResource("RectangleShape2D_yp8gp")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

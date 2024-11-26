@@ -14,7 +14,7 @@ var visible_e_key = false
 var teleport_activate : bool = false  # Variable para controlar si el teletransporte está activado
 var teleport_destination : String = ""  # Esta es la propiedad que necesitas para almacenar el destino del teletransporte
 var player_node: CharacterBody2D
-
+var spawn_point: Vector2
 ##--------- PowerUps activables ---------
 
 var double_jump: bool = false
@@ -26,7 +26,7 @@ var player_position_puzzle: Vector2
 var puzzle_1_complete = false
 var puzzle_2_complete = false
 var puzzle_3_complete = false
-
+var puzzle_3_position: Vector2 
 func apply_push_to_player(enemy_position: Vector2, player: CharacterBody2D) -> void:
 	push_direction = player.position - enemy_position  # Dirección del empuje
 	push_direction = push_direction.normalized()  # Normalizamos para mantener el empuje constante
