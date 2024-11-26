@@ -1,10 +1,15 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlbaav1e05bcn"]
+[gd_scene load_steps=29 format=3 uid="uid://dlbaav1e05bcn"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jn1hj"]
 [ext_resource type="Texture2D" uid="uid://dtvty56qvqbf7" path="res://Assets/TileSets/tileset_eldorado_v2.png" id="2_fp3cr"]
+[ext_resource type="Texture2D" uid="uid://b7ttu38t51j7w" path="res://Assets/Background/Dorado/1.png" id="2_xoask"]
+[ext_resource type="Texture2D" uid="uid://bqs0im2rcwrxb" path="res://Assets/Background/Dorado/2.png" id="3_pvfe2"]
+[ext_resource type="Texture2D" uid="uid://g2xb52kw7fvr" path="res://Assets/Background/Dorado/3.png" id="4_35oqh"]
 [ext_resource type="Texture2D" uid="uid://d1c7dkuw3jsqa" path="res://Assets/TileSets/tileset_museum_v3.png" id="4_ibmdm"]
+[ext_resource type="Texture2D" uid="uid://duonr4xmuhcuc" path="res://Assets/Background/Dorado/4.png" id="5_fsqpb"]
 [ext_resource type="Texture2D" uid="uid://da3n0d3m4vnep" path="res://Assets/TileSets/tileset_eldorado_agua.png" id="5_q0pfq"]
 [ext_resource type="PackedScene" uid="uid://daq4hixxbx71i" path="res://Scenes/Enemies/monkey.tscn" id="5_vr3n7"]
+[ext_resource type="Texture2D" uid="uid://chv5loessmmnd" path="res://Assets/Background/Dorado/background_temple_eldorado.png" id="6_5loo0"]
 [ext_resource type="Texture2D" uid="uid://bnor6xi5ukr1m" path="res://Assets/TileSets/tileset_eldorado_golden.png" id="6_yl3av"]
 [ext_resource type="Texture2D" uid="uid://yuat774wca2d" path="res://Assets/TileSets/tileset_eldorado_arbol.png" id="7_0jt3m"]
 [ext_resource type="PackedScene" uid="uid://b07nwgayixvcw" path="res://Scenes/Enemies/inca_enemy.tscn" id="7_10ucp"]
@@ -631,16 +636,48 @@ texture_filter = 1
 position = Vector2(173, -5)
 script = ExtResource("1_jn1hj")
 
-[node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(-612, -80)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="LevelName" type="Label" parent="."]
-offset_left = -508.0
-offset_top = -293.0
-offset_right = -268.0
-offset_bottom = -235.0
-theme_override_font_sizes/font_size = 42
-text = "EL DORADO"
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(287, 163)
+texture = ExtResource("2_xoask")
+
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(500, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars"]
+position = Vector2(287, 163)
+texture = ExtResource("3_pvfe2")
+
+[node name="Clouds_1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_offset = Vector2(3, 3)
+motion_mirroring = Vector2(600, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds_1"]
+position = Vector2(287, 430)
+texture = ExtResource("4_35oqh")
+
+[node name="Clouds_2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(2, 2)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds_2"]
+position = Vector2(287, 440)
+texture = ExtResource("5_fsqpb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4126, 833.5)
+scale = Vector2(1.07721, 1.13021)
+texture = ExtResource("6_5loo0")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(2801.34, 879.282)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -5
@@ -694,7 +731,7 @@ position = Vector2(-37.25, 0)
 position = Vector2(40, 0)
 
 [node name="Jaguar" parent="." instance=ExtResource("8_88r8v")]
-position = Vector2(4311, 830)
+position = Vector2(4305, 830)
 
 [node name="KillZone" parent="." instance=ExtResource("12_40yjf")]
 position = Vector2(312, 454)
