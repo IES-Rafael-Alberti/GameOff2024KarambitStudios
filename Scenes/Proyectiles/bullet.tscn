@@ -25,4 +25,7 @@ shape = SubResource("RectangleShape2D_5f2o4")
 visible = false
 shape = SubResource("CircleShape2D_epul1")
 
+[node name="LifeTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
