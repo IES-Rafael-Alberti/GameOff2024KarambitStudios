@@ -210,8 +210,9 @@ script = ExtResource("1_oxagg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -4.5)
 sprite_frames = SubResource("SpriteFrames_vg5vl")
-animation = &"attack"
+animation = &"walk"
 autoplay = "idle"
+frame_progress = 0.0955195
 
 [node name="CollisionAnubis" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 4)
