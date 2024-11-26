@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://nkwfgfld2vl7"]
+[gd_scene load_steps=13 format=4 uid="uid://nkwfgfld2vl7"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_cctwx"]
 [ext_resource type="Texture2D" uid="uid://ch16s3ci7v0mv" path="res://Assets/TileSets/tileset duat v1.png" id="2_b4gke"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ck6b35e7dxap7" path="res://Scenes/Levels/duat_large_platform.tscn" id="4_gn6vw"]
 [ext_resource type="PackedScene" uid="uid://g1uqvppr4iaj" path="res://Scenes/Enemies/anubis.tscn" id="5_c40wb"]
 [ext_resource type="PackedScene" uid="uid://w86dxymlrbo6" path="res://Scenes/Traps/spikes.tscn" id="6_vc8s7"]
+[ext_resource type="PackedScene" uid="uid://drfheq68xinwq" path="res://Scenes/Enemies/fantasma_enemy.tscn" id="7_k6aq4"]
+[ext_resource type="PackedScene" uid="uid://6s21wq7ig4ta" path="res://Scenes/Enemies/anubis_enemy.tscn" id="8_0giyd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emytj"]
 texture = ExtResource("2_b4gke")
@@ -511,3 +513,12 @@ position = Vector2(3679.63, 1018.75)
 scale = Vector2(3.97656, 2.60937)
 
 [node name="Node" type="Node" parent="."]
+
+[node name="Fantasma" parent="Node" instance=ExtResource("7_k6aq4")]
+position = Vector2(3370, 147)
+
+[node name="Anubis" parent="Node" instance=ExtResource("8_0giyd")]
+position = Vector2(3496, 905)
+
+[node name="Anubis2" parent="Node" instance=ExtResource("8_0giyd")]
+position = Vector2(3205, 905)
