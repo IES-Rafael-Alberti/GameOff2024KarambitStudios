@@ -1,10 +1,11 @@
 extends Sprite2D
 
 
+@export var points:int = 10
+
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		if GameManager.player_health < 3:
-			GameManager.player_health += 1
-			queue_free()
-		
+		GameManager.score += points
+		queue_free()

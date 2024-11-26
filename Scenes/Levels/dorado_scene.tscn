@@ -637,14 +637,6 @@ script = ExtResource("1_jn1hj")
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(-630, -102)
 
-[node name="LevelName" type="Label" parent="."]
-offset_left = -508.0
-offset_top = -293.0
-offset_right = -268.0
-offset_bottom = -235.0
-theme_override_font_sizes/font_size = 42
-text = "EL DORADO"
-
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -5
 position = Vector2(-123, -83)

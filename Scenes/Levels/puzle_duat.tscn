@@ -95,10 +95,10 @@ texture = ExtResource("7_svg00")
 
 [node name="ReturnButtonDuat" type="TextureButton" parent="."]
 z_index = 1
-offset_left = 92.0
-offset_top = 522.0
-offset_right = 148.0
-offset_bottom = 554.0
+offset_left = 56.0
+offset_top = 490.0
+offset_right = 118.0
+offset_bottom = 528.0
 scale = Vector2(6, 6)
 texture_normal = ExtResource("8_7io2y")
 texture_pressed = ExtResource("9_bn0tq")
@@ -108,10 +108,10 @@ script = ExtResource("10_uxhgs")
 [node name="Label" type="Label" parent="ReturnButtonDuat"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 3.83333
-offset_top = 10.6667
-offset_right = 51.8333
-offset_bottom = 21.6667
+offset_left = 7.5
+offset_top = 14.5
+offset_right = 55.5
+offset_bottom = 25.5
 theme_override_colors/font_color = Color(0.85098, 0.615686, 0.192157, 1)
 theme_override_fonts/font = ExtResource("11_uln6t")
 theme_override_font_sizes/font_size = 8

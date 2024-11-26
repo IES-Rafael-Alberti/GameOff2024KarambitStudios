@@ -1,10 +1,11 @@
 extends TextureButton
 
 @onready var pieces: Node2D = $".."
-
+const SHINE_PIECE = preload("res://Shaders/ShinePiece.gdshader")
 var initial_position: Vector2
 var is_dragging: bool = false
 var offset: Vector2 = Vector2.ZERO
+@onready var rock_pop_sound: AudioStreamPlayer = $RockPopSound
 
 # Array con las posiciones correctas de las piezas
 var correct_positions = [
@@ -37,6 +38,8 @@ func _gui_input(event: InputEvent) -> void:
 		if event.pressed:
 			is_dragging = true
 			offset = get_global_mouse_position() - global_position
+			z_index +=1
+			rock_pop_sound.play()
 		else:
 			is_dragging = false
 			if global_position.distance_to(correct_positions[piece_index]) < threshold:
@@ -44,6 +47,7 @@ func _gui_input(event: InputEvent) -> void:
 				print(global_position)
 				correct_pieces.append(true)  # Marca esta pieza como colocada correctamente
 				colocada = true
+				material.shader = SHINE_PIECE
 				z_index -= 1
 				check_victory()
 			else:

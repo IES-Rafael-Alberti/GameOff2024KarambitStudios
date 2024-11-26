@@ -24,6 +24,8 @@ var flashlight: bool = false
 ##--------- Variables escena 1 ---------
 var player_position_puzzle: Vector2
 var puzzle_1_complete = false
+var occupied_positions_puzle_1: Array[Vector2] = []
+
 var puzzle_2_complete = false
 var puzzle_3_complete = false
 var puzzle_3_position: Vector2 
