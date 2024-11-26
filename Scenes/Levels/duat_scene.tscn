@@ -509,3 +509,5 @@ scale = Vector2(3.97656, 2.60937)
 [node name="Spikes11" parent="Trampas" instance=ExtResource("6_vc8s7")]
 position = Vector2(3679.63, 1018.75)
 scale = Vector2(3.97656, 2.60937)
+
+[node name="Node" type="Node" parent="."]
