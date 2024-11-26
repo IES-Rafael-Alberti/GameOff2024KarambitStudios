@@ -25,7 +25,8 @@ var can_take_damage = true
 ## --------------- Variables de estado -----------------
 var facing_right = true
 var is_dashing = false
-
+var is_sinking: bool = false
+var is_falling: bool = false
 ## ---------------- Ajuste zoom camara ------------------
 @export var camera_zoom = 2.5
 @export var sprite_offset = Vector2(16,16)
@@ -140,11 +141,24 @@ func _physics_process(delta: float) -> void:
 
 	
 	# Aplicar gravedad si no está en el suelo y no está en dash
-	if not is_on_floor() and not is_dashing:
+	if not is_on_floor() and not is_dashing and not is_sinking:
 		velocity.y += gravity * delta
+		
+		
+	if not is_on_floor():
+		is_falling = true
+	else:
+		is_falling = false
+
+	if is_sinking and is_falling:
+		
+		print("Se hunde")
+		jumps_left = 0
+		velocity = Vector2(0,gravity * delta)
+		print("Velocity: ", velocity)
 
 	# Reiniciar saltos si está en el suelo
-	if is_on_floor() and velocity.y == 0:
+	if is_on_floor() and velocity.y == 0 and not is_sinking:
 		jumps_left = MAX_JUMPS
 
 	# Realizar el ataque si se presiona el botón derecho del ratón
