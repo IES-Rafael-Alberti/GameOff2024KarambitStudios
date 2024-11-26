@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://nkwfgfld2vl7"]
+[gd_scene load_steps=11 format=4 uid="uid://nkwfgfld2vl7"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_cctwx"]
 [ext_resource type="Texture2D" uid="uid://ch16s3ci7v0mv" path="res://Assets/TileSets/tileset duat v1.png" id="2_b4gke"]
 [ext_resource type="PackedScene" uid="uid://dendjn28vhbb2" path="res://Scenes/Levels/duat_small_platform.tscn" id="3_5dq2b"]
 [ext_resource type="PackedScene" uid="uid://ck6b35e7dxap7" path="res://Scenes/Levels/duat_large_platform.tscn" id="4_gn6vw"]
 [ext_resource type="PackedScene" uid="uid://g1uqvppr4iaj" path="res://Scenes/Enemies/anubis.tscn" id="5_c40wb"]
+[ext_resource type="PackedScene" uid="uid://w86dxymlrbo6" path="res://Scenes/Traps/spikes.tscn" id="6_vc8s7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emytj"]
 texture = ExtResource("2_b4gke")
@@ -462,3 +463,53 @@ position = Vector2(2896, 521)
 z_index = 1
 position = Vector2(4244, 810)
 scale = Vector2(4.24, 4.24)
+
+[node name="Trampas" type="Node" parent="."]
+
+[node name="Spikes" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(617, 287)
+scale = Vector2(3.375, 2.34375)
+
+[node name="Spikes2" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(711, 287)
+scale = Vector2(3.3125, 2.34375)
+
+[node name="Spikes3" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(804.5, 287)
+scale = Vector2(3.34375, 2.34375)
+
+[node name="Spikes4" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(901.5, 287)
+scale = Vector2(3.59375, 2.34375)
+
+[node name="Spikes5" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(1868, 544)
+scale = Vector2(3.59375, 2.34375)
+
+[node name="Spikes6" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(1969, 544)
+scale = Vector2(3.59375, 2.34375)
+
+[node name="Spikes7" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(2070, 544)
+scale = Vector2(3.59375, 2.34375)
+
+[node name="Spikes8" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(2171, 544)
+scale = Vector2(3.59375, 2.34375)
+
+[node name="Spikes9" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(2274.25, 544)
+scale = Vector2(3.76562, 2.34375)
+
+[node name="Spikes10" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(3568.38, 1018.75)
+scale = Vector2(3.97656, 2.60937)
+
+[node name="Spikes11" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(3679.63, 1018.75)
+scale = Vector2(3.97656, 2.60937)
+
+[node name="Spikes12" parent="Trampas" instance=ExtResource("6_vc8s7")]
+position = Vector2(1710.81, 449.375)
+scale = Vector2(3.11328, 2.14844)

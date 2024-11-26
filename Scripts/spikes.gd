@@ -1,10 +1,6 @@
 extends Sprite2D
 
-@onready var cooldown: Timer = $Cooldown
-
-
-@export var damage: float = 1.0
-
+#@onready var cooldown: Timer = $Cooldown
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
-	GameManager.take_damage(damage)
+	GameManager.take_player_damage()
