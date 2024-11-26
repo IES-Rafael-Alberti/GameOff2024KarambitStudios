@@ -110,7 +110,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 # Función de daño al enemigo
-func recibir_dano(damage: int) -> void:
+func take_damage(damage: int) -> void:
 	vida -= damage
 	print("Enemigo recibió daño, vida restante:", vida)
 	if vida <= 0:

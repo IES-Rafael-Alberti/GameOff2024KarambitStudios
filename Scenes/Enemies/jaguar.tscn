@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/jaguar.gd" id="2_gx5be"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cc2mw"]
-size = Vector2(150, 61.75)
+size = Vector2(59, 57.5)
 
 [node name="Jaguar" type="Sprite2D"]
 texture_filter = 1
@@ -15,7 +15,7 @@ script = ExtResource("2_gx5be")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 82.125)
+position = Vector2(-122, 83.25)
 shape = SubResource("RectangleShape2D_cc2mw")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

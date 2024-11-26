@@ -1,5 +1,6 @@
 extends Sprite2D
 
+@onready var area_2d: Area2D = $Area2D
 var ready_to_puzle = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

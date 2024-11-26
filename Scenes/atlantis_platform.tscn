@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://33orawa54art"]
 
-[ext_resource type="Texture2D" uid="uid://bslc4vcq2i2dj" path="res://Assets/TileSets/tileset_atlantis_structure.png" id="1_48rpo"]
+[ext_resource type="Texture2D" uid="uid://dp5p48iq2iqia" path="res://Assets/TileSets/tileset_atlantis_structure.png" id="1_48rpo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcyjv"]
 size = Vector2(98, 8)
