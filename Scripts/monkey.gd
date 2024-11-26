@@ -23,8 +23,6 @@ func _ready() -> void:
 	
 	# Añadimos al enemigo al grupo "enemigos"
 	add_to_group("enemigos")
-	# Añadimos al enemigo al grupo "enemigos"
-	add_to_group("enemigos")
 	
 	
 	sprite_monkey.flip_h = fliped

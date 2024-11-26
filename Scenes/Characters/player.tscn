@@ -682,6 +682,7 @@ script = SubResource("GDScript_l86qj")
 visible = false
 
 [node name="HUD" parent="UI" instance=ExtResource("10_h28rl")]
+visible = false
 full_heart_texture = ExtResource("11_te8ke")
 empty_heart_texture = ExtResource("12_vwxei")
 
@@ -709,7 +710,6 @@ wait_time = 0.2
 [node name="DashCooldown" type="Timer" parent="Timers"]
 
 [node name="iFrames" type="Timer" parent="Timers"]
-wait_time = 4.0
 one_shot = true
 
 [node name="flashAttack" type="Area2D" parent="."]
