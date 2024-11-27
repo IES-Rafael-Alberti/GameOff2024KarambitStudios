@@ -322,21 +322,14 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_25rgy"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 14
 sources/0 = SubResource("TileSetAtlasSource_oap81")
 
 [node name="DuatScene" type="Node2D"]
 script = ExtResource("1_cctwx")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(82, -56)
-
-[node name="LevelName" type="Label" parent="."]
-offset_left = 3.0
-offset_top = -221.0
-offset_right = 243.0
-offset_bottom = -163.0
-theme_override_font_sizes/font_size = 42
-text = "DUAT"
+position = Vector2(74, -55)
 
 [node name="Tileset" type="Node" parent="."]
 
@@ -512,13 +505,135 @@ scale = Vector2(3.97656, 2.60937)
 position = Vector2(3679.63, 1018.75)
 scale = Vector2(3.97656, 2.60937)
 
-[node name="Node" type="Node" parent="."]
+[node name="Enemigos" type="Node" parent="."]
 
-[node name="Fantasma" parent="Node" instance=ExtResource("7_k6aq4")]
+[node name="Fantasma_Enemy" type="Node" parent="Enemigos"]
+
+[node name="Fantasma" parent="Enemigos/Fantasma_Enemy" instance=ExtResource("7_k6aq4")]
 position = Vector2(3370, 147)
+speed = 40.0
 
-[node name="Anubis" parent="Node" instance=ExtResource("8_0giyd")]
+[node name="Fantasma2" parent="Enemigos/Fantasma_Enemy" instance=ExtResource("7_k6aq4")]
+position = Vector2(453.615, 100.502)
+speed = 40.0
+
+[node name="Fantasma3" parent="Enemigos/Fantasma_Enemy" instance=ExtResource("7_k6aq4")]
+position = Vector2(882.131, 92.2616)
+speed = 40.0
+
+[node name="Fantasma4" parent="Enemigos/Fantasma_Enemy" instance=ExtResource("7_k6aq4")]
+position = Vector2(1616, 205)
+speed = 40.0
+
+[node name="Fantasma5" parent="Enemigos/Fantasma_Enemy" instance=ExtResource("7_k6aq4")]
+position = Vector2(2216, 446)
+speed = 40.0
+
+[node name="Fantasma6" parent="Enemigos/Fantasma_Enemy" instance=ExtResource("7_k6aq4")]
+position = Vector2(1895.74, 291.536)
+speed = 40.0
+
+[node name="Fantasma7" parent="Enemigos/Fantasma_Enemy" instance=ExtResource("7_k6aq4")]
+position = Vector2(2765, 372)
+speed = 40.0
+
+[node name="Anubis_Enemy" type="Node" parent="Enemigos"]
+
+[node name="Anubis" parent="Enemigos/Anubis_Enemy" instance=ExtResource("8_0giyd")]
 position = Vector2(3496, 905)
 
-[node name="Anubis2" parent="Node" instance=ExtResource("8_0giyd")]
+[node name="path" type="Node2D" parent="Enemigos/Anubis_Enemy/Anubis"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis/path"]
+position = Vector2(-318, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis/path"]
+position = Vector2(23, 0)
+
+[node name="Anubis2" parent="Enemigos/Anubis_Enemy" instance=ExtResource("8_0giyd")]
 position = Vector2(3205, 905)
+
+[node name="path" type="Node2D" parent="Enemigos/Anubis_Enemy/Anubis2"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis2/path"]
+position = Vector2(-27, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis2/path"]
+position = Vector2(314, 0)
+
+[node name="Anubis3" parent="Enemigos/Anubis_Enemy" instance=ExtResource("8_0giyd")]
+position = Vector2(3245, 233)
+
+[node name="path" type="Node2D" parent="Enemigos/Anubis_Enemy/Anubis3"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis3/path"]
+position = Vector2(-75, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis3/path"]
+position = Vector2(143, 0)
+
+[node name="Anubis4" parent="Enemigos/Anubis_Enemy" instance=ExtResource("8_0giyd")]
+position = Vector2(2466, 233)
+
+[node name="path" type="Node2D" parent="Enemigos/Anubis_Enemy/Anubis4"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis4/path"]
+position = Vector2(-126, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis4/path"]
+position = Vector2(59, 0)
+
+[node name="Anubis5" parent="Enemigos/Anubis_Enemy" instance=ExtResource("8_0giyd")]
+position = Vector2(2169, 361)
+
+[node name="path" type="Node2D" parent="Enemigos/Anubis_Enemy/Anubis5"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis5/path"]
+position = Vector2(-37, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis5/path"]
+position = Vector2(52, 0)
+
+[node name="Anubis6" parent="Enemigos/Anubis_Enemy" instance=ExtResource("8_0giyd")]
+position = Vector2(1974, 265)
+
+[node name="path" type="Node2D" parent="Enemigos/Anubis_Enemy/Anubis6"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis6/path"]
+position = Vector2(-33, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis6/path"]
+position = Vector2(55, 0)
+
+[node name="Anubis7" parent="Enemigos/Anubis_Enemy" instance=ExtResource("8_0giyd")]
+position = Vector2(1556, 457)
+
+[node name="path" type="Node2D" parent="Enemigos/Anubis_Enemy/Anubis7"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis7/path"]
+position = Vector2(-42, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis7/path"]
+position = Vector2(263, 0)
+
+[node name="Anubis8" parent="Enemigos/Anubis_Enemy" instance=ExtResource("8_0giyd")]
+position = Vector2(1353, -87)
+
+[node name="path" type="Node2D" parent="Enemigos/Anubis_Enemy/Anubis8"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis8/path"]
+position = Vector2(-68, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis8/path"]
+position = Vector2(145, 0)
+
+[node name="Anubis9" parent="Enemigos/Anubis_Enemy" instance=ExtResource("8_0giyd")]
+position = Vector2(1140, 137)
+
+[node name="path" type="Node2D" parent="Enemigos/Anubis_Enemy/Anubis9"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis9/path"]
+position = Vector2(-175, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis9/path"]
+position = Vector2(129, 0)

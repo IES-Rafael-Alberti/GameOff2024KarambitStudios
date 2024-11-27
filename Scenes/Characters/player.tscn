@@ -644,8 +644,8 @@ size = Vector2(39.5, 58)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 29
 script = ExtResource("1_jrxfw")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
@@ -653,7 +653,7 @@ z_index = 1
 material = SubResource("ShaderMaterial_67cec")
 position = Vector2(0, -2.25)
 sprite_frames = SubResource("SpriteFrames_ek8rt")
-animation = &"idle"
+animation = &""
 autoplay = "idle"
 frame = 1
 
