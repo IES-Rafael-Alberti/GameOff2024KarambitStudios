@@ -40,9 +40,15 @@ const TARGET_TOP_INDEX = 1
 const TARGET_MID_INDEX = 2
 const TARGET_BOTTOM_INDEX = 0
 
+
+@onready var pause_menu: Control = $"../UI/PauseMenu"
+
 func _ready() -> void:
 	update_pieces()
 
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Pause"):
+		pause_menu.visible = not pause_menu.visible
 # Actualiza las piezas según sus índices
 func update_pieces():
 	top_piece.texture = top_textures[index_top]

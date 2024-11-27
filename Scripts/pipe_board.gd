@@ -18,6 +18,11 @@ extends GridContainer
 @onready var pipe_15: TextureButton = $Pipe15
 @onready var pipe_16: TextureButton = $Pipe16
 
+@onready var pause_menu: Control = $"../../../UI/PauseMenu"
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Pause"):
+		pause_menu.visible = not pause_menu.visible
 func check_victory():
 	for pipe in get_children():
 		if pipe.name != "Pipe2" and pipe is TextureButton:  # Ignora la pieza "Pipe2"

@@ -6,6 +6,7 @@ var initial_position: Vector2
 var is_dragging: bool = false
 var offset: Vector2 = Vector2.ZERO
 @onready var rock_pop_sound: AudioStreamPlayer = $RockPopSound
+@onready var pause_menu: Control = $"../../UI/PauseMenu"
 
 # Array con las posiciones correctas de las piezas
 var correct_positions = [
@@ -31,7 +32,9 @@ func _ready():
 	initial_position = global_position
 	# Inicializamos la lista de piezas correctas en 'false'
 	
-
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Pause"):
+		pause_menu.visible = not pause_menu.visible
 # Detecta el clic para iniciar el arrastre
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not colocada:

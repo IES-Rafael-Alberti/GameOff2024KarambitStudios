@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d4evg073v65bm"]
+[gd_scene load_steps=21 format=3 uid="uid://d4evg073v65bm"]
 
 [ext_resource type="Texture2D" uid="uid://b0wjpq6ks36fw" path="res://Assets/Sprites/Puzzle/tablero_Dorado_v1.png" id="2_acirc"]
 [ext_resource type="PackedScene" uid="uid://b5bmm424xphd1" path="res://Scenes/Levels/puzle_piece.tscn" id="4_wvbs7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://blp84g4psxw30" path="res://Assets/Sprites/Puzzle/pieza_3_v1.png" id="7_3l5ek"]
 [ext_resource type="Texture2D" uid="uid://d81y0dn4mu76" path="res://Assets/Sprites/Puzzle/pieza_4_v1.png" id="8_s3odi"]
 [ext_resource type="Texture2D" uid="uid://clxwg35wrplei" path="res://Assets/Sprites/Puzzle/pieza_5_v1.png" id="9_gufi4"]
+[ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/Menus/pause_menu.tscn" id="10_1dvut"]
 [ext_resource type="Texture2D" uid="uid://cxdldl4x0mj6s" path="res://Assets/Sprites/Puzzle/pieza_6_v1.png" id="10_d7y8j"]
 [ext_resource type="Texture2D" uid="uid://bgp2bnxcjnxcf" path="res://Assets/Sprites/Puzzle/pieza_7_v1.png" id="11_vksam"]
 
@@ -120,3 +121,9 @@ offset_right = -10.0
 offset_bottom = 83.0
 texture_normal = ExtResource("7_3l5ek")
 piece_index = 7
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("10_1dvut")]
+visible = false
+z_index = 2
