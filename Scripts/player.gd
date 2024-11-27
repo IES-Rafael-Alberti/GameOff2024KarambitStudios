@@ -287,10 +287,8 @@ func _on_player_sensor_body_entered(body: Node2D) -> void:
 			GameManager.apply_push_to_player(body.position, self)
 			
 			# Luego aplicamos el daño
-			GameManager.take_player_damage(self)
-			#Aplica el efecto de daño
-			$PlayerSprite.material.set_shader_parameter("mix_color", 0.7)
-			damage_timer.start()
+			GameManager.take_player_damage(body)
+
 			# Iniciamos el temporizador de i-frames
 			can_take_damage = false
 			i_frames.start()

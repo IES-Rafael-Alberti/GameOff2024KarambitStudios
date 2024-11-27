@@ -67,4 +67,4 @@ func _physics_process(delta: float) -> void:
 func _on_area_detection_body_entered(body: Node2D) -> void:
 	print("Entro")
 	if body.is_in_group("Player"):  # Si el collider es el jugador
-			GameManager.take_player_damage(body)
+			GameManager.take_player_damage()

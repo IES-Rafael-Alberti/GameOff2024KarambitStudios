@@ -2,7 +2,6 @@
 shader_type canvas_item;
 
 
-
 uniform int count: hint_range(0, 2000) = 150;
 uniform float slant: hint_range(-0.1, 0.1) = -0.01;
 uniform float speed: hint_range(0.1, 100.0, 0.01) = 50.0;
