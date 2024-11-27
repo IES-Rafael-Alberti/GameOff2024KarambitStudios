@@ -44,6 +44,7 @@ func take_player_damage(body: Node) -> void:
 	print("Jugador recibe daño")
 	if player_health > 0:
 		player_health -= 1
+		#Aplica el efecto de daño
 		body.can_take_damage = false
 		body.i_frames.start()
 		body.get_child(0).material.set_shader_parameter("mix_color",0.7)
