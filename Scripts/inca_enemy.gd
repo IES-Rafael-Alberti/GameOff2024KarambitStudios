@@ -130,11 +130,11 @@ func _on_attack_area_body_entered(body: Node) -> void:
 	if body.is_in_group("Player") and not is_animation_playing:
 		sprite_inca.play("attack")
 		is_animation_playing = true  # Bloquea nuevas acciones hasta que termine la animación
-		print("El enemigo empezó la animación de ataque")	
+		print("El enemigo empezó la animación de ataque")
 
-
-func _on_animated_sprite_2d_animation_finished(anim_name: String) -> void:
-	if anim_name == "attack":
+# Método que se ejecuta cuando la animación de ataque termina
+func _on_animation_finished() -> void:
+	if sprite_inca.animation == "attack":
 		print("Animación de ataque terminada")
 		is_animation_playing = false
 
@@ -143,5 +143,5 @@ func _on_animated_sprite_2d_animation_finished(anim_name: String) -> void:
 		for cuerpo in cuerpos_en_colision:
 			if cuerpo.is_in_group("Player"):
 				print("El enemigo golpeó al jugador")
-				GameManager.take_player_damage(cuerpo)
+				GameManager.take_player_damage(self)
 				break

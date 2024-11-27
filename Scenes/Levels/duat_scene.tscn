@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://nkwfgfld2vl7"]
+[gd_scene load_steps=14 format=4 uid="uid://nkwfgfld2vl7"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_cctwx"]
 [ext_resource type="Texture2D" uid="uid://ch16s3ci7v0mv" path="res://Assets/TileSets/tileset duat v1.png" id="2_b4gke"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://w86dxymlrbo6" path="res://Scenes/Traps/spikes.tscn" id="6_vc8s7"]
 [ext_resource type="PackedScene" uid="uid://drfheq68xinwq" path="res://Scenes/Enemies/fantasma_enemy.tscn" id="7_k6aq4"]
 [ext_resource type="PackedScene" uid="uid://6s21wq7ig4ta" path="res://Scenes/Enemies/anubis_enemy.tscn" id="8_0giyd"]
+[ext_resource type="PackedScene" uid="uid://043wp7dseoh1" path="res://Scenes/PowerUps/power_up.tscn" id="9_ljf34"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emytj"]
 texture = ExtResource("2_b4gke")
@@ -329,7 +330,7 @@ sources/0 = SubResource("TileSetAtlasSource_oap81")
 script = ExtResource("1_cctwx")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(74, -55)
+position = Vector2(58, -37)
 
 [node name="Tileset" type="Node" parent="."]
 
@@ -456,8 +457,8 @@ position = Vector2(2896, 521)
 
 [node name="Anubis" parent="." instance=ExtResource("5_c40wb")]
 z_index = 1
-position = Vector2(4244, 810)
-scale = Vector2(4.24, 4.24)
+position = Vector2(4244, 833)
+scale = Vector2(0.8, 0.8)
 
 [node name="Trampas" type="Node" parent="."]
 
@@ -637,3 +638,17 @@ position = Vector2(-175, 0)
 
 [node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis_Enemy/Anubis9/path"]
 position = Vector2(129, 0)
+
+[node name="Pickables" type="Node" parent="."]
+
+[node name="PowerUps" type="Node" parent="Pickables"]
+
+[node name="PowerUp" parent="Pickables/PowerUps" instance=ExtResource("9_ljf34")]
+position = Vector2(274, -20)
+
+[node name="PowerUp2" parent="Pickables/PowerUps" instance=ExtResource("9_ljf34")]
+position = Vector2(1035, -90)
+
+[node name="Monedas" type="Node" parent="Pickables"]
+
+[node name="Curacion" type="Node" parent="Pickables"]

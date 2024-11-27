@@ -1,22 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://g1uqvppr4iaj"]
 
-[ext_resource type="Texture2D" uid="uid://v5o1b7lsepmk" path="res://Assets/Sprites/Enemies/Anubis/sprite soldado anubis idle.png" id="1_kct82"]
+[ext_resource type="Texture2D" uid="uid://b7s5pwne2sn0x" path="res://Assets/Sprites/Enemies/Boss/Sprite_boss_anubis.png" id="1_mhvvs"]
 [ext_resource type="Script" path="res://Scripts/anubis.gd" id="2_sby1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yp8gp"]
-size = Vector2(52, 32)
+size = Vector2(67.2222, 63.4839)
 
 [node name="Anubis" type="Sprite2D"]
-texture = ExtResource("1_kct82")
+scale = Vector2(0.163636, 0.124)
+texture = ExtResource("1_mhvvs")
 flip_h = true
 region_enabled = true
-region_rect = Rect2(0, 0, 50, 55)
+region_rect = Rect2(0, 0, 110, 250)
 script = ExtResource("2_sby1h")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-51, 10)
+position = Vector2(-58.0556, 88.1936)
 shape = SubResource("RectangleShape2D_yp8gp")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

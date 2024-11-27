@@ -8,8 +8,7 @@ extends Node2D
 const PLAYER = preload("res://Scenes/Characters/player.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if GameManager.spawn_point:
-		spawn_point.position = GameManager.spawn_point
+	
 	Engine.time_scale = 1.0
 	if scene_file_path.contains("museum_scene"):
 		pedestal_atlantis.visible = false

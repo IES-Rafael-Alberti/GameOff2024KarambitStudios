@@ -67,6 +67,7 @@ texture = ExtResource("1_wofs1")
 script = ExtResource("2_15tom")
 
 [node name="DamageArea" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 position = Vector2(2, 1)

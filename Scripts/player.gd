@@ -10,7 +10,6 @@ const ATTACK_DISTANCE_MELEE = 10.0 # Distancia del área de ataque desde el pers
 const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
 const DASH_EFFECT_SHADER = preload("res://Shaders/DashEffectShader.gdshader")
 const DAMAGE_SHADER = preload("res://Shaders/DamageShader.gdshader")
-const PLAYER_DAMAGE = preload("res://Shaders/Player_damage.gdshader")
 ## ------------------- Variables ----------------
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var MAX_JUMPS = 1
@@ -26,8 +25,7 @@ var can_take_damage = true
 ## --------------- Variables de estado -----------------
 var facing_right = true
 var is_dashing = false
-var is_sinking: bool = false
-var is_falling: bool = false
+
 ## ---------------- Ajuste zoom camara ------------------
 @export var camera_zoom = 2.5
 @export var sprite_offset = Vector2(16,16)
@@ -47,7 +45,6 @@ var is_falling: bool = false
 @onready var attack_timer = $Timers/AttackTimer
 @onready var attack_cool_down = $Timers/AttackCoolDown
 @onready var i_frames: Timer = $Timers/iFrames
-@onready var damage_timer: Timer = $Timers/DamageTimer
 
 
 ## --------------- Variables Ataque linterna ----------------------
@@ -138,30 +135,16 @@ func _physics_process(delta: float) -> void:
 				create_duplicate()
 		else:
 			velocity.x = direction * SPEED
-			animated_sprite.material.shader = DAMAGE_SHADER
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	
 	# Aplicar gravedad si no está en el suelo y no está en dash
-	if not is_on_floor() and not is_dashing and not is_sinking:
+	if not is_on_floor() and not is_dashing:
 		velocity.y += gravity * delta
-		
-		
-	if not is_on_floor():
-		is_falling = true
-	else:
-		is_falling = false
-
-	if is_sinking and is_falling:
-		
-		print("Se hunde")
-		jumps_left = 0
-		velocity = Vector2(0,gravity * delta)
-		print("Velocity: ", velocity)
 
 	# Reiniciar saltos si está en el suelo
-	if is_on_floor() and velocity.y == 0 and not is_sinking:
+	if is_on_floor() and velocity.y == 0:
 		jumps_left = MAX_JUMPS
 
 	# Realizar el ataque si se presiona el botón derecho del ratón
@@ -276,7 +259,6 @@ func create_duplicate():
 	get_parent().add_child(duplicated)
 	await get_tree().create_timer(life_duplicate_time).timeout
 	duplicated.queue_free()
-	
 ## ------------------ Nodos ---------------------------
 #Timer para declarar cuando esta haciendo un dash
 func _on_dash_timer_timeout() -> void:
@@ -305,16 +287,12 @@ func _on_player_sensor_body_entered(body: Node2D) -> void:
 			GameManager.apply_push_to_player(body.position, self)
 			
 			# Luego aplicamos el daño
-			GameManager.take_player_damage(self)
-			$PlayerSprite.material.set_shader_parameter("mix_color", 0.7)
-			damage_timer.start()
+			GameManager.take_player_damage(body)
+
 			# Iniciamos el temporizador de i-frames
 			can_take_damage = false
 			i_frames.start()
 
+
 func _on_i_frames_timeout() -> void:
 	can_take_damage = true
-
-
-func _on_damage_timer_timeout() -> void:
-	$PlayerSprite.material.set_shader_parameter("mix_color", 0.0)
