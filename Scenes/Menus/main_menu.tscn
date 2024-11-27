@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="3_512h5"]
 [ext_resource type="AudioStream" uid="uid://bemdwu1m5fofe" path="res://Sounds/Ambient/RainSound.mp3" id="4_ttcr8"]
 [ext_resource type="Texture2D" uid="uid://d3ebmvs74ddue" path="res://Assets/Sprites/Background.jpg" id="5_8g3sw"]
+[ext_resource type="PackedScene" uid="uid://bxxwuipqewjrb" path="res://Scenes/Menus/volumes.tscn" id="6_wuy8h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjok8"]
 shader = ExtResource("2_1a587")
@@ -24,13 +25,6 @@ draw_center = false
 border_width_right = 900
 border_color = Color(0, 0, 0, 0.725)
 border_blend = true
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smusv"]
-bg_color = Color(0, 0, 0, 0.5)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
 
 [node name="MainMenu" type="Control"]
 texture_filter = 2
@@ -53,7 +47,7 @@ texture = ExtResource("3_512h5")
 
 [node name="RainSound" type="AudioStreamPlayer2D" parent="Rain"]
 stream = ExtResource("4_ttcr8")
-bus = &"Effects"
+bus = &"SFX"
 
 [node name="Panel" type="Panel" parent="."]
 z_index = -1
@@ -100,10 +94,10 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -125.0
+offset_top = 312.0
 offset_right = 125.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
 [node name="Play" type="Button" parent="Panel/BackGroundButton/FirstMenu"]
 layout_mode = 2
@@ -127,76 +121,23 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -240.0
-offset_right = 240.0
+offset_left = -137.0
+offset_top = 239.0
+offset_right = 136.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Volume" type="HBoxContainer" parent="Panel/BackGroundButton/OptionsMenu"]
+[node name="Volumes" parent="Panel/BackGroundButton/OptionsMenu" instance=ExtResource("6_wuy8h")]
 layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Panel/BackGroundButton/OptionsMenu/Volume"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_smusv")
-text = "Volume
-"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/BackGroundButton/OptionsMenu/Volume"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MasterVolumeColum" type="VBoxContainer" parent="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="Label" type="Label" parent="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_smusv")
-text = "Master"
-horizontal_alignment = 1
-
-[node name="MasterVolumeBar" type="HScrollBar" parent="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum"]
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 5.0
-value = 5.0
-custom_step = 0.1
-
-[node name="MasterVolumeColum2" type="VBoxContainer" parent="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="Label" type="Label" parent="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_smusv")
-text = "Effects
-"
-horizontal_alignment = 1
-
-[node name="EffectsVolumeBar" type="HScrollBar" parent="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum2"]
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 5.0
-value = 5.0
-custom_step = 0.1
 
 [node name="Back" type="Button" parent="Panel/BackGroundButton/OptionsMenu"]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [connection signal="pressed" from="Panel/BackGroundButton/FirstMenu/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Panel/BackGroundButton/FirstMenu/Options" to="." method="_on_options_pressed"]
-[connection signal="value_changed" from="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum/MasterVolumeBar" to="." method="_on_master_volume_bar_value_changed"]
-[connection signal="value_changed" from="Panel/BackGroundButton/OptionsMenu/Volume/HBoxContainer/MasterVolumeColum2/EffectsVolumeBar" to="." method="_on_effects_volume_bar_value_changed"]
 [connection signal="pressed" from="Panel/BackGroundButton/OptionsMenu/Back" to="." method="_on_back_pressed"]

@@ -7,13 +7,9 @@
 texture = ExtResource("1_tmry0")
 script = ExtResource("1_kimhl")
 
-[node name="LifeTimer" type="Timer" parent="."]
-wait_time = 6.27
-
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="ShootingPoint" type="Node2D" parent="."]
-position = Vector2(9, 6)
+position = Vector2(10, 2)
 
-[connection signal="timeout" from="LifeTimer" to="." method="_on_life_arrow_timer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

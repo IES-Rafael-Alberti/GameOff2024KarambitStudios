@@ -1,10 +1,11 @@
 shader_type canvas_item;
 
-uniform vec4 damage_color : source_color;// Rojo
-uniform float damage_intensity : hint_range(0.0, 1.0, 0.01) = 0.0; // Intensidad del efecto
+uniform vec4 blink_color: source_color;
+uniform float blink_intensity = 0;
 
 void fragment() {
-    vec4 texture_color = texture(TEXTURE, UV);
-    // Mezcla el color del daño con el color de la textura
-    COLOR = mix(texture_color, damage_color, damage_intensity);
+	vec4 color = texture(TEXTURE, UV);
+	color = mix(color, blink_color, blink_intensity * color.a);
+	COLOR = color;
 }
+
