@@ -10,6 +10,7 @@ const PLAYER = preload("res://Scenes/Characters/player.tscn")
 func _ready() -> void:
 	Engine.time_scale = 1.0
 	if scene_file_path.contains("museum_scene"):
+		
 		pedestal_atlantis.visible = false
 		pedestal_atlantis.get_child(0).get_child(0).disabled = true
 		if GameManager.puzzle_1_complete:
@@ -30,6 +31,9 @@ func _ready() -> void:
 		if  dorado_music_player:
 			dorado_music_player.play()
 		
+	if scene_file_path.contains("duat_scene") and GameManager.return_point and GameManager.returning_puzzle_2:
+		spawn_point.position = GameManager.return_point
+		GameManager.returning_puzzle_2 = false
 	var player_node = PLAYER.instantiate()
 	player_node.set_global_position(spawn_point.get_global_position())
 	get_tree().root.add_child(player_node)

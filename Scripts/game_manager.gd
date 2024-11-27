@@ -4,7 +4,7 @@ const PLAYER_DAMAGE = preload("res://Shaders/Player_damage.gdshader")
 ##--------------- Estadiscticas del jugador ------------------
 var player_health = MAX_HEALTH
 var score: int = 0
-var flash_count: int = 3
+var flash_count: int = 5
 const MAX_HEALTH = 3
 var push_direction: Vector2 = Vector2.ZERO
 var push_force: float = 500.0
@@ -24,9 +24,10 @@ var flashlight: bool = false
 ##--------- Variables escena 1 ---------
 var player_position_puzzle: Vector2
 var puzzle_1_complete = false
-var occupied_positions_puzle_1: Array[Vector2] = []
 
 var puzzle_2_complete = false
+var returning_puzzle_2 = false
+
 var puzzle_3_complete = false
 var puzzle_3_position: Vector2 
 func apply_push_to_player(enemy_position: Vector2, player: CharacterBody2D) -> void:

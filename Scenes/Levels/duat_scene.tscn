@@ -490,7 +490,6 @@ position = Vector2(2896, 521)
 [node name="Anubis" parent="." instance=ExtResource("5_c40wb")]
 z_index = 1
 position = Vector2(4244, 810)
-scale = Vector2(4.24, 4.24)
 
 [node name="Quicksand" parent="." instance=ExtResource("6_dbnm7")]
 z_index = 1
