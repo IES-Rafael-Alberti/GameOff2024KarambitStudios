@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddl42h14heqoo"]
+
+[ext_resource type="Shader" path="res://Shaders/ShinePiece.gdshader" id="1_375ik"]
+[ext_resource type="Script" path="res://Scripts/coin.gd" id="3_6pfr6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xer4m"]
+shader = ExtResource("1_375ik")
+shader_parameter/shine_color = Color(1, 1, 1, 0.25)
+shader_parameter/line_width = 0.2
+shader_parameter/angle = 0.785398
+shader_parameter/speed = 1.0
+shader_parameter/wait_cycles = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g80v2"]
+radius = 8.06226
+
+[node name="Collectable" type="Sprite2D"]
+material = SubResource("ShaderMaterial_xer4m")
+script = ExtResource("3_6pfr6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_g80v2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

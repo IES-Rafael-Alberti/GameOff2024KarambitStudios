@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbxdmr6dpygtk"]
+[gd_scene load_steps=12 format=3 uid="uid://dbxdmr6dpygtk"]
 
 [ext_resource type="Texture2D" uid="uid://c6n8kaxjedmvm" path="res://Assets/Sprites/Puzzle2/duat_puzzle.png" id="1_rsgb7"]
 [ext_resource type="Script" path="res://Scripts/duat_puzzle.gd" id="2_mdtad"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://ds52vndcbff3x" path="res://Assets/Sprites/Puzzle2/duat_pieza_top_1.png" id="5_8tsni"]
 [ext_resource type="Texture2D" uid="uid://b685g6p8ssqpo" path="res://Assets/Sprites/Puzzle2/duat_pieza_mid_1.png" id="6_as1qf"]
 [ext_resource type="Texture2D" uid="uid://b55sojrc1ve2h" path="res://Assets/Sprites/Puzzle2/duat_pieza_bottom_1.png" id="7_svg00"]
+[ext_resource type="Texture2D" uid="uid://be0yuex8h0tru" path="res://Assets/Sprites/Puzzle2/Return Button Duat.png" id="8_7io2y"]
+[ext_resource type="Texture2D" uid="uid://cjk6ivpy2vf6s" path="res://Assets/Sprites/Puzzle2/Return Button Duat Dark.png" id="9_bn0tq"]
+[ext_resource type="Script" path="res://Scripts/return_button_duat.gd" id="10_uxhgs"]
+[ext_resource type="FontFile" uid="uid://cljjgf2p13ikp" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="11_uln6t"]
 
 [node name="PuzleDuat" type="Node2D"]
 
@@ -89,9 +93,34 @@ position = Vector2(638, 554)
 scale = Vector2(6, 6)
 texture = ExtResource("7_svg00")
 
+[node name="ReturnButtonDuat" type="TextureButton" parent="."]
+z_index = 1
+offset_left = 56.0
+offset_top = 490.0
+offset_right = 118.0
+offset_bottom = 528.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("8_7io2y")
+texture_pressed = ExtResource("9_bn0tq")
+stretch_mode = 0
+script = ExtResource("10_uxhgs")
+
+[node name="Label" type="Label" parent="ReturnButtonDuat"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.5
+offset_top = 14.5
+offset_right = 55.5
+offset_bottom = 25.5
+theme_override_colors/font_color = Color(0.85098, 0.615686, 0.192157, 1)
+theme_override_fonts/font = ExtResource("11_uln6t")
+theme_override_font_sizes/font_size = 8
+text = "Return"
+
 [connection signal="pressed" from="DuatPuzzle/ButtonLeftTop" to="DuatPuzzle" method="_on_button_left_top_pressed"]
 [connection signal="pressed" from="DuatPuzzle/ButtonRightTop" to="DuatPuzzle" method="_on_button_right_top_pressed"]
 [connection signal="pressed" from="DuatPuzzle/ButtonLeftMid" to="DuatPuzzle" method="_on_button_left_mid_pressed"]
 [connection signal="pressed" from="DuatPuzzle/ButtonRightMid" to="DuatPuzzle" method="_on_button_right_mid_pressed"]
 [connection signal="pressed" from="DuatPuzzle/ButtonLeftBottom" to="DuatPuzzle" method="_on_button_left_bottom_pressed"]
 [connection signal="pressed" from="DuatPuzzle/ButtonRightBottom" to="DuatPuzzle" method="_on_button_right_bottom_pressed"]
+[connection signal="pressed" from="ReturnButtonDuat" to="DuatPuzzle" method="_on_return_button_duat_pressed"]

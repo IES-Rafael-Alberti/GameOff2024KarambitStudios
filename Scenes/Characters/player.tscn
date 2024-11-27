@@ -1,6 +1,7 @@
-[gd_scene load_steps=93 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=98 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jrxfw"]
+[ext_resource type="Shader" path="res://Shaders/DamageShader.gdshader" id="2_gxme5"]
 [ext_resource type="Texture2D" uid="uid://hvi44r63n72o" path="res://Assets/Sprites/sprite_player/sprite_ataque_linterna.png" id="2_p3i1b"]
 [ext_resource type="Texture2D" uid="uid://b7u4jcxw063fk" path="res://Assets/Sprites/sprite_player/sprite_dash.png" id="3_ad30o"]
 [ext_resource type="Texture2D" uid="uid://hhmsviha7ssk" path="res://Assets/Sprites/sprite_player/sprite_definitivo_idle_SIN_BORDES.png" id="4_ilwtk"]
@@ -14,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://c060xj3h42a75" path="res://Assets/Sprites/Cone.png" id="13_jc2pr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67cec"]
+shader = ExtResource("2_gxme5")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/mix_color = 0.0
+shader_parameter/opacity = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vl53l"]
 atlas = ExtResource("2_p3i1b")
@@ -372,6 +377,9 @@ script/source = "extends CanvasLayer
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o3uqj"]
 animation = &"attack_flashlight"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b8d5l"]
+animation = &"attack_shovel"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fwt4c"]
 animation = &"dash"
 
@@ -408,6 +416,7 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4b1yd"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c7a5s"]
+break_loop_at_end = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_esss5"]
 
@@ -417,11 +426,17 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8b8um"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7euru"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wxpt3"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1mjks"]
-states/End/position = Vector2(1153, 64)
+states/End/position = Vector2(1154, 64)
 states/Start/position = Vector2(596, 200)
 states/attack_flashlight/node = SubResource("AnimationNodeAnimation_o3uqj")
 states/attack_flashlight/position = Vector2(893, 113)
+states/attack_shovel/node = SubResource("AnimationNodeAnimation_b8d5l")
+states/attack_shovel/position = Vector2(818, -6.033)
 states/dash/node = SubResource("AnimationNodeAnimation_fwt4c")
 states/dash/position = Vector2(314, -92.0328)
 states/idle/node = SubResource("AnimationNodeAnimation_06sfh")
@@ -432,8 +447,8 @@ states/jump_up/node = SubResource("AnimationNodeAnimation_1rgp8")
 states/jump_up/position = Vector2(406, 31)
 states/walk/node = SubResource("AnimationNodeAnimation_hei0b")
 states/walk/position = Vector2(596, -17)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_utfji"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ikdna"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2lh1t"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_2n8si"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_477qk"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_66d5b"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_wthr2"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_uvtgx"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_4b1yd"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_c7a5s"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_esss5"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_5ur05"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_ttw63"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_8b8um")]
-graph_offset = Vector2(-76, -17.033)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_utfji"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ikdna"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2lh1t"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_2n8si"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_477qk"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_66d5b"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_wthr2"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_uvtgx"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_4b1yd"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_c7a5s"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_esss5"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_5ur05"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_ttw63"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_8b8um"), "idle", "attack_shovel", SubResource("AnimationNodeStateMachineTransition_7euru"), "attack_shovel", "idle", SubResource("AnimationNodeStateMachineTransition_wxpt3")]
+graph_offset = Vector2(161, -54.033)
 
 [sub_resource type="Animation" id="Animation_suxom"]
 length = 0.3667
@@ -478,6 +493,9 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
+
+[sub_resource type="Animation" id="Animation_yc68k"]
+resource_name = "attack_shovel"
 
 [sub_resource type="Animation" id="Animation_mgq5k"]
 resource_name = "dash"
@@ -627,6 +645,7 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_suxom"),
 "attack_flashlight": SubResource("Animation_d6ssn"),
+"attack_shovel": SubResource("Animation_yc68k"),
 "dash": SubResource("Animation_mgq5k"),
 "idle": SubResource("Animation_s8gh4"),
 "jump_down": SubResource("Animation_nupsa"),
@@ -649,7 +668,6 @@ collision_mask = 29
 script = ExtResource("1_jrxfw")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-z_index = 1
 material = SubResource("ShaderMaterial_67cec")
 position = Vector2(0, -2.25)
 sprite_frames = SubResource("SpriteFrames_ek8rt")
@@ -710,7 +728,9 @@ wait_time = 0.2
 [node name="DashCooldown" type="Timer" parent="Timers"]
 
 [node name="iFrames" type="Timer" parent="Timers"]
-one_shot = true
+
+[node name="DamageTimer" type="Timer" parent="Timers"]
+wait_time = 0.2
 
 [node name="flashAttack" type="Area2D" parent="."]
 position = Vector2(37, 0)
@@ -749,6 +769,7 @@ shape = SubResource("RectangleShape2D_godh2")
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="Timers/iFrames" to="." method="_on_i_frames_timeout"]
+[connection signal="timeout" from="Timers/DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="body_entered" from="flashAttack" to="." method="_on_flash_attack_body_entered"]
 [connection signal="body_entered" from="PlayerSensor" to="." method="_on_player_sensor_body_entered"]
 [connection signal="body_entered" from="meleeAttack" to="." method="_on_melee_attack_body_entered"]
