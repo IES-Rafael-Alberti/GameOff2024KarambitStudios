@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		GameManager.spawn_point = body.global_position
+		GameManager.return_point = body.global_position
 		GameManager.visible_e_key = true
 		ready_to_puzle = true
 

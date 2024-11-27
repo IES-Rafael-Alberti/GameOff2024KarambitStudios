@@ -90,6 +90,8 @@ func _on_button_right_bottom_pressed() -> void:
 
 
 func _on_return_button_duat_pressed() -> void:
-	var player = PLAYER.instantiate()
+
 	get_tree().change_scene_to_file("res://Scenes/Levels/duat_scene.tscn")
+	
+	
 	

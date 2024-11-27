@@ -14,7 +14,7 @@ var visible_e_key = false
 var teleport_activate : bool = false  # Variable para controlar si el teletransporte está activado
 var teleport_destination : String = ""  # Esta es la propiedad que necesitas para almacenar el destino del teletransporte
 var player_node: CharacterBody2D
-var spawn_point: Vector2
+var return_point: Vector2
 ##--------- PowerUps activables ---------
 
 var double_jump: bool = false
