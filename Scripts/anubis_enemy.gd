@@ -146,4 +146,4 @@ func _on_animation_finished() -> void:
 		for cuerpo in cuerpos_en_colision:
 			if cuerpo.is_in_group("Player"):
 				print("El enemigo golpeó al jugador")
-				GameManager.take_player_damage(self)
+				GameManager.take_player_damage(cuerpo)
