@@ -29,8 +29,7 @@ func _ready() -> void:
 		if GameManager.puzzle_3_complete:
 			pedestal_atlantis.get_child(0).get_child(0).disabled = true
 	elif scene_file_path.contains("dorado_scene"):
-		if dorado_music_player:
-			dorado_music_player.play()
+		dorado_music_player.play()
 		
 	var player_node = PLAYER.instantiate()
 	player_node.set_global_position(spawn_point.get_global_position())

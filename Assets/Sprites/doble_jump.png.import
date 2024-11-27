@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqflk05emled4"
-path="res://.godot/imported/heart_v1.png-e5a0d3ffa47e06883b579d1a294500ad.ctex"
+uid="uid://ckmj5dn1nxlu4"
+path="res://.godot/imported/doble_jump.png-cbad93a679ff8fea6b9f6421eefdcce7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/heart_v1.png"
-dest_files=["res://.godot/imported/heart_v1.png-e5a0d3ffa47e06883b579d1a294500ad.ctex"]
+source_file="res://Assets/Sprites/doble_jump.png"
+dest_files=["res://.godot/imported/doble_jump.png-cbad93a679ff8fea6b9f6421eefdcce7.ctex"]
 
 [params]
 
