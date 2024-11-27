@@ -1,6 +1,6 @@
 # GameManager.gd
 extends Node
-
+const PLAYER_DAMAGE = preload("res://Shaders/Player_damage.gdshader")
 ##--------------- Estadiscticas del jugador ------------------
 var player_health = MAX_HEALTH
 var score: int = 0
@@ -18,7 +18,7 @@ var spawn_point: Vector2
 ##--------- PowerUps activables ---------
 
 var double_jump: bool = false
-var dash: bool = false
+var dash: bool = true
 var flashlight: bool = false
 
 ##--------- Variables escena 1 ---------
@@ -40,10 +40,14 @@ func rest_flash():
 		flash_count -= 1
 
 # Funcion para que el jugador reciba daño
-func take_player_damage() -> void:
+func take_player_damage(body: Node) -> void:
 	print("Jugador recibe daño")
 	if player_health > 0:
 		player_health -= 1
+		body.can_take_damage = false
+		body.i_frames.start()
+		body.get_child(0).material.set_shader_parameter("mix_color",0.7)
+		body.damage_timer.start()
 		print("Vida restante del jugador:", player_health)
 		if player_health <= 0:
 			print("¡El jugador ha muerto!")

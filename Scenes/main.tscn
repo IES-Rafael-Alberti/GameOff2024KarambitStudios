@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://043wp7dseoh1" path="res://Scenes/PowerUps/power_up.tscn" id="1_adcnh"]
 [ext_resource type="Texture2D" uid="uid://ckmj5dn1nxlu4" path="res://Assets/Sprites/doble_jump.png" id="2_pgvr2"]
 [ext_resource type="PackedScene" uid="uid://btq53x2vyried" path="res://Scenes/Characters/player.tscn" id="3_6oqf1"]
-[ext_resource type="PackedScene" uid="uid://ddl42h14heqoo" path="res://Scenes/Collectables/coin.tscn" id="4_gmgfv"]
+[ext_resource type="PackedScene" uid="uid://ddl42h14heqoo" path="res://Scenes/Collectables/Collectable.tscn" id="4_gmgfv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4c05w"]
 
