@@ -61,7 +61,7 @@ var is_dashing = false
 @onready var dash_timer: Timer = $Timers/DashTimer
 @onready var dash_cooldown: Timer = $Timers/DashCooldown
 @onready var player_sensor: Area2D = $PlayerSensor
-
+@onready var damage_timer: Timer = $Timers/DamageTimer
 
 ## ------------------ Funciones -----------------
 func _ready() -> void:
@@ -135,6 +135,7 @@ func _physics_process(delta: float) -> void:
 				create_duplicate()
 		else:
 			velocity.x = direction * SPEED
+			animated_sprite.material.shader = DAMAGE_SHADER
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -298,3 +299,7 @@ func _on_player_sensor_body_entered(body: Node2D) -> void:
 
 func _on_i_frames_timeout() -> void:
 	can_take_damage = true
+
+
+func _on_damage_timer_timeout() -> void:
+	$PlayerSprite.material.set_shader_parameter("mix_color", 0.0)
