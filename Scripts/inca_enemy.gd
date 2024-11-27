@@ -133,15 +133,18 @@ func _on_attack_area_body_entered(body: Node) -> void:
 		print("El enemigo empezó la animación de ataque")	
 
 
-func _on_animated_sprite_2d_animation_finished(anim_name: String) -> void:
-	if anim_name == "attack":
+# Método que se ejecuta cuando la animación de ataque termina
+func _on_animation_finished() -> void:
+	if sprite_inca.animation == "attack":
 		print("Animación de ataque terminada")
 		is_animation_playing = false
-
+		
 		# Verifica si el jugador sigue en el área de ataque antes de infligir daño
 		var cuerpos_en_colision = attack_area.get_overlapping_bodies()
 		for cuerpo in cuerpos_en_colision:
 			if cuerpo.is_in_group("Player"):
 				print("El enemigo golpeó al jugador")
+				GameManager.apply_push_to_player(self.position,cuerpo)
 				GameManager.take_player_damage(cuerpo)
 				break
+		sprite_inca.play("idle")
