@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://t5arfevgsv5o"]
+[gd_scene load_steps=11 format=3 uid="uid://t5arfevgsv5o"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_knuci"]
 [ext_resource type="Shader" path="res://Shaders/RainShader.gdshader" id="2_1a587"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bemdwu1m5fofe" path="res://Sounds/Ambient/RainSound.mp3" id="4_ttcr8"]
 [ext_resource type="Texture2D" uid="uid://d3ebmvs74ddue" path="res://Assets/Sprites/Background.jpg" id="5_8g3sw"]
 [ext_resource type="PackedScene" uid="uid://bxxwuipqewjrb" path="res://Scenes/Menus/volumes.tscn" id="6_wuy8h"]
+[ext_resource type="FontFile" uid="uid://cljjgf2p13ikp" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="6_yd61m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjok8"]
 shader = ExtResource("2_1a587")
@@ -77,11 +78,14 @@ z_index = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = -304.0
 offset_top = 120.0
+offset_right = 304.0
 offset_bottom = 252.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 88
+theme_override_fonts/font = ExtResource("6_yd61m")
+theme_override_font_sizes/font_size = 48
 text = "Midnight Gallery
 "
 horizontal_alignment = 1
@@ -103,6 +107,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.252028, 0.252028, 0.252028, 1)
+theme_override_fonts/font = ExtResource("6_yd61m")
 theme_override_font_sizes/font_size = 42
 text = "Play"
 
@@ -110,6 +115,7 @@ text = "Play"
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.252028, 0.252028, 0.252028, 1)
+theme_override_fonts/font = ExtResource("6_yd61m")
 theme_override_font_sizes/font_size = 42
 text = "Options"
 
@@ -135,6 +141,8 @@ layout_mode = 2
 [node name="Back" type="Button" parent="Panel/BackGroundButton/OptionsMenu"]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_yd61m")
 theme_override_font_sizes/font_size = 32
 text = "Back"
 

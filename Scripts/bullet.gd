@@ -22,7 +22,7 @@ func set_direction(new_direction: Vector2) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		GameManager.take_player_damage()
+		GameManager.take_player_damage(body)
 
 
 func _on_life_timer_timeout() -> void:

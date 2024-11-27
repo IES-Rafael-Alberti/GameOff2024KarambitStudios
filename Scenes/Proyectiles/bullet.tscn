@@ -7,7 +7,7 @@ size = Vector2(21.5, 5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epul1"]
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" groups=["proyectile"]]
 z_index = 1
 script = ExtResource("1_pidxk")
 
