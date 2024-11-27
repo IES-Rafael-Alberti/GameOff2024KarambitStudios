@@ -137,11 +137,13 @@ func _on_animation_finished() -> void:
 	if sprite_inca.animation == "attack":
 		print("Animación de ataque terminada")
 		is_animation_playing = false
-
+		
 		# Verifica si el jugador sigue en el área de ataque antes de infligir daño
 		var cuerpos_en_colision = attack_area.get_overlapping_bodies()
 		for cuerpo in cuerpos_en_colision:
 			if cuerpo.is_in_group("Player"):
 				print("El enemigo golpeó al jugador")
-				GameManager.take_player_damage(self)
+				GameManager.apply_push_to_player(self.position,cuerpo)
+				GameManager.take_player_damage(cuerpo)
 				break
+		sprite_inca.play("idle")
