@@ -36,9 +36,9 @@ var index_mid: int = 0
 var index_bottom: int = 0
 
 # Índices objetivos para ganar
-const TARGET_TOP_INDEX = 1
-const TARGET_MID_INDEX = 2
-const TARGET_BOTTOM_INDEX = 0
+const TARGET_TOP_INDEX = 2
+const TARGET_MID_INDEX = 1
+const TARGET_BOTTOM_INDEX = 1
 
 
 @onready var pause_menu: Control = $"../UI/PauseMenu"
