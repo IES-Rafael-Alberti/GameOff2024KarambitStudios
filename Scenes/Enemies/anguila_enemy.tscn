@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2k3io2ah6ye8"]
+
+[ext_resource type="Script" path="res://Scripts/anguila_enemy.gd" id="1_gvs74"]
+[ext_resource type="Texture2D" uid="uid://crn2b0gvt216b" path="res://Assets/Sprites/Enemies/Anguila/sprite_anguila_en_movimiento.png" id="5_ngtid"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd58q"]
+atlas = ExtResource("5_ngtid")
+region = Rect2(0, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4cok"]
+atlas = ExtResource("5_ngtid")
+region = Rect2(55, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouag4"]
+atlas = ExtResource("5_ngtid")
+region = Rect2(110, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2el7"]
+atlas = ExtResource("5_ngtid")
+region = Rect2(165, 0, 55, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vg5vl"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_dd58q")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_c4cok")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ouag4")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_q2el7")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0yww"]
+radius = 2.0
+height = 14.0
+
+[node name="Anguila" type="CharacterBody2D" groups=["enemigos"]]
+texture_filter = 1
+position = Vector2(1, 9)
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_gvs74")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -4.5)
+scale = Vector2(0.315909, 0.315909)
+sprite_frames = SubResource("SpriteFrames_vg5vl")
+animation = &"walk"
+
+[node name="AreaDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="ColisionDetection" type="CollisionShape2D" parent="AreaDetection"]
+position = Vector2(0, -4.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m0yww")
+
+[connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]

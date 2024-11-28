@@ -1,0 +1,126 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbxdmr6dpygtk"]
+
+[ext_resource type="Texture2D" uid="uid://c6n8kaxjedmvm" path="res://Assets/Sprites/Puzzle2/duat_puzzle.png" id="1_rsgb7"]
+[ext_resource type="Script" path="res://Scripts/duat_puzzle.gd" id="2_mdtad"]
+[ext_resource type="Texture2D" uid="uid://qmfgfcpr6558" path="res://Assets/Sprites/Puzzle2/Puzzle_button.png" id="3_74yn7"]
+[ext_resource type="Texture2D" uid="uid://bp4onhcce2cli" path="res://Assets/Sprites/Puzzle2/Puzzle_button_pressed.png" id="4_duqn2"]
+[ext_resource type="Texture2D" uid="uid://ds52vndcbff3x" path="res://Assets/Sprites/Puzzle2/duat_pieza_top_1.png" id="5_8tsni"]
+[ext_resource type="Texture2D" uid="uid://b685g6p8ssqpo" path="res://Assets/Sprites/Puzzle2/duat_pieza_mid_1.png" id="6_as1qf"]
+[ext_resource type="Texture2D" uid="uid://b55sojrc1ve2h" path="res://Assets/Sprites/Puzzle2/duat_pieza_bottom_1.png" id="7_svg00"]
+[ext_resource type="Texture2D" uid="uid://be0yuex8h0tru" path="res://Assets/Sprites/Puzzle2/Return Button Duat.png" id="8_7io2y"]
+[ext_resource type="Texture2D" uid="uid://cjk6ivpy2vf6s" path="res://Assets/Sprites/Puzzle2/Return Button Duat Dark.png" id="9_bn0tq"]
+[ext_resource type="Script" path="res://Scripts/return_button_duat.gd" id="10_uxhgs"]
+[ext_resource type="FontFile" uid="uid://cljjgf2p13ikp" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="11_uln6t"]
+
+[node name="PuzleDuat" type="Node2D"]
+
+[node name="DuatPuzzle" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(650, 350)
+scale = Vector2(6, 6)
+texture = ExtResource("1_rsgb7")
+script = ExtResource("2_mdtad")
+
+[node name="ButtonLeftTop" type="TextureButton" parent="DuatPuzzle"]
+offset_left = -33.75
+offset_top = -39.0
+offset_right = -17.75
+offset_bottom = -23.0
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
+stretch_mode = 0
+flip_h = true
+
+[node name="ButtonRightTop" type="TextureButton" parent="DuatPuzzle"]
+offset_left = 13.0
+offset_top = -39.25
+offset_right = 29.0
+offset_bottom = -23.25
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
+stretch_mode = 0
+
+[node name="ButtonLeftMid" type="TextureButton" parent="DuatPuzzle"]
+offset_left = -34.0
+offset_top = -7.25
+offset_right = -18.0
+offset_bottom = 8.75
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
+stretch_mode = 0
+flip_h = true
+
+[node name="ButtonRightMid" type="TextureButton" parent="DuatPuzzle"]
+offset_left = 12.75
+offset_top = -7.5
+offset_right = 28.75
+offset_bottom = 8.5
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
+stretch_mode = 0
+
+[node name="ButtonLeftBottom" type="TextureButton" parent="DuatPuzzle"]
+offset_left = -34.0
+offset_top = 25.0
+offset_right = -18.0
+offset_bottom = 41.0
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
+stretch_mode = 0
+flip_h = true
+
+[node name="ButtonRightBottom" type="TextureButton" parent="DuatPuzzle"]
+offset_left = 12.75
+offset_top = 24.75
+offset_right = 28.75
+offset_bottom = 40.75
+texture_normal = ExtResource("3_74yn7")
+texture_pressed = ExtResource("4_duqn2")
+stretch_mode = 0
+
+[node name="TopPiece" type="Sprite2D" parent="."]
+position = Vector2(638, 158)
+scale = Vector2(6, 6)
+texture = ExtResource("5_8tsni")
+
+[node name="MidPiece" type="Sprite2D" parent="."]
+position = Vector2(638, 356)
+scale = Vector2(6, 6)
+texture = ExtResource("6_as1qf")
+
+[node name="BottomPiece" type="Sprite2D" parent="."]
+position = Vector2(638, 554)
+scale = Vector2(6, 6)
+texture = ExtResource("7_svg00")
+
+[node name="ReturnButtonDuat" type="TextureButton" parent="."]
+z_index = 1
+offset_left = 56.0
+offset_top = 490.0
+offset_right = 118.0
+offset_bottom = 528.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("8_7io2y")
+texture_pressed = ExtResource("9_bn0tq")
+stretch_mode = 0
+script = ExtResource("10_uxhgs")
+
+[node name="Label" type="Label" parent="ReturnButtonDuat"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.5
+offset_top = 14.5
+offset_right = 55.5
+offset_bottom = 25.5
+theme_override_colors/font_color = Color(0.85098, 0.615686, 0.192157, 1)
+theme_override_fonts/font = ExtResource("11_uln6t")
+theme_override_font_sizes/font_size = 8
+text = "Return"
+
+[connection signal="pressed" from="DuatPuzzle/ButtonLeftTop" to="DuatPuzzle" method="_on_button_left_top_pressed"]
+[connection signal="pressed" from="DuatPuzzle/ButtonRightTop" to="DuatPuzzle" method="_on_button_right_top_pressed"]
+[connection signal="pressed" from="DuatPuzzle/ButtonLeftMid" to="DuatPuzzle" method="_on_button_left_mid_pressed"]
+[connection signal="pressed" from="DuatPuzzle/ButtonRightMid" to="DuatPuzzle" method="_on_button_right_mid_pressed"]
+[connection signal="pressed" from="DuatPuzzle/ButtonLeftBottom" to="DuatPuzzle" method="_on_button_left_bottom_pressed"]
+[connection signal="pressed" from="DuatPuzzle/ButtonRightBottom" to="DuatPuzzle" method="_on_button_right_bottom_pressed"]
+[connection signal="pressed" from="ReturnButtonDuat" to="DuatPuzzle" method="_on_return_button_duat_pressed"]

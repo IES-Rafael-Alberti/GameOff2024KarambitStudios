@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://6ttsgaocpnhh"]
+
+[ext_resource type="PackedScene" uid="uid://043wp7dseoh1" path="res://Scenes/PowerUps/power_up.tscn" id="1_adcnh"]
+[ext_resource type="Texture2D" uid="uid://ckmj5dn1nxlu4" path="res://Assets/Sprites/doble_jump.png" id="2_pgvr2"]
+[ext_resource type="PackedScene" uid="uid://btq53x2vyried" path="res://Scenes/Characters/player.tscn" id="3_6oqf1"]
+[ext_resource type="PackedScene" uid="uid://ddl42h14heqoo" path="res://Scenes/Collectables/Collectable.tscn" id="4_gmgfv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4c05w"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_476cn"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(57, 20)
+
+[node name="FloorCollision" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_4c05w")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+scale = Vector2(1e+06, 1)
+texture = SubResource("CanvasTexture_476cn")
+
+[node name="PowerUp" parent="." instance=ExtResource("1_adcnh")]
+position = Vector2(90, 1)
+texture = ExtResource("2_pgvr2")
+type = 2
+
+[node name="Player" parent="." instance=ExtResource("3_6oqf1")]
+
+[node name="Coin" parent="." instance=ExtResource("4_gmgfv")]
+position = Vector2(142, 5)
+scale = Vector2(0.34375, 0.34375)

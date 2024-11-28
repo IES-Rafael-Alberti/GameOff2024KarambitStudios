@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://81criysxmeed"]
+
+[ext_resource type="Texture2D" uid="uid://bslc4vcq2i2dj" path="res://Assets/TileSets/tileset_atlantis_structure.png" id="1_bq6ew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24okn"]
+size = Vector2(48, 16)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_bq6ew")
+region_enabled = true
+region_rect = Rect2(112, 14, 48, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_24okn")
+one_way_collision = true

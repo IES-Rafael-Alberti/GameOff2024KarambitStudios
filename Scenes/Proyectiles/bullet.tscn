@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb5ti7wanu0uc"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_pidxk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f2o4"]
+size = Vector2(21.5, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epul1"]
+
+[node name="Bullet" type="Area2D" groups=["proyectile"]]
+z_index = 1
+script = ExtResource("1_pidxk")
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+
+[node name="ArrowCollider" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(3, 0.5)
+shape = SubResource("RectangleShape2D_5f2o4")
+
+[node name="BallCollider" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_epul1")
+
+[node name="LifeTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

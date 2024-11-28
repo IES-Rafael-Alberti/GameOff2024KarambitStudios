@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5bmm424xphd1"]
+
+[ext_resource type="Script" path="res://Scripts/pieza.gd" id="2_4aasv"]
+[ext_resource type="AudioStream" uid="uid://dj2iwl02080wv" path="res://Sounds/Effects/RockPop.mp3" id="2_dj2lw"]
+
+[node name="PuzlePiece" type="TextureButton"]
+texture_filter = 1
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("2_4aasv")
+
+[node name="RockPopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dj2lw")

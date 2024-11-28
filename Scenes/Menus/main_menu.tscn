@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=3 uid="uid://t5arfevgsv5o"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_knuci"]
+[ext_resource type="Shader" path="res://Shaders/RainShader.gdshader" id="2_1a587"]
+[ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="3_512h5"]
+[ext_resource type="AudioStream" uid="uid://bemdwu1m5fofe" path="res://Sounds/Ambient/RainSound.mp3" id="4_ttcr8"]
+[ext_resource type="Texture2D" uid="uid://d3ebmvs74ddue" path="res://Assets/Sprites/Background.jpg" id="5_8g3sw"]
+[ext_resource type="PackedScene" uid="uid://bxxwuipqewjrb" path="res://Scenes/Menus/volumes.tscn" id="6_wuy8h"]
+[ext_resource type="FontFile" uid="uid://cljjgf2p13ikp" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="6_yd61m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjok8"]
+shader = ExtResource("2_1a587")
+shader_parameter/count = 100
+shader_parameter/slant = -0.01
+shader_parameter/speed = 50.0
+shader_parameter/blur = 0.002
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/size = Vector2(0.015, 0.2)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_foquh"]
+texture = ExtResource("5_8g3sw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf0s4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_right = 900
+border_color = Color(0, 0, 0, 0.725)
+border_blend = true
+
+[node name="MainMenu" type="Control"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_knuci")
+
+[node name="Rain" type="Node" parent="."]
+
+[node name="BackGroundRain" type="Sprite2D" parent="Rain"]
+z_index = -1
+material = SubResource("ShaderMaterial_yjok8")
+position = Vector2(641, 360)
+scale = Vector2(10.0156, 5.6388)
+texture = ExtResource("3_512h5")
+
+[node name="RainSound" type="AudioStreamPlayer2D" parent="Rain"]
+stream = ExtResource("4_ttcr8")
+bus = &"SFX"
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_foquh")
+
+[node name="BackGroundButton" type="Panel" parent="Panel"]
+z_index = 1
+clip_contents = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -800.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gf0s4")
+
+[node name="Title" type="Label" parent="Panel/BackGroundButton"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -304.0
+offset_top = 120.0
+offset_right = 304.0
+offset_bottom = 252.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_yd61m")
+theme_override_font_sizes/font_size = 48
+text = "Midnight Gallery
+"
+horizontal_alignment = 1
+
+[node name="FirstMenu" type="VBoxContainer" parent="Panel/BackGroundButton"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = 312.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="Panel/BackGroundButton/FirstMenu"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.252028, 0.252028, 0.252028, 1)
+theme_override_fonts/font = ExtResource("6_yd61m")
+theme_override_font_sizes/font_size = 42
+text = "Play"
+
+[node name="Options" type="Button" parent="Panel/BackGroundButton/FirstMenu"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.252028, 0.252028, 0.252028, 1)
+theme_override_fonts/font = ExtResource("6_yd61m")
+theme_override_font_sizes/font_size = 42
+text = "Options"
+
+[node name="OptionsMenu" type="VBoxContainer" parent="Panel/BackGroundButton"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = 239.0
+offset_right = 136.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Volumes" parent="Panel/BackGroundButton/OptionsMenu" instance=ExtResource("6_wuy8h")]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Panel/BackGroundButton/OptionsMenu"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_yd61m")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[connection signal="pressed" from="Panel/BackGroundButton/FirstMenu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Panel/BackGroundButton/FirstMenu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/BackGroundButton/OptionsMenu/Back" to="." method="_on_back_pressed"]

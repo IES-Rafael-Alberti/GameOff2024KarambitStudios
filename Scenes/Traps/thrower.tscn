@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://wivet2lx3hko"]
+
+[ext_resource type="Script" path="res://Scripts/thrower.gd" id="1_kimhl"]
+[ext_resource type="Texture2D" uid="uid://dxiylxndb54oh" path="res://Assets/Sprites/Traps/Dispensador.png" id="1_tmry0"]
+
+[node name="Thrower" type="Sprite2D"]
+texture = ExtResource("1_tmry0")
+script = ExtResource("1_kimhl")
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[node name="ShootingPoint" type="Node2D" parent="."]
+position = Vector2(10, 2)
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
