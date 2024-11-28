@@ -40,7 +40,7 @@ var is_falling: bool = false
 
 ## ------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
-@onready var state_machine = $State_Machine["parameters/playback"]
+@onready var state_machine = $StateMachine["parameters/playback"]
 
 
 ## ------------------ Timers -----------------
@@ -171,7 +171,8 @@ func _physics_process(delta: float) -> void:
 		perform_attack_flashlight()
 	elif Input.is_action_just_pressed("meleeAttack"):
 		print("Ataque melee")
-		state_machine.travel("")
+		#state_machine.travel("attack_shovel")
+		state_machine.travel("attack_shovel")
 		perform_attack_melee()
 
 	# Actualizar animaciones
@@ -199,10 +200,10 @@ func perform_attack_melee():
 		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
 		var direction_multiplier = 1 if facing_right else -1
 		# Posicionamos el ataque en relación con la posición actual del personaje
-		var attack_position = position + Vector2(ATTACK_DISTANCE * direction_multiplier, 0)
+		#var attack_position = position + Vector2(ATTACK_DISTANCE * direction_multiplier, 0)
 
-		melee_attack.global_position = attack_position
-		melee_attack.rotation_degrees = 270.0 * direction_multiplier
+		
+		melee_attack.rotation_degrees = 270.0 
 	
 		# Desactiva el ataque después de un breve periodo
 		attack_timer.start()

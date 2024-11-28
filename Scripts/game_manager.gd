@@ -26,7 +26,7 @@ var return_point: Vector2
 
 var double_jump: bool = false
 var dash: bool = true
-var flashlight: bool = false
+var flashlight: bool = true
 
 ##--------- Variables escena 1 ---------
 var player_position_puzzle: Vector2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n4ustydh80gv"
-path="res://.godot/imported/sprite_ataque_pala_v2.png-1ef34148300f6425c797839e88412648.ctex"
+uid="uid://bh3aebbxisg8k"
+path="res://.godot/imported/sprite kassia dash.png-2bcb59a4784209ea5008ecf4f8aba1a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/sprite_ataque_pala_v2.png"
-dest_files=["res://.godot/imported/sprite_ataque_pala_v2.png-1ef34148300f6425c797839e88412648.ctex"]
+source_file="res://Assets/Sprites/Player/sprite kassia dash.png"
+dest_files=["res://.godot/imported/sprite kassia dash.png-2bcb59a4784209ea5008ecf4f8aba1a0.ctex"]
 
 [params]
 
