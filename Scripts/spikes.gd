@@ -7,4 +7,4 @@ extends Sprite2D
 
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
-	GameManager.take_damage(damage)
+	GameManager.take_player_damage(body)
