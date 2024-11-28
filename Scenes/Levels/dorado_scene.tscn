@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dlbaav1e05bcn"]
+[gd_scene load_steps=31 format=3 uid="uid://dlbaav1e05bcn"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_jn1hj"]
 [ext_resource type="Texture2D" uid="uid://dtvty56qvqbf7" path="res://Assets/TileSets/tileset_eldorado_v2.png" id="2_fp3cr"]
@@ -631,6 +631,8 @@ size = Vector2(640, 131.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xvmb"]
 size = Vector2(2560.5, 32)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f4ei7"]
 
 [node name="DoradoScene" type="Node2D"]
 texture_filter = 1
@@ -1474,3 +1476,13 @@ position = Vector2(2440, 931)
 
 [node name="Spikes4" parent="Spikes_traps" instance=ExtResource("20_nrfu5")]
 position = Vector2(421, -94)
+
+[node name="Left" type="StaticBody2D" parent="."]
+position = Vector2(-718.801, -85.7826)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Wall" type="CollisionShape2D" parent="Left"]
+position = Vector2(5.8009, 3.78256)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_f4ei7")
