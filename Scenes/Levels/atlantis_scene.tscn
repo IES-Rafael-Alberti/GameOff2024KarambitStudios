@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4q5av1fjh43"]
+[gd_scene load_steps=17 format=3 uid="uid://4q5av1fjh43"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_c4c61"]
 [ext_resource type="Texture2D" uid="uid://cjy6qikxgup5d" path="res://Assets/TileSets/tileset_atlantis_pilars_and_sand.png" id="2_utakt"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cgbtepcli0ag3" path="res://Assets/TileSets/Atlantis_Parallax/background atlantis 4.png" id="9_x1x6i"]
 [ext_resource type="PackedScene" uid="uid://w7ndtua74cj5" path="res://Scenes/Enemies/poseidon.tscn" id="10_j7hcb"]
 [ext_resource type="Texture2D" uid="uid://biid32grgm76y" path="res://Assets/TileSets/Atlantis_Parallax/background atlantis 5.png" id="10_odhpb"]
+[ext_resource type="PackedScene" uid="uid://c2k3io2ah6ye8" path="res://Scenes/Enemies/anguila_enemy.tscn" id="12_xxrhe"]
+[ext_resource type="PackedScene" uid="uid://wivet2lx3hko" path="res://Scenes/Traps/thrower.tscn" id="13_mgge3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_da6q2"]
 texture = ExtResource("2_utakt")
@@ -105,7 +107,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_nbxks"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 2
+physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 13
 sources/0 = SubResource("TileSetAtlasSource_da6q2")
 sources/1 = SubResource("TileSetAtlasSource_f3p87")
@@ -318,3 +320,71 @@ z_index = -1
 position = Vector2(4609, 44)
 scale = Vector2(1.35859, 1.48633)
 texture = ExtResource("10_odhpb")
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Anguilas" type="Node" parent="Enemies"]
+
+[node name="Anguila" parent="Enemies/Anguilas" instance=ExtResource("12_xxrhe")]
+position = Vector2(293, 30)
+
+[node name="path" type="Node2D" parent="Enemies/Anguilas/Anguila"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Anguilas/Anguila/path"]
+position = Vector2(26.5, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Anguilas/Anguila/path"]
+position = Vector2(-120.5, 0)
+
+[node name="Anguila2" parent="Enemies/Anguilas" instance=ExtResource("12_xxrhe")]
+position = Vector2(474, 158)
+
+[node name="path" type="Node2D" parent="Enemies/Anguilas/Anguila2"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Anguilas/Anguila2/path"]
+position = Vector2(130.5, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Anguilas/Anguila2/path"]
+position = Vector2(-12, 0)
+
+[node name="Anguila3" parent="Enemies/Anguilas" instance=ExtResource("12_xxrhe")]
+position = Vector2(711, 127)
+
+[node name="path" type="Node2D" parent="Enemies/Anguilas/Anguila3"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Anguilas/Anguila3/path"]
+position = Vector2(12, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Anguilas/Anguila3/path"]
+position = Vector2(-130.5, 0)
+
+[node name="Sirenas" type="Node" parent="Enemies"]
+
+[node name="Traps" type="Node" parent="."]
+
+[node name="Thrower" parent="Traps" instance=ExtResource("13_mgge3")]
+position = Vector2(457, -59)
+rotation = 3.14159
+type = 1
+bullet_speed = 120.0
+life_time = 3.0
+cooldown_time = 1.0
+scene_type = 2
+
+[node name="Thrower2" parent="Traps" instance=ExtResource("13_mgge3")]
+position = Vector2(457, -104)
+rotation = 3.14159
+type = 1
+bullet_speed = 120.0
+life_time = 3.0
+cooldown_time = 2.0
+scene_type = 2
+
+[node name="Thrower3" parent="Traps" instance=ExtResource("13_mgge3")]
+position = Vector2(457, -148.443)
+rotation = 3.14159
+type = 1
+bullet_speed = 120.0
+life_time = 3.0
+cooldown_time = 3.0
+scene_type = 2
