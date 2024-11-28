@@ -134,19 +134,19 @@ tile_set = SubResource("TileSet_nbxks")
 [node name="Plataformas" type="Node" parent="."]
 
 [node name="Plataforma_Atlantida31" parent="Plataformas" instance=ExtResource("3_5r3ky")]
-position = Vector2(2960, 354)
+position = Vector2(2944, 354)
 
 [node name="Plataforma_Atlantida32" parent="Plataformas" instance=ExtResource("3_5r3ky")]
-position = Vector2(3166, 354)
+position = Vector2(3183, 355)
 
 [node name="Plataforma_Atlantida33" parent="Plataformas" instance=ExtResource("3_5r3ky")]
 position = Vector2(3062, 318)
 
 [node name="Plataforma_Atlantida34" parent="Plataformas" instance=ExtResource("3_5r3ky")]
-position = Vector2(2961, 281)
+position = Vector2(2944, 281)
 
 [node name="Plataforma_Atlantida35" parent="Plataformas" instance=ExtResource("3_5r3ky")]
-position = Vector2(3165, 281)
+position = Vector2(3183, 281)
 
 [node name="Plataforma_Atlantida10" parent="Plataformas" instance=ExtResource("3_5r3ky")]
 position = Vector2(800, 129)
@@ -358,15 +358,15 @@ position = Vector2(12, 0)
 position = Vector2(-130.5, 0)
 
 [node name="Anguila4" parent="Enemies/Anguilas" instance=ExtResource("12_xxrhe")]
-position = Vector2(1864, 124)
+position = Vector2(2138, 121)
 
 [node name="path" type="Node2D" parent="Enemies/Anguilas/Anguila4"]
 
 [node name="Marker2D" type="Marker2D" parent="Enemies/Anguilas/Anguila4/path"]
-position = Vector2(143.5, 0)
+position = Vector2(11.29, 0)
 
 [node name="Marker2D2" type="Marker2D" parent="Enemies/Anguilas/Anguila4/path"]
-position = Vector2(-139.5, 0)
+position = Vector2(-277, 0)
 
 [node name="Anguila5" parent="Enemies/Anguilas" instance=ExtResource("12_xxrhe")]
 position = Vector2(931, -194)
@@ -379,7 +379,114 @@ position = Vector2(30.5, 0)
 [node name="Marker2D2" type="Marker2D" parent="Enemies/Anguilas/Anguila5/path"]
 position = Vector2(-33.5, 0)
 
+[node name="Anguila6" parent="Enemies/Anguilas" instance=ExtResource("12_xxrhe")]
+position = Vector2(1866, 7)
+
+[node name="path" type="Node2D" parent="Enemies/Anguilas/Anguila6"]
+position = Vector2(-1.06152, 1.8557)
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Anguilas/Anguila6/path"]
+position = Vector2(148.562, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Anguilas/Anguila6/path"]
+position = Vector2(-139.938, 0)
+
+[node name="Anguila7" parent="Enemies/Anguilas" instance=ExtResource("12_xxrhe")]
+position = Vector2(3063, 378)
+
+[node name="path" type="Node2D" parent="Enemies/Anguilas/Anguila7"]
+position = Vector2(-1.06152, 1.8557)
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Anguilas/Anguila7/path"]
+position = Vector2(145.562, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Anguilas/Anguila7/path"]
+position = Vector2(-74.938, 0)
+
 [node name="Sirenas" type="Node" parent="Enemies"]
+
+[node name="Sirena" parent="Enemies/Sirenas" instance=ExtResource("17_gj3c7")]
+position = Vector2(1332, 71)
+
+[node name="path" type="Node2D" parent="Enemies/Sirenas/Sirena"]
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Sirenas/Sirena/path"]
+position = Vector2(221, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Sirenas/Sirena/path"]
+position = Vector2(-336, 0)
+
+[node name="Sirena2" parent="Enemies/Sirenas" instance=ExtResource("17_gj3c7")]
+position = Vector2(1711, 73)
+
+[node name="path" type="Node2D" parent="Enemies/Sirenas/Sirena2"]
+position = Vector2(-4.36755, -1.71397)
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Sirenas/Sirena2/path"]
+position = Vector2(84.368, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Sirenas/Sirena2/path"]
+position = Vector2(2.368, 0)
+
+[node name="Sirena3" parent="Enemies/Sirenas" instance=ExtResource("17_gj3c7")]
+position = Vector2(2003, 75)
+
+[node name="path" type="Node2D" parent="Enemies/Sirenas/Sirena3"]
+position = Vector2(-4.36755, -1.71397)
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Sirenas/Sirena3/path"]
+position = Vector2(28.368, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Sirenas/Sirena3/path"]
+position = Vector2(-65.632, 0)
+
+[node name="Sirena4" parent="Enemies/Sirenas" instance=ExtResource("17_gj3c7")]
+position = Vector2(1862, 45)
+
+[node name="path" type="Node2D" parent="Enemies/Sirenas/Sirena4"]
+position = Vector2(-4.36755, -1.71397)
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Sirenas/Sirena4/path"]
+position = Vector2(52.368, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Sirenas/Sirena4/path"]
+position = Vector2(-40.632, 0)
+
+[node name="Sirena5" parent="Enemies/Sirenas" instance=ExtResource("17_gj3c7")]
+position = Vector2(2360, 72)
+
+[node name="path" type="Node2D" parent="Enemies/Sirenas/Sirena5"]
+position = Vector2(-4.36755, -1.71397)
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Sirenas/Sirena5/path"]
+position = Vector2(171.368, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Sirenas/Sirena5/path"]
+position = Vector2(-178.632, 0)
+
+[node name="Sirena6" parent="Enemies/Sirenas" instance=ExtResource("17_gj3c7")]
+position = Vector2(2943, 325)
+
+[node name="path" type="Node2D" parent="Enemies/Sirenas/Sirena6"]
+position = Vector2(-4.36755, -1.71397)
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Sirenas/Sirena6/path"]
+position = Vector2(42.368, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Sirenas/Sirena6/path"]
+position = Vector2(-32.632, 0)
+
+[node name="Sirena7" parent="Enemies/Sirenas" instance=ExtResource("17_gj3c7")]
+position = Vector2(3177, 326)
+
+[node name="path" type="Node2D" parent="Enemies/Sirenas/Sirena7"]
+position = Vector2(-4.36755, -1.71397)
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Sirenas/Sirena7/path"]
+position = Vector2(48.368, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Sirenas/Sirena7/path"]
+position = Vector2(-27.632, 0)
 
 [node name="Traps" type="Node" parent="."]
 
@@ -488,6 +595,14 @@ type = 1
 position = Vector2(2796, 319)
 type = 1
 
+[node name="Collectable11" parent="Pickeables/Coins" instance=ExtResource("14_gd6l6")]
+position = Vector2(2944, 265)
+type = 1
+
+[node name="Collectable12" parent="Pickeables/Coins" instance=ExtResource("14_gd6l6")]
+position = Vector2(3183, 265)
+type = 1
+
 [node name="Gems" type="Node" parent="Pickeables"]
 
 [node name="Collectable9" parent="Pickeables/Gems" instance=ExtResource("14_gd6l6")]
@@ -552,14 +667,3 @@ position = Vector2(3035, 970)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(-1163.5, -506.5)
 shape = SubResource("WorldBoundaryShape2D_lkws7")
-
-[node name="Sirena" parent="." instance=ExtResource("17_gj3c7")]
-position = Vector2(1332, 71)
-
-[node name="path" type="Node2D" parent="Sirena"]
-
-[node name="Marker2D" type="Marker2D" parent="Sirena/path"]
-position = Vector2(221, 0)
-
-[node name="Marker2D2" type="Marker2D" parent="Sirena/path"]
-position = Vector2(-336, 0)
