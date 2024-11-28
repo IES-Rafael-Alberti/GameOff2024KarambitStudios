@@ -38,6 +38,10 @@ func _ready() -> void:
 	player_node.set_global_position(spawn_point.get_global_position())
 	get_tree().root.add_child(player_node)
 	GameManager.player_node = player_node
+	GameManager.score = GameManager.save_score
+	GameManager.kill_count = GameManager.save_kill
+	GameManager.coin_count = GameManager.save_coin
+	GameManager.gem_count = GameManager.save_gem
 
 	
 	

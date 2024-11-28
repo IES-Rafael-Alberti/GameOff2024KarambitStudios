@@ -60,6 +60,11 @@ func update_pieces():
 func check_victory():
 	if index_top == TARGET_TOP_INDEX and index_mid == TARGET_MID_INDEX and index_bottom == TARGET_BOTTOM_INDEX:
 		GameManager.puzzle_2_complete = true
+		GameManager.score += 1000
+		GameManager.save_score = GameManager.score
+		GameManager.save_kill = GameManager.kill_count
+		GameManager.save_coin = GameManager.coin_count
+		GameManager.save_gem = GameManager.gem_count
 		get_tree().change_scene_to_file("res://Scenes/Levels/museum_scene.tscn")
 # Mueve el índice de la pieza superior a la derecha
 func _on_button_left_top_pressed() -> void:

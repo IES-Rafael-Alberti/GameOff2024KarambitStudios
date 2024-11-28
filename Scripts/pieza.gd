@@ -30,11 +30,12 @@ var colocada = false
 
 func _ready():
 	initial_position = global_position
-	# Inicializamos la lista de piezas correctas en 'false'
+	material.shader = null
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		pause_menu.visible = not pause_menu.visible
+		
 # Detecta el clic para iniciar el arrastre
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not colocada:
@@ -64,5 +65,15 @@ func check_victory():
 			return
 	print("Victoria")
 	GameManager.puzzle_1_complete = true
+	GameManager.score += 1000
+	GameManager.save_score = GameManager.score
+	GameManager.save_kill = GameManager.kill_count
+	GameManager.save_coin = GameManager.coin_count
+	GameManager.save_gem = GameManager.gem_count
 	get_tree().change_scene_to_file("res://Scenes/Levels/museum_scene.tscn")
+	
+
+
+func _on_reset_button_pressed() -> void:
+	get_tree().reload_current_scene()
 	

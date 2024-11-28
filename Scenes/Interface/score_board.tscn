@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccry2s2gry4ae"]
+
+[ext_resource type="Script" path="res://Scripts/score_board.gd" id="1_o5x7r"]
+[ext_resource type="Texture2D" uid="uid://cq7s2g08js6k6" path="res://Assets/Sprites/Trident_v2.png" id="2_d7ppc"]
+[ext_resource type="Texture2D" uid="uid://bkqojriaar6fy" path="res://Assets/Sprites/Enemies/Inca/inca_enemy.png" id="2_fp5jg"]
+[ext_resource type="FontFile" uid="uid://cljjgf2p13ikp" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="2_mbb2t"]
+[ext_resource type="Texture2D" uid="uid://dn2us2chdicui" path="res://Assets/Sprites/Collectable/Coin.png" id="3_n0hwl"]
+[ext_resource type="Texture2D" uid="uid://b863b577trg2n" path="res://Assets/Sprites/Collectable/Gem_v1.png" id="4_tgtlr"]
+
+[node name="ScoreBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_o5x7r")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Score" type="VBoxContainer" parent="Background/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Kills" type="HBoxContainer" parent="Background/HBoxContainer/Score"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="KillsLabel" type="Label" parent="Background/HBoxContainer/Score/Kills"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mbb2t")
+horizontal_alignment = 2
+
+[node name="EnemiesSprite" type="TextureRect" parent="Background/HBoxContainer/Score/Kills"]
+layout_mode = 2
+texture = ExtResource("2_fp5jg")
+expand_mode = 2
+
+[node name="Coins" type="HBoxContainer" parent="Background/HBoxContainer/Score"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CoinsLabel" type="Label" parent="Background/HBoxContainer/Score/Coins"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mbb2t")
+horizontal_alignment = 2
+
+[node name="CoinSprite" type="TextureRect" parent="Background/HBoxContainer/Score/Coins"]
+layout_mode = 2
+texture = ExtResource("3_n0hwl")
+expand_mode = 2
+
+[node name="Gems" type="HBoxContainer" parent="Background/HBoxContainer/Score"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GemsLabel" type="Label" parent="Background/HBoxContainer/Score/Gems"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mbb2t")
+horizontal_alignment = 2
+
+[node name="GemSprite" type="TextureRect" parent="Background/HBoxContainer/Score/Gems"]
+layout_mode = 2
+texture = ExtResource("4_tgtlr")
+expand_mode = 2
+
+[node name="PuzzleDorado" type="HBoxContainer" parent="Background/HBoxContainer/Score"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DoradoLabel" type="Label" parent="Background/HBoxContainer/Score/PuzzleDorado"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mbb2t")
+horizontal_alignment = 2
+
+[node name="DoradoSprite" type="TextureRect" parent="Background/HBoxContainer/Score/PuzzleDorado"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="PuzzleDuat" type="HBoxContainer" parent="Background/HBoxContainer/Score"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DuatLabel" type="Label" parent="Background/HBoxContainer/Score/PuzzleDuat"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mbb2t")
+horizontal_alignment = 2
+
+[node name="DuatSprite" type="TextureRect" parent="Background/HBoxContainer/Score/PuzzleDuat"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="PuzzleAtlantis" type="HBoxContainer" parent="Background/HBoxContainer/Score"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AtlantisLabel" type="Label" parent="Background/HBoxContainer/Score/PuzzleAtlantis"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mbb2t")
+horizontal_alignment = 2
+
+[node name="AtlantisSprite" type="TextureRect" parent="Background/HBoxContainer/Score/PuzzleAtlantis"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("2_d7ppc")
+expand_mode = 2
+
+[node name="Total" type="HBoxContainer" parent="Background/HBoxContainer/Score"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TotalLabel" type="Label" parent="Background/HBoxContainer/Score/Total"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mbb2t")
+horizontal_alignment = 2
+
+[node name="Credits" type="VBoxContainer" parent="Background/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

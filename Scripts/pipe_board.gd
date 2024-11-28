@@ -31,4 +31,9 @@ func check_victory():
 				return  # Sale de la función porque el rompecabezas no está resuelto
 	print("¡Victoria!")  # Si todas las piezas están bien, imprime victoria
 	GameManager.puzzle_3_complete = true
-	get_tree().change_scene_to_file("res://Scenes/Levels/museum_scene.tscn")
+	GameManager.score += 1000
+	GameManager.save_score = GameManager.score
+	GameManager.save_kill = GameManager.kill_count
+	GameManager.save_coin = GameManager.coin_count
+	GameManager.save_gem = GameManager.gem_count
+	get_tree().change_scene_to_file("res://Scenes/Interface/score_board.tscn")

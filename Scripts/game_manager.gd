@@ -4,6 +4,13 @@ const PLAYER_DAMAGE = preload("res://Shaders/Player_damage.gdshader")
 ##--------------- Estadiscticas del jugador ------------------
 var player_health = MAX_HEALTH
 var score: int = 0
+var save_score: int = 0
+var kill_count: int = 0
+var save_kill: int = 0
+var coin_count: int = 0
+var save_coin: int = 0
+var gem_count: int = 0
+var save_gem: int = 0
 var flash_count: int = 5
 const MAX_HEALTH = 3
 var push_direction: Vector2 = Vector2.ZERO
