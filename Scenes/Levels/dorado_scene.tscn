@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://043wp7dseoh1" path="res://Scenes/PowerUps/power_up.tscn" id="16_px67p"]
 [ext_resource type="Texture2D" uid="uid://ckmj5dn1nxlu4" path="res://Assets/Sprites/doble_jump.png" id="17_w25jg"]
 [ext_resource type="PackedScene" uid="uid://ddl42h14heqoo" path="res://Scenes/Collectables/Collectable.tscn" id="18_7bglm"]
-[ext_resource type="PackedScene" uid="uid://bdbdjmavc4bl6" path="res://Scenes/PowerUps/bandage.tscn" id="19_2y6i5"]
+[ext_resource type="PackedScene" path="res://Scenes/PowerUps/bandage.tscn" id="19_2y6i5"]
 [ext_resource type="PackedScene" uid="uid://w86dxymlrbo6" path="res://Scenes/Traps/spikes.tscn" id="20_nrfu5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8hv2"]
