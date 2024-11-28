@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctro5ht6rl67q"
-path="res://.godot/imported/sprite kassia corriendo.png-c88b236147dd84af1309ae1b77cbc9a4.ctex"
+uid="uid://b17xyfn5rlc6t"
+path="res://.godot/imported/sprite kassia salto ajustado.png-52f506984498cb8703228fa49fe60857.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/sprite kassia corriendo.png"
-dest_files=["res://.godot/imported/sprite kassia corriendo.png-c88b236147dd84af1309ae1b77cbc9a4.ctex"]
+source_file="res://Assets/Sprites/Player/sprite kassia salto ajustado.png"
+dest_files=["res://.godot/imported/sprite kassia salto ajustado.png-52f506984498cb8703228fa49fe60857.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l0mutxsmansj"
-path="res://.godot/imported/sprite kassia salto.png-a42e44a7b1a83fe8b895044ff8ad31e4.ctex"
+uid="uid://8vot80uwayqw"
+path="res://.godot/imported/sprite kassia ataque linterna ajustado.png-1f85ed360f776ebe8c82899f494aff67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/sprite kassia salto.png"
-dest_files=["res://.godot/imported/sprite kassia salto.png-a42e44a7b1a83fe8b895044ff8ad31e4.ctex"]
+source_file="res://Assets/Sprites/Player/sprite kassia ataque linterna ajustado.png"
+dest_files=["res://.godot/imported/sprite kassia ataque linterna ajustado.png-1f85ed360f776ebe8c82899f494aff67.ctex"]
 
 [params]
 

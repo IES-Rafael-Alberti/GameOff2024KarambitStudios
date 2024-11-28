@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs8qbsp8kl0cj"
-path="res://.godot/imported/sprite kassia idle.png-c1886fee2ebb2d61760b2cc963166645.ctex"
+uid="uid://b6k2lari1h07o"
+path="res://.godot/imported/sprite kassia muerte ajustado.png-73483e4458bb11e0669353c53ed6bac1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/sprite kassia idle.png"
-dest_files=["res://.godot/imported/sprite kassia idle.png-c1886fee2ebb2d61760b2cc963166645.ctex"]
+source_file="res://Assets/Sprites/Player/sprite kassia muerte ajustado.png"
+dest_files=["res://.godot/imported/sprite kassia muerte ajustado.png-73483e4458bb11e0669353c53ed6bac1.ctex"]
 
 [params]
 

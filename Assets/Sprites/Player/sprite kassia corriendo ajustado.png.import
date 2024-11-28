@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc1cayg4xj7ws"
-path="res://.godot/imported/sprite kassia ataque linterna.png-8d0faae6a1b5ecd1e900b27d6b82b3a1.ctex"
+uid="uid://dsb7xlbldmg8p"
+path="res://.godot/imported/sprite kassia corriendo ajustado.png-a94db9077af8399ff841df1536d43d82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/sprite kassia ataque linterna.png"
-dest_files=["res://.godot/imported/sprite kassia ataque linterna.png-8d0faae6a1b5ecd1e900b27d6b82b3a1.ctex"]
+source_file="res://Assets/Sprites/Player/sprite kassia corriendo ajustado.png"
+dest_files=["res://.godot/imported/sprite kassia corriendo ajustado.png-a94db9077af8399ff841df1536d43d82.ctex"]
 
 [params]
 
