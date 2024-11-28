@@ -7,8 +7,8 @@ extends CharacterBody2D
 @export var terrain_distance: float = 10.0
 @export var attack_damage: int = 10  # Daño que inflige el enemigo
 
-@onready var collision_anubis: CollisionShape2D = $CollisionAnubis
-@onready var sprite_anubis = $AnimatedSprite2D
+@onready var collision_sirena: CollisionShape2D = $CollisionSirena
+@onready var sprite_sirena = $AnimatedSprite2D
 @onready var detection_player = $Detection_player  # Area2D para detectar al jugador
 @onready var attack_collision_detection = $AttackArea/AttackCollision
 @onready var attack_area = $AttackArea
@@ -30,7 +30,7 @@ func _ready() -> void:
 	add_to_group("enemigos")
 
 	# Conecta la señal animation_finished para controlar el estado de las animaciones
-	sprite_anubis.connect("animation_finished", Callable(self, "_on_animation_finished"))
+	sprite_sirena.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 	# Verificar si los nodos existen antes de conectar señales
 	if detection_player != null:
@@ -53,14 +53,12 @@ func _ready() -> void:
 # Método que se llama cuando algo entra en el área de detección del enemigo
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
-		print("El enemigo detectó al jugador")
 		jugador_detectado = true
 		mirar_jugador(body)
 
 # Método que se llama cuando algo sale del área de detección del enemigo
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
-		print("El jugador salió del área del enemigo")
 		jugador_detectado = false
 
 # Función para hacer que el enemigo mire hacia el jugador
@@ -73,11 +71,11 @@ func mirar_jugador(jugador: Node) -> void:
 
 	# Verifica la dirección y ajusta el flip y la posición de la colisión
 	if direccion.x > 0:
-		sprite_anubis.flip_h = false  # Mira a la derecha
+		sprite_sirena.flip_h = true  # Mira a la derecha
 		# Ajustar la colisión hacia la derecha
 		attack_collision.position.x = abs(attack_collision.position.x)
 	elif direccion.x < 0:
-		sprite_anubis.flip_h = true   # Mira a la izquierda
+		sprite_sirena.flip_h = false   # Mira a la izquierda
 		# Ajustar la colisión hacia la izquierda
 		attack_collision.position.x = -abs(attack_collision.position.x)
 
@@ -96,17 +94,17 @@ func _physics_process(delta: float) -> void:
 	if distance_to_point > 5.0:
 		if get_global_position().x < current_point.x:
 			velocity.x = speed
-			sprite_anubis.flip_h = false
+			sprite_sirena.flip_h = true
 			attack_collision.position.x = abs(attack_collision.position.x)  # Posición hacia la derecha
 		else:
 			velocity.x = -speed
-			sprite_anubis.flip_h = true
+			sprite_sirena.flip_h = false
 			attack_collision.position.x = -abs(attack_collision.position.x)  # Posición hacia la izquierda
 	else:
 		current_position = (current_position + 1) % path_list.size()
 
 	if velocity.x != 0:
-		sprite_anubis.play("walk")
+		sprite_sirena.play("walk")
 
 	move_and_slide()
 
@@ -120,22 +118,22 @@ func recibir_dano(damage: int) -> void:
 # Función para cuando el enemigo muere
 func die() -> void:
 	is_dead = true
-	sprite_anubis.play("muerto")
-	sprite_anubis.play("muerto_siempre")
-	collision_anubis.set_deferred("disabled", true)
+	sprite_sirena.play("muerto")
+	sprite_sirena.play("muerto_siempre")
+	collision_sirena.set_deferred("disabled", true)
 	attack_collision_detection.set_deferred("disabled", true)
 	print("Enemigo muerto")
 
 # Método que se llama cuando algo entra en el área de ataque
 func _on_attack_area_body_entered(body: Node) -> void:
 	if body.is_in_group("Player") and not is_animation_playing:
-		sprite_anubis.play("attack")
+		sprite_sirena.play("attack")
 		is_animation_playing = true  # Bloquea nuevas acciones hasta que termine la animación
 		print("El enemigo empezó la animación de ataque")
 
 # Método que se ejecuta cuando la animación de ataque termina
 func _on_animation_finished() -> void:
-	if sprite_anubis.animation == "attack":
+	if sprite_sirena.animation == "attack":
 		print("Animación de ataque terminada")
 		is_animation_playing = false
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://4q5av1fjh43"]
+[gd_scene load_steps=22 format=4 uid="uid://4q5av1fjh43"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_c4c61"]
 [ext_resource type="Texture2D" uid="uid://cjy6qikxgup5d" path="res://Assets/TileSets/tileset_atlantis_pilars_and_sand.png" id="2_utakt"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ddl42h14heqoo" path="res://Scenes/Collectables/Collectable.tscn" id="14_gd6l6"]
 [ext_resource type="PackedScene" uid="uid://bdbdjmavc4bl6" path="res://Scenes/PowerUps/bandage.tscn" id="15_xoyre"]
 [ext_resource type="PackedScene" uid="uid://bmea5rouemy1m" path="res://Scenes/Traps/kill_zone.tscn" id="16_abked"]
+[ext_resource type="PackedScene" uid="uid://dkkwll3h4jswk" path="res://Scenes/Enemies/sirena.tscn" id="17_gj3c7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_da6q2"]
 texture = ExtResource("2_utakt")
@@ -551,3 +552,14 @@ position = Vector2(3035, 970)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(-1163.5, -506.5)
 shape = SubResource("WorldBoundaryShape2D_lkws7")
+
+[node name="Sirena" parent="." instance=ExtResource("17_gj3c7")]
+position = Vector2(1332, 71)
+
+[node name="path" type="Node2D" parent="Sirena"]
+
+[node name="Marker2D" type="Marker2D" parent="Sirena/path"]
+position = Vector2(221, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Sirena/path"]
+position = Vector2(-336, 0)
