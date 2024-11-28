@@ -12,6 +12,7 @@ var can_attack = true
 
 @onready var attack_cooldown: Timer = $AttackCooldown
 @onready var stone_spawn_time: Timer = $StoneSpawnTime
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const MONKEY_STONE = preload("res://Scenes/Proyectiles/monkey_stone.tscn")
 
@@ -44,7 +45,7 @@ func throw_stone():
 
 	# Calcula la dirección hacia el jugador
 	var direction = (GameManager.player_node.global_position - shooting_point.global_position).normalized()
-
+	sprite_monkey.play("Attack")
 	# Instancia una nueva piedra
 	var stone = MONKEY_STONE.instantiate() as RigidBody2D
 	get_parent().add_child(stone)
@@ -77,10 +78,17 @@ func recibir_dano(dano: int) -> void:
 
 func eliminar() -> void:
 	# Función para eliminar el enemigo
-	queue_free()
+
+	animation_player.play("Dead")
+	can_attack = false
+	attack_cooldown.stop()
 	print("Enemigo eliminado")
 
 func _on_attack_cooldown_timeout() -> void:
 	can_attack = true
 
-	
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Dead":
+		animation_player.play("Staydead")
