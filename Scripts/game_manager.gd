@@ -53,10 +53,11 @@ func take_player_damage(body: Node) -> void:
 	if player_health > 0:
 		player_health -= 1
 		#Aplica el efecto de daño
-		body.can_take_damage = false
-		body.i_frames.start()
-		body.get_child(0).material.set_shader_parameter("mix_color",0.7)
-		body.damage_timer.start()
+		if body.name == "Player":
+			body.can_take_damage = false
+			body.i_frames.start()
+			body.get_child(0).material.set_shader_parameter("mix_color",0.7)
+			body.damage_timer.start()
 		print("Vida restante del jugador:", player_health)
 		if player_health <= 0:
 			print("¡El jugador ha muerto!")
