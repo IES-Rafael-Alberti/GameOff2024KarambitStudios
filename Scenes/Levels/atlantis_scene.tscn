@@ -1,15 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://4q5av1fjh43"]
+[gd_scene load_steps=15 format=3 uid="uid://4q5av1fjh43"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_c4c61"]
 [ext_resource type="Texture2D" uid="uid://cjy6qikxgup5d" path="res://Assets/TileSets/tileset_atlantis_pilars_and_sand.png" id="2_utakt"]
 [ext_resource type="Texture2D" uid="uid://bslc4vcq2i2dj" path="res://Assets/TileSets/tileset_atlantis_structure.png" id="3_5hrt3"]
 [ext_resource type="PackedScene" uid="uid://33orawa54art" path="res://Scenes/Levels/atlantis_platform.tscn" id="3_5r3ky"]
-[ext_resource type="Texture2D" uid="uid://dv5jb53cr476w" path="res://Assets/TileSets/1.png" id="4_j3f41"]
-[ext_resource type="Texture2D" uid="uid://br62dqdsklfcs" path="res://Assets/TileSets/2.png" id="5_mu46h"]
-[ext_resource type="Texture2D" uid="uid://bhbwiypd5k2i4" path="res://Assets/TileSets/3.png" id="6_myf0d"]
-[ext_resource type="Texture2D" uid="uid://b4crt84dgem50" path="res://Assets/TileSets/4.png" id="7_kctpy"]
+[ext_resource type="Texture2D" uid="uid://cqgsks4gqb8e5" path="res://Assets/TileSets/Atlantis_Parallax/background atlantis 1.png" id="6_6vk8e"]
+[ext_resource type="Texture2D" uid="uid://b3lyh3sddnpcn" path="res://Assets/TileSets/Atlantis_Parallax/background atlantis 2.png" id="7_oby7p"]
+[ext_resource type="Texture2D" uid="uid://cebc4n8ficgrr" path="res://Assets/TileSets/Atlantis_Parallax/background atlantis 3.png" id="8_p1lbk"]
 [ext_resource type="PackedScene" uid="uid://81criysxmeed" path="res://Scenes/Levels/atlantis_structure_platform.tscn" id="9_fxuno"]
+[ext_resource type="Texture2D" uid="uid://cgbtepcli0ag3" path="res://Assets/TileSets/Atlantis_Parallax/background atlantis 4.png" id="9_x1x6i"]
 [ext_resource type="PackedScene" uid="uid://w7ndtua74cj5" path="res://Scenes/Enemies/poseidon.tscn" id="10_j7hcb"]
+[ext_resource type="Texture2D" uid="uid://biid32grgm76y" path="res://Assets/TileSets/Atlantis_Parallax/background atlantis 5.png" id="10_odhpb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_da6q2"]
 texture = ExtResource("2_utakt")
@@ -113,7 +114,7 @@ sources/1 = SubResource("TileSetAtlasSource_f3p87")
 script = ExtResource("1_c4c61")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(3810, 204)
+position = Vector2(192.224, -69.2653)
 
 [node name="LevelName" type="Label" parent="."]
 offset_left = 3.0
@@ -240,45 +241,6 @@ position = Vector2(760, 88)
 rotation = -0.000156809
 scale = Vector2(-1, 0.914)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="Parallax2D" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
-texture_filter = 1
-texture = ExtResource("4_j3f41")
-centered = false
-
-[node name="Parallax2D2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-200, 0)
-motion_scale = Vector2(0.1, 0.1)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D2"]
-texture_filter = 1
-texture = ExtResource("5_mu46h")
-centered = false
-
-[node name="Parallax2D3" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, 100)
-motion_scale = Vector2(0.6, 0.6)
-motion_mirroring = Vector2(576, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D3"]
-texture_filter = 1
-texture = ExtResource("6_myf0d")
-centered = false
-
-[node name="Parallax2D4" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, 100)
-motion_scale = Vector2(0.9, 0.9)
-motion_mirroring = Vector2(576, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D4"]
-texture_filter = 1
-texture = ExtResource("7_kctpy")
-centered = false
-
 [node name="AnimatableBody2D" parent="." instance=ExtResource("9_fxuno")]
 position = Vector2(840, -120)
 
@@ -287,3 +249,72 @@ position = Vector2(840, -33)
 
 [node name="Poseidon" parent="." instance=ExtResource("10_j7hcb")]
 position = Vector2(3967, 209)
+
+[node name="Background" type="Node" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="Fondo" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/Fondo"]
+texture_filter = 1
+texture = ExtResource("6_6vk8e")
+centered = false
+
+[node name="Rocas" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/Rocas"]
+texture_filter = 1
+texture = ExtResource("7_oby7p")
+centered = false
+
+[node name="Ruinas_Lejanas" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2(0, 100)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(886, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/Ruinas_Lejanas"]
+texture_filter = 1
+position = Vector2(0, -170)
+scale = Vector2(1.38437, 1.44271)
+texture = ExtResource("8_p1lbk")
+centered = false
+
+[node name="Ruinas_Cercanas" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2(0, 100)
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(839, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/Ruinas_Cercanas"]
+texture_filter = 1
+position = Vector2(0, -140)
+scale = Vector2(1.31094, 1.36458)
+texture = ExtResource("9_x1x6i")
+centered = false
+
+[node name="Coliseo" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(3743, 183.25)
+scale = Vector2(1.35937, 1.53255)
+texture = ExtResource("10_odhpb")
+
+[node name="Coliseo2" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(3742.5, 44)
+scale = Vector2(1.35859, 1.48633)
+texture = ExtResource("10_odhpb")
+
+[node name="Coliseo3" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(4613, 183.25)
+scale = Vector2(1.36094, 1.53255)
+texture = ExtResource("10_odhpb")
+
+[node name="Coliseo4" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(4609, 44)
+scale = Vector2(1.35859, 1.48633)
+texture = ExtResource("10_odhpb")
