@@ -37,7 +37,8 @@ var is_flashing: bool = false
 
 ## ------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
-@onready var state_machine = $StateMachine["parameters/playback"]
+@onready var state_machine_v2 = $StateMachine["parameters/playback"]
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 ## ------------------ Timers -----------------
@@ -116,7 +117,7 @@ func _physics_process(delta: float) -> void:
 		
 	#Dash mejorado
 	if Input.is_action_just_pressed("Dash") and can_dash:
-		state_machine.travel("dash")
+		state_machine_v2.travel("dash")
 		is_dashing = true
 		can_dash = false
 		dash_timer.start()
@@ -161,26 +162,26 @@ func _physics_process(delta: float) -> void:
 	# Realizar el ataque si se presiona el botón derecho del ratón
 	if Input.is_action_just_pressed("flashAttack"):
 		print("Ataque linterna")
-		state_machine.travel("attack_flashlight")
+		state_machine_v2.travel("attack_flashlight")
 		perform_attack_flashlight()
 	elif Input.is_action_just_pressed("meleeAttack"):
 		print("Ataque melee")
-		#state_machine.travel("attack_shovel")
-		state_machine.travel("attack_shovel")
+		#state_machine_v2.travel("attack_shovel")
+		state_machine_v2.travel("attack_shovel")
 		perform_attack_melee()
 
 	# Actualizar animaciones
 	if is_on_floor():
 		if direction == 0:
 			velocity.x = 0 
-			state_machine.travel("idle")
+			state_machine_v2.travel("idle")
 		else:
-			state_machine.travel("walk")
+			state_machine_v2.travel("walk")
 	else:
 		if velocity.y < 0:
-			state_machine.travel("jump_up")
+			state_machine_v2.travel("jump_up")
 		if velocity.y > 0:
-			state_machine.travel("jump_down")
+			state_machine_v2.travel("jump_down")
 	# Aplicar el movimiento al final
 	move_and_slide()
 	
