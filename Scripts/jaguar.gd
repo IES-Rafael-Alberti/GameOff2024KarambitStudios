@@ -11,7 +11,10 @@ func _physics_process(delta: float) -> void:
 		get_node("/root/Player").queue_free()
 		GameManager.player_node = null
 		get_tree().change_scene_to_file("res://Scenes/Levels/puzzle_el_dorado.tscn")
-
+		GameManager.save_score = GameManager.score
+		GameManager.save_kill = GameManager.kill_count
+		GameManager.save_coin = GameManager.coin_count
+		GameManager.save_gem = GameManager.gem_count
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		GameManager.visible_e_key = true

@@ -19,12 +19,17 @@ enum CollectableType {
 }
 func _ready() -> void:
 	if type == CollectableType.Coin:
-		collectable.texture == COIN
+		collectable.texture = COIN
 		points = coin_points
 	elif type == CollectableType.Gem:
-		collectable.texture == GEM_V_1
+		collectable.texture = GEM_V_1
 		points = gem_points
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		GameManager.score += points
+		if type == CollectableType.Coin:
+			GameManager.coin_count += 1
+		elif type == CollectableType.Gem:
+			GameManager.gem_count += 1
+			
 		queue_free()
