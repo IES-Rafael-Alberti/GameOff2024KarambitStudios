@@ -657,6 +657,7 @@ _data = {
 size = Vector2(29, 49.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7bck"]
+size = Vector2(15, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_godh2"]
 size = Vector2(39.5, 58)
@@ -753,6 +754,7 @@ texture_scale = 0.1
 [node name="PlayerSensor" type="Area2D" parent="." groups=["Player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSensor"]
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_i7bck")
 
 [node name="meleeAttack" type="Area2D" parent="."]
