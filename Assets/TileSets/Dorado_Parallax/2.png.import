@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4crt84dgem50"
-path="res://.godot/imported/4.png-165f06ff397aa37a80b638a20ea4218f.ctex"
+uid="uid://4o5sl7r2uqi0"
+path="res://.godot/imported/2.png-f5e2422fa80492be3281f72198b3fcb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/4.png"
-dest_files=["res://.godot/imported/4.png-165f06ff397aa37a80b638a20ea4218f.ctex"]
+source_file="res://Assets/TileSets/Dorado_Parallax/2.png"
+dest_files=["res://.godot/imported/2.png-f5e2422fa80492be3281f72198b3fcb6.ctex"]
 
 [params]
 
