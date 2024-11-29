@@ -36,13 +36,19 @@ var index_mid: int = 0
 var index_bottom: int = 0
 
 # Índices objetivos para ganar
-const TARGET_TOP_INDEX = 1
-const TARGET_MID_INDEX = 2
-const TARGET_BOTTOM_INDEX = 0
+const TARGET_TOP_INDEX = 2
+const TARGET_MID_INDEX = 1
+const TARGET_BOTTOM_INDEX = 1
+
+
+@onready var pause_menu: Control = $"../UI/PauseMenu"
 
 func _ready() -> void:
 	update_pieces()
 
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Pause"):
+		pause_menu.visible = not pause_menu.visible
 # Actualiza las piezas según sus índices
 func update_pieces():
 	top_piece.texture = top_textures[index_top]
@@ -54,6 +60,11 @@ func update_pieces():
 func check_victory():
 	if index_top == TARGET_TOP_INDEX and index_mid == TARGET_MID_INDEX and index_bottom == TARGET_BOTTOM_INDEX:
 		GameManager.puzzle_2_complete = true
+		GameManager.score += 1000
+		GameManager.save_score = GameManager.score
+		GameManager.save_kill = GameManager.kill_count
+		GameManager.save_coin = GameManager.coin_count
+		GameManager.save_gem = GameManager.gem_count
 		get_tree().change_scene_to_file("res://Scenes/Levels/museum_scene.tscn")
 # Mueve el índice de la pieza superior a la derecha
 func _on_button_left_top_pressed() -> void:
@@ -90,7 +101,7 @@ func _on_button_right_bottom_pressed() -> void:
 
 
 func _on_return_button_duat_pressed() -> void:
-
+	GameManager.returning_puzzle_2 = true
 	get_tree().change_scene_to_file("res://Scenes/Levels/duat_scene.tscn")
 	
 	

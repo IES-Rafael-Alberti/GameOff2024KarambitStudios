@@ -4,7 +4,14 @@ const PLAYER_DAMAGE = preload("res://Shaders/Player_damage.gdshader")
 ##--------------- Estadiscticas del jugador ------------------
 var player_health = MAX_HEALTH
 var score: int = 0
-var flash_count: int = 3
+var save_score: int = 0
+var kill_count: int = 0
+var save_kill: int = 0
+var coin_count: int = 0
+var save_coin: int = 0
+var gem_count: int = 0
+var save_gem: int = 0
+var flash_count: int = 5
 const MAX_HEALTH = 3
 var push_direction: Vector2 = Vector2.ZERO
 var push_force: float = 500.0
@@ -24,9 +31,10 @@ var flashlight: bool = false
 ##--------- Variables escena 1 ---------
 var player_position_puzzle: Vector2
 var puzzle_1_complete = false
-var occupied_positions_puzle_1: Array[Vector2] = []
 
 var puzzle_2_complete = false
+var returning_puzzle_2 = false
+
 var puzzle_3_complete = false
 var puzzle_3_position: Vector2 
 func apply_push_to_player(enemy_position: Vector2, player: CharacterBody2D) -> void:
@@ -45,10 +53,11 @@ func take_player_damage(body: Node) -> void:
 	if player_health > 0:
 		player_health -= 1
 		#Aplica el efecto de daño
-		body.can_take_damage = false
-		body.i_frames.start()
-		body.get_child(0).material.set_shader_parameter("mix_color",0.7)
-		body.damage_timer.start()
+		if body.name == "Player":
+			body.can_take_damage = false
+			body.i_frames.start()
+			body.get_child(0).material.set_shader_parameter("mix_color",0.7)
+			body.damage_timer.start()
 		print("Vida restante del jugador:", player_health)
 		if player_health <= 0:
 			print("¡El jugador ha muerto!")

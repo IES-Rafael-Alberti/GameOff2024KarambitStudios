@@ -232,6 +232,8 @@ func damage_zone(body: Node):
 	if body.is_in_group("enemigos"):
 		print("Enemigo detectado en el área de ataque")
 		body.recibir_dano(1)
+		GameManager.score += 10
+		GameManager.kill_count += 1
 # --------------- Colision del flashAttack --------------------
 func _on_flash_attack_body_entered(body: Node) -> void:
 	damage_zone(body)

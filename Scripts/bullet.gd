@@ -6,7 +6,7 @@ var direction = Vector2(1, 0)
 var speed
 @export var damage: float = 1.0
 
-@onready var bullet_sprite: Sprite2D = $BulletSprite
+@onready var bullet_sprite: AnimatedSprite2D = $BulletSprite
 @onready var arrow_collider: CollisionShape2D = $ArrowCollider
 @onready var ball_collider: CollisionShape2D = $BallCollider
 @onready var life_timer: Timer = $LifeTimer
