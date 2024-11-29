@@ -7,6 +7,8 @@ var is_dragging: bool = false
 var offset: Vector2 = Vector2.ZERO
 @onready var rock_pop_sound: AudioStreamPlayer = $RockPopSound
 @onready var pause_menu: Control = $"../../UI/PauseMenu"
+@onready var artifact: Sprite2D = $"../../Artifact"
+@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 # Array con las posiciones correctas de las piezas
 var correct_positions = [
@@ -31,9 +33,10 @@ var colocada = false
 func _ready():
 	initial_position = global_position
 	material.shader = null
-	
+	artifact.visible = false
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
+		print("Pause")
 		pause_menu.visible = not pause_menu.visible
 		
 # Detecta el clic para iniciar el arrastre
@@ -64,16 +67,22 @@ func check_victory():
 		if piece.colocada == false:
 			return
 	print("Victoria")
+	animation_player.play("artifact_collected")
 	GameManager.puzzle_1_complete = true
 	GameManager.score += 1000
 	GameManager.save_score = GameManager.score
 	GameManager.save_kill = GameManager.kill_count
 	GameManager.save_coin = GameManager.coin_count
 	GameManager.save_gem = GameManager.gem_count
-	get_tree().change_scene_to_file("res://Scenes/Levels/museum_scene.tscn")
 	
 
 
 func _on_reset_button_pressed() -> void:
 	get_tree().reload_current_scene()
+	
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "artifact_collected":
+		get_tree().change_scene_to_file("res://Scenes/Collectables/victory_screen.tscn")
 	

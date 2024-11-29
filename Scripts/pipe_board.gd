@@ -19,6 +19,7 @@ extends GridContainer
 @onready var pipe_16: TextureButton = $Pipe16
 
 @onready var pause_menu: Control = $"../../../UI/PauseMenu"
+@onready var animation_player: AnimationPlayer = $"../../../AnimationPlayer"
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
@@ -36,4 +37,10 @@ func check_victory():
 	GameManager.save_kill = GameManager.kill_count
 	GameManager.save_coin = GameManager.coin_count
 	GameManager.save_gem = GameManager.gem_count
-	get_tree().change_scene_to_file("res://Scenes/Interface/score_board.tscn")
+	animation_player.play("artifact_collected")
+
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "artifact_collected":
+		get_tree().change_scene_to_file("res://Scenes/Collectables/victory_screen.tscn")

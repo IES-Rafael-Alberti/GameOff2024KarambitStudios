@@ -40,12 +40,14 @@ const TARGET_TOP_INDEX = 2
 const TARGET_MID_INDEX = 1
 const TARGET_BOTTOM_INDEX = 1
 
+@onready var artifact: Sprite2D = $"../Artifact"
+@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 
 @onready var pause_menu: Control = $"../UI/PauseMenu"
 
 func _ready() -> void:
 	update_pieces()
-
+	artifact.visible = false
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		pause_menu.visible = not pause_menu.visible
@@ -65,7 +67,8 @@ func check_victory():
 		GameManager.save_kill = GameManager.kill_count
 		GameManager.save_coin = GameManager.coin_count
 		GameManager.save_gem = GameManager.gem_count
-		get_tree().change_scene_to_file("res://Scenes/Levels/museum_scene.tscn")
+		print("victoria")
+		animation_player.play("artifact_collected")
 # Mueve el índice de la pieza superior a la derecha
 func _on_button_left_top_pressed() -> void:
 	index_top = (index_top - 1 + top_textures.size()) % top_textures.size()  # Retrocede (circular)
@@ -106,3 +109,9 @@ func _on_return_button_duat_pressed() -> void:
 	
 	
 	
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "artifact_collected":
+		get_tree().change_scene_to_file("res://Scenes/Collectables/victory_screen.tscn")
+		

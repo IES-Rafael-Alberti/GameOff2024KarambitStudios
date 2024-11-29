@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4igaqq7n8cg7"]
+
+[ext_resource type="Texture2D" uid="uid://btbdp7l41lwlg" path="res://Assets/Sprites/menu/victory_screen.png" id="1_7h1df"]
+[ext_resource type="Shader" path="res://Shaders/ShinePiece.gdshader" id="2_67fac"]
+[ext_resource type="Script" path="res://Scripts/victory_screen.gd" id="2_bo28i"]
+[ext_resource type="Texture2D" uid="uid://cmdgceyb31yx0" path="res://Assets/Sprites/menu/midnight_gallery_logo.png" id="3_7qg0q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_stkc4"]
+shader = ExtResource("2_67fac")
+shader_parameter/shine_color = Color(1, 1, 1, 0.25)
+shader_parameter/line_width = 0.1
+shader_parameter/angle = 0.785398
+shader_parameter/speed = 1.0
+shader_parameter/wait_cycles = 1.0
+
+[sub_resource type="Animation" id="Animation_ne548"]
+resource_name = "logo_move"
+length = 2.0
+step = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MidnightGalleryLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1.81),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-132.118, 70.281), Vector2(-132.118, 55.376), Vector2(-132.118, 70.281), Vector2(120.257, 70.281)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MidnightGalleryLogo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.66, 1.81),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MidnightGalleryLogo:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.66, 1, 1.81),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.523599, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vochv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MidnightGalleryLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-121.44, 64.0724)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MidnightGalleryLogo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.617847]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MidnightGalleryLogo:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0g3qp"]
+_data = {
+"RESET": SubResource("Animation_vochv"),
+"logo_move": SubResource("Animation_ne548")
+}
+
+[node name="VictoryScreen" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(639, 333)
+scale = Vector2(4.02669, 4.02669)
+texture = ExtResource("1_7h1df")
+script = ExtResource("2_bo28i")
+
+[node name="MidnightGalleryLogo" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_stkc4")
+position = Vector2(-121.44, 64.0724)
+rotation = 0.617847
+texture = ExtResource("3_7qg0q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0g3qp")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

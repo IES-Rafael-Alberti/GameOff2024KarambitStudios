@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dbxdmr6dpygtk"]
+[gd_scene load_steps=23 format=3 uid="uid://dbxdmr6dpygtk"]
 
 [ext_resource type="Texture2D" uid="uid://c6n8kaxjedmvm" path="res://Assets/Sprites/Puzzle2/duat_puzzle.png" id="1_rsgb7"]
 [ext_resource type="Script" path="res://Scripts/duat_puzzle.gd" id="2_mdtad"]
@@ -14,8 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/Menus/pause_menu.tscn" id="12_l2y5j"]
 [ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="13_sfnyf"]
 [ext_resource type="Texture2D" uid="uid://cg3s5slqpnqo2" path="res://Assets/Sprites/PuzzleBackground/fondo_puzzle_duat.png" id="14_lewej"]
-[ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="15_qm76w"]
-[ext_resource type="Shader" path="res://Shaders/ShineArtifact.gdshader" id="16_d74g3"]
+[ext_resource type="PackedScene" uid="uid://bku5tmqr70rwt" path="res://Scenes/Collectables/artifact_collected.tscn" id="15_s5gc3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88q0f"]
 shader = ExtResource("13_sfnyf")
@@ -23,8 +22,129 @@ shader_parameter/Colors = null
 shader_parameter/mix_color = 0.2
 shader_parameter/alphaColor = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjide"]
-shader = ExtResource("16_d74g3")
+[sub_resource type="Animation" id="Animation_7pmpy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Artifact:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Artifact:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.33, 1.33)]
+}
+
+[sub_resource type="Animation" id="Animation_4evc8"]
+resource_name = "artifact_collected"
+length = 4.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Artifact:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Artifact:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.33, 1.33), Vector2(1.5, 1.5), Vector2(1.66, 1.66), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5y5hv"]
+_data = {
+"RESET": SubResource("Animation_7pmpy"),
+"artifact_collected": SubResource("Animation_4evc8")
+}
+
+[sub_resource type="Animation" id="Animation_lvqmp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Artifact:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Artifact:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+
+[sub_resource type="Animation" id="Animation_ygq8o"]
+resource_name = "artifact_collected"
+length = 4.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Artifact:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Artifact:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.33, 0.33), Vector2(0.5, 0.5), Vector2(0.66, 0.66)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ff0bt"]
+_data = {
+"RESET": SubResource("Animation_lvqmp"),
+"artifact_collected": SubResource("Animation_ygq8o")
+}
 
 [node name="PuzleDuat" type="Node2D"]
 
@@ -144,17 +264,17 @@ position = Vector2(640, 360)
 scale = Vector2(6.20161, 6.20161)
 texture = ExtResource("14_lewej")
 
+[node name="Artifact" parent="." instance=ExtResource("15_s5gc3")]
+visible = false
+z_index = 10
+position = Vector2(640, 360)
+scale = Vector2(1.33, 1.33)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="Artifact" type="Sprite2D" parent="."]
-z_index = 5
-texture = ExtResource("15_qm76w")
-
-[node name="Rays" type="Sprite2D" parent="Artifact"]
-z_index = -1
-material = SubResource("ShaderMaterial_yjide")
-position = Vector2(5, 121)
-texture = ExtResource("15_qm76w")
+libraries = {
+"": SubResource("AnimationLibrary_5y5hv"),
+"artifact": SubResource("AnimationLibrary_ff0bt")
+}
 
 [connection signal="pressed" from="DuatPuzzle/ButtonLeftTop" to="DuatPuzzle" method="_on_button_left_top_pressed"]
 [connection signal="pressed" from="DuatPuzzle/ButtonRightTop" to="DuatPuzzle" method="_on_button_right_top_pressed"]
@@ -163,3 +283,4 @@ texture = ExtResource("15_qm76w")
 [connection signal="pressed" from="DuatPuzzle/ButtonLeftBottom" to="DuatPuzzle" method="_on_button_left_bottom_pressed"]
 [connection signal="pressed" from="DuatPuzzle/ButtonRightBottom" to="DuatPuzzle" method="_on_button_right_bottom_pressed"]
 [connection signal="pressed" from="ReturnButtonDuat" to="DuatPuzzle" method="_on_return_button_duat_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="DuatPuzzle" method="_on_animation_player_animation_finished"]
