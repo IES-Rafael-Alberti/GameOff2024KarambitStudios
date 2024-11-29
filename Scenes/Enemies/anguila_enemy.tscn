@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2k3io2ah6ye8"]
+[gd_scene load_steps=10 format=3 uid="uid://c2k3io2ah6ye8"]
 
 [ext_resource type="Script" path="res://Scripts/anguila_enemy.gd" id="1_gvs74"]
 [ext_resource type="Texture2D" uid="uid://crn2b0gvt216b" path="res://Assets/Sprites/Enemies/Anguila/sprite_anguila_en_movimiento.png" id="5_ngtid"]
@@ -40,8 +40,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0yww"]
+radius = 3.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwefr"]
 radius = 2.0
-height = 14.0
+height = 13.0
 
 [node name="Anguila" type="CharacterBody2D" groups=["enemigos"]]
 texture_filter = 1
@@ -65,5 +69,11 @@ collision_mask = 2
 position = Vector2(0, -4.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_m0yww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mwefr")
+debug_color = Color(0.790095, 0.148214, 0.0639219, 0.42)
 
 [connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
