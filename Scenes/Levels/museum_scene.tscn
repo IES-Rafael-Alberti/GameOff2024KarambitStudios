@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d1c7dkuw3jsqa" path="res://Assets/TileSets/tileset_museum_v3.png" id="4_hx1h1"]
 [ext_resource type="Texture2D" uid="uid://bkp8ol4aoty3h" path="res://Assets/Sprites/Artifacts/sprite_artefacto_dorado.png" id="4_psr1g"]
 [ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="5_a8gxj"]
-[ext_resource type="Texture2D" uid="uid://cq7s2g08js6k6" path="res://Assets/Sprites/Artifacts/Trident_v2.png" id="5_vupcf"]
+[ext_resource type="Texture2D" uid="uid://cq7s2g08js6k6" path="res://Assets/Sprites/Trident_v2.png" id="5_vupcf"]
 [ext_resource type="PackedScene" uid="uid://043wp7dseoh1" path="res://Scenes/PowerUps/power_up.tscn" id="6_s51wc"]
 [ext_resource type="Shader" path="res://Shaders/ShinePiece.gdshader" id="7_o51e0"]
 [ext_resource type="Texture2D" uid="uid://d3f58jeb5fvoi" path="res://Assets/Sprites/Power_up/lightBulb_v2.png" id="7_ydxag"]

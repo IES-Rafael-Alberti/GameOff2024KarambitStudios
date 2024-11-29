@@ -21,6 +21,7 @@ extends GridContainer
 @onready var pause_menu: Control = $"../../../UI/PauseMenu"
 @onready var animation_player: AnimationPlayer = $"../../../AnimationPlayer"
 
+var victory: bool = false
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		pause_menu.visible = not pause_menu.visible
@@ -37,6 +38,7 @@ func check_victory():
 	GameManager.save_kill = GameManager.kill_count
 	GameManager.save_coin = GameManager.coin_count
 	GameManager.save_gem = GameManager.gem_count
+	victory = true
 	animation_player.play("artifact_collected")
 
 

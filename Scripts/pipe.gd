@@ -30,17 +30,19 @@ func _ready():
 
 # Rota 90 grados a la izquierda
 func rotate_left():
-	rotation_degrees -= 90
-	rotation_degrees = wrap_degrees(rotation_degrees)
-	print(rotation_degrees," ", correct_rotation, " ", rotation_degrees == correct_rotation )
-	check_correct_rotation()
+	if not get_parent().victory:
+		rotation_degrees -= 90
+		rotation_degrees = wrap_degrees(rotation_degrees)
+		print(rotation_degrees," ", correct_rotation, " ", rotation_degrees == correct_rotation )
+		check_correct_rotation()
 
 # Rota 90 grados a la derecha
 func rotate_right():
-	rotation_degrees += 90
-	rotation_degrees = wrap_degrees(rotation_degrees)
-	print(rotation_degrees," ", correct_rotation, " ", rotation_degrees == correct_rotation )
-	check_correct_rotation()
+	if not get_parent().victory:
+		rotation_degrees += 90
+		rotation_degrees = wrap_degrees(rotation_degrees)
+		print(rotation_degrees," ", correct_rotation, " ", rotation_degrees == correct_rotation )
+		check_correct_rotation()
 
 # Envuelve los grados al rango de 0 a 360
 func wrap_degrees(value: float) -> float:

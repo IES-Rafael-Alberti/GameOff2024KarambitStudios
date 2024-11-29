@@ -30,6 +30,8 @@ var bottom_textures = [
 	preload("res://Assets/Sprites/Puzzle2/duat_pieza_bottom_3.png")
 ]
 
+var victory = false
+
 # Índices actuales
 var index_top: int = 0
 var index_mid: int = 0
@@ -68,39 +70,46 @@ func check_victory():
 		GameManager.save_coin = GameManager.coin_count
 		GameManager.save_gem = GameManager.gem_count
 		print("victoria")
+		victory = true
 		animation_player.play("artifact_collected")
 # Mueve el índice de la pieza superior a la derecha
 func _on_button_left_top_pressed() -> void:
-	index_top = (index_top - 1 + top_textures.size()) % top_textures.size()  # Retrocede (circular)
-	print(index_top)
-	update_pieces()
+	if not victory:
+		index_top = (index_top - 1 + top_textures.size()) % top_textures.size()  # Retrocede (circular)
+		print(index_top)
+		update_pieces()
 
 # Mueve el índice de la pieza superior a la izquierda
 func _on_button_right_top_pressed() -> void:
-	index_top = (index_top + 1) % top_textures.size()  # Avanza al siguiente símbolo (circular)
-	print(index_top)
-	update_pieces()
+	if not victory:
+		index_top = (index_top + 1) % top_textures.size()  # Avanza al siguiente símbolo (circular)
+		print(index_top)
+		update_pieces()
 
 # Implementa las funciones de los otros botones de la misma manera
 func _on_button_left_mid_pressed() -> void:
-	index_mid = (index_mid - 1 + mid_textures.size()) % mid_textures.size()
-	print(index_mid)
-	update_pieces()
+	if not victory:
+		index_mid = (index_mid - 1 + mid_textures.size()) % mid_textures.size()
+		print(index_mid)
+		update_pieces()
 
 func _on_button_right_mid_pressed() -> void:
-	index_mid = (index_mid + 1) % mid_textures.size()
-	print(index_mid)
-	update_pieces()
+	if not victory:
+		index_mid = (index_mid + 1) % mid_textures.size()
+		print(index_mid)
+		update_pieces()
 
 func _on_button_left_bottom_pressed() -> void:
-	index_bottom = (index_bottom - 1 + bottom_textures.size()) % bottom_textures.size()
-	print(index_bottom)
-	update_pieces()
+	if not victory:
+		index_bottom = (index_bottom - 1 + bottom_textures.size()) % bottom_textures.size()
+		print(index_bottom)
+		update_pieces()
 
 func _on_button_right_bottom_pressed() -> void:
-	index_bottom = (index_bottom + 1) % bottom_textures.size()
-	print(index_bottom)
-	update_pieces()
+	if not victory:
+		index_bottom = (index_bottom + 1) % bottom_textures.size()
+		print(index_bottom)
+		update_pieces()
 
 
 func _on_return_button_duat_pressed() -> void:
@@ -113,5 +122,6 @@ func _on_return_button_duat_pressed() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "artifact_collected":
+		victory = false
 		get_tree().change_scene_to_file("res://Scenes/Collectables/victory_screen.tscn")
 		
