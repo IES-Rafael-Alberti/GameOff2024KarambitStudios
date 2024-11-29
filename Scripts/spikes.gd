@@ -7,8 +7,7 @@ extends AnimatedSprite2D
 @export var damage: float = 1.0
 @export var scene_type: SceneType = SceneType.DORADO
 
-const SPRITE_PINCHOS_ATLANTIDA = preload("res://Assets/Sprites/Traps/sprite_pinchos_atlantida.png")
-const SPRITE_PINCHOS_DUAT = preload("res://Assets/Sprites/Traps/sprite_pinchos_duat.png")
+
 enum SceneType {
 	DORADO,
 	DUAT,
@@ -20,7 +19,7 @@ func _ready() -> void:
 		spikes.play("Dorado")
 	elif scene_type == SceneType.DUAT:
 		spikes.play("Duat")
-	elif scene_type == SceneType.DUAT:
+	elif scene_type == SceneType.ATLANTIS:
 		spikes.play("Atlantis")
 func _on_damage_area_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("Player")):
