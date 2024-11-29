@@ -14,8 +14,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var MAX_JUMPS = 1
 var jumps_left = MAX_JUMPS
 var actual_duplicate_time: float = 0
-var duplicate_time: float = 0.05
-var life_duplicate_time: float = 0.05
+var duplicate_time: float = 0.1
+var life_duplicate_time: float = 0.1
 ## -------------- Variables de permiso ---------------------
 var can_attack = true
 var can_dash = GameManager.dash

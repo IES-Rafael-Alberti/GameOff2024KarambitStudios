@@ -772,6 +772,7 @@ one_shot = true
 
 [node name="DyingTime" type="Timer" parent="Timers"]
 wait_time = 2.0
+one_shot = true
 
 [node name="flashAttackRight" type="Area2D" parent="."]
 visible = false

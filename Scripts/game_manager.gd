@@ -75,7 +75,9 @@ func take_player_damage(body: Node) -> void:
 # Funcion la cual elimina al jugador cuando muere
 func muerte():
 	var player = get_node("/root/Player")
-	player.is_dying = true
-	player.state_machine_v2.travel("dead")
-	player.dying_time.start()
+	if not player.is_dying:
+		player.dying_time.start()
+		player.is_dying = true
+		player.state_machine_v2.travel("dead")
+	
 	
