@@ -5,9 +5,7 @@ const SPEED = 130.0 # Velocidad del personaje
 const JUMP_VELOCITY = -300.0 # Velocidad del salto
 const DASH_SPEED = 400.0 # Velocidad del dash
 const DASH_DURATION = 1.5 # Duración del dash (segundos)
-const ATTACK_DISTANCE = 30.0 # Distancia del área de ataque desde el personaje con la linterna
-const ATTACK_DISTANCE_MELEE = 10.0 # Distancia del área de ataque desde el personaje a melee
-const ATTACK_COOLDOWN = 0.5 # Cooldown del ataque (segundos)
+
 const DASH_EFFECT_SHADER = preload("res://Shaders/DashEffectShader.gdshader")
 const DAMAGE_SHADER = preload("res://Shaders/DamageShader.gdshader")
 const PLAYER_DAMAGE = preload("res://Shaders/Player_damage.gdshader")
@@ -28,9 +26,8 @@ var facing_right = true
 var is_dashing = false
 var is_sinking: bool = false
 var is_falling: bool = false
-## ---------------- Ajuste zoom camara ------------------
-@export var camera_zoom = 2.5
-@export var sprite_offset = Vector2(16,16)
+var is_attacking: bool = false
+var is_flashing: bool = false
 
 ## --------------- Nodo UI y Teleport ------------------
 @onready var pause_menu: Control = $UI/PauseMenu
@@ -40,7 +37,8 @@ var is_falling: bool = false
 
 ## ------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
-@onready var state_machine = $State_Machine["parameters/playback"]
+@onready var state_machine_v2 = $StateMachine["parameters/playback"]
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 ## ------------------ Timers -----------------
@@ -51,14 +49,19 @@ var is_falling: bool = false
 
 
 ## --------------- Variables Ataque linterna ----------------------
-@onready var flash_attack: Area2D = $flashAttack
-@onready var attack_hitbox_flashlight: CollisionShape2D = $flashAttack/AttackHitbox
-@onready var attack_sprite = $flashAttack/AttackSprite
+
+@onready var flash_attack_right: Area2D = $flashAttackRight
+@onready var flash_hitbox_right: CollisionShape2D = $flashAttackRight/FlashHitboxRight
+@onready var flash_attack_left: Area2D = $flashAttackLeft
+@onready var flash_hitbox_left: CollisionShape2D = $flashAttackLeft/FlashHitboxLeft
 
 
 ## -------------- Variables Ataque melee -------------
-@onready var melee_attack = $meleeAttack
-@onready var attack_hitbox_melee: CollisionShape2D = $meleeAttack/AttackHitbox
+@onready var melee_attack_right: Area2D = $meleeAttackRight
+@onready var attack_hitbox_right: CollisionShape2D = $meleeAttackRight/AttackHitboxRight
+@onready var melee_attack_left: Area2D = $meleeAttackLeft
+@onready var attack_hitbox_left: CollisionShape2D = $meleeAttackLeft/AttackHitboxLeft
+
 
 ## ------------- Variables Timers ---------------
 @onready var dash_timer: Timer = $Timers/DashTimer
@@ -68,17 +71,11 @@ var is_falling: bool = false
 
 ## ------------------ Funciones -----------------
 func _ready() -> void:
-	#Metemos al player en el grupo Player
-	add_to_group("Player")
 
 	# Inicializa el ataque en invisible
 	pause_menu.visible = false
-	flash_attack.visible = false
-	attack_hitbox_flashlight.disabled = true
 	
-	melee_attack.visible = false
-	attack_hitbox_melee.disabled = true
-	
+
 	if GameManager.double_jump:
 		MAX_JUMPS = 2
 	
@@ -91,8 +88,6 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("Move_left", "Move_right")
 	actual_duplicate_time += delta
 	# Actualizamos el flip del sprite según la dirección
-	
-	
 	
 	if direction > 0:
 		animated_sprite.flip_h = false
@@ -122,7 +117,7 @@ func _physics_process(delta: float) -> void:
 		
 	#Dash mejorado
 	if Input.is_action_just_pressed("Dash") and can_dash:
-		state_machine.travel("dash")
+		state_machine_v2.travel("dash")
 		is_dashing = true
 		can_dash = false
 		dash_timer.start()
@@ -167,25 +162,26 @@ func _physics_process(delta: float) -> void:
 	# Realizar el ataque si se presiona el botón derecho del ratón
 	if Input.is_action_just_pressed("flashAttack"):
 		print("Ataque linterna")
-		state_machine.travel("attack_flashlight")
+		state_machine_v2.travel("attack_flashlight")
 		perform_attack_flashlight()
 	elif Input.is_action_just_pressed("meleeAttack"):
 		print("Ataque melee")
-		state_machine.travel("")
+		#state_machine_v2.travel("attack_shovel")
+		state_machine_v2.travel("attack_shovel")
 		perform_attack_melee()
 
 	# Actualizar animaciones
 	if is_on_floor():
 		if direction == 0:
 			velocity.x = 0 
-			state_machine.travel("idle")
+			state_machine_v2.travel("idle")
 		else:
-			state_machine.travel("walk")
+			state_machine_v2.travel("walk")
 	else:
 		if velocity.y < 0:
-			state_machine.travel("jump_up")
+			state_machine_v2.travel("jump_up")
 		if velocity.y > 0:
-			state_machine.travel("jump_down")
+			state_machine_v2.travel("jump_down")
 	# Aplicar el movimiento al final
 	move_and_slide()
 	
@@ -193,18 +189,12 @@ func _physics_process(delta: float) -> void:
 func perform_attack_melee():
 	if can_attack:
 		can_attack = false
-		melee_attack.visible = true
-		attack_hitbox_melee.disabled = false
-
-		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
-		var direction_multiplier = 1 if facing_right else -1
-		# Posicionamos el ataque en relación con la posición actual del personaje
-		var attack_position = position + Vector2(ATTACK_DISTANCE * direction_multiplier, 0)
-
-		melee_attack.global_position = attack_position
-		melee_attack.rotation_degrees = 270.0 * direction_multiplier
-	
-		# Desactiva el ataque después de un breve periodo
+		is_attacking = true
+		if facing_right:
+			attack_hitbox_right.disabled = false
+		elif not facing_right:
+			attack_hitbox_left.disabled = false
+		
 		attack_timer.start()
 		attack_cool_down.start()
 
@@ -212,18 +202,17 @@ func perform_attack_melee():
 func perform_attack_flashlight():
 	if can_attack and GameManager.flash_count > 0 and GameManager.flashlight:
 		can_attack = false
-		flash_attack.visible = true
-		attack_hitbox_flashlight.disabled = false
+		is_flashing = true
+		if facing_right:
+			flash_attack_right.visible = true
+			flash_hitbox_right.disabled = false
+		elif not facing_right:
+			flash_attack_left.visible = true
+			flash_hitbox_left.disabled = false
+			
 
-		# Calcula la dirección multiplicadora basado en si el personaje mira a la derecha o a la izquierda
-		var direction_multiplier = 1 if facing_right else -1
-		# Posicionamos el ataque en relación con la posición actual del personaje
-		var attack_position = position + Vector2(ATTACK_DISTANCE * direction_multiplier, 0)
-
-		flash_attack.global_position = attack_position
-		flash_attack.rotation_degrees = 270.0 * direction_multiplier
 		GameManager.rest_flash()
-		# Desactiva el ataque después de un breve periodo
+		## Desactiva el ataque después de un breve periodo
 		attack_timer.start()
 		attack_cool_down.start()
 func damage_zone(body: Node):
@@ -290,11 +279,17 @@ func _on_attack_cool_down_timeout():
 
 # Tiempo de ataque
 func _on_attack_timer_timeout():
-	flash_attack.visible = false
-	attack_hitbox_flashlight.disabled = true
-	melee_attack.visible = false
-	attack_hitbox_melee.disabled = true
-
+	pass
+	if is_attacking:
+		attack_hitbox_right.disabled = true
+		attack_hitbox_left.disabled = true
+		is_attacking = false	
+	elif is_flashing:
+		flash_attack_right.visible = false
+		flash_hitbox_right.disabled = true
+		flash_attack_left.visible = false
+		flash_hitbox_left.disabled = true
+		is_flashing = false
 #Tiempo para volver a hacer un dash
 func _on_dash_cooldown_timeout():
 	can_dash = true

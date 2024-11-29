@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhmsviha7ssk"
-path="res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-4fef2b35c52ab12aded85673a505068e.ctex"
+uid="uid://dvo6hnqy8w8u3"
+path="res://.godot/imported/sprite kassia ataque pala ajustado.png-f32f9dfc5b79a66c1758964bf4fb668e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/sprite_definitivo_idle_SIN_BORDES.png"
-dest_files=["res://.godot/imported/sprite_definitivo_idle_SIN_BORDES.png-4fef2b35c52ab12aded85673a505068e.ctex"]
+source_file="res://Assets/Sprites/Player/sprite kassia ataque pala ajustado.png"
+dest_files=["res://.godot/imported/sprite kassia ataque pala ajustado.png-f32f9dfc5b79a66c1758964bf4fb668e.ctex"]
 
 [params]
 

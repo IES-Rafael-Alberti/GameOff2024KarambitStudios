@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cobkbmude40nc"
-path="res://.godot/imported/sprite_salto.png-64a66252c0a3009a36c1182d2b58676d.ctex"
+uid="uid://cvpsdyjsqe5um"
+path="res://.godot/imported/sprite_pinchos_atlantida.png-d80a12539cb00f14efa5e416e3ab9195.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/sprite_salto.png"
-dest_files=["res://.godot/imported/sprite_salto.png-64a66252c0a3009a36c1182d2b58676d.ctex"]
+source_file="res://Assets/Sprites/Traps/sprite_pinchos_atlantida.png"
+dest_files=["res://.godot/imported/sprite_pinchos_atlantida.png-d80a12539cb00f14efa5e416e3ab9195.ctex"]
 
 [params]
 

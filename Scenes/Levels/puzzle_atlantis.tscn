@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://1jimaojru38c"]
+[gd_scene load_steps=8 format=3 uid="uid://1jimaojru38c"]
 
 [ext_resource type="Texture2D" uid="uid://bav6wjgavjau8" path="res://Assets/Sprites/Puzzle3/atlantis_puzzle_board.png" id="1_mc66j"]
 [ext_resource type="Script" path="res://Scripts/pipe_board.gd" id="2_j5heo"]
 [ext_resource type="PackedScene" uid="uid://8gxd0d505djl" path="res://Scenes/Levels/pipe.tscn" id="2_rtyx0"]
 [ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/Menus/pause_menu.tscn" id="4_pk5yr"]
+[ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="5_44yul"]
+[ext_resource type="Texture2D" uid="uid://cyjl84ucce4b4" path="res://Assets/Sprites/PuzzleBackground/fondo_puzle_atlantida.png" id="6_4cxoo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbbmc"]
+shader = ExtResource("5_44yul")
+shader_parameter/Colors = null
+shader_parameter/mix_color = 0.4
+shader_parameter/alphaColor = null
 
 [node name="PuzzleAtlantis" type="Node2D"]
 
@@ -111,3 +119,10 @@ form_type = 3
 [node name="PauseMenu" parent="UI" instance=ExtResource("4_pk5yr")]
 visible = false
 z_index = 2
+
+[node name="FondoPuzleAtlantida" type="Sprite2D" parent="."]
+z_index = -10
+material = SubResource("ShaderMaterial_vbbmc")
+position = Vector2(665, 355)
+scale = Vector2(2.44333, 2.44333)
+texture = ExtResource("6_4cxoo")

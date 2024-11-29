@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6xy36uog4270"
-path="res://.godot/imported/sprite_muerte_personaje_principal.png-7b398a0ffd23f7d13967ddc997705cfb.ctex"
+uid="uid://cxhx0awfe4dj2"
+path="res://.godot/imported/sprite_pinchos_duat.png-579adc8bb8442d5250ec19ec44140e22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player/sprite_muerte_personaje_principal.png"
-dest_files=["res://.godot/imported/sprite_muerte_personaje_principal.png-7b398a0ffd23f7d13967ddc997705cfb.ctex"]
+source_file="res://Assets/Sprites/Traps/sprite_pinchos_duat.png"
+dest_files=["res://.godot/imported/sprite_pinchos_duat.png-579adc8bb8442d5250ec19ec44140e22.ctex"]
 
 [params]
 

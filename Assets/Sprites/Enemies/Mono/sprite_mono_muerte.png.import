@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cobkbmude40nc"
-path="res://.godot/imported/sprite_salto.png-35cbdc316850cf608e46fe3fed248558.ctex"
+uid="uid://hc5ph0tti07u"
+path="res://.godot/imported/sprite_mono_muerte.png-50c6183fce52ccb9aeecdc94c925a662.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/sprite_player/sprite_salto.png"
-dest_files=["res://.godot/imported/sprite_salto.png-35cbdc316850cf608e46fe3fed248558.ctex"]
+source_file="res://Assets/Sprites/Enemies/Mono/sprite_mono_muerte.png"
+dest_files=["res://.godot/imported/sprite_mono_muerte.png-50c6183fce52ccb9aeecdc94c925a662.ctex"]
 
 [params]
 

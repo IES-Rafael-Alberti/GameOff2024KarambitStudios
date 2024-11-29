@@ -26,7 +26,7 @@ var return_point: Vector2
 
 var double_jump: bool = false
 var dash: bool = true
-var flashlight: bool = false
+var flashlight: bool = true
 
 ##--------- Variables escena 1 ---------
 var player_position_puzzle: Vector2
@@ -56,8 +56,13 @@ func take_player_damage(body: Node) -> void:
 		if body.name == "Player":
 			body.can_take_damage = false
 			body.i_frames.start()
-			body.get_child(0).material.set_shader_parameter("mix_color",0.7)
+			body.get_child(0).material.set_shader_parameter("mix_color", 0.7)
 			body.damage_timer.start()
+
+			# Retroceso al recibir daño
+			#var knockback_force = 200  # Cambia según la intensidad del retroceso
+			#var knockback_direction = (body.global_position - attacker_position).normalized()
+			#body.velocity = knockback_direction * knockback_force
 		print("Vida restante del jugador:", player_health)
 		if player_health <= 0:
 			print("¡El jugador ha muerto!")

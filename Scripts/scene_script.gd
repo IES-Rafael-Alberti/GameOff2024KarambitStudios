@@ -36,6 +36,8 @@ func _ready() -> void:
 		GameManager.returning_puzzle_2 = false
 	var player_node = PLAYER.instantiate()
 	player_node.set_global_position(spawn_point.get_global_position())
+	GameManager.player_health = GameManager.MAX_HEALTH
+	GameManager.flash_count = 5
 	get_tree().root.add_child(player_node)
 	GameManager.player_node = player_node
 	GameManager.score = GameManager.save_score
