@@ -4,21 +4,21 @@
 [ext_resource type="Shader" path="res://Shaders/RainShader.gdshader" id="2_1a587"]
 [ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="3_512h5"]
 [ext_resource type="AudioStream" uid="uid://bemdwu1m5fofe" path="res://Sounds/Ambient/RainSound.mp3" id="4_ttcr8"]
-[ext_resource type="Texture2D" uid="uid://d3ebmvs74ddue" path="res://Assets/Sprites/Background.jpg" id="5_8g3sw"]
+[ext_resource type="Texture2D" uid="uid://dsk8vnpej4or1" path="res://Assets/Sprites/menu/main_menu_background_mini.png" id="5_s561d"]
+[ext_resource type="Texture2D" uid="uid://bs1j1m85147m4" path="res://Assets/Sprites/menu/midnight_gallery_title.png" id="6_rtgq5"]
 [ext_resource type="PackedScene" uid="uid://bxxwuipqewjrb" path="res://Scenes/Menus/volumes.tscn" id="6_wuy8h"]
-[ext_resource type="FontFile" uid="uid://cljjgf2p13ikp" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="6_yd61m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjok8"]
 shader = ExtResource("2_1a587")
-shader_parameter/count = 100
+shader_parameter/count = 75
 shader_parameter/slant = -0.01
 shader_parameter/speed = 50.0
 shader_parameter/blur = 0.002
 shader_parameter/colour = Color(1, 1, 1, 1)
-shader_parameter/size = Vector2(0.015, 0.2)
+shader_parameter/size = Vector2(0.025, 0.2)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_foquh"]
-texture = ExtResource("5_8g3sw")
+texture = ExtResource("5_s561d")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf0s4"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -52,6 +52,7 @@ bus = &"SFX"
 
 [node name="Panel" type="Panel" parent="."]
 z_index = -1
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,22 +74,10 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gf0s4")
 
-[node name="Title" type="Label" parent="Panel/BackGroundButton"]
-z_index = 1
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -304.0
-offset_top = 120.0
-offset_right = 304.0
-offset_bottom = 252.0
-grow_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_yd61m")
-theme_override_font_sizes/font_size = 48
-text = "Midnight Gallery
-"
-horizontal_alignment = 1
+[node name="MidnightGalleryTitle" type="Sprite2D" parent="Panel/BackGroundButton"]
+position = Vector2(393, 161)
+scale = Vector2(4, 4)
+texture = ExtResource("6_rtgq5")
 
 [node name="FirstMenu" type="VBoxContainer" parent="Panel/BackGroundButton"]
 z_index = 1
@@ -97,26 +86,21 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -125.0
-offset_top = 312.0
-offset_right = 125.0
+offset_left = -147.0
+offset_top = 372.0
+offset_right = 155.0
+offset_bottom = -182.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Play" type="Button" parent="Panel/BackGroundButton/FirstMenu"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0.252028, 0.252028, 0.252028, 1)
-theme_override_fonts/font = ExtResource("6_yd61m")
-theme_override_font_sizes/font_size = 42
+size_flags_vertical = 3
 text = "Play"
 
 [node name="Options" type="Button" parent="Panel/BackGroundButton/FirstMenu"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0.252028, 0.252028, 0.252028, 1)
-theme_override_fonts/font = ExtResource("6_yd61m")
-theme_override_font_sizes/font_size = 42
+size_flags_vertical = 3
 text = "Options"
 
 [node name="OptionsMenu" type="VBoxContainer" parent="Panel/BackGroundButton"]
@@ -127,23 +111,21 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -137.0
-offset_top = 239.0
-offset_right = 136.0
-offset_bottom = -1.0
+offset_left = -170.0
+offset_top = 370.0
+offset_right = 168.0
+offset_bottom = -145.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
 [node name="Volumes" parent="Panel/BackGroundButton/OptionsMenu" instance=ExtResource("6_wuy8h")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Back" type="Button" parent="Panel/BackGroundButton/OptionsMenu"]
 layout_mode = 2
-size_flags_vertical = 8
-theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_yd61m")
-theme_override_font_sizes/font_size = 32
+size_flags_vertical = 3
 text = "Back"
 
 [connection signal="pressed" from="Panel/BackGroundButton/FirstMenu/Play" to="." method="_on_play_pressed"]
