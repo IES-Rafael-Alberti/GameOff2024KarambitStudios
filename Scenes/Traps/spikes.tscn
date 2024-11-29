@@ -141,6 +141,7 @@ size = Vector2(28, 6)
 [node name="Spikes" type="AnimatedSprite2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_oedcp")
+animation = &"Atlantis"
 script = ExtResource("2_15tom")
 
 [node name="DamageArea" type="Area2D" parent="."]

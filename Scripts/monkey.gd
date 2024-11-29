@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var is_attacking = false
 var can_attack = true
 
 # Exporta para ajustar la fuerza del lanzamiento
@@ -38,6 +39,9 @@ func _process(delta: float) -> void:
 	else:
 		print("NO hay jugador: " + str(GameManager.player_node))
 		
+	if not is_attacking:
+		sprite_monkey.play("Idle")
+		
 func throw_stone():
 	# Asegúrate de que el jugador existe antes de lanzar
 	if not GameManager.player_node:
@@ -52,6 +56,7 @@ func throw_stone():
 	stone.freeze = true
 	stone_spawn_time.start()
 	can_attack = false
+	is_attacking = true
 	attack_cooldown.start()
 	# Coloca la piedra en la posición del mono
 	stone.global_position = shooting_point.global_position
@@ -86,8 +91,8 @@ func eliminar() -> void:
 
 func _on_attack_cooldown_timeout() -> void:
 	can_attack = true
-
-
+	is_attacking = false
+	
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Dying":

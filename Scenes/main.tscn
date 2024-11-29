@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6ttsgaocpnhh"]
+[gd_scene load_steps=10 format=3 uid="uid://6ttsgaocpnhh"]
 
 [ext_resource type="PackedScene" uid="uid://043wp7dseoh1" path="res://Scenes/PowerUps/power_up.tscn" id="1_adcnh"]
 [ext_resource type="Texture2D" uid="uid://ckmj5dn1nxlu4" path="res://Assets/Sprites/doble_jump.png" id="2_pgvr2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddl42h14heqoo" path="res://Scenes/Collectables/Collectable.tscn" id="4_gmgfv"]
 [ext_resource type="PackedScene" uid="uid://wivet2lx3hko" path="res://Scenes/Traps/thrower.tscn" id="5_mukxp"]
 [ext_resource type="PackedScene" uid="uid://w86dxymlrbo6" path="res://Scenes/Traps/spikes.tscn" id="6_8vic5"]
+[ext_resource type="PackedScene" uid="uid://daq4hixxbx71i" path="res://Scenes/Enemies/monkey.tscn" id="7_8dqsj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4c05w"]
 
@@ -60,14 +61,14 @@ cooldown_time = 1.0
 
 [node name="Spikes" parent="." instance=ExtResource("6_8vic5")]
 position = Vector2(-186, -24)
-animation = &"Atlantis"
 scene_type = 2
 
 [node name="Spikes2" parent="." instance=ExtResource("6_8vic5")]
 position = Vector2(-102, -16)
-animation = &"Atlantis"
 
 [node name="Spikes3" parent="." instance=ExtResource("6_8vic5")]
 position = Vector2(-39, -13)
-animation = &"Atlantis"
 scene_type = 1
+
+[node name="Monkey" parent="." instance=ExtResource("7_8dqsj")]
+position = Vector2(127, -87)

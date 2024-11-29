@@ -33,5 +33,6 @@ func _on_area_power_up_body_entered(body: Node2D) -> void:
 		elif type == PowerType.Dash:
 			print("Dash recogido")
 			GameManager.dash = true
+			body.can_dash = true
 		 
 		queue_free()
