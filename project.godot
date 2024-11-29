@@ -13,7 +13,7 @@ config_version=5
 config/name="Midnight Gallery"
 run/main_scene="res://Scenes/Menus/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Sprites/menu/midnight_gallery_logo.png"
 
 [autoload]
 
