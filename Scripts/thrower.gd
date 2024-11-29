@@ -76,6 +76,9 @@ func _on_life_timer_timeout() -> void:
 # Busca la flecha (esto depende de cómo esté instanciada, aquí asumo que es un hijo directo)
 	var bullet = get_node("Bullet")
 	print(bullet.name)
-	if bullet:
+	if bullet.type != BulletType.BALL:
 		bullet.queue_free()
 		print("Borrar bala")
+	else:
+		bullet.play("AquaBallBreak")
+		

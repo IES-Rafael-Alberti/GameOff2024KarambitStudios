@@ -27,3 +27,8 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_life_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_bullet_sprite_animation_finished() -> void:
+	if bullet_sprite.animation == "AquaBallBreak":
+		queue_free()

@@ -12,7 +12,7 @@ var save_coin: int = 0
 var gem_count: int = 0
 var save_gem: int = 0
 var flash_count: int = 5
-const MAX_HEALTH = 3
+const MAX_HEALTH = 5
 var push_direction: Vector2 = Vector2.ZERO
 var push_force: float = 500.0
 
@@ -25,8 +25,8 @@ var return_point: Vector2
 ##--------- PowerUps activables ---------
 
 var double_jump: bool = false
-var dash: bool = true
-var flashlight: bool = true
+var dash: bool = false
+var flashlight: bool = false
 
 ##--------- Variables escena 1 ---------
 var player_position_puzzle: Vector2
@@ -74,8 +74,8 @@ func take_player_damage(body: Node) -> void:
 
 # Funcion la cual elimina al jugador cuando muere
 func muerte():
-	get_node("/root/Player").is_dying = true
-	get_node("/root/Player").state_machine_v2.travel("Dead")
-	
-	get_node("/root/Player").dying_time.start()
+	var player = get_node("/root/Player")
+	player.is_dying = true
+	player.state_machine_v2.travel("dead")
+	player.dying_time.start()
 	

@@ -82,7 +82,11 @@ func _ready() -> void:
 	
 	if not scene_file_path.contains("museum_scene"):
 		camara_player.visible = true
+		camara_player.get_child(0).visible = true
 		hud.visible = true
+	else:
+		camara_player.visible = false
+		camara_player.get_child(0).visible = false
 
 func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento
@@ -161,11 +165,11 @@ func _physics_process(delta: float) -> void:
 		jumps_left = MAX_JUMPS
 
 	# Realizar el ataque si se presiona el botón derecho del ratón
-	if Input.is_action_just_pressed("flashAttack"):
+	if Input.is_action_just_pressed("flashAttack") and not is_dying:
 		print("Ataque linterna")
 		state_machine_v2.travel("attack_flashlight")
 		perform_attack_flashlight()
-	elif Input.is_action_just_pressed("meleeAttack"):
+	elif Input.is_action_just_pressed("meleeAttack") and not is_dying:
 		print("Ataque melee")
 		#state_machine_v2.travel("attack_shovel")
 		state_machine_v2.travel("attack_shovel")
@@ -179,10 +183,13 @@ func _physics_process(delta: float) -> void:
 		else:
 			state_machine_v2.travel("walk")
 	else:
-		if velocity.y < 0 and not is_dying:
+		if velocity.y < 0 and not is_dying and not is_attacking and not is_flashing:
 			state_machine_v2.travel("jump_up")
-		if velocity.y > 0 and not is_dying:
+		if velocity.y > 0 and not is_dying and not is_attacking and not is_flashing:
 			state_machine_v2.travel("jump_down")
+			
+	if is_dying:
+		velocity.x = 0
 	# Aplicar el movimiento al final
 	move_and_slide()
 	

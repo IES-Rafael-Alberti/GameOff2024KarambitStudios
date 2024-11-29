@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=125 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jrxfw"]
 [ext_resource type="Shader" path="res://Shaders/DamageShader.gdshader" id="2_gxme5"]
@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://dsb7xlbldmg8p" path="res://Assets/Sprites/Player/sprite kassia corriendo ajustado.png" id="9_aedru"]
 [ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/Menus/pause_menu.tscn" id="9_n3md8"]
 [ext_resource type="PackedScene" uid="uid://cy7i8nnag70ie" path="res://Scenes/Interface/HUD.tscn" id="10_h28rl"]
+[ext_resource type="Shader" path="res://Shaders/Darkness.gdshader" id="11_1gq2y"]
 [ext_resource type="Texture2D" uid="uid://dfmi6krk27gw3" path="res://Assets/Sprites/Heart.png" id="11_te8ke"]
+[ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="12_dxtdn"]
 [ext_resource type="Texture2D" uid="uid://dbrtotelo3h0a" path="res://Assets/Sprites/Empty heart.png" id="12_vwxei"]
 [ext_resource type="Texture2D" uid="uid://c060xj3h42a75" path="res://Assets/Sprites/Cone.png" id="13_jc2pr"]
 [ext_resource type="AnimationLibrary" uid="uid://ctxpw0yieptcf" path="res://Animations/Animations_Player.res" id="16_822ot"]
@@ -558,6 +560,11 @@ animations = [{
 radius = 7.5
 height = 32.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dfsjk"]
+shader = ExtResource("11_1gq2y")
+shader_parameter/outerRadius = 0.8
+shader_parameter/MainAlpha = 1.0
+
 [sub_resource type="GDScript" id="GDScript_l86qj"]
 script/source = "extends CanvasLayer
 "
@@ -673,6 +680,7 @@ advance_mode = 2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tys5k"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4kufr"]
 states/attack_flashlight/node = SubResource("AnimationNodeAnimation_vmeo4")
@@ -692,7 +700,7 @@ states/jump_up/position = Vector2(72, -76)
 states/walk/node = SubResource("AnimationNodeAnimation_kv4u1")
 states/walk/position = Vector2(206, -185)
 transitions = ["idle", "attack_shovel", SubResource("AnimationNodeStateMachineTransition_lqo4k"), "attack_shovel", "idle", SubResource("AnimationNodeStateMachineTransition_ux6bb"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_6gxtk"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_ow3dl"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_wrawy"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_dcgsh"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_do6pd"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_lsbli"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_8s1nj"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_jc7qc"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_6hrau"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_suyno"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_w5e7p"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_kccp6"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_ux2tp"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_c8h8k"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_v6eva"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_tys5k")]
-graph_offset = Vector2(-280, -92)
+graph_offset = Vector2(-48, -68)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
@@ -723,9 +731,13 @@ region_enabled = true
 region_rect = Rect2(112.648, 35.8103, 24.3235, 28.6477)
 
 [node name="CamaraPlayer" type="Camera2D" parent="."]
-visible = false
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CamaraPlayer"]
+material = SubResource("ShaderMaterial_dfsjk")
+scale = Vector2(14.6797, 8.2467)
+texture = ExtResource("12_dxtdn")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = SubResource("GDScript_l86qj")
@@ -756,6 +768,7 @@ wait_time = 0.2
 
 [node name="DamageTimer" type="Timer" parent="Timers"]
 wait_time = 0.2
+one_shot = true
 
 [node name="DyingTime" type="Timer" parent="Timers"]
 wait_time = 2.0

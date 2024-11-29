@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://cb5ti7wanu0uc"]
+[gd_scene load_steps=37 format=3 uid="uid://cb5ti7wanu0uc"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_pidxk"]
 [ext_resource type="Texture2D" uid="uid://ca4nv8g2yi0lo" path="res://Assets/Sprites/Proyectiles/sprite_bola_de_agua_atlantida.png" id="2_bhrc4"]
+[ext_resource type="Texture2D" uid="uid://siqhsyax5ton" path="res://Assets/Sprites/Proyectiles/sprite_bola_agua_explotando.png" id="3_bkfyv"]
 [ext_resource type="Texture2D" uid="uid://cge2tiy328djo" path="res://Assets/Sprites/Proyectiles/arrow_sin_particulas.png" id="3_iyas5"]
 [ext_resource type="Texture2D" uid="uid://bpgde1ll2d5ew" path="res://Assets/Sprites/Proyectiles/arrow_con_particulas.png" id="4_gvnxl"]
 
@@ -16,6 +17,42 @@ region = Rect2(55, 0, 55, 55)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5k14"]
 atlas = ExtResource("2_bhrc4")
 region = Rect2(110, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjbs6"]
+atlas = ExtResource("3_bkfyv")
+region = Rect2(0, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eh1ve"]
+atlas = ExtResource("3_bkfyv")
+region = Rect2(55, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga7lb"]
+atlas = ExtResource("3_bkfyv")
+region = Rect2(110, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3o3w"]
+atlas = ExtResource("3_bkfyv")
+region = Rect2(165, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfw60"]
+atlas = ExtResource("3_bkfyv")
+region = Rect2(220, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqjdj"]
+atlas = ExtResource("3_bkfyv")
+region = Rect2(275, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud2fr"]
+atlas = ExtResource("3_bkfyv")
+region = Rect2(330, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y21ns"]
+atlas = ExtResource("3_bkfyv")
+region = Rect2(385, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c5fh"]
+atlas = ExtResource("3_bkfyv")
+region = Rect2(440, 0, 55, 55)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdnd0"]
 atlas = ExtResource("3_iyas5")
@@ -99,6 +136,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hjbs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eh1ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga7lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3o3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfw60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqjdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud2fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y21ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c5fh")
+}],
+"loop": true,
+"name": &"AquaBallBreak",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mdnd0")
 }, {
 "duration": 1.0,
@@ -168,8 +237,9 @@ script = ExtResource("1_pidxk")
 [node name="BulletSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_e5ria")
-animation = &"ArrowWithParticles"
-frame_progress = 0.450305
+animation = &"AquaBallBreak"
+frame = 2
+frame_progress = 0.809391
 
 [node name="ArrowCollider" type="CollisionShape2D" parent="."]
 visible = false
@@ -184,4 +254,5 @@ shape = SubResource("CircleShape2D_epul1")
 [node name="LifeTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="BulletSprite" to="." method="_on_bullet_sprite_animation_finished"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

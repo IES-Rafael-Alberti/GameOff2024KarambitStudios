@@ -28,7 +28,6 @@ texture = ExtResource("2_pgvr2")
 type = 2
 
 [node name="Player" parent="." instance=ExtResource("3_6oqf1")]
-position = Vector2(5, -44)
 
 [node name="Coin" parent="." instance=ExtResource("4_gmgfv")]
 position = Vector2(142, 5)
@@ -56,3 +55,4 @@ type = 0
 bullet_speed = 122.0
 life_time = 2.0
 cooldown_time = 1.0
+scene_type = 0

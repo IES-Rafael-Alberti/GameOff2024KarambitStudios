@@ -78,7 +78,7 @@ func recibir_dano(dano: int) -> void:
 
 func eliminar() -> void:
 	# Función para eliminar el enemigo
-
+	
 	animation_player.play("Dying")
 	can_attack = false
 	attack_cooldown.stop()
