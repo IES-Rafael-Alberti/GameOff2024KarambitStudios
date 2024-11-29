@@ -74,7 +74,8 @@ func take_player_damage(body: Node) -> void:
 
 # Funcion la cual elimina al jugador cuando muere
 func muerte():
-	get_node("/root/Player").queue_free()
-	# Recargar la escena
-	get_tree().reload_current_scene()
-	GameManager.player_health = GameManager.MAX_HEALTH
+	get_node("/root/Player").is_dying = true
+	get_node("/root/Player").state_machine_v2.travel("Dead")
+	
+	get_node("/root/Player").dying_time.start()
+	

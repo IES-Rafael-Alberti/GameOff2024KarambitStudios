@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=122 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jrxfw"]
 [ext_resource type="Shader" path="res://Shaders/DamageShader.gdshader" id="2_gxme5"]
@@ -628,13 +628,11 @@ animation = &"Animations_Player/jump_up"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kv4u1"]
 animation = &"Animations_Player/walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m646o"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lqo4k"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ux6bb"]
 break_loop_at_end = true
+priority = 2
 switch_mode = 2
 advance_mode = 2
 
@@ -645,6 +643,7 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wrawy"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dcgsh"]
+priority = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_do6pd"]
 
@@ -659,12 +658,21 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_suyno"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w5e7p"]
+priority = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kccp6"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ux2tp"]
+priority = 2
 switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c8h8k"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v6eva"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tys5k"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4kufr"]
 states/attack_flashlight/node = SubResource("AnimationNodeAnimation_vmeo4")
@@ -674,7 +682,7 @@ states/attack_shovel/position = Vector2(396, 7)
 states/dash/node = SubResource("AnimationNodeAnimation_duign")
 states/dash/position = Vector2(-58, -185)
 states/dead/node = SubResource("AnimationNodeAnimation_rjyi7")
-states/dead/position = Vector2(517, 7)
+states/dead/position = Vector2(363, 100)
 states/idle/node = SubResource("AnimationNodeAnimation_g2rey")
 states/idle/position = Vector2(200, 7)
 states/jump_down/node = SubResource("AnimationNodeAnimation_jxi7c")
@@ -683,8 +691,8 @@ states/jump_up/node = SubResource("AnimationNodeAnimation_n5hc2")
 states/jump_up/position = Vector2(72, -76)
 states/walk/node = SubResource("AnimationNodeAnimation_kv4u1")
 states/walk/position = Vector2(206, -185)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_m646o"), "idle", "attack_shovel", SubResource("AnimationNodeStateMachineTransition_lqo4k"), "attack_shovel", "idle", SubResource("AnimationNodeStateMachineTransition_ux6bb"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_6gxtk"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_ow3dl"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_wrawy"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_dcgsh"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_do6pd"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_lsbli"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_8s1nj"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_jc7qc"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_6hrau"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_suyno"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_w5e7p"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_kccp6"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_ux2tp")]
-graph_offset = Vector2(-596, -370)
+transitions = ["idle", "attack_shovel", SubResource("AnimationNodeStateMachineTransition_lqo4k"), "attack_shovel", "idle", SubResource("AnimationNodeStateMachineTransition_ux6bb"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_6gxtk"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_ow3dl"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_wrawy"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_dcgsh"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_do6pd"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_lsbli"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_8s1nj"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_jc7qc"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_6hrau"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_suyno"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_w5e7p"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_kccp6"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_ux2tp"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_c8h8k"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_v6eva"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_tys5k")]
+graph_offset = Vector2(-280, -92)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
@@ -703,7 +711,7 @@ autoplay = "idle"
 
 [node name="ColisionPlayer" type="CollisionShape2D" parent="." groups=["Player"]]
 texture_filter = 1
-position = Vector2(-5, 12)
+position = Vector2(-5, 15)
 shape = SubResource("CapsuleShape2D_0u7xg")
 
 [node name="Tecla" type="Sprite2D" parent="."]
@@ -748,6 +756,9 @@ wait_time = 0.2
 
 [node name="DamageTimer" type="Timer" parent="Timers"]
 wait_time = 0.2
+
+[node name="DyingTime" type="Timer" parent="Timers"]
+wait_time = 2.0
 
 [node name="flashAttackRight" type="Area2D" parent="."]
 visible = false
@@ -795,7 +806,7 @@ texture_scale = 0.1
 [node name="PlayerSensor" type="Area2D" parent="." groups=["Player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSensor"]
-position = Vector2(-5, 11.75)
+position = Vector2(-5, 14.75)
 shape = SubResource("RectangleShape2D_i7bck")
 
 [node name="meleeAttackRight" type="Area2D" parent="."]
@@ -834,6 +845,7 @@ anim_player = NodePath("../AnimationPlayer")
 [connection signal="timeout" from="Timers/DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="Timers/iFrames" to="." method="_on_i_frames_timeout"]
 [connection signal="timeout" from="Timers/DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="Timers/DyingTime" to="." method="_on_dying_time_timeout"]
 [connection signal="body_entered" from="flashAttackRight" to="." method="_on_flash_attack_body_entered"]
 [connection signal="body_entered" from="flashAttackLeft" to="." method="_on_flash_attack_body_entered"]
 [connection signal="body_entered" from="PlayerSensor" to="." method="_on_player_sensor_body_entered"]

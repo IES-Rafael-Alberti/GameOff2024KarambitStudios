@@ -79,7 +79,7 @@ func recibir_dano(dano: int) -> void:
 func eliminar() -> void:
 	# Función para eliminar el enemigo
 
-	animation_player.play("Dead")
+	animation_player.play("Dying")
 	can_attack = false
 	attack_cooldown.stop()
 	print("Enemigo eliminado")
@@ -90,5 +90,5 @@ func _on_attack_cooldown_timeout() -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "Dead":
-		animation_player.play("Staydead")
+	if anim_name == "Dying":
+		animation_player.play("Dead")

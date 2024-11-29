@@ -28,7 +28,7 @@ var is_sinking: bool = false
 var is_falling: bool = false
 var is_attacking: bool = false
 var is_flashing: bool = false
-
+var is_dying: bool = false
 ## --------------- Nodo UI y Teleport ------------------
 @onready var pause_menu: Control = $UI/PauseMenu
 @onready var e_key: Sprite2D = $Tecla
@@ -46,6 +46,7 @@ var is_flashing: bool = false
 @onready var attack_cool_down = $Timers/AttackCoolDown
 @onready var i_frames: Timer = $Timers/iFrames
 @onready var damage_timer: Timer = $Timers/DamageTimer
+@onready var dying_time: Timer = $Timers/DyingTime
 
 
 ## --------------- Variables Ataque linterna ----------------------
@@ -171,16 +172,16 @@ func _physics_process(delta: float) -> void:
 		perform_attack_melee()
 
 	# Actualizar animaciones
-	if is_on_floor():
+	if is_on_floor() and not is_attacking and not is_flashing and not is_dying:
 		if direction == 0:
 			velocity.x = 0 
 			state_machine_v2.travel("idle")
 		else:
 			state_machine_v2.travel("walk")
 	else:
-		if velocity.y < 0:
+		if velocity.y < 0 and not is_dying:
 			state_machine_v2.travel("jump_up")
-		if velocity.y > 0:
+		if velocity.y > 0 and not is_dying:
 			state_machine_v2.travel("jump_down")
 	# Aplicar el movimiento al final
 	move_and_slide()
@@ -316,3 +317,9 @@ func _on_i_frames_timeout() -> void:
 
 func _on_damage_timer_timeout() -> void:
 	$PlayerSprite.material.set_shader_parameter("mix_color", 0.0)
+
+
+func _on_dying_time_timeout() -> void:
+	queue_free()
+	is_dying = false
+	get_tree().reload_current_scene()
