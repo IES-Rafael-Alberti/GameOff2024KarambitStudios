@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d4evg073v65bm"]
+[gd_scene load_steps=30 format=3 uid="uid://d4evg073v65bm"]
 
 [ext_resource type="Texture2D" uid="uid://b0wjpq6ks36fw" path="res://Assets/Sprites/Puzzle/tablero_Dorado_v1.png" id="2_acirc"]
 [ext_resource type="PackedScene" uid="uid://b5bmm424xphd1" path="res://Scenes/Levels/puzle_piece.tscn" id="4_wvbs7"]
@@ -15,6 +15,8 @@
 [ext_resource type="FontFile" uid="uid://cljjgf2p13ikp" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="13_pbslq"]
 [ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="14_bish5"]
 [ext_resource type="Texture2D" uid="uid://dw2x4wjxlhvm7" path="res://Assets/Sprites/PuzzleBackground/fondo_puzzle_eldorado.png" id="15_uw62j"]
+[ext_resource type="PackedScene" uid="uid://bku5tmqr70rwt" path="res://Scenes/Collectables/artifact_collected.tscn" id="16_kp1dg"]
+[ext_resource type="Texture2D" uid="uid://bkp8ol4aoty3h" path="res://Assets/Sprites/Artifacts/sprite_artefacto_dorado.png" id="17_kcrtd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_woval"]
 
@@ -37,6 +39,68 @@ shader = ExtResource("14_bish5")
 shader_parameter/Colors = null
 shader_parameter/mix_color = 0.6
 shader_parameter/alphaColor = null
+
+[sub_resource type="Animation" id="Animation_ygq8o"]
+resource_name = "artifact_collected"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Artifact:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Artifact:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.33, 0.33), Vector2(0.5, 0.5), Vector2(0.66, 0.66)]
+}
+
+[sub_resource type="Animation" id="Animation_lvqmp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Artifact:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Artifact:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ff0bt"]
+_data = {
+"RESET": SubResource("Animation_lvqmp"),
+"artifact_collected": SubResource("Animation_ygq8o")
+}
 
 [node name="PuzzleElDorado" type="Node2D"]
 
@@ -164,5 +228,15 @@ material = SubResource("ShaderMaterial_lp3n0")
 position = Vector2(32, 32)
 scale = Vector2(1.01374, 1.01374)
 texture = ExtResource("15_uw62j")
+
+[node name="Artifact" parent="." instance=ExtResource("16_kp1dg")]
+position = Vector2(33, 31)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_kcrtd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ff0bt")
+}
 
 [connection signal="pressed" from="ResetButton" to="Pieces/PuzlePiece" method="_on_reset_button_pressed"]

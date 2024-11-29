@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbxdmr6dpygtk"]
+[gd_scene load_steps=19 format=3 uid="uid://dbxdmr6dpygtk"]
 
 [ext_resource type="Texture2D" uid="uid://c6n8kaxjedmvm" path="res://Assets/Sprites/Puzzle2/duat_puzzle.png" id="1_rsgb7"]
 [ext_resource type="Script" path="res://Scripts/duat_puzzle.gd" id="2_mdtad"]
@@ -14,12 +14,17 @@
 [ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/Menus/pause_menu.tscn" id="12_l2y5j"]
 [ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="13_sfnyf"]
 [ext_resource type="Texture2D" uid="uid://cg3s5slqpnqo2" path="res://Assets/Sprites/PuzzleBackground/fondo_puzzle_duat.png" id="14_lewej"]
+[ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="15_qm76w"]
+[ext_resource type="Shader" path="res://Shaders/ShineArtifact.gdshader" id="16_d74g3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88q0f"]
 shader = ExtResource("13_sfnyf")
 shader_parameter/Colors = null
 shader_parameter/mix_color = 0.2
 shader_parameter/alphaColor = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjide"]
+shader = ExtResource("16_d74g3")
 
 [node name="PuzleDuat" type="Node2D"]
 
@@ -135,9 +140,21 @@ z_index = 2
 [node name="FondoPuzzleDuat" type="Sprite2D" parent="."]
 z_index = -10
 material = SubResource("ShaderMaterial_88q0f")
-position = Vector2(619.419, 362.5)
+position = Vector2(640, 360)
 scale = Vector2(6.20161, 6.20161)
 texture = ExtResource("14_lewej")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Artifact" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("15_qm76w")
+
+[node name="Rays" type="Sprite2D" parent="Artifact"]
+z_index = -1
+material = SubResource("ShaderMaterial_yjide")
+position = Vector2(5, 121)
+texture = ExtResource("15_qm76w")
 
 [connection signal="pressed" from="DuatPuzzle/ButtonLeftTop" to="DuatPuzzle" method="_on_button_left_top_pressed"]
 [connection signal="pressed" from="DuatPuzzle/ButtonRightTop" to="DuatPuzzle" method="_on_button_right_top_pressed"]
