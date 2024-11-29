@@ -558,7 +558,6 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0u7xg"]
 radius = 7.5
-height = 32.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dfsjk"]
 shader = ExtResource("11_1gq2y")
@@ -574,7 +573,7 @@ radius = 12.5
 height = 52.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7bck"]
-size = Vector2(15, 31.5)
+size = Vector2(15, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_godh2"]
 size = Vector2(21.5, 35)
@@ -700,7 +699,7 @@ states/jump_up/position = Vector2(72, -76)
 states/walk/node = SubResource("AnimationNodeAnimation_kv4u1")
 states/walk/position = Vector2(206, -185)
 transitions = ["idle", "attack_shovel", SubResource("AnimationNodeStateMachineTransition_lqo4k"), "attack_shovel", "idle", SubResource("AnimationNodeStateMachineTransition_ux6bb"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_6gxtk"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_ow3dl"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_wrawy"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_dcgsh"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_do6pd"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_lsbli"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_8s1nj"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_jc7qc"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_6hrau"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_suyno"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_w5e7p"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_kccp6"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_ux2tp"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_c8h8k"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_v6eva"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_tys5k")]
-graph_offset = Vector2(-48, -68)
+graph_offset = Vector2(-111, -141)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
@@ -731,6 +730,7 @@ region_enabled = true
 region_rect = Rect2(112.648, 35.8103, 24.3235, 28.6477)
 
 [node name="CamaraPlayer" type="Camera2D" parent="."]
+offset = Vector2(65, -35)
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 
@@ -820,7 +820,7 @@ texture_scale = 0.1
 [node name="PlayerSensor" type="Area2D" parent="." groups=["Player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSensor"]
-position = Vector2(-5, 14.75)
+position = Vector2(-5, 14.5)
 shape = SubResource("RectangleShape2D_i7bck")
 
 [node name="meleeAttackRight" type="Area2D" parent="."]

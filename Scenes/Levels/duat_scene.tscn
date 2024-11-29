@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://nkwfgfld2vl7"]
+[gd_scene load_steps=19 format=4 uid="uid://nkwfgfld2vl7"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_cctwx"]
 [ext_resource type="Texture2D" uid="uid://ch16s3ci7v0mv" path="res://Assets/TileSets/tileset duat v1.png" id="2_b4gke"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" path="res://Scenes/PowerUps/bandage.tscn" id="10_1xwma"]
 [ext_resource type="PackedScene" uid="uid://043wp7dseoh1" path="res://Scenes/PowerUps/power_up.tscn" id="10_k2tpl"]
 [ext_resource type="Texture2D" uid="uid://cwvxp1ign8jf7" path="res://Assets/Sprites/Power_up/Dash_icon_v1.png" id="12_0wjbv"]
+[ext_resource type="PackedScene" uid="uid://w86dxymlrbo6" path="res://Scenes/Traps/spikes.tscn" id="13_mqq7w"]
+[ext_resource type="PackedScene" uid="uid://wivet2lx3hko" path="res://Scenes/Traps/thrower.tscn" id="14_xqldw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emytj"]
 texture = ExtResource("2_b4gke")
@@ -221,6 +223,15 @@ position = Vector2(3696, 921)
 [node name="duat_small_platform26" parent="Tileset/Small platforms" instance=ExtResource("3_5dq2b")]
 position = Vector2(3632, 953)
 
+[node name="duat_small_platform27" parent="Tileset/Small platforms" instance=ExtResource("3_5dq2b")]
+position = Vector2(1097.53, -99.9513)
+
+[node name="duat_small_platform28" parent="Tileset/Small platforms" instance=ExtResource("3_5dq2b")]
+position = Vector2(1051.28, -121.394)
+
+[node name="duat_small_platform29" parent="Tileset/Small platforms" instance=ExtResource("3_5dq2b")]
+position = Vector2(1001, -135)
+
 [node name="Large platforms" type="Node" parent="Tileset"]
 
 [node name="duat_large_platform" parent="Tileset/Large platforms" instance=ExtResource("4_gn6vw")]
@@ -366,7 +377,7 @@ position = Vector2(1687, 457)
 position = Vector2(118, 0)
 
 [node name="Marker2D2" type="Marker2D" parent="Enemigos/Anubis/Anubis6/path"]
-position = Vector2(-168, 0)
+position = Vector2(-83, 0)
 
 [node name="Anubis7" parent="Enemigos/Anubis" instance=ExtResource("7_ph2cp")]
 position = Vector2(1400, -87)
@@ -414,51 +425,50 @@ position = Vector2(-97, 0)
 
 [node name="Pickables" type="Node" parent="."]
 
+[node name="Monedas" type="Node" parent="Pickables"]
+
+[node name="Collectable" parent="Pickables/Monedas" instance=ExtResource("9_8u85p")]
+position = Vector2(78, 63)
+type = 1
+
+[node name="Collectable2" parent="Pickables/Monedas" instance=ExtResource("9_8u85p")]
+position = Vector2(456.693, 113.755)
+type = 1
+
+[node name="Collectable3" parent="Pickables/Monedas" instance=ExtResource("9_8u85p")]
+position = Vector2(844, 134)
+type = 2
+
+[node name="Collectable4" parent="Pickables/Monedas" instance=ExtResource("9_8u85p")]
+position = Vector2(1168, -72)
+type = 1
+
+[node name="Collectable5" parent="Pickables/Monedas" instance=ExtResource("9_8u85p")]
+position = Vector2(1615.19, -31.8119)
+type = 1
+
+[node name="Collectable7" parent="Pickables/Monedas" instance=ExtResource("9_8u85p")]
+position = Vector2(1872.87, 212.533)
+type = 2
+
+[node name="Collectable8" parent="Pickables/Monedas" instance=ExtResource("9_8u85p")]
+position = Vector2(2289.14, 308.748)
+type = 1
+
+[node name="Collectable9" parent="Pickables/Monedas" instance=ExtResource("9_8u85p")]
+position = Vector2(2958, 453)
+type = 1
+
 [node name="Curaciones" type="Node" parent="Pickables"]
 
 [node name="Bandage" parent="Pickables/Curaciones" instance=ExtResource("10_1xwma")]
 position = Vector2(2080, 315)
 
+[node name="Bandage4" parent="Pickables/Curaciones" instance=ExtResource("10_1xwma")]
+position = Vector2(1617, 223)
+
 [node name="Bandage2" parent="Pickables/Curaciones" instance=ExtResource("10_1xwma")]
 position = Vector2(3335, 235)
-
-[node name="Monedas" type="Node" parent="Pickables/Curaciones/Bandage2"]
-
-[node name="Collectable" parent="Pickables/Curaciones/Bandage2/Monedas" instance=ExtResource("9_8u85p")]
-position = Vector2(78, 63)
-type = 1
-
-[node name="Collectable2" parent="Pickables/Curaciones/Bandage2/Monedas" instance=ExtResource("9_8u85p")]
-position = Vector2(457.327, 129.811)
-type = 1
-
-[node name="Collectable3" parent="Pickables/Curaciones/Bandage2/Monedas" instance=ExtResource("9_8u85p")]
-position = Vector2(844, 134)
-type = 2
-
-[node name="Collectable4" parent="Pickables/Curaciones/Bandage2/Monedas" instance=ExtResource("9_8u85p")]
-position = Vector2(1168, -72)
-type = 1
-
-[node name="Collectable5" parent="Pickables/Curaciones/Bandage2/Monedas" instance=ExtResource("9_8u85p")]
-position = Vector2(1615.19, -31.8119)
-type = 1
-
-[node name="Collectable6" parent="Pickables/Curaciones/Bandage2/Monedas" instance=ExtResource("9_8u85p")]
-position = Vector2(1618.52, 215.801)
-type = 1
-
-[node name="Collectable7" parent="Pickables/Curaciones/Bandage2/Monedas" instance=ExtResource("9_8u85p")]
-position = Vector2(1872.87, 212.533)
-type = 2
-
-[node name="Collectable8" parent="Pickables/Curaciones/Bandage2/Monedas" instance=ExtResource("9_8u85p")]
-position = Vector2(2289.14, 308.748)
-type = 1
-
-[node name="Collectable9" parent="Pickables/Curaciones/Bandage2/Monedas" instance=ExtResource("9_8u85p")]
-position = Vector2(2958, 453)
-type = 1
 
 [node name="Bandage3" parent="Pickables/Curaciones" instance=ExtResource("10_1xwma")]
 position = Vector2(3372.19, 908.247)
@@ -466,6 +476,181 @@ position = Vector2(3372.19, 908.247)
 [node name="PowerUps" type="Node" parent="Pickables"]
 
 [node name="PowerUp" parent="Pickables/PowerUps" instance=ExtResource("10_k2tpl")]
-position = Vector2(1026, -101)
+position = Vector2(954, -101)
 texture = ExtResource("12_0wjbv")
 type = 3
+
+[node name="Trampas" type="Node" parent="."]
+
+[node name="Spikes" type="Node" parent="Trampas"]
+
+[node name="Spikes2" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(457, 132)
+scene_type = 1
+
+[node name="Spikes23" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(2812, 530)
+rotation = 1.5708
+scene_type = 1
+
+[node name="Spikes24" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(3068, 786)
+rotation = 1.5708
+scene_type = 1
+
+[node name="Spikes22" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1569, 452)
+scene_type = 1
+
+[node name="Spikes3" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(2574, 189)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes4" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(2606, 219)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes5" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(2639, 253)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes6" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(2670, 284)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes7" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(2701, 317)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes8" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(2733, 348)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes9" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(2765, 380)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes10" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(2797, 413)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes11" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1647, 380)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes12" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1679, 380)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes13" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1712, 380)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes14" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1747, 380)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes15" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1777, 380)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes16" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1808, 380)
+rotation = 3.14159
+scene_type = 1
+
+[node name="Spikes17" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1062, -92)
+scene_type = 1
+
+[node name="Spikes18" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1027, -92)
+scene_type = 1
+
+[node name="Spikes19" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(997.516, -92.3265)
+scene_type = 1
+
+[node name="Spikes20" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1531, -45)
+rotation = 1.5708
+scene_type = 1
+
+[node name="Spikes21" parent="Trampas/Spikes" instance=ExtResource("13_mqq7w")]
+position = Vector2(1530.65, -14.6652)
+rotation = 1.5708
+scene_type = 1
+
+[node name="Thrower" type="Node" parent="Trampas"]
+
+[node name="Thrower" parent="Trampas/Thrower" instance=ExtResource("14_xqldw")]
+z_index = 2
+position = Vector2(1215, -203)
+rotation = 1.5708
+type = 0
+bullet_speed = 300.0
+life_time = 1.3
+cooldown_time = 1.25
+scene_type = 1
+
+[node name="Thrower2" parent="Trampas/Thrower" instance=ExtResource("14_xqldw")]
+z_index = 2
+position = Vector2(21, 150)
+type = 0
+bullet_speed = 300.0
+life_time = 1.3
+cooldown_time = 1.25
+scene_type = 1
+
+[node name="Thrower3" parent="Trampas/Thrower" instance=ExtResource("14_xqldw")]
+z_index = 2
+position = Vector2(3530, 1067)
+rotation = -1.5708
+type = 0
+bullet_speed = 300.0
+life_time = 1.3
+cooldown_time = 1.25
+scene_type = 1
+
+[node name="Thrower4" parent="Trampas/Thrower" instance=ExtResource("14_xqldw")]
+z_index = 2
+position = Vector2(3594, 1067)
+rotation = -1.5708
+type = 0
+bullet_speed = 300.0
+life_time = 1.3
+cooldown_time = 1.25
+scene_type = 1
+
+[node name="Thrower5" parent="Trampas/Thrower" instance=ExtResource("14_xqldw")]
+z_index = 2
+position = Vector2(3661, 1067)
+rotation = -1.5708
+type = 0
+bullet_speed = 300.0
+life_time = 1.3
+cooldown_time = 1.25
+scene_type = 1
+
+[node name="Thrower6" parent="Trampas/Thrower" instance=ExtResource("14_xqldw")]
+z_index = 2
+position = Vector2(3734, 1067)
+rotation = -1.5708
+type = 0
+bullet_speed = 300.0
+life_time = 1.3
+cooldown_time = 1.25
+scene_type = 1
