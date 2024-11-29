@@ -80,6 +80,7 @@ scene_name = "duat_scene"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(203, -10)
+offset = Vector2(0, -35)
 zoom = Vector2(3, 3)
 editor_draw_limits = true
 

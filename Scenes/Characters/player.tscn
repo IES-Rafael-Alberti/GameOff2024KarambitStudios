@@ -731,6 +731,7 @@ region_enabled = true
 region_rect = Rect2(112.648, 35.8103, 24.3235, 28.6477)
 
 [node name="CamaraPlayer" type="Camera2D" parent="."]
+offset = Vector2(65, -35)
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 
