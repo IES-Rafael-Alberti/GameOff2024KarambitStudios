@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=132 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jrxfw"]
 [ext_resource type="Shader" path="res://Shaders/DamageShader.gdshader" id="2_gxme5"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://rsjy58ntydba" path="res://Assets/Sprites/menu/deathscreen.png" id="13_b6stu"]
 [ext_resource type="Texture2D" uid="uid://c060xj3h42a75" path="res://Assets/Sprites/Cone.png" id="13_jc2pr"]
 [ext_resource type="AnimationLibrary" uid="uid://ctxpw0yieptcf" path="res://Animations/Animations_Player.res" id="16_822ot"]
+[ext_resource type="Shader" path="res://Shaders/FlashLightgdshader.gdshader" id="18_af78o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67cec"]
 shader = ExtResource("2_gxme5")
@@ -565,6 +566,45 @@ shader = ExtResource("11_1gq2y")
 shader_parameter/outerRadius = 0.8
 shader_parameter/MainAlpha = 1.0
 
+[sub_resource type="Animation" id="Animation_ta3ij"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathScreen2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathScreen3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_5uo0a"]
 resource_name = "death_screen"
 length = 2.0
@@ -606,45 +646,6 @@ tracks/2/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_ta3ij"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DeathScreen:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DeathScreen2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DeathScreen3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o7esi"]
 _data = {
 "RESET": SubResource("Animation_ta3ij"),
@@ -658,6 +659,24 @@ script/source = "extends CanvasLayer
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4er7"]
 radius = 12.5
 height = 52.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lsbo"]
+shader = ExtResource("18_af78o")
+shader_parameter/light_color = Color(0.988235, 0.87451, 0.733333, 1)
+shader_parameter/brightness = 0.5
+shader_parameter/attenuation_strength = 0.5
+shader_parameter/intensity = 1.0
+shader_parameter/max_brightness = 1.0
+shader_parameter/light_texture = ExtResource("13_jc2pr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21myc"]
+shader = ExtResource("18_af78o")
+shader_parameter/light_color = Color(0.988179, 0.876132, 0.73526, 1)
+shader_parameter/brightness = 0.5
+shader_parameter/attenuation_strength = 0.5
+shader_parameter/intensity = 1.0
+shader_parameter/max_brightness = 1.0
+shader_parameter/light_texture = ExtResource("13_jc2pr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7bck"]
 size = Vector2(15, 31)
@@ -904,13 +923,12 @@ position = Vector2(0, 24.5)
 shape = SubResource("CapsuleShape2D_r4er7")
 disabled = true
 
-[node name="AttackSprite" type="PointLight2D" parent="flashAttackRight"]
-energy = 0.2
-shadow_enabled = true
-shadow_filter = 1
+[node name="AttackSprite" type="Sprite2D" parent="flashAttackRight"]
+material = SubResource("ShaderMaterial_4lsbo")
+position = Vector2(0, 21.5)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("13_jc2pr")
 offset = Vector2(0, 25)
-texture_scale = 0.1
 
 [node name="flashAttackLeft" type="Area2D" parent="."]
 visible = false
@@ -925,14 +943,13 @@ position = Vector2(-2.22325e-05, -24.5)
 shape = SubResource("CapsuleShape2D_r4er7")
 disabled = true
 
-[node name="AttackSprite" type="PointLight2D" parent="flashAttackLeft"]
+[node name="AttackSprite" type="Sprite2D" parent="flashAttackLeft"]
+material = SubResource("ShaderMaterial_21myc")
+position = Vector2(0, -21.5)
 rotation = -3.14159
-energy = 0.2
-shadow_enabled = true
-shadow_filter = 1
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("13_jc2pr")
 offset = Vector2(0, 25)
-texture_scale = 0.1
 
 [node name="PlayerSensor" type="Area2D" parent="." groups=["Player"]]
 
