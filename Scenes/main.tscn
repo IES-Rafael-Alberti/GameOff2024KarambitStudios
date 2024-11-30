@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6ttsgaocpnhh"]
+[gd_scene load_steps=14 format=3 uid="uid://6ttsgaocpnhh"]
 
 [ext_resource type="PackedScene" uid="uid://043wp7dseoh1" path="res://Scenes/PowerUps/power_up.tscn" id="1_adcnh"]
 [ext_resource type="Texture2D" uid="uid://ckmj5dn1nxlu4" path="res://Assets/Sprites/doble_jump.png" id="2_pgvr2"]
@@ -7,10 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://wivet2lx3hko" path="res://Scenes/Traps/thrower.tscn" id="5_mukxp"]
 [ext_resource type="PackedScene" uid="uid://w86dxymlrbo6" path="res://Scenes/Traps/spikes.tscn" id="6_8vic5"]
 [ext_resource type="PackedScene" uid="uid://daq4hixxbx71i" path="res://Scenes/Enemies/monkey.tscn" id="7_8dqsj"]
+[ext_resource type="Shader" path="res://Shaders/FlashLightgdshader.gdshader" id="8_currh"]
+[ext_resource type="Texture2D" uid="uid://c060xj3h42a75" path="res://Assets/Sprites/Cone.png" id="9_gqwvu"]
+[ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="9_ohydk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4c05w"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_476cn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_25vcy"]
+shader = ExtResource("8_currh")
+shader_parameter/light_color = Color(0.437235, 0.388594, 0.201887, 1)
+shader_parameter/brightness = 0.5
+shader_parameter/attenuation_strength = 0.5
+shader_parameter/intensity = 1.0
+shader_parameter/max_brightness = 1.0
+shader_parameter/light_texture = ExtResource("9_gqwvu")
 
 [node name="MainScene" type="Node2D"]
 
@@ -72,3 +84,11 @@ scene_type = 1
 
 [node name="Monkey" parent="." instance=ExtResource("7_8dqsj")]
 position = Vector2(127, -87)
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_25vcy")
+position = Vector2(-60, -117)
+rotation = -1.5708
+scale = Vector2(1, 2)
+texture = ExtResource("9_ohydk")
+offset = Vector2(0, 65)
