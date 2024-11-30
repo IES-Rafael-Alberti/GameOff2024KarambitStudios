@@ -31,6 +31,7 @@ func _ready() -> void:
 		if GameManager.puzzle_3_complete:
 			pedestal_atlantis.get_child(0).get_child(0).disabled = true
 			artifact_trident.visible = true
+			GameManager.game_complete =true
 	elif scene_file_path.contains("dorado_scene"):
 		if  dorado_music_player:
 			dorado_music_player.play()
