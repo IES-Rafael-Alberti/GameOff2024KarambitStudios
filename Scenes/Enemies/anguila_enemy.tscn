@@ -1,7 +1,52 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2k3io2ah6ye8"]
+[gd_scene load_steps=22 format=3 uid="uid://c2k3io2ah6ye8"]
 
 [ext_resource type="Script" path="res://Scripts/anguila_enemy.gd" id="1_gvs74"]
+[ext_resource type="Texture2D" uid="uid://oqp1unp2pkco" path="res://Assets/Sprites/Enemies/Anguila/sprite_anguila_muerte.png" id="2_lgrym"]
 [ext_resource type="Texture2D" uid="uid://crn2b0gvt216b" path="res://Assets/Sprites/Enemies/Anguila/sprite_anguila_en_movimiento.png" id="5_ngtid"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bqki"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(165, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjt32"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(220, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kw64"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(275, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f67i"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(330, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu6xk"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(55, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqc7m"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(110, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij05c"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(165, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe3up"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(220, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdfps"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(275, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x551o"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(330, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0hnk"]
+atlas = ExtResource("2_lgrym")
+region = Rect2(385, 0, 55, 55)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dd58q"]
 atlas = ExtResource("5_ngtid")
@@ -22,6 +67,49 @@ region = Rect2(165, 0, 55, 55)
 [sub_resource type="SpriteFrames" id="SpriteFrames_vg5vl"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bqki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjt32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kw64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f67i")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu6xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqc7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij05c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe3up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdfps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x551o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0hnk")
+}],
+"loop": true,
+"name": &"dying",
+"speed": 4.0
+}, {
+"frames": [{
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_dd58q")
 }, {
@@ -41,25 +129,27 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0yww"]
 radius = 3.0
-height = 16.0
+height = 13.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwefr"]
-radius = 2.0
-height = 13.0
+radius = 2.5
+height = 12.0
 
 [node name="Anguila" type="CharacterBody2D" groups=["enemigos"]]
 texture_filter = 1
 position = Vector2(1, 9)
 scale = Vector2(2, 2)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_gvs74")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.5, -4.5)
 scale = Vector2(0.315909, 0.315909)
 sprite_frames = SubResource("SpriteFrames_vg5vl")
-animation = &"walk"
+animation = &"dying"
+autoplay = "walk"
+frame_progress = 0.237057
 
 [node name="AreaDetection" type="Area2D" parent="."]
 collision_layer = 0
@@ -70,7 +160,7 @@ position = Vector2(0, -4.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_m0yww")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision_Anguila" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mwefr")

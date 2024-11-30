@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var attack_damage: int = 1  # Daño que inflige el enemigo
 
 @onready var colision_detection: CollisionShape2D = $AreaDetection/ColisionDetection
+@onready var collision_anguila: CollisionShape2D = $Collision_Anguila
+
 
 @onready var sprite_anguila = $AnimatedSprite2D
 
@@ -68,3 +70,19 @@ func _on_area_detection_body_entered(body: Node2D) -> void:
 	print("Entro")
 	if body.is_in_group("Player"):  # Si el collider es el jugador
 			GameManager.take_player_damage(body)
+			
+# Función de daño al enemigo
+func recibir_dano(damage: int) -> void:
+	vida -= damage
+	print("Enemigo recibió daño, vida restante:", vida)
+	if vida <= 0:
+		die()
+
+# Función para cuando el enemigo muere
+func die() -> void:
+	is_dead = true
+	sprite_anguila.play("dying")
+	sprite_anguila.play("dead")
+	collision_anguila.set_deferred("disabled", true)
+	colision_detection.set_deferred("disabled", true)
+	print("Enemigo muerto")

@@ -489,6 +489,18 @@ position = Vector2(48.368, 0)
 [node name="Marker2D2" type="Marker2D" parent="Enemies/Sirenas/Sirena7/path"]
 position = Vector2(-27.632, 0)
 
+[node name="Sirena8" parent="Enemies/Sirenas" instance=ExtResource("17_gj3c7")]
+position = Vector2(2452, 72)
+
+[node name="path" type="Node2D" parent="Enemies/Sirenas/Sirena8"]
+position = Vector2(-4.36755, -1.71397)
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Sirenas/Sirena8/path"]
+position = Vector2(59.368, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemies/Sirenas/Sirena8/path"]
+position = Vector2(-40.632, 0)
+
 [node name="Traps" type="Node" parent="."]
 
 [node name="Spikes" type="Node" parent="Traps"]
@@ -755,15 +767,3 @@ position = Vector2(3035, 970)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(-1163.5, -506.5)
 shape = SubResource("WorldBoundaryShape2D_lkws7")
-
-[node name="Sirena7" parent="." instance=ExtResource("17_gj3c7")]
-position = Vector2(2452, 72)
-
-[node name="path" type="Node2D" parent="Sirena7"]
-position = Vector2(-4.36755, -1.71397)
-
-[node name="Marker2D" type="Marker2D" parent="Sirena7/path"]
-position = Vector2(59.368, 0)
-
-[node name="Marker2D2" type="Marker2D" parent="Sirena7/path"]
-position = Vector2(-40.632, 0)
