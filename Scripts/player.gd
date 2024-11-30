@@ -36,7 +36,8 @@ var is_dying: bool = false
 @onready var flash_sound: AudioStreamPlayer = $Sounds/FlashSound
 
 ## --------------- Secret Code ------------------
-var secret_code = ["Move_left", "Move_right", "Dash"]
+var secret_code = ["Move_left", "Move_right","Move_left", "Move_right", "flashAttack", "meleeAttack", "Jump"]
+
 var current_index = 0
 ## --------------- Nodo UI y Teleport ------------------
 @onready var pause_menu: Control = $UI/PauseMenu
@@ -373,19 +374,24 @@ func _on_score_animations_animation_finished(anim_name: StringName) -> void:
 		GameManager.double_jump = false
 		GameManager.flashlight = false
 
+
 func SecretCode() -> void:
 	for action in secret_code:
 		if Input.is_action_just_pressed(action):
+			print(action)
+			# Verifica si la acción corresponde al índice actual de la secuencia
 			if action == secret_code[current_index]:
-				current_index += 1  # Si coincide, avanza al siguiente paso del código
+				current_index += 1  # Avanza al siguiente paso del código
 				if current_index == secret_code.size():
 					_on_code_entered()  # Código completo ingresado
 					current_index = 0  # Reinicia para nuevos intentos
 			else:
-				current_index = 0  # Reinicia si falla
-				break
+				# Reinicia si la acción no coincide con la secuencia esperada
+				current_index = 0
+			break  # Sal del bucle para evitar procesar múltiples acciones al mismo tiempo
+
 				
 func _on_code_entered():
 	print("¡Código secreto activado!")
-	if GameManager.player_health < 5:
+	if GameManager.player_health < GameManager.MAX_HEALTH:
 		GameManager.player_health += 1

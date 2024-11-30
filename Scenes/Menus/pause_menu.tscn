@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://lrayftsh56ub"]
+[gd_scene load_steps=10 format=3 uid="uid://lrayftsh56ub"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_alub3"]
 [ext_resource type="PackedScene" uid="uid://bxxwuipqewjrb" path="res://Scenes/Menus/volumes.tscn" id="2_sax3i"]
 [ext_resource type="FontFile" uid="uid://cljjgf2p13ikp" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="2_ypchm"]
+[ext_resource type="Texture2D" uid="uid://g1k2u51d1613" path="res://Assets/Sprites/HUD/A key.png" id="4_60ufl"]
+[ext_resource type="Texture2D" uid="uid://ba1d1w0pv4xy7" path="res://Assets/Sprites/HUD/D key.png" id="5_2d3h7"]
+[ext_resource type="Texture2D" uid="uid://dndhhf5in304m" path="res://Assets/Sprites/HUD/RightClick.png" id="6_jokso"]
+[ext_resource type="Texture2D" uid="uid://djwafkgetdfro" path="res://Assets/Sprites/HUD/LeftClick.png" id="7_w8w12"]
+[ext_resource type="Texture2D" uid="uid://caf7u6j62064x" path="res://Assets/Sprites/HUD/Space key.png" id="8_dor04"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6shs"]
 bg_color = Color(0.0923971, 0.0923971, 0.0923971, 0.121569)
@@ -69,6 +74,34 @@ offset_bottom = 599.0
 [node name="Volumes" parent="Background/OptionsMenu" instance=ExtResource("2_sax3i")]
 layout_mode = 2
 size_flags_vertical = 2
+
+[node name="AKey" type="Sprite2D" parent="Background"]
+position = Vector2(31, 695)
+texture = ExtResource("4_60ufl")
+
+[node name="DKey" type="Sprite2D" parent="Background"]
+position = Vector2(67, 695)
+texture = ExtResource("5_2d3h7")
+
+[node name="AKey2" type="Sprite2D" parent="Background"]
+position = Vector2(103, 695)
+texture = ExtResource("4_60ufl")
+
+[node name="DKey2" type="Sprite2D" parent="Background"]
+position = Vector2(139, 695)
+texture = ExtResource("5_2d3h7")
+
+[node name="RightClick" type="Sprite2D" parent="."]
+position = Vector2(176, 695)
+texture = ExtResource("6_jokso")
+
+[node name="LeftClick" type="Sprite2D" parent="."]
+position = Vector2(212, 695)
+texture = ExtResource("7_w8w12")
+
+[node name="SpaceKey" type="Sprite2D" parent="."]
+position = Vector2(264, 695)
+texture = ExtResource("8_dor04")
 
 [connection signal="pressed" from="Background/PauseMenuButtons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Background/PauseMenuButtons/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]

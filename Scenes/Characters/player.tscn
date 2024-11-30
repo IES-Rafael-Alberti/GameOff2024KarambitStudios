@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cpookik35lwde" path="res://Assets/Sprites/Player/sprite kassia dash ajustado.png" id="5_as5r6"]
 [ext_resource type="Texture2D" uid="uid://b6k2lari1h07o" path="res://Assets/Sprites/Player/sprite kassia muerte ajustado.png" id="6_cx4ym"]
 [ext_resource type="Texture2D" uid="uid://do83186w673ol" path="res://Assets/Sprites/Player/sprite kassia idle ajustado.png" id="7_6eiew"]
-[ext_resource type="Texture2D" uid="uid://bnmbjys2gw2eg" path="res://Assets/Sprites/TeclasPixel.png" id="7_tllj1"]
 [ext_resource type="Texture2D" uid="uid://b17xyfn5rlc6t" path="res://Assets/Sprites/Player/sprite kassia salto ajustado.png" id="8_f44aa"]
 [ext_resource type="Texture2D" uid="uid://dsb7xlbldmg8p" path="res://Assets/Sprites/Player/sprite kassia corriendo ajustado.png" id="9_aedru"]
 [ext_resource type="PackedScene" uid="uid://lrayftsh56ub" path="res://Scenes/Menus/pause_menu.tscn" id="9_n3md8"]
+[ext_resource type="Texture2D" uid="uid://r1sayjviwmbv" path="res://Assets/Sprites/HUD/E key.png" id="10_cvobg"]
 [ext_resource type="PackedScene" uid="uid://cy7i8nnag70ie" path="res://Scenes/Interface/HUD.tscn" id="10_h28rl"]
 [ext_resource type="Shader" path="res://Shaders/Darkness.gdshader" id="11_1gq2y"]
 [ext_resource type="Texture2D" uid="uid://dfmi6krk27gw3" path="res://Assets/Sprites/Heart.png" id="11_te8ke"]
@@ -1440,8 +1440,7 @@ shape = SubResource("CapsuleShape2D_0u7xg")
 texture_filter = 1
 position = Vector2(-5, -14)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_tllj1")
-region_enabled = true
+texture = ExtResource("10_cvobg")
 region_rect = Rect2(112.648, 35.8103, 24.3235, 28.6477)
 
 [node name="CamaraPlayer" type="Camera2D" parent="."]
