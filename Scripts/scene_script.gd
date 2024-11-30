@@ -3,10 +3,10 @@ extends Node2D
 @onready var pedestal_el_dorado: Sprite2D = $Pedestals/PedestalElDorado
 @onready var pedestal_atlantis: Sprite2D = $Pedestals/PedestalAtlantis
 @onready var pedestal_duat: Sprite2D = $Pedestals/PedestalDuat
-@onready var dorado_music_player: AudioStreamPlayer = $DoradoMusicPlayer
 @onready var artifact_dorado: Sprite2D = $Pedestals/PedestalElDorado/ArtifactDorado
 @onready var artifact_trident: Sprite2D = $Pedestals/PedestalAtlantis/ArtifactTrident
 @onready var artifact_duat: Sprite2D = $Pedestals/PedestalDuat/ArtifactDuat
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 const PLAYER = preload("res://Scenes/Characters/player.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -32,9 +32,9 @@ func _ready() -> void:
 			pedestal_atlantis.get_child(0).get_child(0).disabled = true
 			artifact_trident.visible = true
 			GameManager.game_complete =true
-	elif scene_file_path.contains("dorado_scene"):
-		if  dorado_music_player:
-			dorado_music_player.play()
+	
+	if audio_stream_player:
+		audio_stream_player.play()
 		
 	if scene_file_path.contains("duat_scene") and GameManager.return_point and GameManager.returning_puzzle_2:
 		spawn_point.position = GameManager.return_point
