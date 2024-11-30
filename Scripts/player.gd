@@ -332,3 +332,23 @@ func _on_dying_time_timeout() -> void:
 	queue_free()
 	is_dying = false
 	get_tree().reload_current_scene()
+
+
+func _on_score_animations_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "score_animation":
+		get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
+		GameManager.score = 0
+		GameManager.save_score = 0
+		GameManager.kill_count = 0
+		GameManager.save_kill = 0
+		GameManager.coin_count = 0
+		GameManager.save_coin = 0
+		GameManager.gem_count = 0
+		GameManager.save_gem = 0
+		GameManager.puzzle_1_complete = false
+		GameManager.puzzle_2_complete = false
+		GameManager.puzzle_3_complete = false
+		GameManager.dash = false
+		GameManager.double_jump = false
+		GameManager.flashlight = false
+		

@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwaqxaymyak0r"]
+
+[ext_resource type="Script" path="res://Scripts/logo_screen.gd" id="1_75jso"]
+[ext_resource type="Shader" path="res://Shaders/logo_screen_background.gdshader" id="2_en1j4"]
+[ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="2_y48jv"]
+[ext_resource type="Texture2D" uid="uid://cjaw7c1hnjfxc" path="res://Assets/Sprites/LogosMedia/Karambit Studios Logo (Contorno blanco).png" id="3_2yx34"]
+[ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="5_gddpw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wuw5l"]
+shader = ExtResource("2_y48jv")
+shader_parameter/Colors = Color(0, 0, 0, 1)
+shader_parameter/mix_color = 0.0
+shader_parameter/alphaColor = 0.0
+
+[sub_resource type="Animation" id="Animation_1ffiy"]
+resource_name = "logo_animation"
+length = 2.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KarambitStudiosLogo(contornoBlanco):material:shader_parameter/mix_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.25, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_bdony"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KarambitStudiosLogo(contornoBlanco):material:shader_parameter/mix_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g4aae"]
+_data = {
+"RESET": SubResource("Animation_bdony"),
+"logo_animation": SubResource("Animation_1ffiy")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5x5gl"]
+shader = ExtResource("2_en1j4")
+shader_parameter/fog_density = 0.5
+shader_parameter/fog_speed = 0.3
+shader_parameter/noise_scale = 4.0
+shader_parameter/fog_opacity = 0.5
+
+[node name="LogoScreen" type="Node2D"]
+script = ExtResource("1_75jso")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+offset_left = -59.0
+offset_top = -38.0
+offset_right = 1348.0
+offset_bottom = 751.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="KarambitStudiosLogo(contornoBlanco)" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_wuw5l")
+offset_left = 281.0
+offset_top = 24.0
+offset_right = 1781.0
+offset_bottom = 1524.0
+scale = Vector2(0.449833, 0.449833)
+texture = ExtResource("3_2yx34")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g4aae")
+}
+autoplay = "logo_animation"
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5x5gl")
+position = Vector2(645.5, 356.5)
+scale = Vector2(10.9922, 6.14844)
+texture = ExtResource("5_gddpw")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

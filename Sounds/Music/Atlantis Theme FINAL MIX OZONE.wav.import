@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blvx4wa02iq44"
+path="res://.godot/imported/Atlantis Theme FINAL MIX OZONE.wav-d4d2f2099da106b56f996fe48a12c7f0.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/Atlantis Theme FINAL MIX OZONE.wav"
+dest_files=["res://.godot/imported/Atlantis Theme FINAL MIX OZONE.wav-d4d2f2099da106b56f996fe48a12c7f0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -9,6 +9,7 @@ var offset: Vector2 = Vector2.ZERO
 @onready var pause_menu: Control = $"../../UI/PauseMenu"
 @onready var artifact: Sprite2D = $"../../Artifact"
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
+@onready var reset_button: TextureButton = $"../../ResetButton"
 
 # Array con las posiciones correctas de las piezas
 var correct_positions = [
@@ -74,6 +75,7 @@ func check_victory():
 	GameManager.save_kill = GameManager.kill_count
 	GameManager.save_coin = GameManager.coin_count
 	GameManager.save_gem = GameManager.gem_count
+	reset_button.visible = false
 	
 
 

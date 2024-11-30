@@ -46,6 +46,7 @@ const TARGET_BOTTOM_INDEX = 1
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 
 @onready var pause_menu: Control = $"../UI/PauseMenu"
+@onready var return_button_duat: TextureButton = $"../ReturnButtonDuat"
 
 func _ready() -> void:
 	update_pieces()
@@ -71,6 +72,7 @@ func check_victory():
 		GameManager.save_gem = GameManager.gem_count
 		print("victoria")
 		victory = true
+		return_button_duat.visible = false
 		animation_player.play("artifact_collected")
 # Mueve el índice de la pieza superior a la derecha
 func _on_button_left_top_pressed() -> void:
@@ -110,7 +112,7 @@ func _on_button_right_bottom_pressed() -> void:
 		index_bottom = (index_bottom + 1) % bottom_textures.size()
 		print(index_bottom)
 		update_pieces()
-
+		
 
 func _on_return_button_duat_pressed() -> void:
 	GameManager.returning_puzzle_2 = true

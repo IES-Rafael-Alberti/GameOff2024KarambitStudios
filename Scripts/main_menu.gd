@@ -1,6 +1,7 @@
 extends Control
 # SONIDO
-@onready var rain_sound: AudioStreamPlayer2D = $Rain/RainSound
+@onready var rain_sound: AudioStreamPlayer = $Rain/RainSound
+@onready var music_player: AudioStreamPlayer = $Rain/MusicPlayer
 #MENUS
 
 @onready var first_menu: VBoxContainer = $Panel/BackGroundButton/FirstMenu
@@ -9,7 +10,7 @@ extends Control
 func _ready() -> void:
 	Engine.time_scale = 1.0
 	rain_sound.play()
-	
+	music_player.play()
 	
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/museum_scene.tscn")

@@ -1,19 +1,20 @@
-[gd_scene load_steps=19 format=4 uid="uid://nkwfgfld2vl7"]
+[gd_scene load_steps=20 format=4 uid="uid://nkwfgfld2vl7"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_cctwx"]
 [ext_resource type="Texture2D" uid="uid://ch16s3ci7v0mv" path="res://Assets/TileSets/tileset duat v1.png" id="2_b4gke"]
 [ext_resource type="PackedScene" uid="uid://dendjn28vhbb2" path="res://Scenes/Levels/duat_small_platform.tscn" id="3_5dq2b"]
 [ext_resource type="PackedScene" uid="uid://ck6b35e7dxap7" path="res://Scenes/Levels/duat_large_platform.tscn" id="4_gn6vw"]
 [ext_resource type="PackedScene" uid="uid://g1uqvppr4iaj" path="res://Scenes/Enemies/anubis.tscn" id="5_c40wb"]
-[ext_resource type="PackedScene" path="res://Scenes/Traps/quicksand.tscn" id="6_dbnm7"]
+[ext_resource type="PackedScene" uid="uid://ceuqsktlo5w44" path="res://Scenes/Traps/quicksand.tscn" id="6_dbnm7"]
 [ext_resource type="PackedScene" uid="uid://drfheq68xinwq" path="res://Scenes/Enemies/fantasma_enemy.tscn" id="7_hfcvn"]
 [ext_resource type="PackedScene" uid="uid://6s21wq7ig4ta" path="res://Scenes/Enemies/anubis_enemy.tscn" id="7_ph2cp"]
 [ext_resource type="PackedScene" uid="uid://ddl42h14heqoo" path="res://Scenes/Collectables/Collectable.tscn" id="9_8u85p"]
-[ext_resource type="PackedScene" path="res://Scenes/PowerUps/bandage.tscn" id="10_1xwma"]
+[ext_resource type="PackedScene" uid="uid://bdbdjmavc4bl6" path="res://Scenes/PowerUps/bandage.tscn" id="10_1xwma"]
 [ext_resource type="PackedScene" uid="uid://043wp7dseoh1" path="res://Scenes/PowerUps/power_up.tscn" id="10_k2tpl"]
 [ext_resource type="Texture2D" uid="uid://cwvxp1ign8jf7" path="res://Assets/Sprites/Power_up/Dash_icon_v1.png" id="12_0wjbv"]
 [ext_resource type="PackedScene" uid="uid://w86dxymlrbo6" path="res://Scenes/Traps/spikes.tscn" id="13_mqq7w"]
 [ext_resource type="PackedScene" uid="uid://wivet2lx3hko" path="res://Scenes/Traps/thrower.tscn" id="14_xqldw"]
+[ext_resource type="AudioStream" uid="uid://b0o5kcr6ot6e3" path="res://Sounds/Music/The Duat Theme FINAL MIX OZONE.wav" id="15_3fmwc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emytj"]
 texture = ExtResource("2_b4gke")
@@ -654,3 +655,7 @@ bullet_speed = 300.0
 life_time = 1.3
 cooldown_time = 1.25
 scene_type = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_3fmwc")
+bus = &"Music"

@@ -930,7 +930,7 @@ position = Vector2(723, -208)
 [node name="dorado_platform_61" parent="platforms" instance=ExtResource("13_gcneq")]
 position = Vector2(724, -354)
 
-[node name="DoradoMusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_87mf2")
 bus = &"Music"
 

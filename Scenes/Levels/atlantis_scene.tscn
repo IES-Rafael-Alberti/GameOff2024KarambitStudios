@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://4q5av1fjh43"]
+[gd_scene load_steps=24 format=4 uid="uid://4q5av1fjh43"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_c4c61"]
 [ext_resource type="Texture2D" uid="uid://cjy6qikxgup5d" path="res://Assets/TileSets/tileset_atlantis_pilars_and_sand.png" id="2_utakt"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bdbdjmavc4bl6" path="res://Scenes/PowerUps/bandage.tscn" id="15_xoyre"]
 [ext_resource type="PackedScene" uid="uid://bmea5rouemy1m" path="res://Scenes/Traps/kill_zone.tscn" id="16_abked"]
 [ext_resource type="PackedScene" uid="uid://dkkwll3h4jswk" path="res://Scenes/Enemies/sirena.tscn" id="17_gj3c7"]
+[ext_resource type="AudioStream" uid="uid://blvx4wa02iq44" path="res://Sounds/Music/Atlantis Theme FINAL MIX OZONE.wav" id="19_3hi0f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_da6q2"]
 texture = ExtResource("2_utakt")
@@ -767,3 +768,7 @@ position = Vector2(59.368, 0)
 
 [node name="Marker2D2" type="Marker2D" parent="Sirena7/path"]
 position = Vector2(-40.632, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_3hi0f")
+bus = &"Music"
