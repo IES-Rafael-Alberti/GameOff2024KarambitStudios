@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dbxdmr6dpygtk"]
+[gd_scene load_steps=24 format=3 uid="uid://dbxdmr6dpygtk"]
 
 [ext_resource type="Texture2D" uid="uid://c6n8kaxjedmvm" path="res://Assets/Sprites/Puzzle2/duat_puzzle.png" id="1_rsgb7"]
 [ext_resource type="Script" path="res://Scripts/duat_puzzle.gd" id="2_mdtad"]
@@ -15,6 +15,7 @@
 [ext_resource type="Shader" path="res://Shaders/BackGround.gdshader" id="13_sfnyf"]
 [ext_resource type="Texture2D" uid="uid://cg3s5slqpnqo2" path="res://Assets/Sprites/PuzzleBackground/fondo_puzzle_duat.png" id="14_lewej"]
 [ext_resource type="PackedScene" uid="uid://bku5tmqr70rwt" path="res://Scenes/Collectables/artifact_collected.tscn" id="15_s5gc3"]
+[ext_resource type="Texture2D" uid="uid://bflaor3igq7vq" path="res://Assets/Sprites/Artifacts/ank_v1.png" id="16_b6jce"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88q0f"]
 shader = ExtResource("13_sfnyf")
@@ -75,7 +76,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(1.5, 2, 2.5, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1.33, 1.33), Vector2(1.5, 1.5), Vector2(1.66, 1.66), Vector2(2, 2)]
+"values": [Vector2(1.5, 1.5), Vector2(2, 2), Vector2(2.5, 2.5), Vector2(3, 3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5y5hv"]
@@ -269,6 +270,7 @@ visible = false
 z_index = 10
 position = Vector2(640, 360)
 scale = Vector2(1.33, 1.33)
+texture = ExtResource("16_b6jce")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

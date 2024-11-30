@@ -7,7 +7,7 @@
 shader = ExtResource("2_gh5d1")
 shader_parameter/spread = 0.5
 shader_parameter/cutoff = 1.0
-shader_parameter/size = 1.0
+shader_parameter/size = 2.0
 shader_parameter/speed = 1.0
 shader_parameter/ray1_density = 1.0
 shader_parameter/ray2_density = 1.0

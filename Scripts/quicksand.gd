@@ -11,8 +11,8 @@ func _on_body_entered(body: Node):
 		print("Ha entrao el jugador") 
 		player = body
 		body.is_sinking = true
+		player.death_animation_player.play("death_screen")
 		sinking_time.start()
-	
 
 func _on_sinking_time_timeout() -> void:
 	player.queue_free()

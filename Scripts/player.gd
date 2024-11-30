@@ -34,6 +34,7 @@ var is_dying: bool = false
 @onready var e_key: Sprite2D = $Tecla
 @onready var hud: Control = $UI/HUD
 @onready var camara_player: Camera2D = $CamaraPlayer
+@onready var death_animation_player: AnimationPlayer = $CamaraPlayer/DeathAnimationPlayer
 
 ## ------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
@@ -72,7 +73,6 @@ var is_dying: bool = false
 
 ## ------------------ Funciones -----------------
 func _ready() -> void:
-
 	# Inicializa el ataque en invisible
 	pause_menu.visible = false
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=129 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jrxfw"]
 [ext_resource type="Shader" path="res://Shaders/DamageShader.gdshader" id="2_gxme5"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dfmi6krk27gw3" path="res://Assets/Sprites/Heart.png" id="11_te8ke"]
 [ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="12_dxtdn"]
 [ext_resource type="Texture2D" uid="uid://dbrtotelo3h0a" path="res://Assets/Sprites/Empty heart.png" id="12_vwxei"]
+[ext_resource type="Texture2D" uid="uid://rsjy58ntydba" path="res://Assets/Sprites/menu/deathscreen.png" id="13_b6stu"]
 [ext_resource type="Texture2D" uid="uid://c060xj3h42a75" path="res://Assets/Sprites/Cone.png" id="13_jc2pr"]
 [ext_resource type="AnimationLibrary" uid="uid://ctxpw0yieptcf" path="res://Animations/Animations_Player.res" id="16_822ot"]
 
@@ -564,6 +565,92 @@ shader = ExtResource("11_1gq2y")
 shader_parameter/outerRadius = 0.8
 shader_parameter/MainAlpha = 1.0
 
+[sub_resource type="Animation" id="Animation_5uo0a"]
+resource_name = "death_screen"
+length = 2.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathScreen2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathScreen3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ta3ij"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathScreen2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathScreen3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7esi"]
+_data = {
+"RESET": SubResource("Animation_ta3ij"),
+"death_screen": SubResource("Animation_5uo0a")
+}
+
 [sub_resource type="GDScript" id="GDScript_l86qj"]
 script/source = "extends CanvasLayer
 "
@@ -730,7 +817,6 @@ region_enabled = true
 region_rect = Rect2(112.648, 35.8103, 24.3235, 28.6477)
 
 [node name="CamaraPlayer" type="Camera2D" parent="."]
-offset = Vector2(65, -35)
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 
@@ -738,6 +824,37 @@ position_smoothing_enabled = true
 material = SubResource("ShaderMaterial_dfsjk")
 scale = Vector2(14.6797, 8.2467)
 texture = ExtResource("12_dxtdn")
+
+[node name="DeathScreen" type="Sprite2D" parent="CamaraPlayer"]
+visible = false
+z_index = 10
+position = Vector2(7.62939e-06, -97.8)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("13_b6stu")
+vframes = 3
+
+[node name="DeathScreen2" type="Sprite2D" parent="CamaraPlayer"]
+visible = false
+z_index = 10
+position = Vector2(7.62939e-06, 4.19999)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("13_b6stu")
+vframes = 3
+frame = 1
+
+[node name="DeathScreen3" type="Sprite2D" parent="CamaraPlayer"]
+visible = false
+z_index = 10
+position = Vector2(7.62939e-06, 106.2)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("13_b6stu")
+vframes = 3
+frame = 2
+
+[node name="DeathAnimationPlayer" type="AnimationPlayer" parent="CamaraPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_o7esi")
+}
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = SubResource("GDScript_l86qj")
