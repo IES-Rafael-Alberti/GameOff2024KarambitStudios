@@ -35,6 +35,9 @@ var is_dying: bool = false
 @onready var dash_sound: AudioStreamPlayer2D = $Sounds/DashSound
 @onready var flash_sound: AudioStreamPlayer2D = $Sounds/FlashSound
 
+## --------------- Secret Code ------------------
+var secret_code = ["Move_left", "Move_right", "Dash"]
+var current_index = 0
 ## --------------- Nodo UI y Teleport ------------------
 @onready var pause_menu: Control = $UI/PauseMenu
 @onready var e_key: Sprite2D = $Tecla
@@ -97,6 +100,7 @@ func _ready() -> void:
 	if GameManager.game_complete:
 		score_animations.play("score_animation")
 func _physics_process(delta: float) -> void:
+	SecretCode()
 	# Detectamos la dirección del movimiento
 	var direction = Input.get_axis("Move_left", "Move_right")
 	actual_duplicate_time += delta
@@ -367,4 +371,20 @@ func _on_score_animations_animation_finished(anim_name: StringName) -> void:
 		GameManager.dash = false
 		GameManager.double_jump = false
 		GameManager.flashlight = false
-		
+
+func SecretCode() -> void:
+	for action in secret_code:
+		if Input.is_action_just_pressed(action):
+			if action == secret_code[current_index]:
+				current_index += 1  # Si coincide, avanza al siguiente paso del código
+				if current_index == secret_code.size():
+					_on_code_entered()  # Código completo ingresado
+					current_index = 0  # Reinicia para nuevos intentos
+			else:
+				current_index = 0  # Reinicia si falla
+				break
+				
+func _on_code_entered():
+	print("¡Código secreto activado!")
+	if GameManager.player_health < 5:
+		GameManager.player_health += 1
