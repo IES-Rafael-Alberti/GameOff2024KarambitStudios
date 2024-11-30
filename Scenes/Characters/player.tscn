@@ -1441,6 +1441,7 @@ region_enabled = true
 region_rect = Rect2(112.648, 35.8103, 24.3235, 28.6477)
 
 [node name="CamaraPlayer" type="Camera2D" parent="."]
+offset = Vector2(17, -30)
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 
@@ -1452,15 +1453,15 @@ texture = ExtResource("12_dxtdn")
 [node name="DeathScreen" type="Sprite2D" parent="CamaraPlayer"]
 visible = false
 z_index = 10
-position = Vector2(7.62939e-06, -97.8)
-scale = Vector2(1.6, 1.6)
+position = Vector2(17, -122.9)
+scale = Vector2(1.6, 1.62813)
 texture = ExtResource("13_b6stu")
 vframes = 3
 
 [node name="DeathScreen2" type="Sprite2D" parent="CamaraPlayer"]
 visible = false
 z_index = 10
-position = Vector2(7.62939e-06, 4.19999)
+position = Vector2(17, -20)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("13_b6stu")
 vframes = 3
@@ -1469,7 +1470,7 @@ frame = 1
 [node name="DeathScreen3" type="Sprite2D" parent="CamaraPlayer"]
 visible = false
 z_index = 10
-position = Vector2(7.62939e-06, 106.2)
+position = Vector2(17, 82)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("13_b6stu")
 vframes = 3
