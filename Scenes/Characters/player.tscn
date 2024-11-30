@@ -1629,7 +1629,7 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("18_wclj2")
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [node name="Space" type="VBoxContainer" parent="UI/Scoreboard/Background/HBoxContainer"]
 layout_mode = 2
@@ -1752,6 +1752,7 @@ layout_mode = 2
 [node name="ThankMusic" type="Label" parent="UI/Scoreboard/Background/HBoxContainer/Credits/Music"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.8
 theme_override_colors/font_color = Color(0.973732, 0.745002, 0.148969, 1)
 theme_override_colors/font_shadow_color = Color(0.565401, 0.440953, 0, 1)
 theme_override_fonts/font = ExtResource("18_wclj2")
@@ -1764,23 +1765,25 @@ uppercase = true
 [node name="X" type="VBoxContainer" parent="UI/Scoreboard/Background/HBoxContainer/Credits/Music"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
+size_flags_stretch_ratio = 2.1
 
 [node name="TextureRect" type="TextureRect" parent="UI/Scoreboard/Background/HBoxContainer/Credits/Music/X"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 10
 texture = ExtResource("25_ko544")
 stretch_mode = 2
 
 [node name="Label" type="Label" parent="UI/Scoreboard/Background/HBoxContainer/Credits/Music/X"]
 layout_mode = 2
+size_flags_vertical = 10
 theme_override_colors/font_color = Color(0.972549, 0.745098, 0.14902, 1)
 theme_override_colors/font_shadow_color = Color(0.564706, 0.439216, 0, 1)
 theme_override_fonts/font = ExtResource("18_wclj2")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "@wingzeromusic"
-horizontal_alignment = 1
+horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="ThanksPLayer" type="Label" parent="UI/Scoreboard/Background/HBoxContainer/Credits"]
@@ -1816,9 +1819,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.972549, 0.745098, 0.14902, 1)
 theme_override_colors/font_shadow_color = Color(0.564706, 0.439216, 0, 1)
 theme_override_fonts/font = ExtResource("18_wclj2")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "@karambitstudios2024"
-horizontal_alignment = 1
+horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="X" type="VBoxContainer" parent="UI/Scoreboard/Background/HBoxContainer/Credits/SocialMedia"]
@@ -1838,9 +1841,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.972549, 0.745098, 0.14902, 1)
 theme_override_colors/font_shadow_color = Color(0.564706, 0.439216, 0, 1)
 theme_override_fonts/font = ExtResource("18_wclj2")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "@KarambitSt"
-horizontal_alignment = 1
+horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="Score_animations" type="AnimationPlayer" parent="UI/Scoreboard"]
@@ -1951,19 +1954,19 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="Sounds" type="Node" parent="."]
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="HitSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("31_3xanc")
 bus = &"SFX"
 
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="JumpSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("32_gi28s")
 bus = &"SFX"
 
-[node name="DashSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="DashSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("32_uorxl")
 bus = &"SFX"
 
-[node name="FlashSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="FlashSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("34_6sefk")
 bus = &"SFX"
 

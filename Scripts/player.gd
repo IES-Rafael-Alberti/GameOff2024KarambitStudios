@@ -30,10 +30,10 @@ var is_attacking: bool = false
 var is_flashing: bool = false
 var is_dying: bool = false
 ##---------------- Sonidos -----------------
-@onready var hit_sound: AudioStreamPlayer2D = $Sounds/HitSound
-@onready var jump_sound: AudioStreamPlayer2D = $Sounds/JumpSound
-@onready var dash_sound: AudioStreamPlayer2D = $Sounds/DashSound
-@onready var flash_sound: AudioStreamPlayer2D = $Sounds/FlashSound
+@onready var hit_sound: AudioStreamPlayer = $Sounds/HitSound
+@onready var jump_sound: AudioStreamPlayer = $Sounds/JumpSound
+@onready var dash_sound: AudioStreamPlayer = $Sounds/DashSound
+@onready var flash_sound: AudioStreamPlayer = $Sounds/FlashSound
 
 ## --------------- Secret Code ------------------
 var secret_code = ["Move_left", "Move_right", "Dash"]
@@ -368,6 +368,7 @@ func _on_score_animations_animation_finished(anim_name: StringName) -> void:
 		GameManager.puzzle_1_complete = false
 		GameManager.puzzle_2_complete = false
 		GameManager.puzzle_3_complete = false
+		GameManager.game_complete = false
 		GameManager.dash = false
 		GameManager.double_jump = false
 		GameManager.flashlight = false
