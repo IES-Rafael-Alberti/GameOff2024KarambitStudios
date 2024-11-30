@@ -330,3 +330,9 @@ func _on_dying_time_timeout() -> void:
 	queue_free()
 	is_dying = false
 	get_tree().reload_current_scene()
+
+func get_look_direction() -> Vector2:
+	return Vector2.RIGHT if animated_sprite.flip_h == false else Vector2.LEFT
+	
+func flash_attack() -> bool:
+	return is_flashing
