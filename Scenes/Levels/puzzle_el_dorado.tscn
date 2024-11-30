@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d4evg073v65bm"]
+[gd_scene load_steps=31 format=3 uid="uid://d4evg073v65bm"]
 
 [ext_resource type="Texture2D" uid="uid://b0wjpq6ks36fw" path="res://Assets/Sprites/Puzzle/tablero_Dorado_v1.png" id="2_acirc"]
 [ext_resource type="PackedScene" uid="uid://b5bmm424xphd1" path="res://Scenes/Levels/puzle_piece.tscn" id="4_wvbs7"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dw2x4wjxlhvm7" path="res://Assets/Sprites/PuzzleBackground/fondo_puzzle_eldorado.png" id="15_uw62j"]
 [ext_resource type="PackedScene" uid="uid://bku5tmqr70rwt" path="res://Scenes/Collectables/artifact_collected.tscn" id="16_kp1dg"]
 [ext_resource type="Texture2D" uid="uid://bkp8ol4aoty3h" path="res://Assets/Sprites/Artifacts/sprite_artefacto_dorado.png" id="17_kcrtd"]
+[ext_resource type="AudioStream" uid="uid://7wxfyjfiyglu" path="res://Sounds/Effects/game-level-complete-143022.mp3" id="18_txyva"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_woval"]
 
@@ -237,6 +238,11 @@ texture = ExtResource("17_kcrtd")
 libraries = {
 "": SubResource("AnimationLibrary_ff0bt")
 }
+
+[node name="LevelComplete" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-80, 93)
+stream = ExtResource("18_txyva")
+bus = &"SFX"
 
 [connection signal="pressed" from="ResetButton" to="Pieces/PuzlePiece" method="_on_reset_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="Pieces/PuzlePiece" method="_on_animation_player_animation_finished"]

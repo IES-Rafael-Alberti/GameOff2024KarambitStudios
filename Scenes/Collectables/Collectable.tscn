@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddl42h14heqoo"]
+[gd_scene load_steps=6 format=3 uid="uid://ddl42h14heqoo"]
 
 [ext_resource type="Shader" path="res://Shaders/ShinePiece.gdshader" id="1_375ik"]
 [ext_resource type="Script" path="res://Scripts/coin.gd" id="3_6pfr6"]
+[ext_resource type="AudioStream" uid="uid://k3ntcgevwb2i" path="res://Sounds/Effects/Collectable.mp3" id="3_33yuy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xer4m"]
 shader = ExtResource("1_375ik")
@@ -22,5 +23,8 @@ script = ExtResource("3_6pfr6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_g80v2")
+
+[node name="CollectableSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_33yuy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

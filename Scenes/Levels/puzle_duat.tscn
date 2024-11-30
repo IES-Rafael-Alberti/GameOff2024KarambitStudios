@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dbxdmr6dpygtk"]
+[gd_scene load_steps=25 format=3 uid="uid://dbxdmr6dpygtk"]
 
 [ext_resource type="Texture2D" uid="uid://c6n8kaxjedmvm" path="res://Assets/Sprites/Puzzle2/duat_puzzle.png" id="1_rsgb7"]
 [ext_resource type="Script" path="res://Scripts/duat_puzzle.gd" id="2_mdtad"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cg3s5slqpnqo2" path="res://Assets/Sprites/PuzzleBackground/fondo_puzzle_duat.png" id="14_lewej"]
 [ext_resource type="PackedScene" uid="uid://bku5tmqr70rwt" path="res://Scenes/Collectables/artifact_collected.tscn" id="15_s5gc3"]
 [ext_resource type="Texture2D" uid="uid://bflaor3igq7vq" path="res://Assets/Sprites/Artifacts/ank_v1.png" id="16_b6jce"]
+[ext_resource type="AudioStream" uid="uid://7wxfyjfiyglu" path="res://Sounds/Effects/game-level-complete-143022.mp3" id="17_3x7al"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88q0f"]
 shader = ExtResource("13_sfnyf")
@@ -277,6 +278,11 @@ libraries = {
 "": SubResource("AnimationLibrary_5y5hv"),
 "artifact": SubResource("AnimationLibrary_ff0bt")
 }
+
+[node name="LevelComplete" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-80, 93)
+stream = ExtResource("17_3x7al")
+bus = &"SFX"
 
 [connection signal="pressed" from="DuatPuzzle/ButtonLeftTop" to="DuatPuzzle" method="_on_button_left_top_pressed"]
 [connection signal="pressed" from="DuatPuzzle/ButtonRightTop" to="DuatPuzzle" method="_on_button_right_top_pressed"]

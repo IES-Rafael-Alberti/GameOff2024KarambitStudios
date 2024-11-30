@@ -14,6 +14,7 @@ var can_attack = true
 @onready var attack_cooldown: Timer = $AttackCooldown
 @onready var stone_spawn_time: Timer = $StoneSpawnTime
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var monkey_sound: AudioStreamPlayer2D = $MonkeySound
 
 const MONKEY_STONE = preload("res://Scenes/Proyectiles/monkey_stone.tscn")
 
@@ -36,6 +37,9 @@ func _process(delta: float) -> void:
 			if (GameManager.player_node.global_position - sprite_monkey.global_position).length() < 200:  # Ajusta el rango
 			
 				throw_stone()
+				monkey_sound.play()
+			else:
+				monkey_sound.stop()
 	else:
 		print("NO hay jugador: " + str(GameManager.player_node))
 		
@@ -87,6 +91,7 @@ func eliminar() -> void:
 	animation_player.play("Dying")
 	can_attack = false
 	attack_cooldown.stop()
+	monkey_sound.stop()
 	print("Enemigo eliminado")
 
 func _on_attack_cooldown_timeout() -> void:

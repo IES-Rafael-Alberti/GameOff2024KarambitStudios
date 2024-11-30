@@ -29,6 +29,12 @@ var is_falling: bool = false
 var is_attacking: bool = false
 var is_flashing: bool = false
 var is_dying: bool = false
+##---------------- Sonidos -----------------
+@onready var hit_sound: AudioStreamPlayer2D = $Sounds/HitSound
+@onready var jump_sound: AudioStreamPlayer2D = $Sounds/JumpSound
+@onready var dash_sound: AudioStreamPlayer2D = $Sounds/DashSound
+@onready var flash_sound: AudioStreamPlayer2D = $Sounds/FlashSound
+
 ## --------------- Nodo UI y Teleport ------------------
 @onready var pause_menu: Control = $UI/PauseMenu
 @onready var e_key: Sprite2D = $Tecla
@@ -120,11 +126,13 @@ func _physics_process(delta: float) -> void:
 		if jumps_left == MAX_JUMPS or not is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			jumps_left -= 1
+			jump_sound.play()
 
 		
 	#Dash mejorado
 	if Input.is_action_just_pressed("Dash") and can_dash:
 		state_machine_v2.travel("dash")
+		dash_sound.play()
 		is_dashing = true
 		can_dash = false
 		dash_timer.start()
@@ -200,6 +208,7 @@ func perform_attack_melee():
 	if can_attack:
 		can_attack = false
 		is_attacking = true
+		hit_sound.play()
 		if facing_right:
 			attack_hitbox_right.disabled = false
 		elif not facing_right:
@@ -213,6 +222,7 @@ func perform_attack_flashlight():
 	if can_attack and GameManager.flash_count > 0 and GameManager.flashlight:
 		can_attack = false
 		is_flashing = true
+		flash_sound.play()
 		if facing_right:
 			flash_attack_right.visible = true
 			flash_hitbox_right.disabled = false
@@ -342,6 +352,7 @@ func flash_attack() -> bool:
 func _on_score_animations_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "score_animation":
 		get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
+		queue_free()
 		GameManager.score = 0
 		GameManager.save_score = 0
 		GameManager.kill_count = 0

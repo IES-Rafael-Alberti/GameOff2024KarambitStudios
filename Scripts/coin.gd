@@ -4,6 +4,7 @@ var points:int
 
 
 @onready var collectable: Sprite2D = $"."
+@onready var collectable_sound: AudioStreamPlayer2D = $CollectableSound
 
 @export var coin_points: int = 10
 @export var gem_points: int = 100
@@ -26,6 +27,7 @@ func _ready() -> void:
 		points = gem_points
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		collectable_sound.play()
 		GameManager.score += points
 		if type == CollectableType.Coin:
 			GameManager.coin_count += 1

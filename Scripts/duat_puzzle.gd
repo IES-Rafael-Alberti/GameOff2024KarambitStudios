@@ -7,6 +7,8 @@ extends Sprite2D
 @onready var button_left_bottom: TextureButton = $ButtonLeftBottom
 @onready var button_right_bottom: TextureButton = $ButtonRightBottom
 
+@onready var level_complete: AudioStreamPlayer2D = $"../LevelComplete"
+
 @onready var top_piece: Sprite2D = $"../TopPiece"
 @onready var mid_piece: Sprite2D = $"../MidPiece"
 @onready var bottom_piece: Sprite2D = $"../BottomPiece"
@@ -74,6 +76,7 @@ func check_victory():
 		victory = true
 		return_button_duat.visible = false
 		animation_player.play("artifact_collected")
+		level_complete.play()
 # Mueve el índice de la pieza superior a la derecha
 func _on_button_left_top_pressed() -> void:
 	if not victory:

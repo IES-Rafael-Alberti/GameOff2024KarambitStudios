@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://daq4hixxbx71i"]
+[gd_scene load_steps=41 format=3 uid="uid://daq4hixxbx71i"]
 
 [ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_qaunr"]
 [ext_resource type="Texture2D" uid="uid://cki8cwqg3sr1n" path="res://Assets/Sprites/Enemies/Mono/sprite_mono_ataque.png" id="2_52nqi"]
 [ext_resource type="Texture2D" uid="uid://hc5ph0tti07u" path="res://Assets/Sprites/Enemies/Mono/sprite_mono_muerte.png" id="2_opgkk"]
 [ext_resource type="Texture2D" uid="uid://bmwrmuqya7riv" path="res://Assets/Sprites/Enemies/Mono/sprite_enemigo_mono_idle.png" id="2_uqg1j"]
+[ext_resource type="AudioStream" uid="uid://7r5h8553le2e" path="res://Sounds/Effects/monkey-128368.mp3" id="5_xebvj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryntr"]
 atlas = ExtResource("2_52nqi")
@@ -364,6 +365,12 @@ wait_time = 0.001
 libraries = {
 "": SubResource("AnimationLibrary_unj70")
 }
+
+[node name="MonkeySound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-6, 0)
+stream = ExtResource("5_xebvj")
+max_distance = 200.0
+bus = &"SFX"
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

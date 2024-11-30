@@ -20,6 +20,7 @@ extends GridContainer
 
 @onready var pause_menu: Control = $"../../../UI/PauseMenu"
 @onready var animation_player: AnimationPlayer = $"../../../AnimationPlayer"
+@onready var level_complete: AudioStreamPlayer2D = $"../../../LevelComplete"
 
 var victory: bool = false
 func _physics_process(delta: float) -> void:
@@ -40,6 +41,7 @@ func check_victory():
 	GameManager.save_gem = GameManager.gem_count
 	victory = true
 	animation_player.play("artifact_collected")
+	level_complete.play()
 
 
 

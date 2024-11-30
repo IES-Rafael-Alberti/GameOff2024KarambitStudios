@@ -10,6 +10,7 @@ var offset: Vector2 = Vector2.ZERO
 @onready var artifact: Sprite2D = $"../../Artifact"
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var reset_button: TextureButton = $"../../ResetButton"
+@onready var level_complete: AudioStreamPlayer2D = $"../../LevelComplete"
 
 # Array con las posiciones correctas de las piezas
 var correct_positions = [
@@ -69,6 +70,7 @@ func check_victory():
 			return
 	print("Victoria")
 	animation_player.play("artifact_collected")
+	level_complete.play()
 	GameManager.puzzle_1_complete = true
 	GameManager.score += 1000
 	GameManager.save_score = GameManager.score

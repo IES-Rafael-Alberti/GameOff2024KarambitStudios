@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://cq1r444gvvl0o" path="res://Scenes/Enemies/jaguar.tscn" id="8_88r8v"]
 [ext_resource type="PackedScene" uid="uid://bmea5rouemy1m" path="res://Scenes/Traps/kill_zone.tscn" id="12_40yjf"]
 [ext_resource type="PackedScene" uid="uid://edv16fxwoq7q" path="res://Scenes/Levels/dorado_platform_1.tscn" id="13_gcneq"]
+[ext_resource type="AudioStream" uid="uid://l0kqcyp182kc" path="res://Sounds/Music/El Dorado Theme FINAL MIX OZONE.wav" id="13_t5gee"]
 [ext_resource type="PackedScene" uid="uid://wivet2lx3hko" path="res://Scenes/Traps/thrower.tscn" id="14_ncv8b"]
 [ext_resource type="PackedScene" uid="uid://d0l1pipavt234" path="res://Scenes/Levels/dorado_platform_2.tscn" id="14_smykk"]
 [ext_resource type="Shader" path="res://Shaders/ShinePiece.gdshader" id="14_vkh5e"]
-[ext_resource type="AudioStream" uid="uid://c76fx1wj6s01n" path="res://Sounds/Ambient/El Dorado Theme.mp3" id="15_87mf2"]
 [ext_resource type="PackedScene" uid="uid://043wp7dseoh1" path="res://Scenes/PowerUps/power_up.tscn" id="16_px67p"]
 [ext_resource type="Texture2D" uid="uid://ckmj5dn1nxlu4" path="res://Assets/Sprites/doble_jump.png" id="17_w25jg"]
 [ext_resource type="PackedScene" uid="uid://ddl42h14heqoo" path="res://Scenes/Collectables/Collectable.tscn" id="18_7bglm"]
@@ -932,7 +932,7 @@ position = Vector2(723, -208)
 position = Vector2(724, -354)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_87mf2")
+stream = ExtResource("13_t5gee")
 bus = &"Music"
 
 [node name="PowerUp" parent="." instance=ExtResource("16_px67p")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=150 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jrxfw"]
 [ext_resource type="Shader" path="res://Shaders/DamageShader.gdshader" id="2_gxme5"]
@@ -30,6 +30,10 @@
 [ext_resource type="Texture2D" uid="uid://bflaor3igq7vq" path="res://Assets/Sprites/Artifacts/ank_v1.png" id="23_h1tq6"]
 [ext_resource type="Texture2D" uid="uid://c5m36yddicfun" path="res://Assets/Sprites/LogosMedia/X pixel.png" id="25_ko544"]
 [ext_resource type="Texture2D" uid="uid://dck67kgpdbx0" path="res://Assets/Sprites/LogosMedia/Insta Pixel.png" id="26_y56q1"]
+[ext_resource type="AudioStream" uid="uid://chosjrj3wsgvf" path="res://Sounds/Effects/hit-by-a-wood-230542.mp3" id="31_3xanc"]
+[ext_resource type="AudioStream" uid="uid://c3eavsarru5pf" path="res://Sounds/Effects/cartoon-jump-6462.mp3" id="32_gi28s"]
+[ext_resource type="AudioStream" uid="uid://ctbg82sxub71r" path="res://Sounds/Effects/17-salto-p2-100872.mp3" id="32_uorxl"]
+[ext_resource type="AudioStream" uid="uid://ojq8aqjxg4tr" path="res://Sounds/Effects/click-234708.mp3" id="34_6sefk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67cec"]
 shader = ExtResource("2_gxme5")
@@ -1944,6 +1948,24 @@ libraries = {
 [node name="StateMachine" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_4kufr")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("31_3xanc")
+bus = &"SFX"
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("32_gi28s")
+bus = &"SFX"
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("32_uorxl")
+bus = &"SFX"
+
+[node name="FlashSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("34_6sefk")
+bus = &"SFX"
 
 [connection signal="animation_finished" from="UI/Scoreboard/Score_animations" to="." method="_on_score_animations_animation_finished"]
 [connection signal="timeout" from="Timers/AttackCoolDown" to="." method="_on_attack_cool_down_timeout"]
