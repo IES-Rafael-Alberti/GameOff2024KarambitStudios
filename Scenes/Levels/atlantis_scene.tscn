@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://4q5av1fjh43"]
+[gd_scene load_steps=24 format=4 uid="uid://4q5av1fjh43"]
 
 [ext_resource type="Script" path="res://Scripts/scene_script.gd" id="1_c4c61"]
 [ext_resource type="Texture2D" uid="uid://cjy6qikxgup5d" path="res://Assets/TileSets/tileset_atlantis_pilars_and_sand.png" id="2_utakt"]
@@ -119,6 +119,9 @@ sources/1 = SubResource("TileSetAtlasSource_f3p87")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lkws7"]
 distance = -24.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8g1u"]
+size = Vector2(684, 139.396)
 
 [node name="AtlantisScene" type="Node2D"]
 script = ExtResource("1_c4c61")
@@ -509,6 +512,72 @@ position = Vector2(-40.632, 0)
 position = Vector2(1042, 69)
 scene_type = 2
 
+[node name="Spikes25" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(1718, -45)
+scene_type = 2
+
+[node name="Spikes26" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(1781, 15)
+scene_type = 2
+
+[node name="Spikes27" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(2134, 43)
+scene_type = 2
+
+[node name="Spikes29" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(2131, -18)
+scene_type = 2
+
+[node name="Spikes14" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(576, 134)
+scene_type = 2
+
+[node name="Spikes16" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(696, 133)
+scene_type = 2
+
+[node name="Spikes18" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(1501, 69)
+scene_type = 2
+
+[node name="Spikes17" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(360, 133)
+scene_type = 2
+
+[node name="Spikes19" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(217, 134)
+scene_type = 2
+
+[node name="Spikes20" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(301, 122)
+rotation = 3.14159
+scene_type = 2
+
+[node name="Spikes21" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(631, 121)
+rotation = 3.14159
+scene_type = 2
+
+[node name="Spikes22" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(1944, 18)
+rotation = 3.14159
+scene_type = 2
+
+[node name="Spikes28" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(2066, 44)
+rotation = 3.14159
+scene_type = 2
+
+[node name="Spikes24" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(1835, 104)
+rotation = 3.14159
+scene_type = 2
+
+[node name="Spikes23" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(1599, 46)
+rotation = 3.14159
+scene_type = 2
+
 [node name="Spikes" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
 position = Vector2(1150, 69)
 scene_type = 2
@@ -531,6 +600,15 @@ scene_type = 2
 
 [node name="Spikes7" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
 position = Vector2(2521, 357)
+scene_type = 2
+
+[node name="Spikes31" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(2640, 356)
+scene_type = 2
+
+[node name="Spikes30" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
+position = Vector2(2564, 301)
+rotation = -1.5708
 scene_type = 2
 
 [node name="Spikes8" parent="Traps/Spikes" instance=ExtResource("14_itghf")]
@@ -630,6 +708,24 @@ rotation = -1.5708
 type = 1
 bullet_speed = 120.0
 life_time = 3.0
+cooldown_time = 2.0
+scene_type = 2
+
+[node name="Thrower11" parent="Traps/Throwers" instance=ExtResource("13_mgge3")]
+position = Vector2(2406, 172)
+rotation = 1.5708
+type = 1
+bullet_speed = 120.0
+life_time = 1.5
+cooldown_time = 2.0
+scene_type = 2
+
+[node name="Thrower12" parent="Traps/Throwers" instance=ExtResource("13_mgge3")]
+position = Vector2(2548, 267)
+rotation = 1.5708
+type = 1
+bullet_speed = 120.0
+life_time = 1.0
 cooldown_time = 2.0
 scene_type = 2
 
@@ -733,6 +829,18 @@ type = 2
 position = Vector2(2392, 311)
 type = 2
 
+[node name="Collectable20" parent="Pickeables/Gems" instance=ExtResource("14_gd6l6")]
+position = Vector2(171, 130)
+type = 2
+
+[node name="Collectable21" parent="Pickeables/Gems" instance=ExtResource("14_gd6l6")]
+position = Vector2(215, 111)
+type = 2
+
+[node name="Collectable22" parent="Pickeables/Gems" instance=ExtResource("14_gd6l6")]
+position = Vector2(252, 127)
+type = 2
+
 [node name="Collectable16" parent="Pickeables/Gems" instance=ExtResource("14_gd6l6")]
 position = Vector2(2422, 310)
 type = 2
@@ -767,3 +875,10 @@ position = Vector2(3035, 970)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(-1163.5, -506.5)
 shape = SubResource("WorldBoundaryShape2D_lkws7")
+
+[node name="KillZone2" parent="." instance=ExtResource("16_abked")]
+position = Vector2(-200, 210)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone2"]
+position = Vector2(-99, 32.3018)
+shape = SubResource("RectangleShape2D_f8g1u")
