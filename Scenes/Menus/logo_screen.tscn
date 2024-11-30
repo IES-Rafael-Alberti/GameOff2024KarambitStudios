@@ -12,6 +12,21 @@ shader_parameter/Colors = Color(0, 0, 0, 1)
 shader_parameter/mix_color = 0.0
 shader_parameter/alphaColor = 0.0
 
+[sub_resource type="Animation" id="Animation_bdony"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KarambitStudiosLogo(contornoBlanco):material:shader_parameter/mix_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_1ffiy"]
 resource_name = "logo_animation"
 length = 2.0
@@ -27,21 +42,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [1.0, 0.0, 0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_bdony"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("KarambitStudiosLogo(contornoBlanco):material:shader_parameter/mix_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g4aae"]
@@ -61,7 +61,6 @@ shader_parameter/fog_opacity = 0.5
 script = ExtResource("1_75jso")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = -1
 offset_left = -59.0
 offset_top = -38.0
 offset_right = 1348.0
