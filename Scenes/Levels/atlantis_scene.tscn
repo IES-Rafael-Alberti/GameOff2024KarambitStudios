@@ -885,6 +885,7 @@ shape = SubResource("WorldBoundaryShape2D_lkws7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_yoiw7")
+bus = &"Music"
 
 [node name="Left" type="StaticBody2D" parent="."]
 position = Vector2(23, -78)
