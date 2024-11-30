@@ -37,6 +37,8 @@ var returning_puzzle_2 = false
 
 var puzzle_3_complete = false
 var puzzle_3_position: Vector2 
+
+var game_complete: bool = false
 func apply_push_to_player(enemy_position: Vector2, player: CharacterBody2D) -> void:
 	push_direction = player.position - enemy_position  # Dirección del empuje
 	push_direction = push_direction.normalized()  # Normalizamos para mantener el empuje constante

@@ -35,6 +35,7 @@ var is_dying: bool = false
 @onready var hud: Control = $UI/HUD
 @onready var camara_player: Camera2D = $CamaraPlayer
 @onready var death_animation_player: AnimationPlayer = $CamaraPlayer/DeathAnimationPlayer
+@onready var score_animations: AnimationPlayer = $UI/Scoreboard/Score_animations
 
 ## ------------------ Cargar escenas -----------------
 @onready var animated_sprite = $PlayerSprite
@@ -87,7 +88,8 @@ func _ready() -> void:
 	else:
 		camara_player.visible = false
 		camara_player.get_child(0).visible = false
-
+	if GameManager.game_complete:
+		score_animations.play("score_animation")
 func _physics_process(delta: float) -> void:
 	# Detectamos la dirección del movimiento
 	var direction = Input.get_axis("Move_left", "Move_right")
