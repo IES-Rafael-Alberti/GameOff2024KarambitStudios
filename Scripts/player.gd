@@ -61,6 +61,7 @@ var current_index = 0
 @onready var i_frames: Timer = $Timers/iFrames
 @onready var damage_timer: Timer = $Timers/DamageTimer
 @onready var dying_time: Timer = $Timers/DyingTime
+@onready var looking_timer: Timer = $Timers/LookingTimer
 
 
 ## --------------- Variables Ataque linterna ----------------------
@@ -118,15 +119,13 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = true
 		facing_right = false
 
-
 	# Manejo de teletransportación
 	e_key.visible = GameManager.visible_e_key
 
-	if Input.is_action_just_pressed("Look_down") and not is_attacking and not is_dashing and not is_dying and not is_falling and not is_flashing and not is_sinking:
+	if Input.is_action_just_pressed("Look_down") and not is_attacking and not is_dashing and not is_dying and not is_falling and not is_flashing and not is_sinking and direction == 0:
 		is_looking_down = true
 		state_machine_v2.travel("look_down")
-	if Input.is_action_just_released("Look_down") and is_looking_down:
-		is_looking_down = false
+		looking_timer.start()
 	# Verifica la acción de pausa
 	if Input.is_action_just_pressed("Pause"):
 		toggle_pause()
@@ -160,7 +159,7 @@ func _physics_process(delta: float) -> void:
 			if actual_duplicate_time >= duplicate_time:
 				actual_duplicate_time = 0
 				create_duplicate()
-		else:
+		elif not is_dashing and not is_looking_down:
 			velocity.x = direction * SPEED
 			animated_sprite.material.shader = DAMAGE_SHADER
 	else:
@@ -200,11 +199,11 @@ func _physics_process(delta: float) -> void:
 		perform_attack_melee()
 
 	# Actualizar animaciones
-	if is_on_floor() and not is_attacking and not is_flashing and not is_dying and not is_looking_down:
-		if direction == 0:
+	if is_on_floor() and not is_attacking and not is_flashing and not is_dying:
+		if direction == 0 and not is_looking_down:
 			velocity.x = 0 
 			state_machine_v2.travel("idle")
-		else:
+		elif direction != 0:
 			state_machine_v2.travel("walk")
 	else:
 		if velocity.y < 0 and not is_dying and not is_attacking and not is_flashing and not is_looking_down:
@@ -404,3 +403,7 @@ func _on_code_entered():
 	print("¡Código secreto activado!")
 	if GameManager.player_health < GameManager.MAX_HEALTH:
 		GameManager.player_health += 1
+
+
+func _on_looking_timer_timeout() -> void:
+	is_looking_down = false

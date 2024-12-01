@@ -1460,7 +1460,7 @@ states/look_down/position = Vector2(56, 80)
 states/walk/node = SubResource("AnimationNodeAnimation_kv4u1")
 states/walk/position = Vector2(206, -185)
 transitions = ["idle", "attack_shovel", SubResource("AnimationNodeStateMachineTransition_lqo4k"), "attack_shovel", "idle", SubResource("AnimationNodeStateMachineTransition_ux6bb"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_6gxtk"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_ow3dl"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_wrawy"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_dcgsh"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_do6pd"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_lsbli"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_8s1nj"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_jc7qc"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_6hrau"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_suyno"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_w5e7p"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_kccp6"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_ux2tp"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_c8h8k"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_v6eva"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_tys5k"), "idle", "look_down", SubResource("AnimationNodeStateMachineTransition_nrr78"), "look_down", "idle", SubResource("AnimationNodeStateMachineTransition_brkbx")]
-graph_offset = Vector2(-386, -267)
+graph_offset = Vector2(-427, -210)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
@@ -1919,6 +1919,9 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="LookingTimer" type="Timer" parent="Timers"]
+wait_time = 1.5
+
 [node name="flashAttackRight" type="Area2D" parent="."]
 visible = false
 position = Vector2(9, 17)
@@ -2026,6 +2029,7 @@ bus = &"SFX"
 [connection signal="timeout" from="Timers/iFrames" to="." method="_on_i_frames_timeout"]
 [connection signal="timeout" from="Timers/DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="Timers/DyingTime" to="." method="_on_dying_time_timeout"]
+[connection signal="timeout" from="Timers/LookingTimer" to="." method="_on_looking_timer_timeout"]
 [connection signal="body_entered" from="flashAttackRight" to="." method="_on_flash_attack_body_entered"]
 [connection signal="body_entered" from="flashAttackLeft" to="." method="_on_flash_attack_body_entered"]
 [connection signal="body_entered" from="PlayerSensor" to="." method="_on_player_sensor_body_entered"]
