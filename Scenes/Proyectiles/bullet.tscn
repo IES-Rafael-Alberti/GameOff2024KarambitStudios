@@ -240,6 +240,7 @@ sprite_frames = SubResource("SpriteFrames_e5ria")
 animation = &"Arrow"
 
 [node name="ArrowCollider" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(10.5, 0.5)
 shape = SubResource("RectangleShape2D_5f2o4")
