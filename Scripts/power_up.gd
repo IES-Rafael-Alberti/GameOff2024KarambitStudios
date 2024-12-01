@@ -22,6 +22,7 @@ func _ready() -> void:
 func _on_area_power_up_body_entered(body: Node2D) -> void:
 	
 	if body.is_in_group("Player"):
+		body.collectable_sound.play()
 		if type == PowerType.Flashlight:
 			print("Linterna recogida")
 

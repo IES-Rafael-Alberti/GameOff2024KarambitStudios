@@ -35,6 +35,7 @@ var is_looking_down: bool = false
 @onready var jump_sound: AudioStreamPlayer = $Sounds/JumpSound
 @onready var dash_sound: AudioStreamPlayer = $Sounds/DashSound
 @onready var flash_sound: AudioStreamPlayer = $Sounds/FlashSound
+@onready var collectable_sound: AudioStreamPlayer = $Sounds/CollectableSound
 
 ## --------------- Secret Code ------------------
 var secret_code = ["Move_left", "Move_right","Move_left", "Move_right", "flashAttack", "meleeAttack", "Jump"]
