@@ -226,7 +226,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f2o4"]
-size = Vector2(21.5, 5)
+size = Vector2(7, 3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epul1"]
 
@@ -237,18 +237,16 @@ script = ExtResource("1_pidxk")
 [node name="BulletSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_e5ria")
-animation = &"AquaBallBreak"
-frame = 2
-frame_progress = 0.809391
+animation = &"Arrow"
 
 [node name="ArrowCollider" type="CollisionShape2D" parent="."]
-visible = false
 z_index = 1
-position = Vector2(3, 0.5)
+position = Vector2(10.5, 0.5)
 shape = SubResource("RectangleShape2D_5f2o4")
 
 [node name="BallCollider" type="CollisionShape2D" parent="."]
 visible = false
+position = Vector2(10, 1)
 shape = SubResource("CircleShape2D_epul1")
 
 [node name="LifeTimer" type="Timer" parent="."]

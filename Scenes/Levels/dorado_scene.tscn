@@ -767,7 +767,7 @@ position = Vector2(-365, 406)
 position = Vector2(386, 772)
 
 [node name="dorado_platform_12" parent="platforms" instance=ExtResource("13_gcneq")]
-position = Vector2(259, 738)
+position = Vector2(253, 737)
 
 [node name="dorado_platform_13" parent="platforms" instance=ExtResource("13_gcneq")]
 position = Vector2(280, 899)
@@ -1473,7 +1473,7 @@ position = Vector2(1732, -58)
 position = Vector2(1051, 873)
 
 [node name="Bandage" parent="Bandages" instance=ExtResource("19_2y6i5")]
-position = Vector2(259, 707)
+position = Vector2(253, 707)
 
 [node name="Spikes_traps" type="Node2D" parent="."]
 
@@ -1487,10 +1487,11 @@ position = Vector2(-195, 402)
 position = Vector2(-164, 402)
 
 [node name="Spikes5" parent="Spikes_traps" instance=ExtResource("20_nrfu5")]
-position = Vector2(868, 338)
+position = Vector2(869, 338)
 
 [node name="Spikes6" parent="Spikes_traps" instance=ExtResource("20_nrfu5")]
-position = Vector2(837, 338)
+position = Vector2(838.75, 338)
+scale = Vector2(0.936364, 1)
 
 [node name="Spikes8" parent="Spikes_traps" instance=ExtResource("20_nrfu5")]
 position = Vector2(934, 338)
@@ -1508,19 +1509,19 @@ position = Vector2(1122, 866)
 position = Vector2(1190, 914)
 
 [node name="Spikes13" parent="Spikes_traps" instance=ExtResource("20_nrfu5")]
-position = Vector2(1441, 290)
+position = Vector2(1440, 291)
 
 [node name="Spikes14" parent="Spikes_traps" instance=ExtResource("20_nrfu5")]
-position = Vector2(1472, 290)
+position = Vector2(1472, 291)
 
 [node name="Spikes15" parent="Spikes_traps" instance=ExtResource("20_nrfu5")]
-position = Vector2(1503, 290)
+position = Vector2(1504, 291)
 
 [node name="Spikes16" parent="Spikes_traps" instance=ExtResource("20_nrfu5")]
-position = Vector2(2102, 295)
+position = Vector2(2102, 291)
 
 [node name="Spikes17" parent="Spikes_traps" instance=ExtResource("20_nrfu5")]
-position = Vector2(2132, 295)
+position = Vector2(2133, 291)
 
 [node name="Spikes18" parent="Spikes_traps" instance=ExtResource("20_nrfu5")]
 position = Vector2(2468, 913)
