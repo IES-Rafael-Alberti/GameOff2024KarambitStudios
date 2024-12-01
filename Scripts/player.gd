@@ -29,6 +29,7 @@ var is_falling: bool = false
 var is_attacking: bool = false
 var is_flashing: bool = false
 var is_dying: bool = false
+var is_looking_down: bool = false
 ##---------------- Sonidos -----------------
 @onready var hit_sound: AudioStreamPlayer = $Sounds/HitSound
 @onready var jump_sound: AudioStreamPlayer = $Sounds/JumpSound
@@ -120,6 +121,11 @@ func _physics_process(delta: float) -> void:
 	# Manejo de teletransportación
 	e_key.visible = GameManager.visible_e_key
 
+	if Input.is_action_just_pressed("Look_down") and not is_attacking and not is_dashing and not is_dying and not is_falling and not is_flashing and not is_sinking:
+		is_looking_down = true
+		state_machine_v2.travel("look_down")
+	if Input.is_action_just_released("Look_down") and is_looking_down:
+		is_looking_down = false
 	# Verifica la acción de pausa
 	if Input.is_action_just_pressed("Pause"):
 		toggle_pause()
@@ -193,16 +199,16 @@ func _physics_process(delta: float) -> void:
 		perform_attack_melee()
 
 	# Actualizar animaciones
-	if is_on_floor() and not is_attacking and not is_flashing and not is_dying:
+	if is_on_floor() and not is_attacking and not is_flashing and not is_dying and not is_looking_down:
 		if direction == 0:
 			velocity.x = 0 
 			state_machine_v2.travel("idle")
 		else:
 			state_machine_v2.travel("walk")
 	else:
-		if velocity.y < 0 and not is_dying and not is_attacking and not is_flashing:
+		if velocity.y < 0 and not is_dying and not is_attacking and not is_flashing and not is_looking_down:
 			state_machine_v2.travel("jump_up")
-		if velocity.y > 0 and not is_dying and not is_attacking and not is_flashing:
+		if velocity.y > 0 and not is_dying and not is_attacking and not is_flashing and not is_looking_down:
 			state_machine_v2.travel("jump_down")
 			
 	if is_dying:

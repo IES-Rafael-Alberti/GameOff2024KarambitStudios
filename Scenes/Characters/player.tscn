@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://btq53x2vyried"]
+[gd_scene load_steps=153 format=3 uid="uid://btq53x2vyried"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jrxfw"]
 [ext_resource type="Shader" path="res://Shaders/DamageShader.gdshader" id="2_gxme5"]
@@ -1382,14 +1382,15 @@ animation = &"Animations_Player/jump_down"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n5hc2"]
 animation = &"Animations_Player/jump_up"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rucqi"]
+animation = &"Animations_Player/look_down"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kv4u1"]
 animation = &"Animations_Player/walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lqo4k"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ux6bb"]
-break_loop_at_end = true
-priority = 2
 switch_mode = 2
 advance_mode = 2
 
@@ -1432,6 +1433,12 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tys5k"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nrr78"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_brkbx"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4kufr"]
 states/attack_flashlight/node = SubResource("AnimationNodeAnimation_vmeo4")
 states/attack_flashlight/position = Vector2(363, -92)
@@ -1447,10 +1454,12 @@ states/jump_down/node = SubResource("AnimationNodeAnimation_jxi7c")
 states/jump_down/position = Vector2(-58, -13)
 states/jump_up/node = SubResource("AnimationNodeAnimation_n5hc2")
 states/jump_up/position = Vector2(72, -76)
+states/look_down/node = SubResource("AnimationNodeAnimation_rucqi")
+states/look_down/position = Vector2(56, 80)
 states/walk/node = SubResource("AnimationNodeAnimation_kv4u1")
 states/walk/position = Vector2(206, -185)
-transitions = ["idle", "attack_shovel", SubResource("AnimationNodeStateMachineTransition_lqo4k"), "attack_shovel", "idle", SubResource("AnimationNodeStateMachineTransition_ux6bb"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_6gxtk"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_ow3dl"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_wrawy"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_dcgsh"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_do6pd"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_lsbli"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_8s1nj"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_jc7qc"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_6hrau"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_suyno"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_w5e7p"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_kccp6"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_ux2tp"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_c8h8k"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_v6eva"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_tys5k")]
-graph_offset = Vector2(-111, -141)
+transitions = ["idle", "attack_shovel", SubResource("AnimationNodeStateMachineTransition_lqo4k"), "attack_shovel", "idle", SubResource("AnimationNodeStateMachineTransition_ux6bb"), "idle", "attack_flashlight", SubResource("AnimationNodeStateMachineTransition_6gxtk"), "idle", "jump_up", SubResource("AnimationNodeStateMachineTransition_ow3dl"), "jump_up", "jump_down", SubResource("AnimationNodeStateMachineTransition_wrawy"), "jump_down", "idle", SubResource("AnimationNodeStateMachineTransition_dcgsh"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_do6pd"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_lsbli"), "dash", "jump_down", SubResource("AnimationNodeStateMachineTransition_8s1nj"), "dash", "jump_up", SubResource("AnimationNodeStateMachineTransition_jc7qc"), "jump_up", "dash", SubResource("AnimationNodeStateMachineTransition_6hrau"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_suyno"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_w5e7p"), "jump_down", "dash", SubResource("AnimationNodeStateMachineTransition_kccp6"), "attack_flashlight", "idle", SubResource("AnimationNodeStateMachineTransition_ux2tp"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_c8h8k"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_v6eva"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_tys5k"), "idle", "look_down", SubResource("AnimationNodeStateMachineTransition_nrr78"), "look_down", "idle", SubResource("AnimationNodeStateMachineTransition_brkbx")]
+graph_offset = Vector2(-386, -267)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
