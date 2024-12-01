@@ -82,4 +82,3 @@ func muerte():
 		player.is_dying = true
 		player.state_machine_v2.travel("dead")
 		player.death_animation_player.play("death_screen")
-	

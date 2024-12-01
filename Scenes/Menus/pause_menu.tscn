@@ -42,25 +42,18 @@ offset_bottom = 214.0
 grow_horizontal = 2
 theme_override_constants/separation = 20
 
-[node name="Controls" type="Button" parent="Background/PauseMenuButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_ypchm")
-theme_override_font_sizes/font_size = 36
-text = "Controls"
-
 [node name="Options" type="Button" parent="Background/PauseMenuButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_ypchm")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 32
 text = "Options"
 
 [node name="ReturnToMenu" type="Button" parent="Background/PauseMenuButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_ypchm")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 32
 text = "Return to menu"
 
 [node name="OptionsMenu" type="VBoxContainer" parent="Background"]

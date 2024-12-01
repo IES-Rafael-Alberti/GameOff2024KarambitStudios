@@ -7,7 +7,7 @@ var can_attack = true
 @export var throw_power: float = 300.0
 @export var max_vida: int = 1 
 @export var fliped: bool = false
-
+@export var distance_detection: float = 120.0
 @onready var sprite_monkey: AnimatedSprite2D = $SpriteMonkey
 @onready var shooting_point: Node2D = $ShootingPoint
 
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	if GameManager.player_node:
 
 		if can_attack:
-			if (GameManager.player_node.global_position - sprite_monkey.global_position).length() < 200:  # Ajusta el rango
+			if (GameManager.player_node.global_position - sprite_monkey.global_position).length() < distance_detection:  # Ajusta el rango
 			
 				throw_stone()
 				monkey_sound.play()

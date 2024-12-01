@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://Shaders/RainShader.gdshader" id="2_1a587"]
 [ext_resource type="Texture2D" uid="uid://lhhm3vife61u" path="res://icon.svg" id="3_512h5"]
 [ext_resource type="AudioStream" uid="uid://bemdwu1m5fofe" path="res://Sounds/Ambient/RainSound.mp3" id="4_ttcr8"]
-[ext_resource type="AudioStream" uid="uid://bdpiyb6a2nhgh" path="res://Sounds/Music/Midnight Gallery Main Menu Theme FINAL MIX OZONE.wav" id="5_3n232"]
+[ext_resource type="AudioStream" uid="uid://e7vilycl8gvt" path="res://Sounds/Music/MP3/Midnight Gallery Main Menu Theme FINAL MIX OZONE.mp3" id="5_5mmgx"]
 [ext_resource type="Texture2D" uid="uid://dsk8vnpej4or1" path="res://Assets/Sprites/menu/main_menu_background_mini.png" id="5_s561d"]
 [ext_resource type="Texture2D" uid="uid://bs1j1m85147m4" path="res://Assets/Sprites/menu/midnight_gallery_title.png" id="6_rtgq5"]
 [ext_resource type="PackedScene" uid="uid://bxxwuipqewjrb" path="res://Scenes/Menus/volumes.tscn" id="6_wuy8h"]
@@ -52,7 +52,7 @@ stream = ExtResource("4_ttcr8")
 bus = &"SFX"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="Rain"]
-stream = ExtResource("5_3n232")
+stream = ExtResource("5_5mmgx")
 bus = &"Music"
 
 [node name="Panel" type="Panel" parent="."]

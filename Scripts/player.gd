@@ -87,7 +87,7 @@ func _ready() -> void:
 	# Inicializa el ataque en invisible
 	pause_menu.visible = false
 	
-
+	animated_sprite.material.set_shader_parameter("mix_color", 0.0)
 	if GameManager.double_jump:
 		MAX_JUMPS = 2
 	
@@ -101,6 +101,8 @@ func _ready() -> void:
 	if GameManager.game_complete:
 		score_animations.play("score_animation")
 func _physics_process(delta: float) -> void:
+	
+	
 	SecretCode()
 	# Detectamos la dirección del movimiento
 	var direction = Input.get_axis("Move_left", "Move_right")
@@ -127,7 +129,7 @@ func _physics_process(delta: float) -> void:
 		teleport_to_scene(GameManager.teleport_destination)
 
 	# Saltar (No puede saltar mientras hace el dash)
-	if Input.is_action_just_pressed("Jump") and jumps_left > 0 and not is_dashing:
+	if Input.is_action_just_pressed("Jump") and jumps_left > 0 and not is_dashing and not is_dying:
 		if jumps_left == MAX_JUMPS or not is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			jumps_left -= 1

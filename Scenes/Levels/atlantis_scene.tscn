@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bdbdjmavc4bl6" path="res://Scenes/PowerUps/bandage.tscn" id="15_xoyre"]
 [ext_resource type="PackedScene" uid="uid://bmea5rouemy1m" path="res://Scenes/Traps/kill_zone.tscn" id="16_abked"]
 [ext_resource type="PackedScene" uid="uid://dkkwll3h4jswk" path="res://Scenes/Enemies/sirena.tscn" id="17_gj3c7"]
-[ext_resource type="AudioStream" uid="uid://blvx4wa02iq44" path="res://Sounds/Music/Atlantis Theme FINAL MIX OZONE.wav" id="19_yoiw7"]
+[ext_resource type="AudioStream" uid="uid://bcqvxkpvij1lb" path="res://Sounds/Music/MP3/Atlantis Theme FINAL MIX OZONE.mp3" id="19_uneni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_da6q2"]
 texture = ExtResource("2_utakt")
@@ -885,4 +885,4 @@ position = Vector2(-99, 32.3018)
 shape = SubResource("RectangleShape2D_f8g1u")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_yoiw7")
+stream = ExtResource("19_uneni")

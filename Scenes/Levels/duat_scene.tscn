@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cwvxp1ign8jf7" path="res://Assets/Sprites/Power_up/Dash_icon_v1.png" id="12_0wjbv"]
 [ext_resource type="PackedScene" uid="uid://w86dxymlrbo6" path="res://Scenes/Traps/spikes.tscn" id="13_mqq7w"]
 [ext_resource type="PackedScene" uid="uid://wivet2lx3hko" path="res://Scenes/Traps/thrower.tscn" id="14_xqldw"]
-[ext_resource type="AudioStream" uid="uid://b0o5kcr6ot6e3" path="res://Sounds/Music/The Duat Theme FINAL MIX OZONE.wav" id="15_3fmwc"]
+[ext_resource type="AudioStream" uid="uid://dc6gkn6p5cj8b" path="res://Sounds/Music/MP3/The Duat Theme FINAL MIX OZONE.mp3" id="15_dvv6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emytj"]
 texture = ExtResource("2_b4gke")
@@ -748,5 +748,5 @@ cooldown_time = 1.25
 scene_type = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_3fmwc")
+stream = ExtResource("15_dvv6l")
 bus = &"Music"
